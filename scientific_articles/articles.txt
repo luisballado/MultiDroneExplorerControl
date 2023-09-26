@@ -1,0 +1,26 @@
+A Deep Reinforcement Learning Strategy for UAV Autonomous Landing on a Platform
+https://arxiv.org/pdf/2209.02954.pdf
+--
+Quantitative and Qualitative Assessment of Indoor Exploration Algorithms for Autonomous UAVs
+https://arxiv.org/pdf/2205.13801.pdf
+--
+ROS-NetSim: A Framework for the Integration of Robotic and Network Simulators
+https://arxiv.org/pdf/2101.10113.pdf
+--
+A Study on the Challenges of Using Robotics Simulators for Testing
+https://arxiv.org/pdf/2004.07368.pdf
+--
+Simulators for Mobile Social Robots: State-of-the-Art and Challenges
+https://arxiv.org/pdf/2202.03582.pdf
+--
+ROS-Based Robot Simulation for Repetitive Labor-Intensive Construction Tasks
+https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9442192
+--
+
+--
+
+--
+
+--
+
+--
