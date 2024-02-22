@@ -1,0 +1,57 @@
+Sigma notation https://users.math.msu.edu/users/magyarp/Math132-Notes/4.1-Sigma-Notation.pdf
+REGEX
+https://www.tutorialspoint.com/validate-ipv4-address-using-regex-patterns-in-cplusplus
+https://www.geeksforgeeks.org/how-to-validate-an-ip-address-using-regex/
+https://www.softwaretestinghelp.com/regex-in-cpp/
+https://www.geeksforgeeks.org/regex-regular-expression-in-c/
+https://linuxhint.com/regular-expression-basics-cpp/
+https://www.fluentcpp.com/2020/02/28/c-regex-101-simple-code-for-simple-cases-with-regexes/
+https://stackoverflow.com/questions/33185486/string-compare-using-regex
+https://stackoverflow.com/questions/50004634/c-regex-to-extract-all-possible-10-digit-numbers-from-a-string
+https://stackoverflow.com/questions/43906956/split-url-into-host-port-and-resource-c
+https://stackoverflow.com/questions/14265581/parse-split-a-string-in-c-using-string-delimiter-standard-c
+https://stackoverflow.com/questions/14265581/parse-split-a-string-in-c-using-string-delimiter-standard-c
+
+Graph implementation
+https://www.geeksforgeeks.org/graph-implementation-using-stl-for-competitive-programming-set-2-weighted-graph/
+https://www.softwaretestinghelp.com/graph-implementation-cpp/
+https://www.programiz.com/dsa/graph-adjacency-list
+
+
+MULTI BFS
+https://github.com/SoorajKothari/MultithreadedBFS
+
+VECTORS
+https://linuxhint.com/create-vector-strings-cpp/
+
+AVL TREE
+https://github.com/Ekan5h/AVLtree
+https://www.geeksforgeeks.org/avl-trees-containing-a-parent-node-pointer/
+https://www.geeksforgeeks.org/avl-trees-containing-a-parent-node-pointer/
+
+TRAFFIC LIGHT
+https://stackoverflow.com/questions/14265581/parse-split-a-string-in-c-using-string-delimiter-standard-c
+
+EVOLUTIVOS
+http://www.dia.fi.upm.es/~ajimenez/Docu_Metaheuristicas/Transparencias/Tema5Evolutivos.pdf
+https://www.sfu.ca/~ssurjano/Code/spherefm.html
+https://www.indusmic.com/post/ackley-function
+https://www.mdpi.com/2227-7390/11/1/201
+https://anderfernandez.com/blog/algoritmo-genetico-en-python/
+https://pythonhosted.org/ecspy/ec_intro.html#evolutionary-programming
+https://link.springer.com/article/10.1023/A:1015059928466
+https://machinelearningmastery.com/evolution-strategies-from-scratch-in-python/
+https://machinelearningmastery.com/simple-genetic-algorithm-from-scratch-in-python/
+https://towardsdatascience.com/an-extensible-evolutionary-algorithm-example-in-python-7372c56a557b
+https://saxarona.github.io/project/evo-intro/
+
+
+
+ODOMETRIA ARTICULO ESPAÑOL
+https://www.redalyc.org/pdf/849/84916680034.pdf
+LINE FOLLOWER https://github.com/Vivek-Nehra/Line-Follower/blob/master/Final_Line_Test.py
+
+MODELING AND CONTROL OF NONHOLONOMIC MECHANICAL SYSTEMS https://www.diag.uniroma1.it/~labrob/pub/papers/CISM95.pdf
+
+WAVEFRONT
+http://lavalle.pl/planning/node372.html
