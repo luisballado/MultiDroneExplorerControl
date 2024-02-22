@@ -1,0 +1,98 @@
+\begin{thebibliography}{}
+
+\bibitem[Abbass et~al., 2001]{Abbass01}
+Abbass, H.~A., Sarker, R., and Newton, C. (2001).
+\newblock {PDE}: {A} {P}areto-frontier {D}ifferential {E}volution {A}pproach
+  for {M}ulti-objective {O}ptimization {P}roblems.
+\newblock In {\em Proceedings of the Congress on Evolutionary Computation 2001
+  (CEC'2001)}, volume~2, pages 971--978, Piscataway, New Jersey. IEEE Service
+  Center.
+
+\bibitem[Branke and Mostaghim, 2006]{Branke06}
+Branke, J. and Mostaghim, S. (2006).
+\newblock About {S}electing the {P}ersonal {B}est in {M}ulti-{O}bjective
+  {P}article {S}warm {O}ptimization.
+\newblock In Runarsson, T.~P., Beyer, H.-G., Burke, E., Merelo-Guerv\'{o}s,
+  J.~J., Whitley, L.~D., and Yao, X., editors, {\em Parallel Problem Solving
+  from Nature - PPSN IX, 9th International Conference}, pages 523--532.
+  Springer. Lecture Notes in Computer Science Vol. 4193, Reykjavik, Iceland.
+
+\bibitem[Clerc and Kennedy, 2002]{Clerc2002}
+Clerc, M. and Kennedy, J. (2002).
+\newblock {T}he {P}article {S}warm - {E}xplosion, {S}tability, and
+  {C}onvergence in a {M}ultidimensional {C}omplex {S}pace.
+\newblock {\em IEEE Transactions on Evolutionary Computation}, 6(1):58--73.
+
+\bibitem[{Coello Coello} et~al., 2004]{Coello04}
+{Coello Coello}, C.~A., {Toscano Pulido}, G., and {Salazar Lechuga}, M. (2004).
+\newblock Handling {M}ultiple {O}bjectives {W}ith {P}article {S}warm
+  {O}ptimization.
+\newblock {\em IEEE Transactions on Evolutionary Computation}, 8(3):256--279.
+
+\bibitem[Kennedy and Eberhart, 1995]{Kennedy1995}
+Kennedy, J. and Eberhart, R. (1995).
+\newblock {P}article {S}warm {O}ptimization.
+\newblock In {\em IEEE International Conference on Neural Networks}, volume~4,
+  pages 1942--1948.
+
+\bibitem[Moore and Chapman, 1999]{Moore99}
+Moore, J. and Chapman, R. (1999).
+\newblock Application of {P}article {S}warm to {M}ultiobjective {O}ptimization.
+\newblock Department of Computer Science and Software Engineering, Auburn
+  University. (Unpublished manuscript).
+
+\bibitem[Price and Storn, 1997]{Price1997}
+Price, K. and Storn, R. (1997).
+\newblock {D}ifferential {E}volution - a simple evolution strategy for fast
+  optimization.
+
+\bibitem[Rao, 2009]{Rao2009}
+Rao, S.~S. (2009).
+\newblock {\em {E}ngineering {O}ptimization: {T}heory and {P}ractice}.
+\newblock John Wiley and Sons, {4th} edition.
+\newblock ISBN 978-0-470-18352-6.
+
+\bibitem[Reyes-Sierra and {Coello Coello}, 2006]{Reyes06}
+Reyes-Sierra, M. and {Coello Coello}, C.~A. (2006).
+\newblock Multi-{O}bjective {P}article {S}warm {O}ptimizers: {A} {S}urvey of
+  the {S}tate-of-the-{A}rt.
+\newblock {\em International Journal of Computational Intelligence Research},
+  2(3):287--308.
+
+\bibitem[Robi\v{c} and Filipi\v{c}, 2005]{Robic05}
+Robi\v{c}, T. and Filipi\v{c}, B. (2005).
+\newblock {DEMO}: {D}ifferential {E}volution for {M}ultiobjective
+  {O}ptimization.
+\newblock In {Coello Coello}, C.~A., Aguirre, A.~H., and Zitzler, E., editors,
+  {\em Evolutionary Multi-Criterion Optimization. Third International
+  Conference, EMO 2005}, pages 520--533, Guanajuato, M\'{e}xico. Springer.
+  Lecture Notes in Computer Science Vol. 3410.
+
+\bibitem[Santana-Quintero and {Coello Coello}, 2005]{Santana05}
+Santana-Quintero, L.~V. and {Coello Coello}, C.~A. (2005).
+\newblock An {A}lgorithm {B}ased on {D}ifferential {E}volution for
+  {M}ultiobjective {P}roblems.
+\newblock In Dagli, C.~H., Buczak, A.~L., Enke, D.~L., Embrechts, M.~J., and
+  Ersoy, O., editors, {\em Smart Engineering System Design: Neural Networks,
+  Evolutionary Programming and Artificial Life}, volume~15, pages 211--220, St.
+  Louis, Missouri, USA. ASME Press.
+
+\bibitem[{Toscano Pulido}, 2005]{Toscano05}
+{Toscano Pulido}, G. (2005).
+\newblock {\em On the {U}se of {S}elf-{A}daptation and {E}litism for
+  {M}ultiobjective {P}article {S}warm {O}ptimization}.
+\newblock PhD thesis, Computer Science Section, Department of Electrical
+  Engineering, CINVESTAV-IPN, Mexico.
+
+\bibitem[van~den Bergh and Engelbrecht, 2006]{Vandenbergh2006}
+van~den Bergh, F. and Engelbrecht, A.~P. (2006).
+\newblock {A} study of particle swarm optimization particle trajectories.
+\newblock {\em Information Sciences}, 176({8}):937--971.
+
+\bibitem[Xue et~al., 2003]{Xue03}
+Xue, F., Sanderson, A.~C., and Graves, R.~J. (2003).
+\newblock Pareto-based {M}ulti-{O}bjective {D}ifferential {E}volution.
+\newblock In {\em Proceedings of the 2003 Congress on Evolutionary Computation
+  (CEC'2003)}, volume~2, pages 862--869, Canberra, Australia. IEEE Press.
+
+\end{thebibliography}

@@ -1,0 +1,206 @@
+%% LyX 1.6.7 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[spanish,ESP,MSc]{cinvestav} %si quieren en inglés, usen english, ENG
+\usepackage{cite}
+\usepackage{slashbox}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\usepackage{graphics,epsfig,latexsym,amssymb}
+%\usepackage{graphics,epsfig,latexsym,amssymb}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{amsmath}
+%\usepackage[hypertex]{hyperref}
+\usepackage{array}
+\usepackage{float}
+\usepackage{rotfloat}
+\usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{setspace}
+\usepackage[TABBOTCAP]{subfigure}
+\usepackage{algorithm}
+\usepackage{captcont}
+\usepackage{afterpage}
+\usepackage{lscape}
+\usepackage{algorithmic}
+\usepackage{longtable}
+%\usepackage{caption}
+\usepackage{caption}[=v1]
+\usepackage[authoryear,square]{natbib}
+
+%\renewcommand{\thesubfigure}{\thefigure.\arabic{subfigure}} 
+%\makeatletter 
+%\renewcommand{\p@subfigure}{} 
+%\renewcommand{\@thesubfigure}{\thesubfigure:\hskip\subfiglabelskip} 
+%\makeatother 
+
+%\usepackage[nonamebreak]{natbib}
+
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+%% A simple dot to overcome graphicx limitations
+\newcommand{\lyxdot}{.}
+
+\floatstyle{ruled}
+\newfloat{algorithm}{tbp}{loa}
+\floatname{algorithm}{Algorithm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+
+%\usepackage{apacite}
+%\usepackage{natbib}
+%\let\citep=\citeA
+%\let\cite=\citeA
+\bibpunct{[}{]}{,}{n}{,}{,} 
+
+%\usepackage[lined,boxed]{algorithm2e}
+%\decimalpoint 
+
+\title     {Un Estudio sobre los Mecanismos de dos Algoritmos Evolutivos Multi-objetivo}
+\titleen        {A Study on the Mechanisms of two Multi-objective Evolutionary Algorithms}
+\author         {Jorge Sebastian Hern\'{a}ndez Dom\'{i}nguez}
+\department     {Cinvestav Unidad Tamaulipas}
+\departmenten   {Cinvestav Unidad Tamaulipas}
+\degreein       {Ciencias en Ingeniería y Tecnologías Computacionales}
+\degreeinen     {Computer engineering and technology}
+\city           {Cd. Victoria, Tamaulipas, M\'{e}xico.}
+\date           {\today}
+\degreeday      {8}
+\degreeyear     {2011}
+\degreemonth  {Diciembre}
+\degreemonthen  {December}
+%A partir de 2015, este fondo ya no se utiliza
+%\acknowledgmenttoproject{
+%This research was partially funded by project number 51623 from ``Fondo Mixto
+%Conacyt-Gobierno del Estado de Tamaulipas''
+%}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chair          {Dr. Gregorio Toscano-Pulido}
+\chair          {Dr. Gregorio Toscano-Pulido}
+\member         {Dr. Ricardo Landa Becerra}
+\member         {Dr. Luis Gerardo de la Fraga}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\dedication     {A Naruto}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\abstract{
+\vspace*{-7mm}
+La \emph{Optimización Mediante Cúmulos de Partículas (PSO)} y la \emph{Evolución Diferencial (DE)} son dos \emph{Algoritmos Evolutivos (EAs)} simples de conceptualizar que han sido exitosamente utilizados para resolver problemas mono-objetivo. Dicha simplicidad y éxito han promovido su uso en problemas multi-objetivo. Aun cuando a la fecha existen varias propuestas \emph{PSO Multi-objetivo (MOPSO)} y \emph{DE Multi-objetivo (MODE)}, el conocimiento sobre el proceso de búsqueda que realizan estas dos metaheurísticas es escaso dado que solo existen algunos trabajos teóricos y únicamente mono-objetivo. Como resultado, no se conoce claramente el comportamiento de estos algoritmos evolutivos en problemas multi-objetivo. Esta tesis presenta un estudio empírico sobre estos dos \emph{Algoritmos Evolutivos Multi-objetivo (MOEAs)}. Dicho estudio consta de una serie de experimentos que comparan diferentes variantes en DE y fórmulas de vuelo en PSO. Después, se evalúa la manera en que estos dos MOEAs generan nuevas soluciones y se identifican características de dichas soluciones y su relación con los mecanismos presentes en ambos enfoques. Estos experimentos permitieron concluir que MOPSO se mueve agresivamente hacia regiones prometedoras lo cual puede deteriorar la búsqueda. MODE por otro lado, realiza una búsqueda pasiva basada en pasos pequeños que a la larga le permiten seguir moviéndose hacia el frente de Pareto. El conocimiento obtenido fue usado para diseñar dos nuevos MOEAs que mostraron ser competitivos al ser comparados con tres algoritmos (OMOPSO, NSGA-II y DEMO) representativos del estado del arte. 
+}
+
+
+\abstracten{
+\vspace*{-7mm}
+\emph{Particle Swarm Optimization (PSO)} and \emph{Differential Evolution (DE)} are two \emph{Evolutionary Algorithms (EAs)} which are very simple to conceptualize and have shown excellent results on single-objective optimization problems. As expected, this simplicity and success have promoted their migration to multi-objective optimization. Even when several \emph{Multi-Objective Particle Swarm Optimizers (MOPSOs)} and \emph{Multi-objective Differential Evolution (MODE)} algorithms are available to this date, knowledge about the search performed by these two metaheuristics is limited in regards to multi-objective optimization since only some theoretical single-objective studies have been developed. As a result, there is uncertainty in regards to the search behavior of these \emph{Multi-objective Evolutionary Algorithms (MOEAS)}. This thesis work performs an empirical study about the search of these two MOEAs. The performed analysis develops a series of experiments that compare several DE variants and PSO flight formulas. Thereafter, the manner in which these two MOEAs generate new solutions is evaluated and certain characteristics of these solutions and their relationship to the mechanisms found on a MOEA are identified. These experiments allowed to conclude that MOPSO performs an aggressive search towards promissory regions which might result in stagnation of the search. On the other hand, MODE performs a more passive search taking small steps which on the long run allowed it to continue improving towards the true Pareto front. This knowledge was further used to design two new MOEAs. Results indicate that both algorithms are very competitive with respect to three algorithms (OMOPSO, NSGA-II, and DEMO) representative of the state of the art. 
+}
+
+%Las publicaciones generadas por este trabajo de investigación deben publicarse en la sección de 'Anexos'
+
+\acknowledgments {
+\begin{itemize}
+\item { Le agradezco a spiderman y pongan m\'as agradecimientos como los siguientes:}
+\item { I also thank the administrative personnel at CINVESTAV-Tamaulipas for their help during my stay}
+\item { I thank CONACyT for the provided economic support which allowed me to concentrate in my studies and CINVESTAV-Tamaulipas for the opportunity to pursue graduate studies}
+\item { I also acknowledge support from CONACyT through project 105060 ``Uso de técnicas evolutivas híbridas para resolver problemas de optimización multiobjetivo dinámicos y con más de tres objetivos'' under the lead of Dr. Gregorio Toscano Pulido}
+\end{itemize}
+}
+
+\nomenclature {
+\begin{longtable}{ll}
+\textbf{BBDE} & Bare Bones Differential Evolution\tabularnewline
+\textbf{BBPSO} & Bare Bones Particle Swarm Optimization\tabularnewline
+\textbf{DelMiDE} & Delayed Micro Differential Evolution\tabularnewline
+\textbf{DTLZ} & Deb-Thiele-Leumman-Zitzler test suite\tabularnewline
+\textbf{EA} & Evolutionary Algorithm\tabularnewline
+\textbf{EC} & Evolutionary Computation\tabularnewline
+\textbf{ES} & Evolutionary Strategy\tabularnewline
+\textbf{EP} & Evolutionary Programming\tabularnewline
+\textbf{DE} & Differential Evolution\tabularnewline
+\textbf{DEMO} & An specific implementation of Multi-objective Differential Evolution\tabularnewline
+\textbf{GA} & Genetic Algorithm\tabularnewline
+\textbf{GD} & Generational Distance\tabularnewline
+\textbf{IFF} & If and only if\tabularnewline
+\textbf{IGD} & Inverted Generational Distance\tabularnewline
+\textbf{MODE} & Multi-objective Differential Evolution\tabularnewline
+\textbf{MOEA} & Multi-objective Evolutionary Algorithm\tabularnewline
+\textbf{MOP} & Multi-objective Optimization Problem\tabularnewline
+\textbf{MOPEDS} & Multi-objective Particle Swarm Optimization Enhanced with a Differential Evolution Scheme\tabularnewline
+\textbf{MOPSO} & Multi-objective Particle Swarm Optimizer\tabularnewline
+\textbf{NSGA-II} & Non-dominated Sorting Genetic Algorithm\tabularnewline
+\textbf{PF} & Pareto Optimal Front\tabularnewline
+\textbf{PS} & Pareto Optimal Set\tabularnewline
+\textbf{PSO} & Particle Swarm Optimization\tabularnewline
+\textbf{SMPSO} & Speed constrained Multi-objective Particle Swarm Optimization\tabularnewline
+\textbf{WRT} & With Respect To\tabularnewline
+\textbf{ZDT} & Zitzler-Deb-Thiele test suite\tabularnewline
+\tabularnewline
+\tabularnewline
+\end{longtable}
+}
+
+ \floatname{algorithm}{Algorithm}
+%\renewcommand{\algorithmicrequire}{\textbf{Entrada:}}
+%\renewcommand{\algorithmicensure}{\textbf{Salida:}}
+
+%\@ifundefined{showcaptionsetup}{}{%
+ %\PassOptionsToPackage{caption=false}{subfig}}
+%\usepackage{subfig}
+\makeatother
+
+%\usepackage{babel}
+%\addto\shorthandsspanish{\spanishdeactivate{~<>}}
+
+\setcounter{lofdepth}{1} 
+\setcounter{lotdepth}{1} 
+
+\begin{document}
+%\maketitle
+\makeintropages
+
+%\renewcommand{\tablename}{Tabla}
+
+\begin{doublespace}
+\include{introduction}
+
+%\include{chapter2}
+
+%\include{chapter3}
+
+%\include{chapter4}
+
+%\include{chapter5}
+
+%\include{chapter6}
+
+%\include{chapter7}
+
+\end{doublespace}
+
+\appendix
+
+\begin{doublespace}
+\include{appendixPublis}
+%Las publicaciones generadas por este trabajo de investigación deben publicarse en la sección de 'Anexos'
+
+%\include{appendixA}
+
+%\include{appendixB}
+
+%\bibliographystyle{apalike}
+\bibliography{EMOO,protocolo}
+\end{doublespace}
+
+\end{document}
