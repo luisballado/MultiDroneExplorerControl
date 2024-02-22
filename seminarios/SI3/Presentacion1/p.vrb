@@ -1,0 +1,15 @@
+\frametitle{\color {blue}Preguntas de investigación}
+
+  \begin{columns}
+    \begin{column}{0.5\linewidth}
+      \footnotesize
+      Hola mundo
+    \end{column}
+    \begin{column}{0.5\linewidth}
+      {\color{red} Some explanatory text, in red, with some \texttt{monospace} text.}
+      There might be some math, too:
+
+      $$\sqrt{x} + 2x$$
+    \end{column}
+  \end{columns}
+

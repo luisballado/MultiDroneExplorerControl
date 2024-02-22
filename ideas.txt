@@ -1,0 +1,234 @@
+Filosofia -Marvin Minsky-
+
+------------ Nombres ------------
+Explora Multi-Vant (EMV)
+MultiDroneExplorerControl (MDEC)
+MultiUAVExplorerControl (MUAVEC)
+---------------------------------
+
+Trabajar los archivos conforme al nombre --> EMV
+
+El proyecto corre en un contenedor que almacena la instalacion de ROS
+
+-El código debe estar versionado dentro de github
+
+--
+Cada elemento a instalar en el contenedor, se debe reflejar dentro 
+--
+
+https://www.autonomousrobotslab.com/lecture-slides2.html
+
+https://www.orkestra.deusto.es/es/actualidad/noticias-eventos/beyondcompetitiveness/1379-estrategias-colaboracion-exploratoria-graphenea-orkestra-como-alcanzar-situacion-win-to-win
+http://dia.fi.upm.es/~jdlope/docs/delope99.pdf
+https://core.ac.uk/download/pdf/31010586.pdf
+https://webthesis.biblio.polito.it/20681/1/tesi.pdf
+https://facilethings.com/blog/es/exploration-vs-exploitation
+https://www.bbc.com/mundo/noticias-56102529
+https://mars.nasa.gov/mer/mission/overview/
+https://www.eluniverso.com/noticias/internacional/la-historia-de-todos-los-robots-exploradores-de-la-nasa-en-marte-nota/
+https://www.robotexplorador.com/
+
+http://www.cs.cmu.edu/~motionplanning/research_links_Fall06.html#Kalman
+http://www.cs.cmu.edu/~motionplanning/research_links_Fall06.html#Latombe
+
+https://public.websites.umich.edu/~johannb/Papers/pos96rep.pdf
+https://deepblue.lib.umich.edu/bitstream/handle/2027.42/34938/2_ftp.pdf
+http://biorobotics.ri.cmu.edu/education/index.php
+http://www.cs.cmu.edu/~motionplanning/
+https://lavalle.pl/planning/
+
+https://lavalle.pl/planning/courses.html
+https://lavalle.pl/planning/booka4.pdf
+http://www.cs.cmu.edu/~motionplanning/book_outline_papers.html
+
+https://arxiv.org/pdf/1509.03388.pdf
+https://dergipark.org.tr/tr/download/article-file/661995
+https://par.nsf.gov/servlets/purl/10320068
+https://arxiv.org/pdf/1809.00037.pdf
+https://ccc.inaoep.mx/~mdprl/documentos/12.pdf
+
+https://www.cs.cmu.edu/~motionplanning/lecture/Chap2-Bug-Alg_howie.pdf
+http://www.cs.cmu.edu/~motionplanning/research_links_Fall06.html#Fox
+http://www.cs.cmu.edu/~motionplanning/papers/sbp_papers/integrated1/thrun.maploc.pdf
+http://www.cs.cmu.edu/~motionplanning/papers/sbp_papers/integrated4/thrun_prob_algorithms.pdf
+http://www.cs.cmu.edu/~motionplanning/papers/sbp_papers/integrated1/fox-multi-mcl-journal-00-small.pdf
+http://www.cs.cmu.edu/~motionplanning/papers/sbp_papers/integrated4/fox_particle_filter.pdf
+http://www.cs.cmu.edu/~motionplanning/papers/sbp_papers/integrated1/fox_prob_robot_mapping.pdf
+http://www.cs.cmu.edu/~motionplanning/papers/sbp_papers/integrated2/howard_coop_localization_mapping.pdf
+http://www.cs.cmu.edu/~motionplanning/papers/sbp_papers/integrated4/fox_active_loc.pdf
+http://www.cs.cmu.edu/~motionplanning/papers/sbp_papers/integrated1/fox_collab_multirobot_localization.pdf
+http://www.cs.cmu.edu/~motionplanning/research_links_Fall06.html#Kavraki
+http://www.cs.cmu.edu/~motionplanning/research_links_Fall06.html#Overmars
+http://www.cs.cmu.edu/~motionplanning/research_links_Fall06.html#Nebot
+http://www.cs.cmu.edu/~motionplanning/lecture/lecture.html
+http://www.cs.cmu.edu/~motionplanning/lecture/AppH-astar-dstar_howie.pdf
+http://www.cs.cmu.edu/~motionplanning/lecture/Chap5-RoadMap-Methods_howie.pdf
+https://www.mathworks.com/help/symbolic/derive-quadrotor-dynamics-for-nonlinearMPC.html
+
+https://docs.ufpr.br/~danielsantos/ProbabilisticRobotics.pdf
+https://www.cimat.mx/~jortega/MaterialDidactico/modestoI16/ME1texto.pdf
+https://web.stanford.edu/group/sisl/k12/optimization/MO-unit1-pdfs/1.1optimization.pdf
+https://sites.math.washington.edu//~burke/crs/408/notes/nlp/nlp_intro.pdf
+http://www.princeton.edu/~aaa/Public/Teaching/ORF523/S16/ORF523_S16_Lec3_gh.pdf
+
+Spatial Planning: A Configuration Space
+Approach
+
+Probabilistic Roadmaps for Path Planning in
+High-Dimensional Configuration Spaces
+
+
+Aprender a utilizar focus en las diapositivas latex
+
+- ¿Qué es una estrategia para nosotros en el tema de la tesis?
+
+- ¿Qué se necesita para hacer una exploración?
+- Localización y comenzar a construir el mapa
+- La localización inicia en el origen del robot y comienza a crear un modelo del entorno.
+
+- ¿Qué veo?,¿Hay más cosas que cubrir?
+
+- Path Planning problema NP-Hard o CSPACE-Hard por estar en un espacio de configuraciones
+- El problema de asignación de tareas a los robots es un problema O(n!) donde diversos algoritmos bajan su complejidad a O(n)^3 pero aún así no deja de ser una tarea computacionalmente costosa para realizar.
+-  Diferencias de las tres C's (Cordinación, Colaboración y Cooperación
+
+I'will find you in the morning sun and when the night is new I'll be looking at the moon but I'll be seeing you
+
+
+La estrategia consiste en saber lo que queremos y, a partir de ahí, dar los pasos necesarios para conseguirlo.
+
+- Proponer mapa conceptual de tipos de robots
+
+Hacer un árbol de exploración de profundidad de 5 nodos
+
+Diferencias entre Metodo - Estrategia
+
+Dentro de los documentos debo de definir los problemas formalmente (Todos los necesarios para resolver una exploración).
+
+Clasificar los algoritmos de path planning ó conocer cual de todos ellos es mas costoso (uno de otro)
+PRM es más costoso
+RRT tiende a ser más eficiente
+
+RRT* en que se basa
+
+BIT*
+
+Buscar los algoritmos derivados de A*?????
+
+************* PUNTOS A MEJORAR *************
+#  ·Explicar mejor la motivación           #
+#  ·Usar videos para mostrar cosas del SOA #
+#  ·Usar los cambios de pausa y aparecer   #
+#  cosas conforme se avanza                #
+#  ·Conceptualizar los diferentes          #
+#  problemas                               #
+#  ·Definir bien los plantamientos del     #
+#  problema                                #
+#  ·Plantear nuevos objetivos              #
+#  ·Plantear nuevas preguntas de           #
+#  investigación                           #
+#  ·Explicar con el diagrama a bloques     #
+   de un VANT autonomo                     #
+#  ·Mencionar Moravek paradox              #
+#  ·Hacer animacion para los 6DOF del VANT #
+********************************************
+
+SLAM has the robotic community busy for 20 years
+- Davide Scaramuza
+
+Robotics is the science of perceiving and manipulating the physical world through computer-controlled mechanical devices
+
+Robotics systems have in common that they are situaded in the physical wold, perceive their environments through sensors, and manipulate their environment through things that move.
+
+As a result, robotics is moving into areas where sensor inputs becomes increasingly important, and where robot software has to be robust enough to cope with range of situations-- often too many to anticipate them all. Robotics, thus, is increasingly becoming a software science, where the goal is to develop robust software that enables robots to withstand the numerous challenges arising in unstructured and dynamics environments.
+
+The key idea of probabilistic robotics is to represent uncertainty explicity, using the calculus of probability theory. Put differently, instead of relying on a single "best guess" as to what might be the case in world, probabilistic algorithms represent information by probability distributions over a whole space of possible hypotheses.
+
+By basing control decisions on probabilistic information, these algorithms degrade nicely in the face of various sources of uncertainty.
+
+Localization is the problem of estimating a robot's coordinates in an external reference frame from sensor data, using a map of the environment
+
+In the probabilistic paradigm, the robot's momentary estimate (also called belief) is represented by a probability density function over the space of all locations.
+
+In fact, certain probabilistic algorithms are currently the only know working solutions to hard robotic estimation problems
+
+Major trends:
+
+70's - Classical (deliberative)
+mid 80's  - reactive approach,
+mid 90's  - Hybrid approach,
+Late 90's - Probabilistic robotics
+
+Probabilistic Robotics can be traced back to mid 60's with the kalman filter
+
+
+- Probabilistic Robotics Book 2000
+
+
+The robot is the ultimate mechatronic system.
+
+The set of all configuration is called the configuration space.
+
+An object is said to have n degrees of freedom (DOF) if its configuration can be minimally specified by n parameters. Thus, the number of DOF is equal to the dimension of the configuration space.
+
+A rigid object in three-dimensional space has six DOF: three for positioning and three for orientation
+
+The State Space - The state of a robot is a set of variables that, together with a description of the dynamics and future inputs, is sufficient to determine the future time response of the robot.
+
+In our case, the dynamics are Newtonian, and can be specified by generalizing the familiar equation F=ma 
+
+- Robot Modeling and Control Mark W. Spong book
+
+Las diferencias entre collaboration y coordination en el trabajo
+
+
+framework such as Octomap use ray casting for updating the occupancy probability of all voxels along with the rays.
+
+
+$ roscore
+$ roslaunch exploration_manager rviz.launch
+$ roslaunch exploration_manager
+            swarm_exploration.launch
+	    model:={model_name}
+	    drone_num:=${num_drones}
+	    planner_type:=fame
+
+
+- Node -
+
+map_generator/global_cloud
+
+
+dentro del archivo fast_exploration_fsm.cpp
+esta el control de FAST
+
+init plan.
+start flight
+Plan fail (drone 1)
+Drone 3 collide with drone 1
+Drone %d collide with drone %d
+Total time:
+Total time too long!!!
+No coverable frontier.
+No frontiers for agent 1
+no odom
+############# RACER ##############
+src/exploration_node.cpp
+src/fast_exploration_fsm.cpp
+src/fast_exploration_manager.cpp
+##################################
+
+############# FAME ###############
+src/fame_node.cpp
+src/fame_exploration_fsm.cpp
+src/fame_exploration_manager.cpp
+src/role_assigner.cpp
+src/collaboration_assigner.cpp
+##################################
+
+
+El nodo llamado exploration_node.cpp es de RACER
+El nodo llamado fame_node.cpp es el de Bartolomei
+
+
+src/fast_multi_robot_exploration/swarm_exploration/exploration_manager/src/fast_exploration_fsm.cpp
