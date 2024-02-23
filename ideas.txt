@@ -1,3 +1,9 @@
+Instalar en contenedor
+- emacs
+- ros-noetic-rqt
+- ros-noetic-rqt-graph
+- ros-noetic-rqt-common-plugins
+
 Filosofia -Marvin Minsky-
 
 ------------ Nombres ------------
