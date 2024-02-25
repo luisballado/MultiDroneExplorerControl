@@ -1,0 +1,49 @@
+Flujo de trabajo a seguir:
+
+contar con la imagen de docker https://hub.docker.com/r/luisballado/vis4rob-lab
+
+#################################################################################################################################################
+creacion de volumen
+#################################################################################################################################################
+El volumen se crea dentro del contenedor una vez creado y pasado como argumento al levantar el contenedor (https://www.freecodecamp.org/news/docker-mount-volume-guide-how-to-mount-a-local-directory/) -v drone_simulator:/home
+
+#################################################################################################################################################
+
+
+#################################################################################################################################################
+pasos a seguir por primera vez
+#################################################################################################################################################
+en la carpeta nueva que se pasa como referencia, crear el workspace
+
+$ mkdir catkin_ws
+$ cd catkin_ws
+$ mkdir src
+
+ir a la carpeta catkin_ws
+
+$ catkin_make
+$ catkin init
+$ cd src
+$ git clone repo_url
+$ cd repo
+$ source /opt/ros/noetic/setup.bash
+$ catkin_make <<<< si falla ejecutar de nuevo
+$ source devel/setup.bash
+
+posible se deba usar catkin_make
+
+Archivos detectados:
+https://github.com/luisballado/fast_multi_robot_exploration/commit/35f41feef2135be322243df84ef7270e23939f36
+
+Se agrega el nuevo nodo a swarm_exploration/exploration_manager/CMakeLists.txt
+
+archivos nuevos respecto al nodo:
+swarm_exploration/exploration_manager/CMakeLists.txt
+swarm_exploration/exploration_manager/include/exploration_manager/mvant_exploration_fsm.h
+swarm_exploration/exploration_manager/include/exploration_manager/mvant_exploration_manager.h
+
+swarm_exploration/exploration_manager/launch/single_drone_planner_mvant.xml
+
+swarm_exploration/exploration_manager/src/mvant_exploration_fsm.cpp
+swarm_exploration/exploration_manager/src/mvant_exploration_manager.cpp
+swarm_exploration/exploration_manager/src/mvant_node.cpp
