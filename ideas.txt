@@ -1,26 +1,4 @@
-Instalar en contenedor
-- emacs
-- ros-noetic-rqt
-- ros-noetic-rqt-graph
-- ros-noetic-rqt-common-plugins
-
 Filosofia -Marvin Minsky-
-
------------- Nombres ------------
-Explora Multi-Vant (EMV)
-MultiDroneExplorerControl (MDEC)
-MultiUAVExplorerControl (MUAVEC)
----------------------------------
-
-Trabajar los archivos conforme al nombre --> EMV
-
-El proyecto corre en un contenedor que almacena la instalacion de ROS
-
--El código debe estar versionado dentro de github
-
---
-Cada elemento a instalar en el contenedor, se debe reflejar dentro 
---
 
 https://www.autonomousrobotslab.com/lecture-slides2.html
 
