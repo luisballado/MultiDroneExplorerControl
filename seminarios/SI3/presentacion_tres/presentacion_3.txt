@@ -1,0 +1,30 @@
+roscpp
+is a C++ implementation of ROS. It provides a client library that enables C++ programmers to quickly interface with ROS Topics, Services, and Parameters.
+
+Publishing to a Topic
+Creating a handle to publish messages to a topic is done using the ros::NodeHandle class.
+
+The NodeHandle::advertise() methods are used to create a ros::Publisher which is used to publish on a topic.
+
+ros::Publisher pub = nh.advertise<std_msgs::String>("topic_name", 5);
+
+std_msgs::String str;
+str.data = "hello world";
+pub.publish(str);
+
+Subscribing to a Topic
+
+Subscribing to a topic is also done using the ros::NodeHandle class
+
+void callback(const std_msgs::StringConstPtr& str){
+...
+}
+
+...
+ros::Subscriber sub = nh.subscribe("my_topic", 1, callback);
+
+- NodeHandle -
+
+The ros::NodeHandle class serves two purposes. First, it provides startup and shutdown of the internal node inside a roscpp program.
+
+http://wiki.ros.org/roscpp/Overview/NodeHandles
