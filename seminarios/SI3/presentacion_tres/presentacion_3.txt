@@ -1,3 +1,14 @@
+Intentar generar una nube de puntos mediante un mapa en Gazebo
+https://github.com/arshadlab/gazebo_map_creator/tree/master
+https://www.researchgate.net/figure/Robot-Control-Architecture-left-and-some-control-modules-right-with-their_fig5_254383481
+https://stackoverflow.com/questions/65976880/how-to-connect-ros-nodes-to-topics-over-a-network
+https://github.com/ruffsl/ros_docker_demos/blob/master/multicontainer/README.md
+https://superuser.com/questions/1480234/how-to-forward-gui-from-remote-docker-container-to-which-i-connect-via-ssh
+
+Slides ROS
+https://ethz.ch/content/dam/ethz/special-interest/mavt/robotics-n-intelligent-systems/rsl-dam/ROS2019/ROS%20Course%20Slides%20Course%201.pdf
+
+
 roscpp
 is a C++ implementation of ROS. It provides a client library that enables C++ programmers to quickly interface with ROS Topics, Services, and Parameters.
 
