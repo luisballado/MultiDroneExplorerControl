@@ -304,7 +304,7 @@
   %Un sistema multi-agente, es un sistema que consta de multiples entidades autonomas, llamadas agentes, que estan situados en el medio ambiente por lo que los agentes pueden estar parcialmente observados y en el ambiente pueden actuar y cooperar para completar el objetivo del sistema.
   \bigskip % Vertical whitespace
   \centering
-  \includegraphics[width=10cm]{problema}\\
+  \includegraphics[width=12cm]{problema}\\
   
 \end{frame}
 
@@ -312,9 +312,9 @@
   Explicar la matemática
   \bigskip % Vertical whitespace
   \begin{itemize}
-  \item Conjunto de Agentes (VANTS)
-  \item Mediciones
-  \item Lista de fronteras
+  \item Conjunto de Agentes (VANTS) $V = \{V_1,V_2,V_3,V_n\}$
+  \item Mediciones $Z = \{Z_1,Z_2,Z_3,Z_n\}$
+  \item Lista de fronteras $F = \{F_1,F_2,F_3,F_n\}$
   \end{itemize}
 \end{frame}
 
@@ -326,18 +326,18 @@
   Exploración es una tarea fundamental en robots autónomos. El objetivo es crear un mapa de un ambiente desconocido.\\
   \bigskip % Vertical whitespace
   \centering
-  \includegraphics[width=6cm]{exploracion}\\
+  \includegraphics[width=7cm]{exploracion}\\
   
   \begin{itemize}
-  \item \textbf{Sensar} 
+  \item \textbf{Sensar}
   \item \textbf{Creación Mapa} 
   \item \textbf{Localización en Mapa}
   \item \textbf{Exploración} Aumentar la base de conocimiento del Mapa
   \item \textbf{Planificación trayectoria} Trayectorias hacia nuevas fronteras 
-  \item \textbf{Control} Ejecución de toma de decisiones y ejecución de trayectorias 
+  \item \textbf{Control} Toma de decisiones y ejecución de trayectorias 
   \end{itemize}
 
-  \alert{El ciclo se repite hasta completar la exploración}
+  \alert{- El ciclo se repite hasta completar la exploración -}
   
 \end{frame}
 
@@ -351,17 +351,28 @@
 
 \subsubsection{Control VANT}
 \begin{frame}{Control VANT}
-  Tocar el tema de Control VANT y como se programa
-
   \begin{figure}
     \centering
-    \includegraphics[width=10cm]{d1}
+    \includegraphics[width=14cm]{drone_control}
   \end{figure}
-  
 \end{frame}
 
-\begin{frame}
-  PROGRAMA VANT
+\begin{frame}{Control VANT}
+  \begin{algorithm}[H]
+    \KwData{this text}
+    \KwResult{how to write algorithm with \LaTeX2e }
+    initialization\;
+    \While{not at end of this document}{
+      read current\;
+      \eIf{understand}{
+        go to next section\;
+        current section becomes this one\;
+      }{
+        go back to the beginning of current section\;
+      }
+    }
+    \caption{How to write algorithms}
+  \end{algorithm}
 \end{frame}
 
 \subsubsection{Localización y mapeo simultáneos}
@@ -370,7 +381,7 @@
   
   \begin{minipage}{0.47\textwidth}
     
-    \small Un VANT de cuatro rotores cuenta con seis grados de libertar (tres coordenadas lineales x,y,z y tres coordenadas angulares) y cuatro entradas $(u_1,u_2,u_3,u_4)$ o variables de control.\\
+    \small Un VANT de cuatro rotores cuenta con seis grados de libertar (tres coordenadas lineales x,y,z, tres coordenadas angulares) y cuatro entradas $(u_1,u_2,u_3,u_4)$ o variables de control.\\
     
     Estados del VANT \\
     $(x,y,z,\phi,\theta,\Psi,\dot{x},\dot{y},\dot{z},\dot{\phi},\dot{\theta},\dot{\Psi})^\mathrm{T}$
@@ -393,7 +404,21 @@
 \end{frame}
 
 \begin{frame}
-  CÓDIGO DE LOCALIZACION STATE ESTIMATION
+  \begin{algorithm}[H]
+    \KwData{this text}
+    \KwResult{how to write algorithm with \LaTeX2e }
+    initialization\;
+    \While{not at end of this document}{
+      read current\;
+      \eIf{understand}{
+        go to next section\;
+        current section becomes this one\;
+      }{
+        go back to the beginning of current section\;
+      }
+    }
+    \caption{How to write algorithms}
+  \end{algorithm}
 \end{frame}
 
 \subsubsection{Generación de trayectoria}
@@ -425,23 +450,28 @@
   \end{minipage}
   
 \end{frame}
-\begin{frame}
-  %\centering
-  A* Pseudo código
-\end{frame}
 
-\section{Canal de comunicación}
 \begin{frame}
-  \frametitle{Canal de comunicación}
-
-  Explicar de la red de nodos de ROS (necesario para coordinarse y evitar la redundancia de trabajo)
-  
+  \begin{algorithm}[H]
+    \KwData{this text}
+    \KwResult{how to write algorithm with \LaTeX2e }
+    initialization\;
+    \While{not at end of this document}{
+      read current\;
+      \eIf{understand}{
+        go to next section\;
+        current section becomes this one\;
+      }{
+        go back to the beginning of current section\;
+      }
+    }
+    \caption{How to write algorithms}
+  \end{algorithm}
 \end{frame}
 
 \section{Coordinación multi-VANT}
 \begin{frame}{Coordinación multi-VANT}
   \begin{minipage}{0.47\textwidth}
-
     \begin{itemize}
     %\item Exploración con algoritmos de baja complejidad computacional.
     \item Centralizada: Una entidad planea para todos los robots. (El problema crece conforme aumentan los robots)
@@ -452,26 +482,33 @@
   \begin{minipage}{0.5\textwidth}
     \includegraphics[width=0.8\textwidth]{coordination}$^\dag$\\
       \rule{0in}{1.2em}$^\dag$\scriptsize \cite{amanda}
-      
   \end{minipage}
 \end{frame}
 
 
-\begin{frame}{Coordinación multi-VANT}
+\begin{frame}{Problema de asignación}
+  \begin{minipage}{0.48\textwidth}
+    \includegraphics[width=0.8\textwidth]{asignacion}%$^\dag$\\
+    %\rule{0in}{1.2em}$^\dag$\scriptsize \cite{amanda}
+  \end{minipage}
+  %\hspace{0.1cm}
+  \begin{minipage}{0.51\textwidth}
 
-  \begin{itemize}
-  \item El \underline{método húngaro}, también conocido como algoritmo húngaro o algoritmo de asignación, es un algoritmo utilizado para resolver problemas de asignación, como la asignación óptima de tareas a recursos, minimizando o maximizando algún criterio.
-
-  \item En el contexto de la robótica, este método puede utilizarse para asignar tareas específicas a robots de manera que se minimice el costo total de ejecución.
-  \end{itemize}
-
-  \centering
-  $O(n!) \implies O(n^{3})$
-  
+    El problema del emparejamiento ponderado en un grafo bipartito, también conocido como problema de asignación.
+    
+    \begin{itemize}
+    \item un conjunto $N$ de $n$ agentes;
+    \item un conjunto $X$ de $n$ tareas;
+    \item un conjunto $M \subseteq N \times X$ de posibles pares;
+    \item una función $v : M \mapsto \mathbb{R}$ que calcula cada par de asignación;
+    \end{itemize}
+    \begin{block}{Corolario}
+      El problema de asignación puede ser resuelto en un tiempo polinomial. $O(n^{3})$
+    \end{block}
+  \end{minipage}
 \end{frame}
 
 \section{Simulación}
-
 \begin{frame}{Simulación}
   El simulador dinámico \cite{RACER2022} \footnote{Rapid Collaborative Exploration With a Decentralized Multi-UAV System} utiliza la odometría de referencia de los VANTS, suponiendo que cada agente está equipado con una cámara de profundidad que mira hacia adelante cuya resolución es 640x480px y un campo de visión de 80°x60°. Las imágenes de profundidad se generan utilizando el proceso presentado en \cite{OMNI2022} \footnote{Omni-Swarm: A Decentralized Omnidirectional Visual–Inertial–UWB State Estimation System for Aerial Swarms} con un rango máximo de detección de 4.5 m.
   \bigskip % Vertical whitespace
@@ -492,17 +529,25 @@
 %  En resumen ROS ayuda en descomponer software complejos en pequeñas piezas más manejables. 
 %\end{frame}
 
+\begin{frame}{Canal de comunicación}
+  Explicar de la red de nodos de ROS (necesario para coordinarse y evitar la redundancia de trabajo)
+\end{frame}
+
+\begin{frame}{ROS}
+  Explicar un poco de ROS¿?
+\end{frame}
+
 \begin{frame}{Visualización interacción nodos en ROS}
   \begin{figure}
     \centering
-    \includegraphics[width=1\textwidth]{graph}
+    \includegraphics[width=1\textwidth]{ros_nodes}
   \end{figure}
 \end{frame}
 
 \begin{frame}{Avance Simulación}
   \begin{figure}
     \centering
-    \animategraphics[loop,width=8cm]{10}{path/frame_}{000}{591}
+    \animategraphics[loop,width=8cm]{10}{path/frame_}{000}{220}
   \end{figure}
 \end{frame}
 
@@ -609,8 +654,6 @@
 %  \end{minipage}
 %\end{frame}
 
-
-
 %\begin{frame}{Planificación de trayectoria - ¿Cómo llego hasta ahí?}
 %  \bigskip % Vertical whitespace
 %  \centering
@@ -646,11 +689,13 @@
 %\end{frame}
 
 \section{Conclusiones}
-\begin{frame}{Conclusiones}
-  Hacer una discusión de los resultados
-  Conclusiones preliminares
+\begin{frame}{Discusión}
+  Hacer una discusión de los resultados\\
+  Interpretación y explicación de por qué se están obteniendo esos resultados
 \end{frame}
-  
+\begin{frame}{Conclusiones preliminares}
+  Indicar como se están respondiendo las preguntas de investigación
+\end{frame}
 
 \begin{frame}[allowframebreaks,noframenumbering]{Bibliografía}
   \tiny

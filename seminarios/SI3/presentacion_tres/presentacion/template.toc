@@ -5,7 +5,6 @@
 \beamer@subsubsectionintoc {2}{1}{1}{Control VANT}{9}{0}{2}
 \beamer@subsubsectionintoc {2}{1}{2}{Localización y mapeo simultáneos}{11}{0}{2}
 \beamer@subsubsectionintoc {2}{1}{3}{Generación de trayectoria}{13}{0}{2}
-\beamer@sectionintoc {3}{Canal de comunicación}{15}{0}{3}
-\beamer@sectionintoc {4}{Coordinación multi-VANT}{17}{0}{4}
-\beamer@sectionintoc {5}{Simulación}{20}{0}{5}
-\beamer@sectionintoc {6}{Conclusiones}{24}{0}{6}
+\beamer@sectionintoc {3}{Coordinación multi-VANT}{15}{0}{3}
+\beamer@sectionintoc {4}{Simulación}{18}{0}{4}
+\beamer@sectionintoc {5}{Conclusiones}{24}{0}{5}
