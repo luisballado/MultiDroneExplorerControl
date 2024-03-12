@@ -167,6 +167,7 @@
 \usepackage{bbding} %palomitas checkmark
 \usepackage{pifont}
 \usepackage{lipsum,tabularx}
+
 \newcounter{loopcntr}
 
 %----------------------------------------------------------------------------------------
@@ -305,25 +306,14 @@
   \bigskip % Vertical whitespace
   \centering
   \includegraphics[width=12cm]{problema}\\
-  
 \end{frame}
-
-\begin{frame}
-  Explicar la matemática
-  \bigskip % Vertical whitespace
-  \begin{itemize}
-  \item Conjunto de Agentes (VANTS) $V = \{V_1,V_2,V_3,V_n\}$
-  \item Mediciones $Z = \{Z_1,Z_2,Z_3,Z_n\}$
-  \item Lista de fronteras $F = \{F_1,F_2,F_3,F_n\}$
-  \end{itemize}
-\end{frame}
-
 
 \subsection{VANTS Autónomos}
 \begin{frame}{Exploración}
   %\textbf{Exploración}\\
   \bigskip % Vertical whitespace
-  Exploración es una tarea fundamental en robots autónomos. El objetivo es crear un mapa de un ambiente desconocido.\\
+  %Exploración es una tarea fundamental en robots autónomos.
+  El objetivo es crear un mapa de un ambiente desconocido.\\
   \bigskip % Vertical whitespace
   \centering
   \includegraphics[width=7cm]{exploracion}\\
@@ -338,6 +328,26 @@
   \end{itemize}
 
   \alert{- El ciclo se repite hasta completar la exploración -}
+  
+\end{frame}
+
+\begin{frame}
+  
+  \begin{itemize}
+  \item Conjunto de Agentes (VANTS) $V = \{V_1,V_2,V_3,...,V_n\}$
+    \bigskip % Vertical whitespace
+    \begin{itemize}
+    \item Comandos control $u(t) = \{u_1,u_2,u_3,...,u_n\}$
+     \item Mediciones $Z(t) = \{z_1,z_2,z_3,...,z_n\}$
+     \item Trayectoria  $X(t) = \{x_1,x_2,x_3,...,x_n\}$
+     \item Lista de fronteras $F = \{f_1,f_2,f_3,...,f_n\}$
+     \item Mapa $m$
+    \end{itemize}
+  \end{itemize}
+
+  \bigskip % Vertical whitespace
+
+  \center{Asignar fronteras a cada VANT para reducir el tiempo total de exploración}
   
 \end{frame}
 
@@ -357,23 +367,23 @@
   \end{figure}
 \end{frame}
 
-\begin{frame}{Control VANT}
-  \begin{algorithm}[H]
-    \KwData{this text}
-    \KwResult{how to write algorithm with \LaTeX2e }
-    initialization\;
-    \While{not at end of this document}{
-      read current\;
-      \eIf{understand}{
-        go to next section\;
-        current section becomes this one\;
-      }{
-        go back to the beginning of current section\;
-      }
-    }
-    \caption{How to write algorithms}
-  \end{algorithm}
-\end{frame}
+%\begin{frame}{Control VANT}
+%  \begin{algorithm}[H]
+%    \KwData{this text}
+%    \KwResult{how to write algorithm with \LaTeX2e }
+%    initialization\;
+%    \While{not at end of this document}{
+%      read current\;
+%      \eIf{understand}{
+%        go to next section\;
+%        current section becomes this one\;
+%      }{
+%        go back to the beginning of current section\;
+%      }
+%    }
+%    \caption{How to write algorithms}
+%  \end{algorithm}
+%\end{frame}
 
 \subsubsection{Localización y mapeo simultáneos}
 
@@ -403,23 +413,23 @@
   \end{minipage}
 \end{frame}
 
-\begin{frame}
-  \begin{algorithm}[H]
-    \KwData{this text}
-    \KwResult{how to write algorithm with \LaTeX2e }
-    initialization\;
-    \While{not at end of this document}{
-      read current\;
-      \eIf{understand}{
-        go to next section\;
-        current section becomes this one\;
-      }{
-        go back to the beginning of current section\;
-      }
-    }
-    \caption{How to write algorithms}
-  \end{algorithm}
-\end{frame}
+%\begin{frame}
+%  \begin{algorithm}[H]
+%    \KwData{this text}
+%    \KwResult{how to write algorithm with \LaTeX2e }
+%    initialization\;
+%    \While{not at end of this document}{
+%      read current\;
+%      \eIf{understand}{
+%        go to next section\;
+%        current section becomes this one\;
+%      }{
+%        go back to the beginning of current section\;
+%      }
+%    }
+%    \caption{How to write algorithms}
+%  \end{algorithm}
+%\end{frame}
 
 \subsubsection{Generación de trayectoria}
 \begin{frame}{Generación de trayectoria}
@@ -451,21 +461,96 @@
   
 \end{frame}
 
-\begin{frame}
+
+\begin{frame}{Algoritmo A*}
+  \tiny
   \begin{algorithm}[H]
-    \KwData{this text}
-    \KwResult{how to write algorithm with \LaTeX2e }
-    initialization\;
-    \While{not at end of this document}{
-      read current\;
-      \eIf{understand}{
-        go to next section\;
-        current section becomes this one\;
-      }{
-        go back to the beginning of current section\;
+    %\caption{Algoritmo A*}
+    \KwData{Inicio, Meta}
+    \KwResult{Camino óptimo de Inicio a Meta}
+    \BlankLine
+    CerrarLista $\gets$ \{\}\;
+    AbiertoLista $\gets$ \{\}\;
+    \SetKwFunction{Initialize}{Inicializar}
+    \SetKwFunction{ExtractMin}{Extraer-Min}
+    \SetKwFunction{Insert}{Insertar}
+    \SetKwFunction{CostG}{Costo-G}
+    \SetKwFunction{CostEdge}{Costo-Arista}
+    \SetKwFunction{Heuristic}{Heurística}
+    \SetKwFunction{BuildPath}{Construir-Camino}
+    \SetKwFunction{UpdateG}{Actualizar-G}
+    \SetKwFunction{UpdateParent}{Actualizar-Padre}
+
+    AbiertoLista $\gets$ Inicio \;
+    \While{\textup{\textbf{no está vacía}}(AbiertoLista)}{
+      Actual $\gets$ \ExtractMin{AbiertoLista} \;
+      \Insert{CerrarLista, Actual} \;
+    
+      \If{Actual $=$ Meta}{
+        \Return \BuildPath{Inicio, Meta} \;
+      }
+
+      \ForEach{vecino $v$ de Actual}{
+        \If{$v$ está en CerrarLista}{
+          \textbf{continuar} \;
+        }
+        
+        $g \gets$ \CostG{Inicio, Actual} $+$ \CostEdge{Actual, $v$} \;
+        $h \gets$ \Heuristic{$v$, Meta} \;
+        $f \gets g + h$ \;
+        
+        \If{$v$ \textup{\textbf{no está en}} AbiertoLista}{
+          \Insert{AbiertoLista, $v$} \;
+        }\ElseIf{$g \geq$ \CostG{Inicio, $v$}}{
+          \textbf{continuar} \;
+        }
+        
+        \UpdateG{Inicio, $v$, $g$} \;
+        \UpdateParent{$v$, Actual} \;
       }
     }
-    \caption{How to write algorithms}
+    
+    \Return \textup{\textbf{Sin-Solución}} \;
+  \end{algorithm}
+\end{frame}
+
+\begin{frame}{Campo de potencial artificial}
+  \tiny
+  \begin{algorithm}[H]
+        
+    %\KwData{Posición del robot $robotPos$, Posición objetivo $objetivoPos$, Lista de obstáculos $obstaculos$}
+    %\KwResult{Mensaje indicando si se alcanzó el objetivo}
+    
+    %\SetKwFunction{DistanciaEntre}{distancia\_entre}
+    %\SetKwFunction{Normalizar}{normalizar}
+    
+    %\SetKwInOut{Parameter}{Parámetros}
+    %\Parameter{$k\_atractivo$: constante de atracción, $k\_repulsivo$: constante de repulsión, $r\_repulsivo$: radio de influencia repulsiva, $paso\_t$: tamaño del paso de tiempo}
+    
+    %\BlankLine
+    %Inicializar velocidad del robot: $Velocidad \gets [0, 0]$\;
+
+    El VANT sigue la trayectoria generado por el planificador global\;
+
+    \eIf{Objetivo alcanzado}{
+      Parar navegación\;
+    }{
+      \eIf{Se detecta obstáculo}{
+        Comportamiento APF\;
+        Cálculos APF\;
+        Girar respecto al ángulo calculado para encontrar la siguiente posición segura a moverse\;
+        \If{Objetivo alcanzado}{
+          Parar navegación\;
+        }
+        \If{Se detecta obstáculo}{
+          Repetir comportamiento APF\;
+        }
+      }{
+        Seguir navegando hasta encontrar el objetivo o encontrar un obstáculo\;
+      }
+      
+    }
+        
   \end{algorithm}
 \end{frame}
 
@@ -503,10 +588,22 @@
     \item una función $v : M \mapsto \mathbb{R}$ que calcula cada par de asignación;
     \end{itemize}
     \begin{block}{Corolario}
-      El problema de asignación puede ser resuelto en un tiempo polinomial. $O(n^{3})$
+      El problema de asignación puede ser resuelto en un tiempo polinomial. $O(n^{3})$ \footnote{\cite{multi-book}}
     \end{block}
   \end{minipage}
 \end{frame}
+
+\begin{frame}{Algoritmos para el problema de asignación \footnote{The assignment problem revisited, \cite{Alfaro2021}}}
+
+  \begin{itemize}
+  \item 1955 - Kuhn propuso el primer algoritmo para resolver el problema en tiempo polinomial \textbf{$O(mn+n^{2}\log(n))$}.
+  \item 1992 - Algoritmo Bertsekas $\epsilon$ - scaling auction \textbf{$O(nm\log(nW))$} (paralelizable solo para instancias balanceadas).
+  \item 1995 - Algoritmo Goldberg \& Kennedy \textbf{$O(m\sqrt{s}\log(sW)$}. 
+  \item El algoritmo $\epsilon$ - scaling auction y el algoritmo Goldberg \& Kennedy tienen un mismo rendimiento para instancias pequeñas. 
+  \item Para instancias mayores el algoritmo $\epsilon$ - scaling auction tiene un mayor desempeño que los otros algoritmos.
+  \end{itemize}
+\end{frame}
+
 
 \section{Simulación}
 \begin{frame}{Simulación}
@@ -529,12 +626,19 @@
 %  En resumen ROS ayuda en descomponer software complejos en pequeñas piezas más manejables. 
 %\end{frame}
 
-\begin{frame}{Canal de comunicación}
-  Explicar de la red de nodos de ROS (necesario para coordinarse y evitar la redundancia de trabajo)
-\end{frame}
-
-\begin{frame}{ROS}
-  Explicar un poco de ROS¿?
+\begin{frame}{ROS Master}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{ros_master}
+  \end{figure}
+  
+  \begin{itemize}
+    \item Es un servidor que provee información de conexión (dirección, notificaciones) hacia los nodos del sistema.
+    \item Los mensajes son transmitidos entre los nodos vía peer-to-peer.
+    \item Los nodos deben conocer la dirección del nodo maestro antes de iniciar.
+    \item Los nodos son programas individuales y se organizan en paquetes.
+    \item La comunicación entre nodos es mediante tópicos y es de tipo unidireccional.
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{Visualización interacción nodos en ROS}
@@ -690,11 +794,32 @@
 
 \section{Conclusiones}
 \begin{frame}{Discusión}
-  Hacer una discusión de los resultados\\
-  Interpretación y explicación de por qué se están obteniendo esos resultados
+  
+  \begin{block}{Hipótesis}
+    Una estrategia que coordine y asigne tareas de exploración para múltiples VANTS, en combinación con una arquitectura de software (que resuelva los problemas de localización, manejo de mapas y planiﬁcación de rutas) mejorará el desempeño en tareas de exploración con múltiples VANTS en entornos desconocidos.
+  \end{block}
+
+  \begin{itemize}
+    \item Elección de un simulador ligero compatible con ROS.
+    \item Resolver el problema de autónomia para cada agente nos aproxima a validar la hipótesis planteada.
+    \item Dividir el problema en agentes individuales nos ayuda a su comprensión, y hace que el mecanismo de coordinación tome un papel importante en compañia de una función que modele las fronteras a explorar. 
+  \end{itemize}
 \end{frame}
-\begin{frame}{Conclusiones preliminares}
-  Indicar como se están respondiendo las preguntas de investigación
+
+\begin{frame}{Discusión}
+  \scriptsize
+  \begin{block}{Preguntas investigación}
+    \begin{itemize}
+    \item ¿Qué mecanismos de coordinación existen dentro de la literatura que podrían ayudar en resolver el problema de exploración multi-VANT?\\
+    \item ¿Qué características de la dinámica del robot se deben considerar en el simulador, para que los resultados se aproximen a los del mundo real?\\
+    \item ¿Es posible que el uso de una estructura de datos como octree para representar la ocupación de un volumen, sea más eﬁciente que una representación usando una matriz cúbica?\\
+    \end{itemize}
+  \end{block}
+  \begin{itemize}
+  \item La comparación de mecanismos de coordinación es interesante, muchos trabajos en multi-robots siguen usando un enfoque de coordinación bajeo el uso del algoritmo húngaro.
+  \item El simulador dinámico \cite{RACER2022} \footnote{\tiny Rapid Collaborative Exploration With a Decentralized Multi-UAV System} utiliza la odometría de referencia de los VANTS, suponiendo que cada agente está equipado con una cámara de profundidad que mira hacia adelante cuya resolución es 640x480px y un campo de visión de 80°x60°.
+  \item Las imágenes de profundidad se generan utilizando el proceso presentado en \cite{OMNI2022} \footnote{\tiny Omni-Swarm: A Decentralized Omnidirectional Visual–Inertial–UWB State Estimation System for Aerial Swarms} con un rango máximo de detección de 4.5 m.
+  \end{itemize}
 \end{frame}
 
 \begin{frame}[allowframebreaks,noframenumbering]{Bibliografía}
