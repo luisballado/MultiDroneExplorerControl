@@ -1,0 +1,66 @@
+\begin{thebibliography}{7}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Alfaro et~al.(2021)Alfaro, Perez, Valencia, and Vargas]{Alfaro2021}
+C.~A. Alfaro, S.~L. Perez, C.~E. Valencia, and M.~C. Vargas.
+\newblock The assignment problem revisited.
+\newblock \emph{Optimization Letters}, 16\penalty0 (5):\penalty0 1531–1548,
+  Aug. 2021.
+\newblock ISSN 1862-4480.
+\newblock \doi{10.1007/s11590-021-01791-4}.
+\newblock URL \url{http://dx.doi.org/10.1007/s11590-021-01791-4}.
+
+\bibitem[Mir et~al.(2022)Mir, Gul, Mir, Khan, Saeed, Abualigah, Abuhaija, and
+  Gandomi]{Mir2022}
+I.~Mir, F.~Gul, S.~Mir, M.~A. Khan, N.~Saeed, L.~Abualigah, B.~Abuhaija, and
+  A.~H. Gandomi.
+\newblock A survey of trajectory planning techniques for autonomous systems.
+\newblock \emph{Electronics}, 11\penalty0 (18):\penalty0 2801, Sept. 2022.
+\newblock ISSN 2079-9292.
+\newblock \doi{10.3390/electronics11182801}.
+\newblock URL \url{http://dx.doi.org/10.3390/electronics11182801}.
+
+\bibitem[Nex et~al.(2022)Nex, Armenakis, Cramer, Cucci, Gerke, Honkavaara,
+  Kukko, Persello, and Skaloud]{Nex2022}
+F.~Nex, C.~Armenakis, M.~Cramer, D.~Cucci, M.~Gerke, E.~Honkavaara, A.~Kukko,
+  C.~Persello, and J.~Skaloud.
+\newblock Uav in the advent of the twenties: Where we stand and what is next.
+\newblock \emph{ISPRS Journal of Photogrammetry and Remote Sensing},
+  184:\penalty0 215–242, Feb. 2022.
+\newblock ISSN 0924-2716.
+\newblock \doi{10.1016/j.isprsjprs.2021.12.006}.
+\newblock URL \url{http://dx.doi.org/10.1016/j.isprsjprs.2021.12.006}.
+
+\bibitem[Prorok et~al.(2021)Prorok, Malencia, Carlone, Sukhatme, Sadler, and
+  Kumar]{amanda}
+A.~Prorok, M.~Malencia, L.~Carlone, G.~S. Sukhatme, B.~M. Sadler, and V.~Kumar.
+\newblock Beyond robustness: A taxonomy of approaches towards resilient
+  multi-robot systems, 2021.
+\newblock URL \url{https://arxiv.org/abs/2109.12343}.
+
+\bibitem[Shoham and Leyton-Brown(2008)]{multi-book}
+Y.~Shoham and K.~Leyton-Brown.
+\newblock \emph{Multiagent systems}.
+\newblock Cambridge University Press, Cambridge, England, Dec. 2008.
+
+\bibitem[Xu et~al.(2022)Xu, Zhang, Zhou, Wang, Yao, Meng, and Shen]{OMNI2022}
+H.~Xu, Y.~Zhang, B.~Zhou, L.~Wang, X.~Yao, G.~Meng, and S.~Shen.
+\newblock Omni-swarm: A decentralized omnidirectional visual–inertial–uwb
+  state estimation system for aerial swarms.
+\newblock \emph{IEEE Transactions on Robotics}, 38\penalty0 (6):\penalty0
+  3374--3394, 2022.
+\newblock \doi{10.1109/TRO.2022.3182503}.
+
+\bibitem[Zhou et~al.(2023)Zhou, Xu, and Shen]{RACER2022}
+B.~Zhou, H.~Xu, and S.~Shen.
+\newblock Racer: Rapid collaborative exploration with a decentralized multi-uav
+  system.
+\newblock \emph{IEEE Transactions on Robotics}, 39\penalty0 (3):\penalty0
+  1816--1835, 2023.
+\newblock \doi{10.1109/TRO.2023.3236945}.
+
+\end{thebibliography}
