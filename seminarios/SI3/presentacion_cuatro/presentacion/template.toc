@@ -1,9 +1,9 @@
 \babel@toc {spanish}{}\relax 
 \beamer@sectionintoc {1}{Antecedentes y motivación del proyecto}{2}{0}{1}
 \beamer@sectionintoc {2}{Planteamiento del problema}{5}{0}{2}
-\beamer@sectionintoc {3}{Hipótesis y/o preguntas de investigación}{7}{0}{3}
-\beamer@sectionintoc {4}{Objetivos}{9}{0}{4}
-\beamer@sectionintoc {5}{Estado del Arte}{11}{0}{5}
+\beamer@sectionintoc {3}{Hipótesis y preguntas de investigación}{7}{0}{3}
+\beamer@sectionintoc {4}{Objetivos generales y particulares}{9}{0}{4}
+\beamer@sectionintoc {5}{Estado del arte}{11}{0}{5}
 \beamer@sectionintoc {6}{Metodologia}{14}{0}{6}
 \beamer@sectionintoc {7}{Resultados}{16}{0}{7}
 \beamer@sectionintoc {8}{Conclusiones}{18}{0}{8}

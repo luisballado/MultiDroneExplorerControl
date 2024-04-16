@@ -285,10 +285,10 @@
   \vspace{2pt}\\
   
   \begin{itemize}
+  \item \textbf{UAV} {\tiny(\textit{Vehículo Aéreo No Tripulado - VANT})}  $\implies$ \textbf{UAS} {\tiny(\textit{Sistemas Aéreos No Tripulado - SANT})}
   \item \textbf{Aplicaciones} en lugares inaccesibles o peligrosos.
   \item \textbf{Múltiples VANT} pueden reducir el tiempo de exploración y aumentar la confianza del sistema.
   \item \textbf{Limitaciones} en carga, procesamiento y batería influyen en el tiempo de vuelo.
-  \item \textbf{UAV} {\tiny(Vehículo Aéreo No Tripulado VANT)}  $\implies$ \textbf{UAS} {\tiny(Sistemas Aéreos No Tripulado SANT)}
   \end{itemize}
   
   \footnotetext{UAV in the advent of the twenties: Where we stand and what is next [\cite{Nex2022}]}
@@ -300,7 +300,33 @@
 \end{frame}
 
 \begin{frame}{Motivación del proyecto}
-  %Hablar de los usos e importancia del trabajo .. de la exploracion .. etc
+  %https://ccc.inaoep.mx/~emorales/Papers/2009/eduardo.pdf
+  %https://www.mdpi.com/2504-446X/7/1/62
+  Hablar de los usos e importancia del trabajo .. de la exploracion .. de la importancia de investigacion en robotica para el pais.
+  \begin{figure}[ht!]
+        \centering
+        \begin{minipage}{0.48\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{DJI_B4} % Reemplazar con la ruta a tu imagen
+            %\caption{Primera Imagen}
+        \end{minipage}\hfill
+        \begin{minipage}{0.48\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{DJI_B4} % Reemplazar con la ruta a tu imagen
+            %\caption{Segunda Imagen}
+        \end{minipage}
+        \vspace{-0.2cm} % Espacio vertical entre imágenes
+        \begin{minipage}{0.48\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{DJI_B4} % Reemplazar con la ruta a tu imagen
+            %\caption{Tercera Imagen}
+        \end{minipage}\hfill
+        \begin{minipage}{0.48\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{DJI_B4} % Reemplazar con la ruta a tu imagen
+            %\caption{Cuarta Imagen}
+        \end{minipage}
+    \end{figure}
 \end{frame}
 
 \section{Planteamiento del problema}
@@ -315,30 +341,42 @@
   \end{itemize}
 \end{frame}
 
-\section{Hipótesis y/o preguntas de investigación}
-\begin{frame}{Hipótesis y/o preguntas de investigación}
+\section{Hipótesis y preguntas de investigación}
+\begin{frame}%{Hipótesis y preguntas de investigación}
   %\textbf{Exploración}\\
-  \bigskip % Vertical whitespace
-  %Exploración es una tarea fundamental en robots autónomos.
-  El objetivo es crear un mapa de un ambiente desconocido.\\
-  \bigskip % Vertical whitespace
-  \centering
-  \includegraphics[width=7cm]{exploracion}\\
-  
-  \begin{itemize}
-  \item \textbf{Sensar}
-  \item \textbf{Creación Mapa} 
-  \item \textbf{Localización en Mapa}
-  \item \textbf{Exploración} Aumentar la base de conocimiento del Mapa
-  \item \textbf{Planificación trayectoria} Trayectorias hacia nuevas fronteras 
-  \item \textbf{Control} Toma de decisiones y ejecución de trayectorias 
-  \end{itemize}
+  %\bigskip % Vertical whitespace
 
-  \alert{- El ciclo se repite hasta completar la exploración -}
+  \begin{block}{Hipótesis}
+    Una estrategia que coordine y asigne tareas de exploración para múltiples VANTS, en combinación con una arquitectura de software (que resuelva los problemas de localización, manejo de mapas y planiﬁcación de rutas) mejorará el desempeño en tareas de exploración con múltiples VANTS en entornos desconocidos.
+  \end{block}
+
+  Preguntas de investigación:\\
+  \begin{itemize}
+  \item Elección de un simulador ligero compatible con ROS.
+  \item Resolver el problema de autónomia para cada agente nos aproxima a validar la hipótesis planteada.
+  \item Dividir el problema en agentes individuales nos ayuda a su comprensión, y hace que el mecanismo de coordinación tome un papel importante en compañia de una función que modele las fronteras a explorar. 
+  \end{itemize}
+  
+  %Exploración es una tarea fundamental en robots autónomos.
+  %El objetivo es crear un mapa de un ambiente desconocido.\\
+  %\bigskip % Vertical whitespace
+  %\centering
+  %\includegraphics[width=7cm]{exploracion}\\
+  
+  %\begin{itemize}
+  %\item \textbf{Sensar}
+  %\item \textbf{Creación Mapa} 
+  %\item \textbf{Localización en Mapa}
+  %\item \textbf{Exploración} Aumentar la base de conocimiento del Mapa
+  %\item \textbf{Planificación trayectoria} Trayectorias hacia nuevas fronteras 
+  %\item \textbf{Control} Toma de decisiones y ejecución de trayectorias 
+  %\end{itemize}
+
+  %\alert{- El ciclo se repite hasta completar la exploración -}
   
 \end{frame}
 
-\section{Objetivos}
+\section{Objetivos generales y particulares}
 \begin{frame}{Objetivos generales y particulares}
   Objetivo General:\\
   \rule{0in}{1.2em}
@@ -350,8 +388,8 @@
   \end{itemize}
 \end{frame}
 
-\section{Estado del Arte}
-\begin{frame}{Estado del Arte}
+\section{Estado del arte}
+\begin{frame}{Estado del arte}
   Mostrar tabla
 \end{frame}
 
