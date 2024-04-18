@@ -1,46 +1,46 @@
-This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2022)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: template.aux
 The style file: abbrvnat.bst
 Database file #1: test.bib
-You've used 7 entries,
+You've used 16 entries,
             2773 wiz_defined-function locations,
-            658 strings with 6399 characters,
-and the built_in function-call counts, 4444 in all, are:
-= -- 372
-> -- 372
-< -- 1
-+ -- 124
-- -- 117
-* -- 440
-:= -- 722
-add.period$ -- 32
-call.type$ -- 7
-change.case$ -- 59
-chr.to.int$ -- 7
-cite$ -- 14
-duplicate$ -- 141
-empty$ -- 277
-format.name$ -- 126
-if$ -- 894
+            722 strings with 9060 characters,
+and the built_in function-call counts, 10374 in all, are:
+= -- 915
+> -- 766
+< -- 6
++ -- 256
+- -- 240
+* -- 965
+:= -- 1602
+add.period$ -- 71
+call.type$ -- 16
+change.case$ -- 127
+chr.to.int$ -- 16
+cite$ -- 32
+duplicate$ -- 384
+empty$ -- 701
+format.name$ -- 258
+if$ -- 2166
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 7
-newline$ -- 54
-num.names$ -- 28
-pop$ -- 104
+missing$ -- 14
+newline$ -- 110
+num.names$ -- 64
+pop$ -- 232
 preamble$ -- 1
-purify$ -- 53
+purify$ -- 112
 quote$ -- 0
-skip$ -- 122
+skip$ -- 331
 stack$ -- 0
-substring$ -- 140
-swap$ -- 11
-text.length$ -- 0
+substring$ -- 408
+swap$ -- 72
+text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 72
+type$ -- 176
 warning$ -- 0
-while$ -- 26
+while$ -- 69
 width$ -- 0
-write$ -- 119
+write$ -- 258

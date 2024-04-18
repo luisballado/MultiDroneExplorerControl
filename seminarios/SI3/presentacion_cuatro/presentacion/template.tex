@@ -207,7 +207,7 @@
 } % Your institution, the optional parameter can be used for the institution shorthand and will appear on the bottom of every slide after author names, while the required parameter is used on the title slide and can include your email address or additional information on separate lines
 
 
-\date[\today]{Cd. Victoria, Tamaulipas - 16 Abril 2024} % Presentation date or conference/meeting name, the optional parameter can contain a shortened version to appear on the bottom of every slide, while the required parameter value is output to the title slide
+\date[\today]{Cd. Victoria, Tamaulipas - 24 Abril 2024} % Presentation date or conference/meeting name, the optional parameter can contain a shortened version to appear on the bottom of every slide, while the required parameter value is output to the title slide
 
 %\titlegraphic{\hspace*{8.75cm}~%
 %   \includegraphics[width=0.8cm]{cinvestavlogo}
@@ -276,8 +276,8 @@
 %----------------------------------------------------------------------------------------
 
 \section{Antecedentes y motivación del proyecto}
-\begin{frame}{Antecedentes}
-  HACER UNA NUEVA SLIDE PARA EXPLICAR LOS ANTECEDENTES PARA LLEGAR AL PROBLEMA DE EXPLORACION MULTI AGENTE
+\begin{frame}{Antecedentes 1/3}
+  %HACER UNA NUEVA SLIDE PARA EXPLICAR LOS ANTECEDENTES PARA LLEGAR AL PROBLEMA DE EXPLORACION MULTI AGENTE
   \bigskip % Vertical whitespace
   \centering
   \includegraphics[width=0.45\textwidth,height=0.35\textheight]{DJI_B4}
@@ -300,31 +300,82 @@
   %\tiny \url{https://enterprise-insights.dji.com/blog/complete-guide-to-drone-inspections}
 \end{frame}
 
-\begin{frame}{Motivación del proyecto}
-  %https://ccc.inaoep.mx/~emorales/Papers/2009/eduardo.pdf
-  %https://www.mdpi.com/2504-446X/7/1/62
-  Hablar de los usos e importancia del trabajo .. de la exploracion .. de la importancia de investigacion en robotica para el pais.
+\begin{frame}{Antecedentes 2/3}
+  %HACER UNA NUEVA SLIDE PARA EXPLICAR LOS ANTECEDENTES PARA LLEGAR AL PROBLEMA DE EXPLORACION MULTI AGENTE
   \begin{figure}[ht!]
         \centering
         \begin{minipage}{0.48\textwidth}
             \centering
-            \includegraphics[width=\linewidth]{DJI_B4} % Reemplazar con la ruta a tu imagen
+            \includegraphics[width=\linewidth]{drone_taxo} % BUSQUEDA Y RESCATE
             %\caption{Primera Imagen}
         \end{minipage}\hfill
         \begin{minipage}{0.48\textwidth}
             \centering
-            \includegraphics[width=\linewidth]{DJI_B4} % Reemplazar con la ruta a tu imagen
+            \includegraphics[width=\linewidth]{octomapas} % INSPECCION Y SEGURIDAD
             %\caption{Segunda Imagen}
         \end{minipage}
         \vspace{-0.2cm} % Espacio vertical entre imágenes
         \begin{minipage}{0.48\textwidth}
             \centering
-            \includegraphics[width=\linewidth]{DJI_B4} % Reemplazar con la ruta a tu imagen
+            \includegraphics[width=\linewidth]{orb_slam2.jpg} % DRONES EN CIUDADES CON GPS DENY
             %\caption{Tercera Imagen}
         \end{minipage}\hfill
         \begin{minipage}{0.48\textwidth}
             \centering
-            \includegraphics[width=\linewidth]{DJI_B4} % Reemplazar con la ruta a tu imagen
+            \includegraphics[width=\linewidth]{path2} % 
+            %\caption{Cuarta Imagen}
+        \end{minipage}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Antecedentes 3/3}
+
+  Exploración es una tarea fundamental en robots autónomos.\\
+  El objetivo es crear un mapa de un ambiente desconocido.\\
+  \bigskip % Vertical whitespace
+  \centering
+  \includegraphics[width=7cm]{exploracion}\\
+  
+  \begin{itemize}
+  \item \textbf{Sensar}
+  \item \textbf{Creación Mapa} 
+  \item \textbf{Localización en Mapa}
+  \item \textbf{Exploración} Aumentar la base de conocimiento del Mapa
+  \item \textbf{Planificación trayectoria} Trayectorias hacia nuevas fronteras 
+  \item \textbf{Control} Toma de decisiones y ejecución de trayectorias 
+  \end{itemize}
+
+  \alert{- El ciclo se repite hasta completar la exploración -}
+  
+\end{frame}
+
+\begin{frame}{Motivación del proyecto}
+  %https://ccc.inaoep.mx/~emorales/Papers/2009/eduardo.pdf
+  %https://www.mdpi.com/2504-446X/7/1/62
+  %Hablar de los usos e importancia del trabajo .. de la exploracion .. de la importancia de investigacion en robotica para el pais.
+  %El potencial del uso de UAVs en tareas de búsqueda y rescate, inspección, mapeo, vigilancia, entre otras, es de gran interés a explorar, debido a las habilidades de vuelo que presentan en favor de la realización de estas tareas, y en especial situaciones que podrían poner en riesgo a personas.\\
+  %Enviar personal de rescate dentro de un edificio parcialmente colapsado por un terremoto en busca de sobrevivientes, es poner a más personas en un gran riesgo, pues no se sabe qué es lo que les espera en el interior del edificio; esto limita la capacidad de tomar buenas decisiones acerca de si es seguro seguir cierto camino.
+  \begin{figure}[ht!]
+        \centering
+        \begin{minipage}{0.48\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{DJI_B5} % BUSQUEDA Y RESCATE
+            %\caption{Primera Imagen}
+        \end{minipage}\hfill
+        \begin{minipage}{0.48\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{DJI_B5} % INSPECCION Y SEGURIDAD
+            %\caption{Segunda Imagen}
+        \end{minipage}
+        \vspace{-0.2cm} % Espacio vertical entre imágenes
+        \begin{minipage}{0.48\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{DJI_B4} % DRONES EN CIUDADES CON GPS DENY
+            %\caption{Tercera Imagen}
+        \end{minipage}\hfill
+        \begin{minipage}{0.48\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{DJI_B4} % 
             %\caption{Cuarta Imagen}
         \end{minipage}
     \end{figure}
@@ -348,72 +399,191 @@
   %\bigskip % Vertical whitespace
 
   \begin{block}{Hipótesis}
-    Una estrategia que coordine y asigne tareas de exploración para múltiples VANTS de manera descentralizada, en combinación con una arquitectura de software (que resuelva los problemas de localización, manejo de mapas y planiﬁcación de rutas) mejorará el desempeño en tareas de exploración con múltiples VANTS en entornos desconocidos.
+    Una estrategia que coordine y asigne tareas de exploración para múltiples VANTS de manera descentralizada, en combinación con una arquitectura de software (que resuelva los problemas de localización, manejo de mapas y planiﬁcación de rutas) mejorará el desempeño en tareas de exploración con múltiples VANTS en entornos desconocidos en interiores.
   \end{block}
 
   Preguntas de investigación:\\
   \begin{itemize}
-  \item Elección de un simulador ligero compatible con ROS.
-  \item Resolver el problema de autónomia para cada agente nos aproxima a validar la hipótesis planteada.
-  \item Dividir el problema en agentes individuales nos ayuda a su comprensión, y hace que el mecanismo de coordinación tome un papel importante en compañia de una función que modele las fronteras a explorar. 
+  \item ¿Qué mecanismos de coordinación existen dentro de la literatura que podrían ayudar en resolver el problema de exploración multi-VANT?
+  \item ¿Qué características de la dinámica del VANT se deben considerar en el simulador para lograr trayectorias suavizadas y continúas?
+  \item ¿?
   \end{itemize}
-  
-  %Exploración es una tarea fundamental en robots autónomos.
-  %El objetivo es crear un mapa de un ambiente desconocido.\\
-  %\bigskip % Vertical whitespace
-  %\centering
-  %\includegraphics[width=7cm]{exploracion}\\
-  
-  %\begin{itemize}
-  %\item \textbf{Sensar}
-  %\item \textbf{Creación Mapa} 
-  %\item \textbf{Localización en Mapa}
-  %\item \textbf{Exploración} Aumentar la base de conocimiento del Mapa
-  %\item \textbf{Planificación trayectoria} Trayectorias hacia nuevas fronteras 
-  %\item \textbf{Control} Toma de decisiones y ejecución de trayectorias 
-  %\end{itemize}
-
-  %\alert{- El ciclo se repite hasta completar la exploración -}
-  
 \end{frame}
 
 \section{Objetivos generales y particulares}
 \begin{frame}{Objetivos generales y particulares}
-  Objetivo General:\\
-  \rule{0in}{1.2em}
-  Objetivos Particulares:
-  \begin{itemize}
-  \item Obj1
-  \item Obj2
-  \item Obj3
-  \end{itemize}
+  \begin{enumerate}
+  \item Objetivo General:\\
+    \bigskip
+    Desarrollar una estrategia de exploración descentralizada que permita resolver los problemas de coordinación para múltiples VANTS en ambientes desconocidos.
+    \pause
+    \bigskip
+  \item Objetivos Particulares:\\
+    \vspace{4mm}
+    \begin{itemize}
+    \item Desarrollar una arquitectura de software que resuelva los problemas de autonomía para un VANT (localización, manejo de mapas y navegación).
+    \item Implementar un mecanismo de coordinación descentralizada que asigne tareas de exploración.
+    \item Realizar pruebas y simulaciones de la solución propuesta en diversos entornos, analizando la relación tiempo de exploración y cobertura del área de interés.
+    \end{itemize}
+  \end{enumerate}
 \end{frame}
 
 \section{Estado del arte}
 \begin{frame}{Estado del arte}
-  Mostrar tabla
+  \centering
+  \scalebox{0.85}{
+  \begin{tabular}{ | p{3cm} | p{1.6cm} | p{2.5cm} | p{3cm} | p{3.1cm} | p{0.8cm} | p{0.9cm} | }
+    \hline    
+    \tiny REFERENCIA&
+    \tiny APLICACIÓN&
+    \tiny GENERACION MAPA&
+    \tiny PLANIFICACION DE RUTA&
+    \tiny GENERACION TRAYECTORIA&
+    \tiny SENSOR RGB-D&
+    \tiny DINAMICA VANT\\
+    \hline
+    %--------------------------
+    \tiny \cellcolor{gray!20}\cite{CIESLEWSKI2017}[\citenum{CIESLEWSKI2017}]&
+    \tiny \cellcolor{gray!20}Exploración&
+    \tiny \cellcolor{gray!20}Octomap&
+    \tiny \cellcolor{gray!20}Basado en fronteras&
+    \tiny \cellcolor{gray!20}Control directo de velocidad&
+    \tiny \cellcolor{gray!20}\ding{51} &
+    \tiny \cellcolor{gray!20}\ding{55} \\ \hline
+    %--------------------------
+    \tiny \cite{USENKO2017}[\citenum{USENKO2017}]&
+    \tiny Punto Objetivo&
+    \tiny Cuadr\'{i}cula egoc\'{e}ntrica&
+    \tiny Offline RRT*&
+    \tiny Curvas de Bezier&
+    \tiny \ding{55} &
+    \tiny \ding{51} \\ \hline
+    %--------------------------
+    \tiny \cite{MOHTA2017}[\citenum{MOHTA2017}]&
+    \tiny Punto Objetivo&
+    \tiny mapa 3D-Local y 2D-Global&
+    \tiny A*&
+    \tiny Programaci\'{o}n cuadr\'{a}tica&
+    \tiny \ding{55} &
+    \tiny \ding{51} \\ \hline
+    %--------------------------
+    \tiny \cite{LIN2017}[\citenum{LIN2017}]&
+    \tiny Punto Objetivo&
+    \tiny 3D voxel array TSDF&
+    \tiny A*&
+    \tiny Optimizaci\'{o}n cuadr\'{a}tica&
+    \tiny \ding{55}&
+    \tiny \ding{55} \\ \hline
+    %--------------------------
+    \tiny \cellcolor{gray!20}\cite{PAPACHRISTOS2017}[\citenum{PAPACHRISTOS2017}]&
+    \tiny \cellcolor{gray!20}Exploración&
+    \tiny \cellcolor{gray!20}Octomap&
+    \tiny \cellcolor{gray!20}Next Best View Planner (NBVP)&
+    \tiny \cellcolor{gray!20}Control directo de velocidad&
+    \tiny \cellcolor{gray!20}\ding{55}&
+    \tiny \cellcolor{gray!20}\ding{55} \\ \hline
+    %--------------------------
+    \tiny \cite{OLEYNIKOVA2018}[\citenum{OLEYNIKOVA2018}]&
+    \tiny Punto Objetivo&
+    \tiny Voxel Hashing TSDF&
+    \tiny Next Best View Planner (NBVP)&
+    \tiny Optimizaci\'{o}n cuadr\'{a}tica&
+    \tiny \ding{51}&
+    \tiny \ding{51} \\ \hline
+    %--------------------------
+    \tiny \cite{GAO2018}[\citenum{GAO2018}]&
+    \tiny Punto Objetivo&
+    \tiny Mapa de cuadr\'{i}cula&
+    \tiny M\'{e}todo de marcha r\'{a}pida&
+    \tiny Optimizaci\'{o}n cuadr\'{a}tica&
+    \tiny \ding{55}&
+    \tiny \ding{51} \\ \hline
+    %--------------------------
+    \tiny \cite{FLORENCE2018}[\citenum{FLORENCE2018}]&
+    \tiny Punto Objetivo&
+    \tiny Busqueda basada en visibilidad&
+    \tiny 2D A*&
+    \tiny Control predictivo por modelo (MPC)&
+    \tiny \ding{51}&
+    \tiny \ding{51} \\ \hline
+    %--------------------------
+    \tiny \cellcolor{gray!20}\cite{SELIN2019}[\citenum{SELIN2019}]&
+    \tiny \cellcolor{gray!20}Exploración&
+    \tiny \cellcolor{gray!20}Octomap&
+    \tiny \cellcolor{gray!20}Next Best View Planner (NBVP)&
+    \tiny \cellcolor{gray!20}Control directo de velocidad&
+    \tiny \cellcolor{gray!20}\ding{55}&
+    \tiny \cellcolor{gray!20}\ding{55} \\ \hline
+    %--------------------------
+    \tiny \cellcolor{gray!20}\cite{BUG2019}[\citenum{BUG2019}]&
+    \tiny \cellcolor{gray!20}Exploración&
+    \tiny \cellcolor{gray!20}NA&
+    \tiny \cellcolor{gray!20}Swarm Gradient Bug Algorithm (SGBA)&
+    \tiny \cellcolor{gray!20}Control directo de velocidad&
+    \tiny \cellcolor{gray!20}\ding{55}&
+    \tiny \cellcolor{gray!20}\ding{55} \\ \hline
+    %--------------------------
+    \tiny \cite{COLLINS2019}[\citenum{COLLINS2019}]&
+    \tiny Punto Objetivo&
+    \tiny KD Tree $+$ Mapa en Voxel&
+    \tiny B\'{u}squeda en Grafo&
+    \tiny Movimientos suaves&
+    \tiny \ding{51}&
+    \tiny \ding{51} \\ \hline
+    %--------------------------
+    \tiny \cite{CINVES2021}[\citenum{CINVES2021}]&
+    \tiny Punto Objetivo&
+    \tiny Octree&
+    \tiny Rapidly Exploring Random Trees (RRT)&
+    \tiny Basado en contornos&
+    \tiny \ding{51}&
+    \tiny \ding{51} \\ \hline
+    %--------------------------
+    \tiny \cellcolor{gray!20}\cite{CIESLEWSKI2021}[\citenum{CIESLEWSKI2021}]&
+    \tiny \cellcolor{gray!20}Exploración&
+    \tiny \cellcolor{gray!20}Octomap&
+    \tiny \cellcolor{gray!20}Basado en fronteras&
+    \tiny \cellcolor{gray!20}Control directo de velocidad&
+    \tiny \cellcolor{gray!20}\ding{51}&
+    \tiny \cellcolor{gray!20}\ding{55} \\ \hline
+    %--------------------------
+    \tiny \cellcolor{gray!20}\cite{RACER2022}[\citenum{RACER2022}]&
+    \tiny \cellcolor{gray!20}Exploración&
+    \tiny \cellcolor{gray!20}HGrid&
+    \tiny \cellcolor{gray!20}Next Best View Planner (NBVP)&
+    \tiny \cellcolor{gray!20}Control directo de velocidad&
+    \tiny \cellcolor{gray!20}\ding{51}&
+    \tiny \cellcolor{gray!20}\ding{51} \\ \hline
+    %--------------------------
+    %\scriptsize \cite{WESTHEIDER2023}[\citenum{WESTHEIDER2023}]&
+    %\scriptsize Mapa de cuadrícula&
+    %\scriptsize Deep Reinforcement Learning&
+    %\scriptsize Control directo de velocidad \\ \hline
+    %--------------------------
+    \tiny \cellcolor{gray!20}\cite{BARTOLOMEI2023}[\citenum{BARTOLOMEI2023}]&
+    \tiny \cellcolor{gray!20}Exploración&
+    \tiny \cellcolor{gray!20}HGrid&
+    \tiny \cellcolor{gray!20}Basado en fronteras&
+    \tiny \cellcolor{gray!20}Control directo de velocidad&
+    \tiny \cellcolor{gray!20}\ding{51}&
+    \tiny \cellcolor{gray!20}\ding{51} \\ \hline
+    %--------------------------
+  \end{tabular}
+  }
 \end{frame}
 
 \begin{frame}{Dirección estado del arte}
-  Mostrar grafico de donde se encuentran los trabajos
+  \centering
+  \includegraphics[width=10cm, height=6cm]{soa}
 \end{frame}
 
-\section{Metodologia}
-\begin{frame}{Metodologia}
+\section{Enfoque propuesto}
+\begin{frame}{Enfoque propuesto}
   HABLAR AQUI DE COMO SE VA HACER
   QUE ALGORITMOS SE ESTAN APLICANDO
   COMO NOS AYUDAN Y ACERCAN A LOGRARLO
   EL USO DE ROS CON EL SIMULADOR Y LA ADAPTACION AL SIMULADOR DE RACER DE BARTOLOMEI DEJANDO LA OPORTUNIDAD DE CORRER SUS SOLUCIONES PARA UNA COMPARACION DE TECNICAS
   
-  \begin{block}{Hipótesis}
-    Una estrategia que coordine y asigne tareas de exploración para múltiples VANTS, en combinación con una arquitectura de software (que resuelva los problemas de localización, manejo de mapas y planiﬁcación de rutas) mejorará el desempeño en tareas de exploración con múltiples VANTS en entornos desconocidos.
-  \end{block}
-
-  \begin{itemize}
-    \item Elección de un simulador ligero compatible con ROS.
-    \item Resolver el problema de autónomia para cada agente nos aproxima a validar la hipótesis planteada.
-    \item Dividir el problema en agentes individuales nos ayuda a su comprensión, y hace que el mecanismo de coordinación tome un papel importante en compañia de una función que modele las fronteras a explorar. 
-  \end{itemize}
 \end{frame}
 
 \section{Resultados}
@@ -421,15 +591,213 @@
   EL USO DEL SIMULADOR Y COMPRENSION DEL SISTEMA ROS EN EL LENGUAJE C++ Y PYTHON
 \end{frame}
 
+\begin{frame}{Discusión}
+  EL USO DEL SIMULADOR Y COMPRENSION DEL SISTEMA ROS EN EL LENGUAJE C++ Y PYTHON
+  Conocer las herramientas que nos permitirá la validación de nuestro enfoque
+\end{frame}
+
 \section{Conclusiones}
 \begin{frame}{Conclusiones}
-  ??? QUE PONEMOS ???
+  QUE PONEMOS
 \end{frame}
 
 \section{Cronograma de actividades}
 \begin{frame}{Cronograma de actividades}
-  Poner el cronograma aquí
-  PONER UN NUEVO CRONOGRAMA CON LOS NUEVOS TIEMPOS Y PONER EL CUATRIMESTRE EXTRA
+  \tiny 
+
+\hspace{0.0cm}\begin{minipage}{7cm}
+  \noindent\begin{tabular}{|p{0.8\textwidth}*{12}{|p{0.040\textwidth}}|}
+  % The top line
+  %\diagbox[width=12.5em]{Actividades}{Cuatrimestres}
+  \hline
+  & \multicolumn{4}{c|}{\color{teal!80}\textbf{Cuatrimestre 4}} 
+  & \multicolumn{4}{c|}{\textbf{Cuatrimestre 5}}
+  & \multicolumn{4}{c|}{\textbf{Cuatrimestre 6}}\\
+  \hline
+  % The second line, with its five years of four quarters
+  %\textcolor{black}{\textbf{Etapas}}
+  \rpt[3]{& 1 & 2 & 3 & 4} \\
+  \hline
+  \rowcolor{teal!40}{\textbf{Etapa 1}}\\
+  % using the on macro to fill in twenty cells as `on'
+  %\specialcell{Actividad 1\\espacio}        \on[0] \off[12] \\
+%Actividad 1    \on[0] \off[12]\\
+  \hline
+  \rowcolor{teal!15}{\textbf{E1.A1.} Revisi\'{o}n literatura relevante}
+%en exploraci\'{o}n multi-VANT, estrategias de exploraci\'{o}n, algoritmos de coordinaci\'{o}n y evaci\'{o}n de obst\'{a}culos
+  \onok[3] 
+  \on[9]\\
+\hline
+%\textbf{E1.A2.} Evaluaci\'{o}n de aptitudes\footnote{Evaluaci\'{o}n a partir de los nuevos trabajos}     \on[12] \\
+%\hline
+\rowcolor{teal!15}{\textbf{E1.A2.} Selecci\'{o}n de algoritmos} \onok[2] \off[10] \\
+\hline
+\rowcolor{teal!15}{\textbf{E1.A3.} Dise\~{n}o de la arquitectura de software}
+\off[1] \onok[2] \on[1] \off[8] \\
+\hline
+\rowcolor{teal!15}{\textbf{E1.A4.} Documentaci\'{o}n Etapa 1}
+\onok[3] \on[1]  \off[8] \\
+\hline
+\textbf{E1.A5.} Revisi\'{o}n de tesis Etapa 1 \off[3] \on[1]  \off[8] \\
+\hline
+% using the on macro followed by the off macro
+\rowcolor{teal!40}{\textbf{Etapa 2}}\\
+\hline
+\rowcolor{teal!15}{\textbf{E2.A1.} Selecci\'{o}n Simulador}
+\onok[1]  \off[11] \\
+\hline
+\rowcolor{teal!15}{\textbf{E2.A2.} Visualizaci\'{o}n de datos}
+\off[1] \onok[2]  \off[9] \\
+\hline
+\rowcolor{teal!15}{\textbf{E2.A3.} Control de desplazamientos}
+\off[2] \onok[1] \on[1]  \off[8] \\
+\hline
+\textbf{E2.A4.} Desarrollo de algoritmo de exploraci\'{o}n
+\off[3] \on[2] \off[7] \\
+\hline
+\textbf{E2.A5.} Implementaci\'{o}n y simulaci\'{o}n
+\off[3] \on[2] \off[7] \\
+\hline
+%\textbf{E2.A6.} Simulaci\'{o}n un solo VANT
+%\off[4] \on[1] \off[7] \\
+%\hline
+\textbf{E2.A6.} Desarrollo de coordinaci\'{o}n
+\off[4] \on[3] \off[5] \\
+\hline
+\textbf{E2.A7.} Implementaci\'{o}n y simulaci\'{o}n
+\off[6] \on[2] \off[4] \\
+\hline
+%\textbf{E2.A9.} Simulaci\'{o}n multi-VANT
+%\off[6] \on[1] \off[5] \\
+%\hline
+\textbf{E2.A8.} Documentaci\'{o}n Etapa 2
+\off[4] \on[4] \off[4] \\
+\hline
+\textbf{E2.A9.} Revisi\'{o}n de tesis Etapa 2
+\off[7] \on[1] \off[4] \\
+\hline
+\rowcolor{black!5}{\textbf{Etapa 3}}\\
+\hline
+\textbf{E3.A1.} Experimentaci\'{o}n de soluci\'{o}n
+\off[7]  \on[3] \off[2] \\
+\hline
+\textbf{E3.A2.} Recopilaci\'{o}n resultados
+\off[9]  \on[1] \off[2] \\
+\hline
+\textbf{E3.A3.} Documentaci\'{o}n Etapa 3
+\off[8] \on[3] \off[1] \\
+\hline
+\textbf{E3.A4.} Revisi\'{o}n de tesis
+\off[10] \on[2] \\
+\hline
+\textbf{E3.A5.} Divulgaci\'{o}n
+\off[5]  \on[7] \\
+\hline
+\textbf{E3.A6.} Proceso de titulaci\'{o}n
+\off[11] \on\\
+\hline
+\end{tabular}
+\end{minipage}
+
+\end{frame}
+
+\begin{frame}{Cronograma actualizado}
+  \tiny 
+
+\hspace{0.0cm}\begin{minipage}{7cm}
+  \noindent\begin{tabular}{|p{0.8\textwidth}*{12}{|p{0.040\textwidth}}|}
+  % The top line
+  %\diagbox[width=12.5em]{Actividades}{Cuatrimestres}
+  \hline
+  & \multicolumn{4}{c|}{\color{teal!80}\textbf{Cuatrimestre 4}} 
+  & \multicolumn{4}{c|}{\textbf{Cuatrimestre 5}}
+  & \multicolumn{4}{c|}{\textbf{Cuatrimestre 6}}\\
+  \hline
+  % The second line, with its five years of four quarters
+  %\textcolor{black}{\textbf{Etapas}}
+  \rpt[3]{& 1 & 2 & 3 & 4} \\
+  \hline
+  \rowcolor{teal!40}{\textbf{Etapa 1}}\\
+  % using the on macro to fill in twenty cells as `on'
+  %\specialcell{Actividad 1\\espacio}        \on[0] \off[12] \\
+%Actividad 1    \on[0] \off[12]\\
+  \hline
+  \rowcolor{teal!15}{\textbf{E1.A1.} Revisi\'{o}n literatura relevante}
+%en exploraci\'{o}n multi-VANT, estrategias de exploraci\'{o}n, algoritmos de coordinaci\'{o}n y evaci\'{o}n de obst\'{a}culos
+  \onok[3] 
+  \on[9]\\
+\hline
+%\textbf{E1.A2.} Evaluaci\'{o}n de aptitudes\footnote{Evaluaci\'{o}n a partir de los nuevos trabajos}     \on[12] \\
+%\hline
+\rowcolor{teal!15}{\textbf{E1.A2.} Selecci\'{o}n de algoritmos} \onok[2] \off[10] \\
+\hline
+\rowcolor{teal!15}{\textbf{E1.A3.} Dise\~{n}o de la arquitectura de software}
+\off[1] \onok[2] \on[1] \off[8] \\
+\hline
+\rowcolor{teal!15}{\textbf{E1.A4.} Documentaci\'{o}n Etapa 1}
+\onok[3] \on[1]  \off[8] \\
+\hline
+\textbf{E1.A5.} Revisi\'{o}n de tesis Etapa 1 \off[3] \on[1]  \off[8] \\
+\hline
+% using the on macro followed by the off macro
+\rowcolor{teal!40}{\textbf{Etapa 2}}\\
+\hline
+\rowcolor{teal!15}{\textbf{E2.A1.} Selecci\'{o}n Simulador}
+\onok[1]  \off[11] \\
+\hline
+\rowcolor{teal!15}{\textbf{E2.A2.} Visualizaci\'{o}n de datos}
+\off[1] \onok[2]  \off[9] \\
+\hline
+\rowcolor{teal!15}{\textbf{E2.A3.} Control de desplazamientos}
+\off[2] \onok[1] \on[1]  \off[8] \\
+\hline
+\textbf{E2.A4.} Desarrollo de algoritmo de exploraci\'{o}n
+\off[3] \on[2] \off[7] \\
+\hline
+\textbf{E2.A5.} Implementaci\'{o}n y simulaci\'{o}n
+\off[3] \on[2] \off[7] \\
+\hline
+%\textbf{E2.A6.} Simulaci\'{o}n un solo VANT
+%\off[4] \on[1] \off[7] \\
+%\hline
+\textbf{E2.A6.} Desarrollo de coordinaci\'{o}n
+\off[4] \on[3] \off[5] \\
+\hline
+\textbf{E2.A7.} Implementaci\'{o}n y simulaci\'{o}n
+\off[6] \on[2] \off[4] \\
+\hline
+%\textbf{E2.A9.} Simulaci\'{o}n multi-VANT
+%\off[6] \on[1] \off[5] \\
+%\hline
+\textbf{E2.A8.} Documentaci\'{o}n Etapa 2
+\off[4] \on[4] \off[4] \\
+\hline
+\textbf{E2.A9.} Revisi\'{o}n de tesis Etapa 2
+\off[7] \on[1] \off[4] \\
+\hline
+\rowcolor{black!5}{\textbf{Etapa 3}}\\
+\hline
+\textbf{E3.A1.} Experimentaci\'{o}n de soluci\'{o}n
+\off[7]  \on[3] \off[2] \\
+\hline
+\textbf{E3.A2.} Recopilaci\'{o}n resultados
+\off[9]  \on[1] \off[2] \\
+\hline
+\textbf{E3.A3.} Documentaci\'{o}n Etapa 3
+\off[8] \on[3] \off[1] \\
+\hline
+\textbf{E3.A4.} Revisi\'{o}n de tesis
+\off[10] \on[2] \\
+\hline
+\textbf{E3.A5.} Divulgaci\'{o}n
+\off[5]  \on[7] \\
+\hline
+\textbf{E3.A6.} Proceso de titulaci\'{o}n
+\off[11] \on\\
+\hline
+\end{tabular}
+\end{minipage}
+
 \end{frame}
 
 \begin{frame}[allowframebreaks,noframenumbering]{Bibliografía}

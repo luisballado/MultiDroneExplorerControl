@@ -1,10 +1,10 @@
 \babel@toc {spanish}{}\relax 
 \beamer@sectionintoc {1}{Antecedentes y motivación del proyecto}{2}{0}{1}
-\beamer@sectionintoc {2}{Planteamiento del problema}{5}{0}{2}
-\beamer@sectionintoc {3}{Hipótesis y preguntas de investigación}{7}{0}{3}
-\beamer@sectionintoc {4}{Objetivos generales y particulares}{9}{0}{4}
-\beamer@sectionintoc {5}{Estado del arte}{11}{0}{5}
-\beamer@sectionintoc {6}{Metodologia}{14}{0}{6}
-\beamer@sectionintoc {7}{Resultados}{16}{0}{7}
-\beamer@sectionintoc {8}{Conclusiones}{18}{0}{8}
-\beamer@sectionintoc {9}{Cronograma de actividades}{20}{0}{9}
+\beamer@sectionintoc {2}{Planteamiento del problema}{7}{0}{2}
+\beamer@sectionintoc {3}{Hipótesis y preguntas de investigación}{9}{0}{3}
+\beamer@sectionintoc {4}{Objetivos generales y particulares}{11}{0}{4}
+\beamer@sectionintoc {5}{Estado del arte}{14}{0}{5}
+\beamer@sectionintoc {6}{Enfoque propuesto}{17}{0}{6}
+\beamer@sectionintoc {7}{Resultados}{19}{0}{7}
+\beamer@sectionintoc {8}{Conclusiones}{22}{0}{8}
+\beamer@sectionintoc {9}{Cronograma de actividades}{24}{0}{9}
