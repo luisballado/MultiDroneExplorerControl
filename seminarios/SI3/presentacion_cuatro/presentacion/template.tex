@@ -300,41 +300,43 @@
   %\tiny \url{https://enterprise-insights.dji.com/blog/complete-guide-to-drone-inspections}
 \end{frame}
 
-\begin{frame}{Antecedentes 2/3}
+\begin{frame}{Antecedentes 2/3 - ROBOT AUTÓNOMO}
+  \centering
+  \includegraphics[width=\linewidth]{ANTECEDENTES}\\
   %HACER UNA NUEVA SLIDE PARA EXPLICAR LOS ANTECEDENTES PARA LLEGAR AL PROBLEMA DE EXPLORACION MULTI AGENTE
-  \begin{figure}[ht!]
-        \centering
-        \begin{minipage}{0.48\textwidth}
-            \centering
-            \includegraphics[width=\linewidth]{drone_taxo} % BUSQUEDA Y RESCATE
+  %\begin{figure}[ht!]
+   %     \centering
+    %    \begin{minipage}{0.48\textwidth}
+     %       \centering
+      %      \includegraphics[width=\linewidth]{drone_taxo} % BUSQUEDA Y RESCATE
             %\caption{Primera Imagen}
-        \end{minipage}\hfill
-        \begin{minipage}{0.48\textwidth}
-            \centering
-            \includegraphics[width=\linewidth]{octomapas} % INSPECCION Y SEGURIDAD
+       % \end{minipage}\hfill
+        %\begin{minipage}{0.48\textwidth}
+         %   \centering
+          %  \includegraphics[width=\linewidth]{octomapas} % INSPECCION Y SEGURIDAD
             %\caption{Segunda Imagen}
-        \end{minipage}
-        \vspace{-0.2cm} % Espacio vertical entre imágenes
-        \begin{minipage}{0.48\textwidth}
-            \centering
-            \includegraphics[width=\linewidth]{orb_slam2.jpg} % DRONES EN CIUDADES CON GPS DENY
+       % \end{minipage}
+       % \vspace{-0.2cm} % Espacio vertical entre imágenes
+       % \begin{minipage}{0.48\textwidth}
+       %     \centering
+       %     \includegraphics[width=0.9\linewidth]{ORB_SLAM} % DRONES EN CIUDADES CON GPS DENY
             %\caption{Tercera Imagen}
-        \end{minipage}\hfill
-        \begin{minipage}{0.48\textwidth}
-            \centering
-            \includegraphics[width=\linewidth]{path2} % 
+       % \end{minipage}\hfill
+       % \begin{minipage}{0.48\textwidth}
+       %     \centering
+       %     \includegraphics[width=0.8\linewidth]{path2} % 
             %\caption{Cuarta Imagen}
-        \end{minipage}
-    \end{figure}
+       % \end{minipage}
+    %\end{figure}
 \end{frame}
 
-\begin{frame}{Antecedentes 3/3}
-
-  Exploración es una tarea fundamental en robots autónomos.\\
-  El objetivo es crear un mapa de un ambiente desconocido.\\
-  \bigskip % Vertical whitespace
+\begin{frame}{Antecedentes 3/3 - EXPLORACIÓN}
+  
+  %Exploración es una tarea fundamental en robots autónomos.\\
+  %El objetivo es crear un mapa de un ambiente desconocido.\\
+  %\bigskip % Vertical whitespace
   \centering
-  \includegraphics[width=7cm]{exploracion}\\
+  \includegraphics[width=9cm]{exploracion}\\
   
   \begin{itemize}
   \item \textbf{Sensar}
@@ -359,23 +361,23 @@
         \centering
         \begin{minipage}{0.48\textwidth}
             \centering
-            \includegraphics[width=\linewidth]{DJI_B5} % BUSQUEDA Y RESCATE
+            \includegraphics[width=\linewidth,height=3.5cm]{turquia1.jpg} % BUSQUEDA Y RESCATE
             %\caption{Primera Imagen}
         \end{minipage}\hfill
         \begin{minipage}{0.48\textwidth}
             \centering
-            \includegraphics[width=\linewidth]{DJI_B5} % INSPECCION Y SEGURIDAD
+            \includegraphics[width=\linewidth,height=3.5cm]{drone_agriculture.jpg} % INSPECCION Y SEGURIDAD
             %\caption{Segunda Imagen}
         \end{minipage}
         \vspace{-0.2cm} % Espacio vertical entre imágenes
         \begin{minipage}{0.48\textwidth}
             \centering
-            \includegraphics[width=\linewidth]{DJI_B4} % DRONES EN CIUDADES CON GPS DENY
+            \includegraphics[width=\linewidth,height=3.5cm]{pipe_drone.jpg} % DRONES EN CIUDADES CON GPS DENY
             %\caption{Tercera Imagen}
         \end{minipage}\hfill
         \begin{minipage}{0.48\textwidth}
             \centering
-            \includegraphics[width=\linewidth]{DJI_B4} % 
+            \includegraphics[width=\linewidth,height=3.5cm]{drone_city.jpg} % 
             %\caption{Cuarta Imagen}
         \end{minipage}
     \end{figure}
@@ -383,14 +385,10 @@
 
 \section{Planteamiento del problema}
 \begin{frame}{Planteamiento del problema}
-  Hacer el planteamiento del problema con los diferentes problemas: --NO ESTO SE DEBE DESARROLLAR EN LOS ANTECEDENTES AQUI SOLO HABLARLO MATEMATICO
-  \begin{itemize}
-  \item Dinamica del VANT
-  \item SLAM VANT
-  \item Exploracion
-  \item Coordinacion
-  \item Sistema Multi-Agente
-  \end{itemize}
+
+  Crear una Coordinar un conjunto de vehiculos aereos no tripulados
+  Explorar un volumen desconocido tal que $V \subset R^{3}$ con un conjunto de robots aéreos autónomos $R ={R_1,R_2,...,R_n}$, siendo n la cardinalidad del conjunto de robots aéreos. Cada robot cuenta con capacidades de generar una representación del medio ambiente, localizarse y generar trayectorias que minimicen la incertidumbre de la localización y el mapeo, evaluada a través de una métrica sobre la creencia probabilística de la pose del robot y la posición de los puntos de referencia. El problema de exploración puede formularse globalmente como el de partir de una configuración inicial libre de colisiones y derivar puntos de vista que cubran el volumen previamente desconocido, determinando qué partes del espacio inicialmente inexplorado están libres o ocupadas. Para este proceso, el volumen se discretiza en un mapa de ocupación M consistente en voxeles cúbicos $m \exists M$ con una longitud de arista r. La operación está sujeta a las restricciones dinámicas del vehículo y a las limitaciones del sistema de sensores. Dado que las capacidades perceptivas de la mayoría de los sensores terminan en las superficies, los espacios huecos o bolsillos estrechos a veces pueden permanecer inexplorados, lo que lleva a un volumen residual.
+  
 \end{frame}
 
 \section{Hipótesis y preguntas de investigación}
@@ -399,15 +397,16 @@
   %\bigskip % Vertical whitespace
 
   \begin{block}{Hipótesis}
-    Una estrategia que coordine y asigne tareas de exploración para múltiples VANTS de manera descentralizada, en combinación con una arquitectura de software (que resuelva los problemas de localización, manejo de mapas y planiﬁcación de rutas) mejorará el desempeño en tareas de exploración con múltiples VANTS en entornos desconocidos en interiores.
+    Una estrategia que coordine y asigne tareas de exploración para múltiples VANTS de manera descentralizada, en combinación con una arquitectura de software diseñada para resolver problemas de localización, gestión de mapas y planificación de rutas, mejorará la eficiencia y cobertura de la exploración en interiores de un entorno desconocido.
   \end{block}
 
-  Preguntas de investigación:\\
-  \begin{itemize}
-  \item ¿Qué mecanismos de coordinación existen dentro de la literatura que podrían ayudar en resolver el problema de exploración multi-VANT?
-  \item ¿Qué características de la dinámica del VANT se deben considerar en el simulador para lograr trayectorias suavizadas y continúas?
-  \item ¿?
-  \end{itemize}
+  \begin{block}{Preguntas de investigación}
+    \begin{itemize}
+    \item ¿Qué características de la dinámica del VANT se deben considerar en el simulador para lograr trayectorias suavizadas y continúas?
+    \item ¿El uso de un planificador de trayectorias que explote las regiones libres de obstáculos contribuirá a acelerar los desplazamientos de los VANTs y, por ende, a reducir los tiempos de exploración?
+    \item ¿Qué mecanismos de coordinación existen dentro de la literatura que podrían ayudar en resolver el problema de exploración multi-VANT?
+    \end{itemize}
+  \end{block}
 \end{frame}
 
 \section{Objetivos generales y particulares}
@@ -415,14 +414,16 @@
   \begin{enumerate}
   \item Objetivo General:\\
     \bigskip
+    %Desarrollar una estrategia de exploración descentralizada que permita resolver los problemas de coordinación para múltiples VANTS en ambientes desconocidos.
+    %Desarrollar una estrategia de exploración descentralizada que integre técnicas de percepción y algoritmos de decisión para mejorar la autonomía de múltiples VANTs en la exploración de interiores.
     Desarrollar una estrategia de exploración descentralizada que permita resolver los problemas de coordinación para múltiples VANTS en ambientes desconocidos.
     \pause
     \bigskip
   \item Objetivos Particulares:\\
     \vspace{4mm}
     \begin{itemize}
-    \item Desarrollar una arquitectura de software que resuelva los problemas de autonomía para un VANT (localización, manejo de mapas y navegación).
-    \item Implementar un mecanismo de coordinación descentralizada que asigne tareas de exploración.
+    \item Desarrollar una arquitectura de software que resuelva los problemas de autonomía para un VANT (localización, manejo de mapas y planificación de trayectorias).
+    \item Implementar un mecanismo de coordinación descentralizado que asigne tareas de exploración.
     \item Realizar pruebas y simulaciones de la solución propuesta en diversos entornos, analizando la relación tiempo de exploración y cobertura del área de interés.
     \end{itemize}
   \end{enumerate}
@@ -579,16 +580,30 @@
 
 \section{Enfoque propuesto}
 \begin{frame}{Enfoque propuesto}
-  HABLAR AQUI DE COMO SE VA HACER
-  QUE ALGORITMOS SE ESTAN APLICANDO
-  COMO NOS AYUDAN Y ACERCAN A LOGRARLO
-  EL USO DE ROS CON EL SIMULADOR Y LA ADAPTACION AL SIMULADOR DE RACER DE BARTOLOMEI DEJANDO LA OPORTUNIDAD DE CORRER SUS SOLUCIONES PARA UNA COMPARACION DE TECNICAS
+  El objetivo principal es efectuar una exploracion con multiples vants de forma coordinada y descentralizada.\\
+
+  1.- Conocer los fundamentos matematicos que nos aproximen realizar la tarea de exploración autonoma.
+  - Donde estoy, a donde voy y cómo llego ahí\\
+
+  2.- Definir el uso de un simulador que nos permita validar la solución propuesta\\
+
+  3.- Conocer los algoritmos que nos acerquen a la solucion\\
+
+  4.- Coordinar\\
+
+  - Crear la arquitectura para dotar de autonomia a los drones\\
+  - Crear una exploración autonoma para un VANT\\
+  - Evaluación de fronteras \\
   
 \end{frame}
 
 \section{Resultados}
 \begin{frame}{Resultados}
-  EL USO DEL SIMULADOR Y COMPRENSION DEL SISTEMA ROS EN EL LENGUAJE C++ Y PYTHON
+  \begin{itemize}
+  \item El uso de ROS que nos resuelve el problema de computo distribuido, y comprender su arquitectura nos ayuda en formular y validar nuestra arquitectura que es escalable
+  \item La configuración de un archivo .launch en ROS nos permite crear nodos con la cardinalidad de los VANT que deseamos en nuestra simulación
+  \item Al completar la exploración de un VANT de forma autonoma, l
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{Discusión}
@@ -611,7 +626,7 @@
   %\diagbox[width=12.5em]{Actividades}{Cuatrimestres}
   \hline
   & \multicolumn{4}{c|}{\color{teal!80}\textbf{Cuatrimestre 4}} 
-  & \multicolumn{4}{c|}{\textbf{Cuatrimestre 5}}
+  & \multicolumn{4}{c|}{\color{teal!80}\textbf{Cuatrimestre 6}} 
   & \multicolumn{4}{c|}{\textbf{Cuatrimestre 6}}\\
   \hline
   % The second line, with its five years of four quarters
@@ -625,20 +640,21 @@
   \hline
   \rowcolor{teal!15}{\textbf{E1.A1.} Revisi\'{o}n literatura relevante}
 %en exploraci\'{o}n multi-VANT, estrategias de exploraci\'{o}n, algoritmos de coordinaci\'{o}n y evaci\'{o}n de obst\'{a}culos
-  \onok[3] 
-  \on[9]\\
+  \onok[8] 
+  \on[4]\\
 \hline
 %\textbf{E1.A2.} Evaluaci\'{o}n de aptitudes\footnote{Evaluaci\'{o}n a partir de los nuevos trabajos}     \on[12] \\
 %\hline
 \rowcolor{teal!15}{\textbf{E1.A2.} Selecci\'{o}n de algoritmos} \onok[2] \off[10] \\
 \hline
 \rowcolor{teal!15}{\textbf{E1.A3.} Dise\~{n}o de la arquitectura de software}
-\off[1] \onok[2] \on[1] \off[8] \\
+\off[1] \onok[3] \on[0] \off[8] \\
 \hline
 \rowcolor{teal!15}{\textbf{E1.A4.} Documentaci\'{o}n Etapa 1}
-\onok[3] \on[1]  \off[8] \\
+\onok[4] \on[0]  \off[8] \\
 \hline
-\textbf{E1.A5.} Revisi\'{o}n de tesis Etapa 1 \off[3] \on[1]  \off[8] \\
+\rowcolor{teal!15}{\textbf{E1.A5.} Revisi\'{o}n de tesis Etapa 1}
+\off[3] \onok[1]  \off[8] \\
 \hline
 % using the on macro followed by the off macro
 \rowcolor{teal!40}{\textbf{Etapa 2}}\\
