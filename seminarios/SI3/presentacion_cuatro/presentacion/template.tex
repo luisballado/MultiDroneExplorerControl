@@ -342,9 +342,9 @@
   \item \textbf{Sensar}
   \item \textbf{Creación Mapa} 
   \item \textbf{Localización en Mapa}
-  \item \textbf{Exploración} Aumentar la base de conocimiento del Mapa
-  \item \textbf{Planificación trayectoria} Trayectorias hacia nuevas fronteras 
-  \item \textbf{Control} Toma de decisiones y ejecución de trayectorias 
+  \item \textbf{Exploración} (Aumentar la base de conocimiento del mapa)
+  \item \textbf{Planificación trayectoria} (Trayectorias hacia nuevas fronteras) 
+  \item \textbf{Control} (Toma de decisiones y ejecución de trayectorias)
   \end{itemize}
 
   \alert{- El ciclo se repite hasta completar la exploración -}
@@ -386,8 +386,9 @@
 \section{Planteamiento del problema}
 \begin{frame}{Planteamiento del problema}
 
-  Crear una Coordinar un conjunto de vehiculos aereos no tripulados
-  Explorar un volumen desconocido tal que $V \subset R^{3}$ con un conjunto de robots aéreos autónomos $R ={R_1,R_2,...,R_n}$, siendo n la cardinalidad del conjunto de robots aéreos. Cada robot cuenta con capacidades de generar una representación del medio ambiente, localizarse y generar trayectorias que minimicen la incertidumbre de la localización y el mapeo, evaluada a través de una métrica sobre la creencia probabilística de la pose del robot y la posición de los puntos de referencia. El problema de exploración puede formularse globalmente como el de partir de una configuración inicial libre de colisiones y derivar puntos de vista que cubran el volumen previamente desconocido, determinando qué partes del espacio inicialmente inexplorado están libres o ocupadas. Para este proceso, el volumen se discretiza en un mapa de ocupación M consistente en voxeles cúbicos $m \exists M$ con una longitud de arista r. La operación está sujeta a las restricciones dinámicas del vehículo y a las limitaciones del sistema de sensores. Dado que las capacidades perceptivas de la mayoría de los sensores terminan en las superficies, los espacios huecos o bolsillos estrechos a veces pueden permanecer inexplorados, lo que lleva a un volumen residual.
+  
+  %Crear una Coordinar un conjunto de vehiculos aereos no tripulados
+  %Explorar un volumen desconocido tal que $V \subset R^{3}$ con un conjunto de robots aéreos autónomos $R ={R_1,R_2,...,R_n}$, siendo n la cardinalidad del conjunto de robots aéreos. Cada robot cuenta con capacidades de generar una representación del medio ambiente, localizarse y generar trayectorias que minimicen la incertidumbre de la localización y el mapeo, evaluada a través de una métrica sobre la creencia probabilística de la pose del robot y la posición de los puntos de referencia. El problema de exploración puede formularse globalmente como el de partir de una configuración inicial libre de colisiones y derivar puntos de vista que cubran el volumen previamente desconocido, determinando qué partes del espacio inicialmente inexplorado están libres o ocupadas. Para este proceso, el volumen se discretiza en un mapa de ocupación M consistente en voxeles cúbicos $m \exists M$ con una longitud de arista r. La operación está sujeta a las restricciones dinámicas del vehículo y a las limitaciones del sistema de sensores. Dado que las capacidades perceptivas de la mayoría de los sensores terminan en las superficies, los espacios huecos o bolsillos estrechos a veces pueden permanecer inexplorados, lo que lleva a un volumen residual.
   
 \end{frame}
 
