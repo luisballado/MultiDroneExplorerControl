@@ -196,7 +196,7 @@
 
 %\subtitle{Optional Subtitle} % Presentation subtitle, remove this command if a subtitle isn't required
 
-\author[]{Luis Alberto Ballado Aradias\\[\baselineskip]
+\author[]{Tesista: Luis Alberto Ballado Aradias\\[\baselineskip]
   \small{{Asesores:} \\
     \and\\Dr. José Gabriel Ramírez-Torres
     \and\\Dr. Eduardo Rodriguez-Tello }}
@@ -275,7 +275,7 @@
 %	PRESENTATION BODY SLIDES
 %----------------------------------------------------------------------------------------
 
-\section{Antecedentes y motivación del proyecto}
+\section{Introducción}
 \begin{frame}{Antecedentes 1/3}
   %HACER UNA NUEVA SLIDE PARA EXPLICAR LOS ANTECEDENTES PARA LLEGAR AL PROBLEMA DE EXPLORACION MULTI AGENTE
   \bigskip % Vertical whitespace
@@ -385,55 +385,68 @@
 
 \section{Planteamiento del problema}
 \begin{frame}{Planteamiento del problema}
-
+  %\bigskip % Vertical whitespace
+  \vspace{2mm}
+  \centering
+  \includegraphics[width=9.5cm]{problema}\\
+  \justifying
+  \small Dado un volumen de interés desconocido en un espacio cerrado que se desea explorar denotado como $\mathcal{W}$, tal que $\mathcal{W} \subset \mathbb{R}^{3}$.\\
+%el volumen se discretiza en un mapa de ocupación M consistente en voxeles cúbicos $m \exists M$ con una longitud de arista r.
+  \begin{itemize}
+  \item El volumen se discretiza usando unidades cúbicas tridimencionales (voxel) tomando valores $v_{libre}$, $v_{ocup}$, $v_{desc}$.
+    %La representación del volumen a explorar se obtiene dividiendo el volumen de interés en unidades cúbicas tridimencionales (voxel) que puede tomar los valores de libre $v_{libre}$, ocupado $v_{ocup}$ y desconocido $v_{desc}$ con lecturas a partir de los valores de una cámara RGB-D basada en un modelo de ocupación probabilístico.\\
+  \item Un conjunto de VANTS con una cámara RGB-D embarcadas denotado como $\mathcal{V} = \{\mathcal{V}_{1},\mathcal{V}_{2},\mathcal{V}_{3},...,\mathcal{V}_{n}\}$, comenzando cada uno en un estado inicial conocido $q = \{q_{1},q_{2},q_{3},...,q_{n}\}$, y terminando en una configuración que maximice la construcción de un mapa.\\
+  \end{itemize}
   
+  \begin{center}
+    \textcolor{blue}{Coordinar el conjunto de VANTs para reducir el tiempo total de exploración.}
+  \end{center}
+    
   %Crear una Coordinar un conjunto de vehiculos aereos no tripulados
   %Explorar un volumen desconocido tal que $V \subset R^{3}$ con un conjunto de robots aéreos autónomos $R ={R_1,R_2,...,R_n}$, siendo n la cardinalidad del conjunto de robots aéreos. Cada robot cuenta con capacidades de generar una representación del medio ambiente, localizarse y generar trayectorias que minimicen la incertidumbre de la localización y el mapeo, evaluada a través de una métrica sobre la creencia probabilística de la pose del robot y la posición de los puntos de referencia. El problema de exploración puede formularse globalmente como el de partir de una configuración inicial libre de colisiones y derivar puntos de vista que cubran el volumen previamente desconocido, determinando qué partes del espacio inicialmente inexplorado están libres o ocupadas. Para este proceso, el volumen se discretiza en un mapa de ocupación M consistente en voxeles cúbicos $m \exists M$ con una longitud de arista r. La operación está sujeta a las restricciones dinámicas del vehículo y a las limitaciones del sistema de sensores. Dado que las capacidades perceptivas de la mayoría de los sensores terminan en las superficies, los espacios huecos o bolsillos estrechos a veces pueden permanecer inexplorados, lo que lleva a un volumen residual.
   
 \end{frame}
 
-\section{Hipótesis y preguntas de investigación}
-\begin{frame}%{Hipótesis y preguntas de investigación}
+%\section{Hipótesis y preguntas de investigación}
+\begin{frame}{Hipótesis y preguntas de investigación}
   %\textbf{Exploración}\\
   %\bigskip % Vertical whitespace
 
   \begin{block}{Hipótesis}
     Una estrategia que coordine y asigne tareas de exploración para múltiples VANTS de manera descentralizada, en combinación con una arquitectura de software diseñada para resolver problemas de localización, gestión de mapas y planificación de rutas, mejorará la eficiencia y cobertura de la exploración en interiores de un entorno desconocido.
   \end{block}
-
-  \begin{block}{Preguntas de investigación}
-    \begin{itemize}
-    \item ¿Qué características de la dinámica del VANT se deben considerar en el simulador para lograr trayectorias suavizadas y continúas?
-    \item ¿El uso de un planificador de trayectorias que explote las regiones libres de obstáculos contribuirá a acelerar los desplazamientos de los VANTs y, por ende, a reducir los tiempos de exploración?
-    \item ¿Qué mecanismos de coordinación existen dentro de la literatura que podrían ayudar en resolver el problema de exploración multi-VANT?
-    \end{itemize}
-  \end{block}
-\end{frame}
-
-\section{Objetivos generales y particulares}
-\begin{frame}{Objetivos generales y particulares}
+  %\bigskip
+  \textcolor{blue}{Preguntas de investigación}
   \begin{enumerate}
-  \item Objetivo General:\\
-    \bigskip
-    %Desarrollar una estrategia de exploración descentralizada que permita resolver los problemas de coordinación para múltiples VANTS en ambientes desconocidos.
-    %Desarrollar una estrategia de exploración descentralizada que integre técnicas de percepción y algoritmos de decisión para mejorar la autonomía de múltiples VANTs en la exploración de interiores.
-    Desarrollar una estrategia de exploración descentralizada que permita resolver los problemas de coordinación para múltiples VANTS en ambientes desconocidos.
-    \pause
-    \bigskip
-  \item Objetivos Particulares:\\
-    \vspace{4mm}
-    \begin{itemize}
-    \item Desarrollar una arquitectura de software que resuelva los problemas de autonomía para un VANT (localización, manejo de mapas y planificación de trayectorias).
-    \item Implementar un mecanismo de coordinación descentralizado que asigne tareas de exploración.
-    \item Realizar pruebas y simulaciones de la solución propuesta en diversos entornos, analizando la relación tiempo de exploración y cobertura del área de interés.
-    \end{itemize}
+  \item ¿Qué características de la dinámica del VANT son cruciales para lograr trayectorias suaves y continuas?
+  \item ¿Podría un planificador de trayectorias que aproveche las regiones libres de obstáculos acelerar los desplazamientos de los VANTs y, consecuentemente, reducir los tiempos de exploración?
+  \item ¿Qué mecanismos de coordinación existen dentro de la literatura que podrían ayudar en resolver el problema de exploración multi-VANT?
   \end{enumerate}
 \end{frame}
 
-\section{Estado del arte}
+%\section{Objetivos}
+\begin{frame}{Objetivos}
+  \begin{block}{Objetivo General}
+    %Desarrollar una estrategia de exploración descentralizada que permita resolver los problemas de coordinación para múltiples VANTS en ambientes desconocidos.
+    %Desarrollar una estrategia de exploración descentralizada que integre técnicas de percepción y algoritmos de decisión para mejorar la autonomía de múltiples VANTs en la exploración de interiores.
+    Desarrollar una estrategia de exploración descentralizada que permita resolver los problemas de coordinación para múltiples VANTS en ambientes desconocidos.
+  \end{block}
+  %\pause
+  \bigskip
+  \textcolor{blue}{Objetivos Particulares:}\\
+  \vspace{3mm}
+  %\bigskip
+  \begin{enumerate}
+  \item Desarrollar una arquitectura de software que resuelva los problemas de autonomía para un VANT (localización, manejo de mapas y planificación de trayectorias).
+  \item Implementar un mecanismo de coordinación descentralizado que asigne tareas de exploración.
+  \item Realizar pruebas y simulaciones de la solución propuesta en diversos entornos, analizando la relación tiempo de exploración y cobertura del área de interés.
+  \end{enumerate}
+\end{frame}
+
+%\section{Estado del arte}
 \begin{frame}{Estado del arte}
   \centering
-  \scalebox{0.85}{
+  \scalebox{0.80}{
   \begin{tabular}{ | p{3cm} | p{1.6cm} | p{2.5cm} | p{3cm} | p{3.1cm} | p{0.8cm} | p{0.9cm} | }
     \hline    
     \tiny REFERENCIA&
@@ -581,40 +594,56 @@
 
 \section{Enfoque propuesto}
 \begin{frame}{Enfoque propuesto}
-  El objetivo principal es efectuar una exploracion con multiples vants de forma coordinada y descentralizada.\\
-
-  1.- Conocer los fundamentos matematicos que nos aproximen realizar la tarea de exploración autonoma.
-  - Donde estoy, a donde voy y cómo llego ahí\\
-
-  2.- Definir el uso de un simulador que nos permita validar la solución propuesta\\
-
-  3.- Conocer los algoritmos que nos acerquen a la solucion\\
-
-  4.- Coordinar\\
-
-  - Crear la arquitectura para dotar de autonomia a los drones\\
-  - Crear una exploración autonoma para un VANT\\
-  - Evaluación de fronteras \\
   
+  %El objetivo principal es efectuar una exploración con múltiples VANTS de forma coordinada y descentralizada buscando reducir el tiempo total de exploración.\\
+  %\bigskip
+  \begin{enumerate}
+  \item Conocer los fundamentos que nos aproximen a realizar la tarea de exploración autónoma con múltiples VANTS.
+  \item Profundizar en la comprensión de los comandos de control y la generación de odometría para un VANT tipo cuadricóptero.
+  \item Obtener y procesar la información proveniente de un sensor de tipo RGB-D dentro del sistema operativo ROS.
+  \item Integrar un planificador de trayectoria reactivo que, combinado con la percepción recibida por la cámara RGB-D, nos permita evadir obstáculos en su paso y construir una representación tridimensional del medio ambiente.
+  \item Elaborar la exploración con un VANT de tipo cuadrotor.
+  \item Implementar la estrategia de exploración bajo los conceptos de cohesión, exploración y explotación.
+    
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Dinámica y odometría de un VANT}
+\end{frame}
+
+\begin{frame}{Representación medio ambiente}
+\end{frame}
+
+\begin{frame}{Arquitectura}
+\end{frame}
+
+\begin{frame}{Coordinación}
 \end{frame}
 
 \section{Resultados}
 \begin{frame}{Resultados}
-  \begin{itemize}
-  \item El uso de ROS que nos resuelve el problema de computo distribuido, y comprender su arquitectura nos ayuda en formular y validar nuestra arquitectura que es escalable
-  \item La configuración de un archivo .launch en ROS nos permite crear nodos con la cardinalidad de los VANT que deseamos en nuestra simulación
-  \item Al completar la exploración de un VANT de forma autonoma, l
-  \end{itemize}
+  \begin{figure}
+    \centering
+    \animategraphics[loop,width=10cm,height=7cm]{10}{path/frame_}{000}{220}
+  \end{figure}
 \end{frame}
 
 \begin{frame}{Discusión}
-  EL USO DEL SIMULADOR Y COMPRENSION DEL SISTEMA ROS EN EL LENGUAJE C++ Y PYTHON
-  Conocer las herramientas que nos permitirá la validación de nuestro enfoque
+  %EL USO DEL SIMULADOR Y COMPRENSION DEL SISTEMA ROS EN EL LENGUAJE C++ Y PYTHON
+  %Conocer las herramientas que nos permitirá la validación de nuestro enfoque
+  \begin{itemize}
+  \item Resolver los problemas de autonomía en un VANT es clave para abordar el problema de coordinación.
+  \item La configuración de un archivo .launch en ROS nos permite crear robots con la cardinalidad deseada en nuestra simulación.
+  \item El entendimiento de la cinemática de un VANT nos permitirá crear puntos de control para utilizar trayectorias suavizadas.
+  \end{itemize}
 \end{frame}
 
 \section{Conclusiones}
 \begin{frame}{Conclusiones}
-  QUE PONEMOS
+  \begin{itemize}
+  \item ROS ofrece un marco de trabajo que facilita la interacción entre diferentes componentes de software y hardware de manera cohesiva.
+  \item Aunque la curva de aprendizaje de ROS puede ser inicialmente empinada debido a su arquitectura y complejidad técnica, los beneficios a largo plazo y las oportunidades que ofrece superan con creces las dificultades iniciales.
+  \end{itemize}
 \end{frame}
 
 \section{Cronograma de actividades}
