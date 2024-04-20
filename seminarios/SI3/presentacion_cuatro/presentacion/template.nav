@@ -30,7 +30,7 @@
 \headcommand {\beamer@framepages {12}{12}}
 \headcommand {\beamer@sectionpages {7}{12}}
 \headcommand {\beamer@subsectionpages {7}{12}}
-\headcommand {\sectionentry {3}{Enfoque propuesto}{13}{Enfoque propuesto}{0}}
+\headcommand {\sectionentry {3}{Metodología}{13}{Metodología}{0}}
 \headcommand {\slideentry {3}{0}{1}{13/13}{}{0}}
 \headcommand {\beamer@framepages {13}{13}}
 \headcommand {\slideentry {3}{0}{2}{14/14}{}{0}}
@@ -50,33 +50,33 @@
 \headcommand {\beamer@framepages {19}{19}}
 \headcommand {\slideentry {4}{0}{2}{20/20}{}{0}}
 \headcommand {\beamer@framepages {20}{20}}
-\headcommand {\slideentry {4}{0}{3}{21/21}{}{0}}
+\headcommand {\beamer@sectionpages {19}{20}}
+\headcommand {\beamer@subsectionpages {19}{20}}
+\headcommand {\sectionentry {5}{Cronograma de actividades}{21}{Cronograma de actividades}{0}}
+\headcommand {\slideentry {5}{0}{1}{21/21}{}{0}}
 \headcommand {\beamer@framepages {21}{21}}
-\headcommand {\beamer@sectionpages {19}{21}}
-\headcommand {\beamer@subsectionpages {19}{21}}
-\headcommand {\sectionentry {5}{Conclusiones}{22}{Conclusiones}{0}}
-\headcommand {\slideentry {5}{0}{1}{22/22}{}{0}}
+\headcommand {\slideentry {5}{0}{2}{22/22}{}{0}}
 \headcommand {\beamer@framepages {22}{22}}
-\headcommand {\slideentry {5}{0}{2}{23/23}{}{0}}
+\headcommand {\slideentry {5}{0}{3}{23/23}{}{0}}
 \headcommand {\beamer@framepages {23}{23}}
-\headcommand {\beamer@sectionpages {22}{23}}
-\headcommand {\beamer@subsectionpages {22}{23}}
-\headcommand {\sectionentry {6}{Cronograma de actividades}{24}{Cronograma de actividades}{0}}
-\headcommand {\slideentry {6}{0}{1}{24/24}{}{0}}
+\headcommand {\slideentry {5}{0}{4}{24/24}{}{0}}
 \headcommand {\beamer@framepages {24}{24}}
-\headcommand {\slideentry {6}{0}{2}{25/25}{}{0}}
+\headcommand {\beamer@sectionpages {21}{24}}
+\headcommand {\beamer@subsectionpages {21}{24}}
+\headcommand {\sectionentry {6}{Conclusiones}{25}{Conclusiones}{0}}
+\headcommand {\slideentry {6}{0}{1}{25/25}{}{0}}
 \headcommand {\beamer@framepages {25}{25}}
-\headcommand {\slideentry {6}{0}{3}{26/26}{}{0}}
+\headcommand {\slideentry {6}{0}{2}{26/26}{}{0}}
 \headcommand {\beamer@framepages {26}{26}}
-\headcommand {\beamer@sectionpages {24}{26}}
-\headcommand {\beamer@subsectionpages {24}{26}}
+\headcommand {\beamer@sectionpages {25}{26}}
+\headcommand {\beamer@subsectionpages {25}{26}}
 \headcommand {\sectionentry {7}{Referencias}{27}{Referencias}{0}}
 \headcommand {\slideentry {7}{0}{0}{27/27}{}{0}}
 \headcommand {\beamer@framepages {27}{27}}
 \headcommand {\slideentry {7}{0}{0}{27/28}{}{0}}
 \headcommand {\beamer@framepages {27}{28}}
 \headcommand {\beamer@partpages {1}{28}}
-\headcommand {\beamer@subsectionpages {24}{28}}
-\headcommand {\beamer@sectionpages {24}{28}}
+\headcommand {\beamer@subsectionpages {25}{28}}
+\headcommand {\beamer@sectionpages {25}{28}}
 \headcommand {\beamer@documentpages {28}}
 \headcommand {\gdef \inserttotalframenumber {26}}

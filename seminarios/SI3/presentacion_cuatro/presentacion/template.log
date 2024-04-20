@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.7)  19 APR 2024 16:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.7)  19 APR 2024 18:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1643,11 +1643,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 588--588
 [11
 
 ]
-<Images//soa.png, id=224, 530.98375pt x 359.3425pt>
+<Images//soa.png, id=224, 531.9875pt x 359.3425pt>
 File: Images//soa.png Graphic file (type png)
 <use Images//soa.png>
 Package pdftex.def Info: Images//soa.png  used on input line 593.
-(pdftex.def)             Requested size: 284.53127pt x 170.72235pt.
+(pdftex.def)             Requested size: 284.53339pt x 170.72235pt.
  [12
 
  <./Images//soa.png>] (./template.toc
@@ -2796,37 +2796,36 @@ Package pdftex.def Info: Images//path/frame_219.png  used on input line 629.
 (pdftex.def)             Requested size: 602.24852pt x 314.17297pt.
  <./Images//path/frame_219.png> <a0,fr219> <a0,fr220> [20
 
-] [21
+] (./template.toc
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+) [21
+
+]
+LaTeX Font Info:    Font shape `OT1/opensans-TLF/b/n' will be
+(Font)              scaled to size 6.0pt on input line 730.
+
+Overfull \hbox (217.35175pt too wide) in paragraph at lines 730--730
+[] 
+ []
+
+[22
+
+]
+Overfull \hbox (217.35175pt too wide) in paragraph at lines 829--829
+[] 
+ []
+
+[23
+
+] [24
 
 ] (./template.toc
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
-) [22
+) [25
 
-] [23
-
-]
-(./template.toc
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
-) [24
-
-]
-LaTeX Font Info:    Font shape `OT1/opensans-TLF/b/n' will be
-(Font)              scaled to size 6.0pt on input line 748.
-
-Overfull \hbox (217.35175pt too wide) in paragraph at lines 748--748
-[] 
- []
-
-[25
-
-]
-Overfull \hbox (217.35175pt too wide) in paragraph at lines 847--847
-[] 
- []
-
-[26
+] [26
 
 ] (./template.bbl
 LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 1
@@ -2861,12 +2860,12 @@ LaTeX Info: Redefining \. on input line 30.
 LaTeX Info: Redefining \% on input line 30.
 )
 Package rerunfilecheck Info: File `template.out' has not changed.
-(rerunfilecheck)             Checksum: 414CCD4AB2525AEA4D13A17E4A861DBF;884.
+(rerunfilecheck)             Checksum: 792F672309C1AD15BAF2EF8B9DBC116C;854.
  ) 
 Here is how much of TeX's memory you used:
  36988 strings out of 478268
  750573 string characters out of 5846348
- 1153929 words of memory out of 5000000
+ 1154403 words of memory out of 5000000
  54130 multiletter control sequences out of 15000+600000
  499867 words of font info for 109 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2887,7 +2886,7 @@ texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive
 /2022/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/local/texlive/2022/
 texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2022/texmf-d
 ist/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on template.pdf (28 pages, 20230106 bytes).
+Output written on template.pdf (28 pages, 20229514 bytes).
 PDF statistics:
  1407 PDF objects out of 1440 (max. 8388607)
  755 compressed objects within 8 object streams
