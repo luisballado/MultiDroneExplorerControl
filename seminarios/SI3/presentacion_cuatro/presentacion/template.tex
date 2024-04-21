@@ -223,10 +223,13 @@
   \forloop{loopcntr}{0}{\value{loopcntr}<#1}{#2}%
 }
 \newcommand{\on}[1][1]{
-  \forloop{loopcntr}{0}{\value{loopcntr}<#1}{&\cellcolor{gray}}
+  \forloop{loopcntr}{0}{\value{loopcntr}<#1}{&\cellcolor{lightgray}}
 }
 \newcommand{\onok}[1][1]{
   \forloop{loopcntr}{0}{\value{loopcntr}<#1}{&\cellcolor{green}}
+}
+\newcommand{\ondelay}[1][1]{
+  \forloop{loopcntr}{0}{\value{loopcntr}<#1}{&\cellcolor{red}}
 }
 \newcommand{\off}[1][1]{
   \forloop{loopcntr}{0}{\value{loopcntr}<#1}{&\cellcolor{white}}
@@ -305,29 +308,29 @@
   \includegraphics[width=\linewidth]{ANTECEDENTES}\\
   %HACER UNA NUEVA SLIDE PARA EXPLICAR LOS ANTECEDENTES PARA LLEGAR AL PROBLEMA DE EXPLORACION MULTI AGENTE
   %\begin{figure}[ht!]
-   %     \centering
-    %    \begin{minipage}{0.48\textwidth}
-     %       \centering
-      %      \includegraphics[width=\linewidth]{drone_taxo} % BUSQUEDA Y RESCATE
-            %\caption{Primera Imagen}
-       % \end{minipage}\hfill
-        %\begin{minipage}{0.48\textwidth}
-         %   \centering
-          %  \includegraphics[width=\linewidth]{octomapas} % INSPECCION Y SEGURIDAD
-            %\caption{Segunda Imagen}
-       % \end{minipage}
-       % \vspace{-0.2cm} % Espacio vertical entre imágenes
-       % \begin{minipage}{0.48\textwidth}
-       %     \centering
-       %     \includegraphics[width=0.9\linewidth]{ORB_SLAM} % DRONES EN CIUDADES CON GPS DENY
-            %\caption{Tercera Imagen}
-       % \end{minipage}\hfill
-       % \begin{minipage}{0.48\textwidth}
-       %     \centering
-       %     \includegraphics[width=0.8\linewidth]{path2} % 
-            %\caption{Cuarta Imagen}
-       % \end{minipage}
-    %\end{figure}
+  %  \centering
+  %  \begin{minipage}{0.48\textwidth}
+  %    \centering
+  %    \includegraphics[width=\linewidth]{drone_taxo} % BUSQUEDA Y RESCATE
+      %\caption{Primera Imagen}
+  %  \end{minipage}\hfill
+  %  \begin{minipage}{0.48\textwidth}
+  %    \centering
+  %    \includegraphics[width=\linewidth]{octomapas} % INSPECCION Y SEGURIDAD
+      %\caption{Segunda Imagen}
+  %  \end{minipage}
+  %  \vspace{-0.2cm} % Espacio vertical entre imágenes
+  %  \begin{minipage}{0.48\textwidth}
+  %    \centering
+  %    \includegraphics[width=0.9\linewidth]{ORB_SLAM} % DRONES EN CIUDADES CON GPS DENY
+      %\caption{Tercera Imagen}
+  %  \end{minipage}\hfill
+  %  \begin{minipage}{0.48\textwidth}
+  %    \centering
+  %    \includegraphics[width=0.8\linewidth]{path2} % 
+      %\caption{Cuarta Imagen}
+  %  \end{minipage}
+  %\end{figure}
 \end{frame}
 
 \begin{frame}{Antecedentes 3/3 - EXPLORACIÓN}
@@ -342,8 +345,8 @@
   \item \textbf{Sensar}
   \item \textbf{Creación Mapa} 
   \item \textbf{Localización en Mapa}
-  \item \textbf{Exploración} (Aumentar la base de conocimiento del mapa)
-  \item \textbf{Planificación trayectoria} (Trayectorias hacia nuevas fronteras) 
+  \item \textbf{\textcolor{blue}{Exploración}} (Aumentar la base de conocimiento del mapa)
+  \item \textbf{\textcolor{blue}{Planificación trayectoria}} (Trayectorias hacia nuevas fronteras) 
   \item \textbf{Control} (Toma de decisiones y ejecución de trayectorias)
   \end{itemize}
 
@@ -396,12 +399,9 @@
   \item El volumen se discretiza usando unidades cúbicas tridimencionales (voxel) tomando valores $v_{libre}$, $v_{ocup}$, $v_{desc}$.
     %La representación del volumen a explorar se obtiene dividiendo el volumen de interés en unidades cúbicas tridimencionales (voxel) que puede tomar los valores de libre $v_{libre}$, ocupado $v_{ocup}$ y desconocido $v_{desc}$ con lecturas a partir de los valores de una cámara RGB-D basada en un modelo de ocupación probabilístico.\\
   \item Un conjunto de VANTS con una cámara RGB-D embarcadas denotado como $\mathcal{V} = \{\mathcal{V}_{1},\mathcal{V}_{2},\mathcal{V}_{3},...,\mathcal{V}_{n}\}$, comenzando cada uno en un estado inicial conocido $q = \{q_{1},q_{2},q_{3},...,q_{n}\}$, y terminando en una configuración que maximice la construcción de un mapa.\\
+  \item \textcolor{blue}{Coordinar el conjunto de VANTs para reducir el tiempo total de exploración.}
   \end{itemize}
-  
-  \begin{center}
-    \textcolor{blue}{Coordinar el conjunto de VANTs para reducir el tiempo total de exploración.}
-  \end{center}
-    
+      
   %Crear una Coordinar un conjunto de vehiculos aereos no tripulados
   %Explorar un volumen desconocido tal que $V \subset R^{3}$ con un conjunto de robots aéreos autónomos $R ={R_1,R_2,...,R_n}$, siendo n la cardinalidad del conjunto de robots aéreos. Cada robot cuenta con capacidades de generar una representación del medio ambiente, localizarse y generar trayectorias que minimicen la incertidumbre de la localización y el mapeo, evaluada a través de una métrica sobre la creencia probabilística de la pose del robot y la posición de los puntos de referencia. El problema de exploración puede formularse globalmente como el de partir de una configuración inicial libre de colisiones y derivar puntos de vista que cubran el volumen previamente desconocido, determinando qué partes del espacio inicialmente inexplorado están libres o ocupadas. Para este proceso, el volumen se discretiza en un mapa de ocupación M consistente en voxeles cúbicos $m \exists M$ con una longitud de arista r. La operación está sujeta a las restricciones dinámicas del vehículo y a las limitaciones del sistema de sensores. Dado que las capacidades perceptivas de la mayoría de los sensores terminan en las superficies, los espacios huecos o bolsillos estrechos a veces pueden permanecer inexplorados, lo que lleva a un volumen residual.
   
@@ -411,10 +411,11 @@
 \begin{frame}{Hipótesis y preguntas de investigación}
   %\textbf{Exploración}\\
   %\bigskip % Vertical whitespace
-
+  
   \begin{block}{Hipótesis}
     Una estrategia que coordine y asigne tareas de exploración para múltiples VANTS de manera descentralizada, en combinación con una arquitectura de software diseñada para resolver problemas de localización, gestión de mapas y planificación de rutas, mejorará la eficiencia y cobertura de la exploración en interiores de un entorno desconocido.
   \end{block}
+  
   %\bigskip
   \textcolor{blue}{Preguntas de investigación}
   \begin{enumerate}
@@ -613,11 +614,19 @@
     \centering
     \begin{minipage}{0.48\textwidth}
       \textcolor{blue}{Dinámica}\\
+      {\scriptsize
+      
+      $(x,y,z,\phi,\theta,\Psi,\dot{x},\dot{y},\dot{z},\dot{\phi},\dot{\theta},\dot{\Psi})^\mathrm{T}$
+      
+      \bigskip % Vertical whitespace
+      
+      Donde:
       \begin{itemize}
-      \item Explicar ciertas cosas
-      \item Explicar ciertas cosas
-      \item Explicar ciertas cosas
+      \item $\xi = (x,y,z)^\mathrm{T}$ representan la posición linear
+      \item $\eta = (\phi,\theta,\Psi)^\mathrm{T}$ ángulos de euler: roll, pitch, yaw
+      \item $(\dot{x},\dot{y},\dot{z},\dot{\phi},\dot{\theta},\dot{\Psi})^\mathrm{T}$ velocidades lineares y angulares
       \end{itemize}
+      }
     \end{minipage}\hfill
     \begin{minipage}{0.48\textwidth}
       \centering
@@ -626,11 +635,13 @@
     \vspace{-0.2cm} % Espacio vertical entre imágenes
     \begin{minipage}{0.48\textwidth}
       \textcolor{blue}{Odometría}\\
+      {\scriptsize
       \begin{itemize}
       \item Explicar ciertas cosas
       \item Explicar ciertas cosas
       \item Explicar ciertas cosas
       \end{itemize}
+      }
     \end{minipage}\hfill
     \begin{minipage}{0.48\textwidth}
       \centering
@@ -662,11 +673,6 @@
   \end{figure}
 \end{frame}
 
-\begin{frame}{Arquitectura}
-\centering
-      \includegraphics[width=\linewidth]{robot_arquitectura} % BUSQUEDA Y RESCATE
-\end{frame}
-
 \begin{frame}{Coordinación}
   \begin{figure}[ht!]
     \centering
@@ -694,12 +700,26 @@
   \end{figure}
 \end{frame}
 
+\begin{frame}{Arquitectura}
+\centering
+      \includegraphics[width=\linewidth]{robot_arquitectura} % BUSQUEDA Y RESCATE
+\end{frame}
+
 \section{Resultados}
 \begin{frame}{Resultados}
-  \begin{figure}
-    \centering
-    \animategraphics[loop,width=10cm,height=7cm]{10}{path/frame_}{000}{220}
-  \end{figure}
+  \bigskip % Vertical whitespace
+  \centering
+  \animategraphics[width=0.45\textwidth,height=0.45\textheight]{10}{ros_map_1/ros_map-}{0}{300}
+  \hfil
+  \animategraphics[width=0.45\textwidth,height=0.45\textheight]{10}{ros_map_2/ros_map-}{0}{239}
+  \vspace{2pt}\\
+  \textcolor{blue}{1 VANT}
+  \hfil
+  \textcolor{blue}{2 VANT}
+  %\begin{figure}
+  %  \centering
+  %  \animategraphics[loop,width=10cm,height=7cm]{10}{ros_map_1/ros_map-}{0}{300}
+  %\end{figure}
 \end{frame}
 
 \section{Cronograma de actividades}
@@ -752,7 +772,7 @@
 \off[1] \onok[2]  \off[9] \\
 \hline
 \rowcolor{teal!15}{\textbf{E2.A3.} Control de desplazamientos}
-\off[2] \onok[1] \on[1]  \off[8] \\
+\off[2] \onok[2] \ondelay[2] \off[6] \\
 \hline
 \textbf{E2.A4.} Desarrollo de algoritmo de exploraci\'{o}n
 \off[3] \on[2] \off[7] \\
