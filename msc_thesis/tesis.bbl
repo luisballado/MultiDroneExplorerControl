@@ -1,98 +1,214 @@
 \begin{thebibliography}{}
 
-\bibitem[Abbass et~al., 2001]{Abbass01}
-Abbass, H.~A., Sarker, R., and Newton, C. (2001).
-\newblock {PDE}: {A} {P}areto-frontier {D}ifferential {E}volution {A}pproach
-  for {M}ulti-objective {O}ptimization {P}roblems.
-\newblock In {\em Proceedings of the Congress on Evolutionary Computation 2001
-  (CEC'2001)}, volume~2, pages 971--978, Piscataway, New Jersey. IEEE Service
-  Center.
+\bibitem[Alsamhi et~al., 2019]{SurveyCollab2019}
+Alsamhi, S.~H., Ma, O., Ansari, M.~S., and Almalki, F.~A. (2019).
+\newblock Survey on collaborative smart drones and internet of things for
+  improving smartness of smart cities.
+\newblock {\em IEEE Access}, 7:128125--128152.
 
-\bibitem[Branke and Mostaghim, 2006]{Branke06}
-Branke, J. and Mostaghim, S. (2006).
-\newblock About {S}electing the {P}ersonal {B}est in {M}ulti-{O}bjective
-  {P}article {S}warm {O}ptimization.
-\newblock In Runarsson, T.~P., Beyer, H.-G., Burke, E., Merelo-Guerv\'{o}s,
-  J.~J., Whitley, L.~D., and Yao, X., editors, {\em Parallel Problem Solving
-  from Nature - PPSN IX, 9th International Conference}, pages 523--532.
-  Springer. Lecture Notes in Computer Science Vol. 4193, Reykjavik, Iceland.
+\bibitem[Bartolomei et~al., 2023]{BARTOLOMEI2023}
+Bartolomei, L., Teixeira, L., and Chli, M. (2023).
+\newblock Fast multi-uav decentralized exploration of forests.
+\newblock {\em IEEE Robotics and Automation Letters}, 8(9):5576--5583.
 
-\bibitem[Clerc and Kennedy, 2002]{Clerc2002}
-Clerc, M. and Kennedy, J. (2002).
-\newblock {T}he {P}article {S}warm - {E}xplosion, {S}tability, and
-  {C}onvergence in a {M}ultidimensional {C}omplex {S}pace.
-\newblock {\em IEEE Transactions on Evolutionary Computation}, 6(1):58--73.
+\bibitem[Campos-Mac\'{i}as et~al., 2020]{CINVES2021}
+Campos-Mac\'{i}as, L., Aldana-L\'{o}pez, R., Guardia, R., Parra-Vilchis, J.~I.,
+  and G\'{o}mez-Guti\'{e}rrez, D. (2020).
+\newblock Autonomous navigation of {MAVs} in unknown cluttered environments.
+\newblock {\em Journal of Field Robotics}, 38(2):307--326.
 
-\bibitem[{Coello Coello} et~al., 2004]{Coello04}
-{Coello Coello}, C.~A., {Toscano Pulido}, G., and {Salazar Lechuga}, M. (2004).
-\newblock Handling {M}ultiple {O}bjectives {W}ith {P}article {S}warm
-  {O}ptimization.
-\newblock {\em IEEE Transactions on Evolutionary Computation}, 8(3):256--279.
+\bibitem[Chen and Hung, 2023]{10120943}
+Chen, B.-S. and Hung, T.-W. (2023).
+\newblock Integrating local motion planning and robust decentralized
+  fault-tolerant tracking control for search and rescue task of hybrid uavs and
+  biped robots team system.
+\newblock {\em IEEE Access}, 11:45888--45909.
 
-\bibitem[Kennedy and Eberhart, 1995]{Kennedy1995}
-Kennedy, J. and Eberhart, R. (1995).
-\newblock {P}article {S}warm {O}ptimization.
-\newblock In {\em IEEE International Conference on Neural Networks}, volume~4,
-  pages 1942--1948.
+\bibitem[Cieslewski, 2021]{CIESLEWSKI2021}
+Cieslewski, T. (2021).
+\newblock {\em Decentralized Multi-Agent Visual SLAM}.
+\newblock PhD thesis, University of Zurich.
 
-\bibitem[Moore and Chapman, 1999]{Moore99}
-Moore, J. and Chapman, R. (1999).
-\newblock Application of {P}article {S}warm to {M}ultiobjective {O}ptimization.
-\newblock Department of Computer Science and Software Engineering, Auburn
-  University. (Unpublished manuscript).
+\bibitem[Cieslewski et~al., 2017]{CIESLEWSKI2017}
+Cieslewski, T., Kaufmann, E., and Scaramuzza, D. (2017).
+\newblock Rapid exploration with multi-rotors: A frontier selection method for
+  high speed flight.
+\newblock In {\em 2017 IEEE/RSJ International Conference on Intelligent Robots
+  and Systems (IROS)}, pages 2135--2142.
 
-\bibitem[Price and Storn, 1997]{Price1997}
-Price, K. and Storn, R. (1997).
-\newblock {D}ifferential {E}volution - a simple evolution strategy for fast
-  optimization.
+\bibitem[Collins and Michael, 2020]{COLLINS2019}
+Collins, M. and Michael, N. (2020).
+\newblock Efficient planning for high-speed mav flight in unknown environments
+  using online sparse topological graphs.
+\newblock In {\em 2020 IEEE International Conference on Robotics and Automation
+  (ICRA)}, pages 11450--11456.
 
-\bibitem[Rao, 2009]{Rao2009}
-Rao, S.~S. (2009).
-\newblock {\em {E}ngineering {O}ptimization: {T}heory and {P}ractice}.
-\newblock John Wiley and Sons, {4th} edition.
-\newblock ISBN 978-0-470-18352-6.
+\bibitem[Elizondo-Leal, 2013]{CINVESTAM2013}
+Elizondo-Leal, J.~C. (2013).
+\newblock {\em Estrategia Descentralizada para la Exploraci\'{o}n Multi-Robot,
+  incluyendo Restricciones en Rango de Comunicaci\'{o}n}.
+\newblock PhD thesis, CINVESTAV Unidad Tamaulipas.
 
-\bibitem[Reyes-Sierra and {Coello Coello}, 2006]{Reyes06}
-Reyes-Sierra, M. and {Coello Coello}, C.~A. (2006).
-\newblock Multi-{O}bjective {P}article {S}warm {O}ptimizers: {A} {S}urvey of
-  the {S}tate-of-the-{A}rt.
-\newblock {\em International Journal of Computational Intelligence Research},
-  2(3):287--308.
+\bibitem[Florence et~al., 2018]{FLORENCE2018}
+Florence, P.~R., Carter, J., Ware, J., and Tedrake, R. (2018).
+\newblock Nanomap: Fast, uncertainty-aware proximity queries with lazy search
+  over local 3d data.
 
-\bibitem[Robi\v{c} and Filipi\v{c}, 2005]{Robic05}
-Robi\v{c}, T. and Filipi\v{c}, B. (2005).
-\newblock {DEMO}: {D}ifferential {E}volution for {M}ultiobjective
-  {O}ptimization.
-\newblock In {Coello Coello}, C.~A., Aguirre, A.~H., and Zitzler, E., editors,
-  {\em Evolutionary Multi-Criterion Optimization. Third International
-  Conference, EMO 2005}, pages 520--533, Guanajuato, M\'{e}xico. Springer.
-  Lecture Notes in Computer Science Vol. 3410.
+\bibitem[Gao et~al., 2018]{GAO2018}
+Gao, F., Wu, W., Lin, Y., and Shen, S. (2018).
+\newblock Online safe trajectory generation for quadrotors using fast marching
+  method and bernstein basis polynomial.
+\newblock In {\em 2018 IEEE International Conference on Robotics and Automation
+  (ICRA)}, pages 344--351.
 
-\bibitem[Santana-Quintero and {Coello Coello}, 2005]{Santana05}
-Santana-Quintero, L.~V. and {Coello Coello}, C.~A. (2005).
-\newblock An {A}lgorithm {B}ased on {D}ifferential {E}volution for
-  {M}ultiobjective {P}roblems.
-\newblock In Dagli, C.~H., Buczak, A.~L., Enke, D.~L., Embrechts, M.~J., and
-  Ersoy, O., editors, {\em Smart Engineering System Design: Neural Networks,
-  Evolutionary Programming and Artificial Life}, volume~15, pages 211--220, St.
-  Louis, Missouri, USA. ASME Press.
+\bibitem[Gielis et~al., 2022]{Gielis2022}
+Gielis, J., Shankar, A., and Prorok, A. (2022).
+\newblock A critical review of communications in multi-robot systems.
+\newblock {\em Current Robotics Reports}, 3(4):213--225.
 
-\bibitem[{Toscano Pulido}, 2005]{Toscano05}
-{Toscano Pulido}, G. (2005).
-\newblock {\em On the {U}se of {S}elf-{A}daptation and {E}litism for
-  {M}ultiobjective {P}article {S}warm {O}ptimization}.
-\newblock PhD thesis, Computer Science Section, Department of Electrical
-  Engineering, CINVESTAV-IPN, Mexico.
+\bibitem[Hart et~al., 1968]{4082128}
+Hart, P.~E., Nilsson, N.~J., and Raphael, B. (1968).
+\newblock A formal basis for the heuristic determination of minimum cost paths.
+\newblock {\em IEEE Transactions on Systems Science and Cybernetics},
+  4(2):100--107.
 
-\bibitem[van~den Bergh and Engelbrecht, 2006]{Vandenbergh2006}
-van~den Bergh, F. and Engelbrecht, A.~P. (2006).
-\newblock {A} study of particle swarm optimization particle trajectories.
-\newblock {\em Information Sciences}, 176({8}):937--971.
+\bibitem[Hirsch and Merced, 2023]{DRONESHOW2023}
+Hirsch, L. and Merced, M. J. D.~L. (2023).
+\newblock Fireworks have a new competitor: Drones.
 
-\bibitem[Xue et~al., 2003]{Xue03}
-Xue, F., Sanderson, A.~C., and Graves, R.~J. (2003).
-\newblock Pareto-based {M}ulti-{O}bjective {D}ifferential {E}volution.
-\newblock In {\em Proceedings of the 2003 Congress on Evolutionary Computation
-  (CEC'2003)}, volume~2, pages 862--869, Canberra, Australia. IEEE Press.
+\bibitem[Hornung et~al., 2013]{ARMIN2013}
+Hornung, A., Wurm, K.~M., Bennewitz, M., Stachniss, C., and Burgard, W. (2013).
+\newblock {OctoMap}: An efficient probabilistic {3D} mapping framework based on
+  octrees.
+\newblock {\em Autonomous Robots}.
+\newblock Software available at \url{https://octomap.github.io}.
+
+\bibitem[Karaman and Frazzoli, 2011]{Karaman2011}
+Karaman, S. and Frazzoli, E. (2011).
+\newblock Sampling-based algorithms for optimal motion planning.
+\newblock {\em The International Journal of Robotics Research}, 30(7):846--894.
+
+\bibitem[LaValle, 1998]{LaValle1998RapidlyexploringRT}
+LaValle, S.~M. (1998).
+\newblock Rapidly-exploring random trees : a new tool for path planning.
+\newblock {\em The annual research report}.
+
+\bibitem[Lin et~al., 2017]{LIN2017}
+Lin, Y., Gao, F., Qin, T., Gao, W., Liu, T., Wu, W., Yang, Z., and Shen, S.
+  (2017).
+\newblock Autonomous aerial navigation using monocular visual-inertial fusion.
+\newblock {\em Journal of Field Robotics}, 35(1):23--51.
+
+\bibitem[Lumelsky and Stepanov, 1987]{Lumelsky1987}
+Lumelsky, V.~J. and Stepanov, A.~A. (1987).
+\newblock Path-planning strategies for a point mobile automaton moving amidst
+  unknown obstacles of arbitrary shape.
+\newblock {\em Algorithmica}, 2(1-4):403--430.
+
+\bibitem[McGuire et~al., 2019]{BUG2019}
+McGuire, K.~N., Wagter, C.~D., Tuyls, K., Kappen, H.~J., and de~Croon, G. C.
+  H.~E. (2019).
+\newblock Minimal navigation solution for a swarm of tiny flying robots to
+  explore an unknown environment.
+\newblock {\em Science Robotics}, 4(35):eaaw9710.
+
+\bibitem[Meagher, 1982]{DONALD1982}
+Meagher, D. (1982).
+\newblock Geometric modeling using octree encoding.
+\newblock {\em Computer Graphics and Image Processing}, 19(2):129--147.
+
+\bibitem[Min et~al., 2020]{min2020accelerating}
+Min, H., Han, K.~M., and Kim, Y.~J. (2020).
+\newblock Accelerating probabilistic volumetric mapping using ray-tracing
+  graphics hardware.
+
+\bibitem[Mohsan et~al., 2023]{UAVPRACTICAL2023}
+Mohsan, S. A.~H., Othman, N. Q.~H., Li, Yanlong, A., H., M., and Khan, M.~A.
+  (2023).
+\newblock Unmanned aerial vehicles (uavs): practical aspects, applications,
+  open challenges, security issues, and future trends.
+\newblock {\em Intelligent Service Robotics}, 16(1).
+
+\bibitem[Mohta et~al., 2017]{MOHTA2017}
+Mohta, K., Watterson, M., Mulgaonkar, Y., Liu, S., Qu, C., Makineni, A.,
+  Saulnier, K., Sun, K., Zhu, A., Delmerico, J., Karydis, K., Atanasov, N.,
+  Loianno, G., Scaramuzza, D., Daniilidis, K., Taylor, C.~J., and Kumar, V.
+  (2017).
+\newblock Fast, autonomous flight in {GPS}-denied and cluttered environments.
+\newblock {\em Journal of Field Robotics}, 35(1):101--120.
+
+\bibitem[Mukhamediev et~al., 2023]{10011226}
+Mukhamediev, R.~I., Yakunin, K., Aubakirov, M., Assanov, I., Kuchin, Y.,
+  Symagulov, A., Levashenko, V., Zaitseva, E., Sokolov, D., and Amirgaliyev, Y.
+  (2023).
+\newblock Coverage path planning optimization of heterogeneous uavs group for
+  precision agriculture.
+\newblock {\em IEEE Access}, 11:5789--5803.
+
+\bibitem[Oleynikova et~al., 2018]{OLEYNIKOVA2018}
+Oleynikova, H., Taylor, Z., Siegwart, R., and Nieto, J. (2018).
+\newblock Safe local exploration for replanning in cluttered unknown
+  environments for microaerial vehicles.
+\newblock {\em {IEEE} Robotics and Automation Letters}, 3(3):1474--1481.
+
+\bibitem[Papachristos et~al., 2017]{PAPACHRISTOS2017}
+Papachristos, C., Khattak, S., and Alexis, K. (2017).
+\newblock Uncertainty-aware receding horizon exploration and mapping using
+  aerial robots.
+\newblock In {\em 2017 IEEE International Conference on Robotics and Automation
+  (ICRA)}, pages 4568--4575.
+
+\bibitem[Rou\v{c}ek et~al., 2022]{DARPA2022}
+Rou\v{c}ek, T., Pecka, M., \v{C}\'{\i}\v{z}ek, P., Pet\v{r}\'\i\v{c}ek, T.,
+  Bayer, J., \v{S}alansk\'{y}, V., Azayev, T., He\v{r}t, D., Petrl\'{i}k, M.,
+  B\'{a}\v{c}a, T., Spurn\'y, V., Kr\'{a}tky\'{y}, V., Petr\'{a}\v{c}ek, P.,
+  Baril, D., Vaidis, M., Kubelka, V., Pomerleau, F., Faigl, J., Zimmermann, K.,
+  Saska, M., Svoboda, T., and Krajn\'{i}k, T. (2022).
+\newblock System for multi-robotic exploration of underground environments
+  {CTU}-{CRAS}-{NORLAB} in the {DARPA} subterranean challenge.
+\newblock {\em Field Robotics}, 2(1):1779--1818.
+
+\bibitem[Selin et~al., 2019]{SELIN2019}
+Selin, M., Tiger, M., Duberg, D., Heintz, F., and Jensfelt, P. (2019).
+\newblock Efficient autonomous exploration planning of large-scale 3-d
+  environments.
+\newblock {\em IEEE Robotics and Automation Letters}, 4(2):1699--1706.
+
+\bibitem[Shakhatreh et~al., 2019]{SHAKHATREH2019}
+Shakhatreh, H., Sawalmeh, A.~H., Al-Fuqaha, A., Dou, Z., Almaita, E., Khalil,
+  I., Othman, N.~S., Khreishah, A., and Guizani, M. (2019).
+\newblock Unmanned aerial vehicles ({UAVs}): A survey on civil applications and
+  key research challenges.
+\newblock {\em {IEEE} Access}, 7:48572--48634.
+
+\bibitem[Sharma and Tiwari, 2016]{Sharma2016}
+Sharma, S. and Tiwari, R. (2016).
+\newblock A survey on multi robots area exploration techniques and algorithms.
+\newblock In {\em 2016 International Conference on Computational Techniques in
+  Information and Communication Technologies ({ICCTICT})}. {IEEE}.
+
+\bibitem[Stentz, 1994]{351061}
+Stentz, A. (1994).
+\newblock Optimal and efficient path planning for partially-known environments.
+\newblock In {\em Proceedings of the 1994 IEEE International Conference on
+  Robotics and Automation}, pages 3310--3317 vol.4.
+
+\bibitem[Usenko et~al., 2017]{USENKO2017}
+Usenko, V., von Stumberg, L., Pangercic, A., and Cremers, D. (2017).
+\newblock Real-time trajectory replanning for {MAVs} using uniform b-splines
+  and a 3d circular buffer.
+\newblock In {\em 2017 {IEEE}/{RSJ} International Conference on Intelligent
+  Robots and Systems ({IROS})}. {IEEE}.
+
+\bibitem[Yang et~al., 2022]{yang2022far}
+Yang, F., Cao, C., Zhu, H., Oh, J., and Zhang, J. (2022).
+\newblock Far planner: Fast, attemptable route planner using dynamic visibility
+  update.
+
+\bibitem[Zhou et~al., 2023]{RACER2022}
+Zhou, B., Xu, H., and Shen, S. (2023).
+\newblock Racer: Rapid collaborative exploration with a decentralized multi-uav
+  system.
+\newblock {\em IEEE Transactions on Robotics}, 39(3):1816--1835.
 
 \end{thebibliography}

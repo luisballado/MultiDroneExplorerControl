@@ -9,7 +9,7 @@
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
 \usepackage{graphics,epsfig,latexsym,amssymb}
-\usepackage{tabularx}
+\usepackage{tabularx,booktabs}
 \usepackage{titlesec}
 \usepackage{amsmath}
 \usepackage{blindtext}
@@ -21,7 +21,18 @@
 \usepackage{textcomp}
 \usepackage{graphicx}
 \usepackage{color}
-\usepackage{xcolor}
+\usepackage{xcolor,colortbl}
+%%
+\usepackage{bbding} %palomitas checkmark
+\usepackage{pifont}
+\usepackage{multicol}
+\usepackage{array} % needed for \arraybackslash
+\usepackage{adjustbox} % for \adjincludegraphics
+\usepackage{enumitem}% http://ctan.org/pkg/enumitem
+\usepackage{forloop}
+\usepackage{pdflscape}
+\newcounter{loopcntr}
+%%
 \usepackage{setspace}
 \usepackage[TABBOTCAP]{subfigure}
 \usepackage{algorithm}
@@ -33,6 +44,25 @@
 %\usepackage{caption}
 \usepackage{caption}[=v1]
 \usepackage[authoryear,square]{natbib}
+
+\usepackage{lipsum}
+
+%%% -()-
+\newcommand{\rpt}[2][1]{%
+  \forloop{loopcntr}{0}{\value{loopcntr}<#1}{#2}%
+}
+\newcommand{\on}[1][1]{
+  \forloop{loopcntr}{0}{\value{loopcntr}<#1}{&\cellcolor{gray}}
+}
+\newcommand{\off}[1][1]{
+  \forloop{loopcntr}{0}{\value{loopcntr}<#1}{&}
+}
+
+%\addtolength{\textheight}{90pt}
+
+\newcommand{\specialcell}[2][c]{%
+  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+%%% -()-
 
 %\renewcommand{\thesubfigure}{\thefigure.\arabic{subfigure}} 
 %\makeatletter 
@@ -67,7 +97,7 @@
 %\decimalpoint 
 
 \title{Estrategias para la exploración coordinada multi-VANT}
-\titleen        {A Study on the Mechanisms of two Multi-objective Evolutionary Algorithms}
+\titleen        {Strategies for coordinated multi-UAV exploration}
 \author         {Luis Alberto Ballado Aradias}
 \department     {Cinvestav Unidad Tamaulipas}
 \departmenten   {Cinvestav Unidad Tamaulipas}
@@ -77,14 +107,11 @@
 \date           {\today}
 \degreeday      {8}
 \degreeyear     {2024}
-\degreemonth  {Septiembre}
+\degreemonth    {Septiembre}
 \degreemonthen  {September}
 
 %A partir de 2015, este fondo ya no se utiliza
-%\acknowledgmenttoproject{
-%This research was partially funded by project number 51623 from ``Fondo Mixto
-%Conacyt-Gobierno del Estado de Tamaulipas''
-%}
+\acknowledgmenttoproject{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -101,12 +128,23 @@
 
 \abstract{
 \vspace*{-7mm}
-La \emph{Optimización Mediante Cúmulos de Partículas (PSO)} y la \emph{Evolución Diferencial (DE)} son dos \emph{Algoritmos Evolutivos (EAs)} simples de conceptualizar que han sido exitosamente utilizados para resolver problemas mono-objetivo. Dicha simplicidad y éxito han promovido su uso en problemas multi-objetivo. Aun cuando a la fecha existen varias propuestas \emph{PSO Multi-objetivo (MOPSO)} y \emph{DE Multi-objetivo (MODE)}, el conocimiento sobre el proceso de búsqueda que realizan estas dos metaheurísticas es escaso dado que solo existen algunos trabajos teóricos y únicamente mono-objetivo. Como resultado, no se conoce claramente el comportamiento de estos algoritmos evolutivos en problemas multi-objetivo. Esta tesis presenta un estudio empírico sobre estos dos \emph{Algoritmos Evolutivos Multi-objetivo (MOEAs)}. Dicho estudio consta de una serie de experimentos que comparan diferentes variantes en DE y fórmulas de vuelo en PSO. Después, se evalúa la manera en que estos dos MOEAs generan nuevas soluciones y se identifican características de dichas soluciones y su relación con los mecanismos presentes en ambos enfoques. Estos experimentos permitieron concluir que MOPSO se mueve agresivamente hacia regiones prometedoras lo cual puede deteriorar la búsqueda. MODE por otro lado, realiza una búsqueda pasiva basada en pasos pequeños que a la larga le permiten seguir moviéndose hacia el frente de Pareto. El conocimiento obtenido fue usado para diseñar dos nuevos MOEAs que mostraron ser competitivos al ser comparados con tres algoritmos (OMOPSO, NSGA-II y DEMO) representativos del estado del arte. 
+En la última década se ha tenido un aumento en la investigación y el desarrollo en el campo de los vehículos aéreos no tripulados (VANTS), lo que ha dado lugar a importantes avances e innovaciones en esta área. Los sistemas con múltiples vehículos aéreos no tripulados (multi-VANT) permiten la adquisición simultánea de datos desde múltiples puntos de vista privilegiados, en comparación con robots terrestres, lo que permite mejorar la generación de mapas de entornos desconocidos. El uso de algoritmos de coordinación inteligente y la toma descentralizada de decisiones proporciona una mayor confiabilidad a estos sistemas, ya que cualquier falla o mal funcionamiento de un VANT puede ser compensado por los VANTS restantes. Además, un buen protocolo de comunicación permite una colaboración fluida entre los robots, mejorando su capacidad para moverse de un lugar a otro evitando obstáculos a su paso (navegar), descubrir un entorno desconocido adquiriendo información a su paso (explorar). Asimismo, la integración de sensores de última generación los combierte en herramientas útiles en diversos dominios [\citenum{SHAKHATREH2019,UAVPRACTICAL2023,DRONESHOW2023}]. La mayor parte de las aplicaciones que hacen uso de VANTS suelen carecer de autonomía, requiriendo la asistencia y vigilancia constantes de un usuario humano. Para que un robot se considere autónomo deberá tomar decisiones y realizar tareas sin necesidad de que alguien le diga qué hacer o guiarlo paso a paso. Tener la capacidad de percibir su entorno y usar la información para decidir cómo moverse son considerados altos niveles de autonomía. Para llegar a ello, el robot debe resolver primero problemas como su localización, construir el mapa de su entorno y posteriormente usarlo para navegar dentro de él.\\
+
+  La exploración multi-robot ha surgido como un enfoque prometedor para la generación eficiente del mapa de un medio ambiente desconocido. Un enfoque colaborativo ofrece mejores resultados de exploración con una rápida obtención de información, logrando sus objetivos con un alto grado de consistencia y resilencia a fallos en comparación con implementaciones donde se emplea un único robot. Sin embargo, la exploración multi-robot plantea diversos desafíos que deben abordarse para su correcta implementación, como la comunicación, la colaboración y la fusión de datos.\\
+  
+  El enfoque de este trabajo es la propuesta de una estrategia descentralizada, capaz de coordinar múltiples vehículos aéreos no tripulados con habilidades para la exploración, generación de mapas y planificación de trayectorias para explorar eficientemente un área de interés.
+  
+%La \emph{Optimización Mediante Cúmulos de Partículas (PSO)} y la \emph{Evolución Diferencial (DE)} son dos \emph{Algoritmos Evolutivos (EAs)} simples de conceptualizar que han sido exitosamente utilizados para resolver problemas mono-objetivo. Dicha simplicidad y éxito han promovido su uso en problemas multi-objetivo. Aun cuando a la fecha existen varias propuestas \emph{PSO Multi-objetivo (MOPSO)} y \emph{DE Multi-objetivo (MODE)}, el conocimiento sobre el proceso de búsqueda que realizan estas dos metaheurísticas es escaso dado que solo existen algunos trabajos teóricos y únicamente mono-objetivo. Como resultado, no se conoce claramente el comportamiento de estos algoritmos evolutivos en problemas multi-objetivo. Esta tesis presenta un estudio empírico sobre estos dos \emph{Algoritmos Evolutivos Multi-objetivo (MOEAs)}. Dicho estudio consta de una serie de experimentos que comparan diferentes variantes en DE y fórmulas de vuelo en PSO. Después, se evalúa la manera en que estos dos MOEAs generan nuevas soluciones y se identifican características de dichas soluciones y su relación con los mecanismos presentes en ambos enfoques. Estos experimentos permitieron concluir que MOPSO se mueve agresivamente hacia regiones prometedoras lo cual puede deteriorar la búsqueda. MODE por otro lado, realiza una búsqueda pasiva basada en pasos pequeños que a la larga le permiten seguir moviéndose hacia el frente de Pareto. El conocimiento obtenido fue usado para diseñar dos nuevos MOEAs que mostraron ser competitivos al ser comparados con tres algoritmos (OMOPSO, NSGA-II y DEMO) representativos del estado del arte. 
 }
 
 \abstracten{
 \vspace*{-7mm}
-\emph{Particle Swarm Optimization (PSO)} and \emph{Differential Evolution (DE)} are two \emph{Evolutionary Algorithms (EAs)} which are very simple to conceptualize and have shown excellent results on single-objective optimization problems. As expected, this simplicity and success have promoted their migration to multi-objective optimization. Even when several \emph{Multi-Objective Particle Swarm Optimizers (MOPSOs)} and \emph{Multi-objective Differential Evolution (MODE)} algorithms are available to this date, knowledge about the search performed by these two metaheuristics is limited in regards to multi-objective optimization since only some theoretical single-objective studies have been developed. As a result, there is uncertainty in regards to the search behavior of these \emph{Multi-objective Evolutionary Algorithms (MOEAS)}. This thesis work performs an empirical study about the search of these two MOEAs. The performed analysis develops a series of experiments that compare several DE variants and PSO flight formulas. Thereafter, the manner in which these two MOEAs generate new solutions is evaluated and certain characteristics of these solutions and their relationship to the mechanisms found on a MOEA are identified. These experiments allowed to conclude that MOPSO performs an aggressive search towards promissory regions which might result in stagnation of the search. On the other hand, MODE performs a more passive search taking small steps which on the long run allowed it to continue improving towards the true Pareto front. This knowledge was further used to design two new MOEAs. Results indicate that both algorithms are very competitive with respect to three algorithms (OMOPSO, NSGA-II, and DEMO) representative of the state of the art. 
+In the last decade, there has been an increase in research and development in the field of Unmanned Aerial Vehicles (UAVs), leading to significant advancements and innovations in this area. Systems with multiple Unmanned Aerial Vehicles (multi-UAV) allow for the simultaneous acquisition of data from multiple vantage points, compared to ground robots, thus enhancing the generation of maps of unknown environments. The use of intelligent coordination algorithms and decentralized decision-making provides greater reliability to these systems, as any failure or malfunction of one UAV can be compensated for by the remaining UAVs. Additionally, effective communication protocols enable seamless collaboration among the robots, enhancing their ability to navigate from one place to another while avoiding obstacles (navigation) and to discover an unknown environment by acquiring information along the way (exploration). Likewise, the integration of state-of-the-art sensors turns them into useful tools in various domains [\citenum{SHAKHATREH2019,UAVPRACTICAL2023,DRONESHOW2023}]. Most applications that use UAVs often lack autonomy, requiring constant assistance and supervision from a human user. For a robot to be considered autonomous, it must make decisions and perform tasks without needing someone to tell it what to do or guide it step by step. Having the ability to perceive its environment and use the information to decide how to move are considered high levels of autonomy. To achieve this, the robot must first solve problems such as its localization, build the map of its environment, and then use it to navigate within it.\\
+
+Multi-robot exploration has emerged as a promising approach for efficiently generating a map of an unknown environment. A collaborative approach yields better exploration results with rapid information gathering, achieving its objectives with a high degree of consistency and resilience to failures compared to single-robot implementations. However, multi-robot exploration poses various challenges that must be addressed for its proper implementation, such as communication, collaboration, and data fusion.\\
+
+The focus of this work is on proposing a decentralized strategy capable of coordinating multiple unmanned aerial vehicles with exploration, mapping, and trajectory planning capabilities to efficiently explore an area of interest.
+%\emph{Particle Swarm Optimization (PSO)} and \emph{Differential Evolution (DE)} are two \emph{Evolutionary Algorithms (EAs)} which are very simple to conceptualize and have shown excellent results on single-objective optimization problems. As expected, this simplicity and success have promoted their migration to multi-objective optimization. Even when several \emph{Multi-Objective Particle Swarm Optimizers (MOPSOs)} and \emph{Multi-objective Differential Evolution (MODE)} algorithms are available to this date, knowledge about the search performed by these two metaheuristics is limited in regards to multi-objective optimization since only some theoretical single-objective studies have been developed. As a result, there is uncertainty in regards to the search behavior of these \emph{Multi-objective Evolutionary Algorithms (MOEAS)}. This thesis work performs an empirical study about the search of these two MOEAs. The performed analysis develops a series of experiments that compare several DE variants and PSO flight formulas. Thereafter, the manner in which these two MOEAs generate new solutions is evaluated and certain characteristics of these solutions and their relationship to the mechanisms found on a MOEA are identified. These experiments allowed to conclude that MOPSO performs an aggressive search towards promissory regions which might result in stagnation of the search. On the other hand, MODE performs a more passive search taking small steps which on the long run allowed it to continue improving towards the true Pareto front. This knowledge was further used to design two new MOEAs. Results indicate that both algorithms are very competitive with respect to three algorithms (OMOPSO, NSGA-II, and DEMO) representative of the state of the art. 
 }
 
 %Las publicaciones generadas por este trabajo de investigación deben publicarse en la sección de 'Anexos'
@@ -152,7 +190,7 @@ La \emph{Optimización Mediante Cúmulos de Partículas (PSO)} y la \emph{Evoluc
 \end{longtable}
 }
 
- \floatname{algorithm}{Algorithm}
+\floatname{algorithm}{Algorithm}
 %\renewcommand{\algorithmicrequire}{\textbf{Entrada:}}
 %\renewcommand{\algorithmicensure}{\textbf{Salida:}}
 
@@ -188,7 +226,7 @@ La \emph{Optimización Mediante Cúmulos de Partículas (PSO)} y la \emph{Evoluc
 \appendix
 
 \begin{doublespace}
-\include{appendixPublis}
+%\include{appendixPublis}
 %Las publicaciones generadas por este trabajo de investigación deben publicarse en la sección de 'Anexos'
 
 %\include{appendixA}
@@ -196,7 +234,10 @@ La \emph{Optimización Mediante Cúmulos de Partículas (PSO)} y la \emph{Evoluc
 %\include{appendixB}
 
 %\bibliographystyle{apalike}
+%\setcitestyle{numbers}
+%\bibliographystyle{unsrtnat}%{plainnat}%{abbrvnat}
 \bibliography{EMOO,protocolo}
+
 \end{doublespace}
 
 \end{document}

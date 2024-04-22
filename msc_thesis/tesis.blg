@@ -1,48 +1,51 @@
-This is BibTeX, Version 0.99d (TeX Live 2010)
-Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+This is BibTeX, Version 0.99d (TeX Live 2022)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: tesis.aux
 The style file: apalike.bst
 A level-1 auxiliary file: introduction.aux
+A level-1 auxiliary file: chapter1.aux
+A level-1 auxiliary file: chapter2.aux
+A level-1 auxiliary file: chapter3.aux
 Database file #1: EMOO.bib
 Database file #2: protocolo.bib
-You've used 14 entries,
+You've used 34 entries,
             1935 wiz_defined-function locations,
-            583 strings with 7107 characters,
-and the built_in function-call counts, 6301 in all, are:
-= -- 642
-> -- 233
-< -- 21
-+ -- 74
-- -- 72
-* -- 503
-:= -- 1037
-add.period$ -- 47
-call.type$ -- 14
-change.case$ -- 98
-chr.to.int$ -- 14
-cite$ -- 14
-duplicate$ -- 265
-empty$ -- 448
-format.name$ -- 104
-if$ -- 1310
+            689 strings with 11749 characters,
+and the built_in function-call counts, 16078 in all, are:
+= -- 1528
+> -- 867
+< -- 16
++ -- 314
+- -- 308
+* -- 1446
+:= -- 2784
+add.period$ -- 101
+call.type$ -- 34
+change.case$ -- 322
+chr.to.int$ -- 34
+cite$ -- 34
+duplicate$ -- 536
+empty$ -- 1006
+format.name$ -- 354
+if$ -- 3126
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 12
-newline$ -- 73
-num.names$ -- 48
-pop$ -- 85
+missing$ -- 28
+newline$ -- 170
+num.names$ -- 102
+pop$ -- 296
 preamble$ -- 1
-purify$ -- 99
+purify$ -- 324
 quote$ -- 0
-skip$ -- 219
+skip$ -- 409
 stack$ -- 0
-substring$ -- 452
-swap$ -- 72
-text.length$ -- 10
+substring$ -- 1105
+swap$ -- 85
+text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 82
+type$ -- 204
 warning$ -- 0
-while$ -- 54
+while$ -- 106
 width$ -- 0
-write$ -- 197
+write$ -- 432
