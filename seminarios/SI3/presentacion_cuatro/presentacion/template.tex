@@ -167,7 +167,7 @@
 \usepackage{bbding} %palomitas checkmark
 \usepackage{pifont}
 \usepackage{lipsum,tabularx}
-
+\usepackage{annotate-equations}
 \newcounter{loopcntr}
 
 %----------------------------------------------------------------------------------------
@@ -609,48 +609,93 @@
   \end{enumerate}
 \end{frame}
 
-\begin{frame}%{Dinámica y odometría de un VANT}
-  \begin{figure}[ht!]
+\begin{frame}{Control de un VANT \footnote{Modeling And Control Of A Quadrotor Uav With Aerodynamic Concepts, [\cite{1334249}]}}
+  
+  \begin{minipage}{0.47\textwidth}
+     
+    Estados del VANT \\
+    $(x,y,z,\phi,\theta,\Psi,\dot{x},\dot{y},\dot{z},\dot{\phi},\dot{\theta},\dot{\Psi})^\mathrm{T}$
+
+    \bigskip % Vertical whitespace
+    
+    Donde:
+    \begin{itemize}
+    \item $\xi = (x,y,z)^\mathrm{T}$ representan la posición linear
+    \item $\eta = (\phi,\theta,\Psi)^\mathrm{T}$ ángulos de euler: roll, pitch, yaw
+    \item $(\dot{x},\dot{y},\dot{z},\dot{\phi},\dot{\theta},\dot{\Psi})^\mathrm{T}$ velocidades lineares y angulares
+    \end{itemize}
+  \end{minipage}
+  \hspace{0.2cm}
+  \begin{minipage}{0.5\textwidth}
     \centering
-    \begin{minipage}{0.48\textwidth}
-      \textcolor{blue}{Dinámica}\\
-      {\scriptsize
-      
-      $(x,y,z,\phi,\theta,\Psi,\dot{x},\dot{y},\dot{z},\dot{\phi},\dot{\theta},\dot{\Psi})^\mathrm{T}$
-      
-      \bigskip % Vertical whitespace
-      
-      Donde:
+    \includegraphics[width=4cm]{uav_model.jpeg}
+    \bigskip % Vertical whitespace
+    {\scriptsize
       \begin{itemize}
-      \item $\xi = (x,y,z)^\mathrm{T}$ representan la posición linear
-      \item $\eta = (\phi,\theta,\Psi)^\mathrm{T}$ ángulos de euler: roll, pitch, yaw
-      \item $(\dot{x},\dot{y},\dot{z},\dot{\phi},\dot{\theta},\dot{\Psi})^\mathrm{T}$ velocidades lineares y angulares
+      \item Cuatro rotores.
+      \item Seis grados de libertad (3 lineales y 3 angulares).
+      \item Requiere cuatro variables de control $(u_1, u_2, u_3, u_4)$ para mantener su estabilidad y control durante el vuelo.
       \end{itemize}
-      }
-    \end{minipage}\hfill
-    \begin{minipage}{0.48\textwidth}
-      \centering
-      \includegraphics[width=0.5\linewidth,height=3.5cm]{uav_model.jpeg} % DRONES EN CIUDADES CON GPS DENY
-    \end{minipage}
-    \vspace{-0.2cm} % Espacio vertical entre imágenes
-    \begin{minipage}{0.48\textwidth}
-      \textcolor{blue}{Odometría}\\
-      {\scriptsize
-      \begin{itemize}
-      \item Explicar ciertas cosas
-      \item Explicar ciertas cosas
-      \item Explicar ciertas cosas
-      \end{itemize}
-      }
-    \end{minipage}\hfill
-    \begin{minipage}{0.48\textwidth}
-      \centering
-      \includegraphics[width=\linewidth,height=3.5cm]{drone_city.jpg} % 
-    \end{minipage}
-  \end{figure}
+    }
+  \end{minipage}
 \end{frame}
 
-\begin{frame}{Representación medio ambiente}
+\begin{frame}{Formulación del Problema de Localización y Mapeo Simultáneos \footnote{Omni-Swarm: A Decentralized Omnidirectional Visual–Inertial–UWB State Estimation System for Aerial Swarms, [\cite{OMNI2022}]}}
+
+  Dados:
+  \begin{itemize}
+  \item Conjunto de observaciones $z(t) = \{z_1,z_2,...,z_t\}$
+  \item Conjunto de comandos de control $u(t) = \{u_1,u_2,...,u_t\}$
+  \end{itemize}
+  \bigskip % Vertical whitespace
+  Requerimos:
+  \begin{itemize}
+  \item Mapa del ambiente $m$
+  \item Trayectoria del robot $x(t) = \{x_1,x_2,...,x_t\}$
+  \end{itemize}
+  \bigskip % Vertical whitespace
+  
+  En terminos probabilisticos, queremos estimar la trayectoria del robot y el mapa
+
+  \centering
+  \includegraphics[width=8cm]{slam1}
+  
+\end{frame}
+
+\begin{frame}{Formulación del Problema de Localización y Mapeo Simultáneos \footnote{Omni-Swarm: A Decentralized Omnidirectional Visual–Inertial–UWB State Estimation System for Aerial Swarms, [\cite{OMNI2022}]}}
+
+  \begin{itemize}
+  \item La trayectoria del robot y el mapa son desconocidos.
+  \item Correlación entre el mapa y las posiciones del robot. 
+  \end{itemize}
+
+  \centering
+
+  \includegraphics[width=8cm]{slam2}
+
+\end{frame}
+
+\begin{frame}{Modelos de observación y posición \footnote{Omni-Swarm: A Decentralized Omnidirectional Visual–Inertial–UWB State Estimation System for Aerial Swarms, [\cite{OMNI2022}]}}
+  
+  
+  \addvspace{\medskipamount}
+  \noindent
+  \begin{tabularx}{\linewidth}{ @{} X X @{} }
+    \begin{itemize}
+    \item Observación\\
+      \includegraphics[width=6cm]{slam5}
+    \end{itemize} &
+    \begin{itemize}
+    \item Posición\\
+      \includegraphics[width=6cm]{slam4}  
+    \end{itemize}
+  \end{tabularx}
+  \bigskip % Vertical whitespace
+  \centering
+  \includegraphics[width=7cm]{slam3}
+\end{frame}
+
+\begin{frame}{Representación medio ambiente \footnote{RACER: Rapid Collaborative Exploration With a Decentralized Multi-UAV System [\cite{RACER2022}]}}
   \begin{figure}[ht!]
     \centering
     \begin{minipage}{0.48\textwidth}
@@ -677,21 +722,27 @@
   \begin{figure}[ht!]
     \centering
     \begin{minipage}{0.48\textwidth}
+      {\scriptsize
       \begin{itemize}
-      \item Uno
-      \item Dos
+      \item \textcolor{blue}{Descentralizada} - Cada robot es completamente independiente y planea sus propios trayectos
+      \item Exploración basada en fronteras {\footnote{\tiny{A frontier-based approach for autonomous exploration [\cite{613851}]}}}
+      \item Explotación, Exploración y Cohesión
       \end{itemize}
+      }
     \end{minipage}\hfill
     \begin{minipage}{0.48\textwidth}
       \centering
-      \includegraphics[width=0.8\linewidth]{coordination} % INSPECCION Y SEGURIDAD
+      \includegraphics[width=0.6\textwidth]{coordination}{\footnote{\tiny{Beyond Robustness: A Taxonomy of Approaches towards Resilient Multi-Robot Systems [\cite{amanda}]}}}
+      %\includegraphics[width=0.8\linewidth]{coordination} % INSPECCION Y SEGURIDAD
     \end{minipage}
     \vspace{-0.2cm} % Espacio vertical entre imágenes
     \begin{minipage}{0.48\textwidth}
+      {\scriptsize
       \begin{itemize}
-      \item Uno
-      \item Dos
+      \item \textcolor{blue}{Problema de asignación} - Asignar tareas de exploración a los VANTs de manera que minimicen el costo total de ejecución.
+      \item Para instancias mayores el algoritmo $\epsilon$ - scaling auction tiene un mayor desempeño que los otros algoritmos.{\footnote{\tiny{The assignment problem revisited [\cite{Alfaro2021}]}}}
       \end{itemize}
+      }
     \end{minipage}\hfill
     \begin{minipage}{0.48\textwidth}
       \centering
@@ -700,9 +751,9 @@
   \end{figure}
 \end{frame}
 
-\begin{frame}{Arquitectura}
+\begin{frame}{Arquitectura \footnote{Visual map making for a mobile robot, [\cite{1087348}]}}
 \centering
-      \includegraphics[width=\linewidth]{robot_arquitectura} % BUSQUEDA Y RESCATE
+      \includegraphics[width=0.8\linewidth]{arquitectura} % BUSQUEDA Y RESCATE
 \end{frame}
 
 \section{Resultados}
@@ -769,33 +820,33 @@
 \onok[1]  \off[11] \\
 \hline
 \rowcolor{teal!15}{\textbf{E2.A2.} Visualizaci\'{o}n de datos}
-\off[1] \onok[2]  \off[9] \\
+\off[1] \onok[2] \ondelay[3]  \off[6] \\
 \hline
 \rowcolor{teal!15}{\textbf{E2.A3.} Control de desplazamientos}
-\off[2] \onok[2] \ondelay[2] \off[6] \\
+\off[2] \onok[2] \ondelay[4] \off[4] \\
 \hline
-\textbf{E2.A4.} Desarrollo de algoritmo de exploraci\'{o}n
-\off[3] \on[2] \off[7] \\
+\rowcolor{teal!15}{\textbf{E2.A4.} Desarrollo de algoritmo de exploraci\'{o}n}
+\off[3] \onok[2] \ondelay[3] \off[4] \\
 \hline
-\textbf{E2.A5.} Implementaci\'{o}n y simulaci\'{o}n
-\off[3] \on[2] \off[7] \\
-\hline
+%\rowcolor{teal!15}{\textbf{E2.A5.} Implementaci\'{o}n y simulaci\'{o}n}
+%\off[3] \onok[2] \ondelay[2] \off[5] \\
+%\hline
 %\textbf{E2.A6.} Simulaci\'{o}n un solo VANT
 %\off[4] \on[1] \off[7] \\
 %\hline
-\textbf{E2.A6.} Desarrollo de coordinaci\'{o}n
-\off[4] \on[3] \off[5] \\
+\textbf{E2.A5.} Desarrollo de coordinaci\'{o}n
+\off[4] \on[3] \ondelay[3] \off[2] \\
 \hline
-\textbf{E2.A7.} Implementaci\'{o}n y simulaci\'{o}n
-\off[6] \on[2] \off[4] \\
+\rowcolor{teal!15}{\textbf{E2.A6.} Implementaci\'{o}n y simulaci\'{o}n}
+\off[3] \onok[5] \ondelay[2] \off[2] \\
 \hline
 %\textbf{E2.A9.} Simulaci\'{o}n multi-VANT
 %\off[6] \on[1] \off[5] \\
 %\hline
-\textbf{E2.A8.} Documentaci\'{o}n Etapa 2
-\off[4] \on[4] \off[4] \\
+\rowcolor{teal!15}{\textbf{E2.A7.} Documentaci\'{o}n Etapa 2}
+\off[4] \onok[4] \off[4] \\
 \hline
-\textbf{E2.A9.} Revisi\'{o}n de tesis Etapa 2
+\textbf{E2.A8.} Revisi\'{o}n de tesis Etapa 2
 \off[7] \on[1] \off[4] \\
 \hline
 \rowcolor{black!5}{\textbf{Etapa 3}}\\
@@ -825,14 +876,13 @@
 
 \begin{frame}{Cronograma actualizado}
   \tiny 
-
 \hspace{0.0cm}\begin{minipage}{7cm}
   \noindent\begin{tabular}{|p{0.8\textwidth}*{12}{|p{0.040\textwidth}}|}
   % The top line
   %\diagbox[width=12.5em]{Actividades}{Cuatrimestres}
   \hline
   & \multicolumn{4}{c|}{\color{teal!80}\textbf{Cuatrimestre 4}} 
-  & \multicolumn{4}{c|}{\textbf{Cuatrimestre 5}}
+  & \multicolumn{4}{c|}{\color{teal!80}\textbf{Cuatrimestre 5}} 
   & \multicolumn{4}{c|}{\textbf{Cuatrimestre 6}}\\
   \hline
   % The second line, with its five years of four quarters
@@ -846,20 +896,21 @@
   \hline
   \rowcolor{teal!15}{\textbf{E1.A1.} Revisi\'{o}n literatura relevante}
 %en exploraci\'{o}n multi-VANT, estrategias de exploraci\'{o}n, algoritmos de coordinaci\'{o}n y evaci\'{o}n de obst\'{a}culos
-  \onok[3] 
-  \on[9]\\
+  \onok[8] 
+  \on[4]\\
 \hline
 %\textbf{E1.A2.} Evaluaci\'{o}n de aptitudes\footnote{Evaluaci\'{o}n a partir de los nuevos trabajos}     \on[12] \\
 %\hline
 \rowcolor{teal!15}{\textbf{E1.A2.} Selecci\'{o}n de algoritmos} \onok[2] \off[10] \\
 \hline
 \rowcolor{teal!15}{\textbf{E1.A3.} Dise\~{n}o de la arquitectura de software}
-\off[1] \onok[2] \on[1] \off[8] \\
+\off[1] \onok[3] \on[0] \off[8] \\
 \hline
 \rowcolor{teal!15}{\textbf{E1.A4.} Documentaci\'{o}n Etapa 1}
-\onok[3] \on[1]  \off[8] \\
+\onok[4] \on[0]  \off[8] \\
 \hline
-\textbf{E1.A5.} Revisi\'{o}n de tesis Etapa 1 \off[3] \on[1]  \off[8] \\
+\rowcolor{teal!15}{\textbf{E1.A5.} Revisi\'{o}n de tesis Etapa 1}
+\off[3] \onok[1]  \off[8] \\
 \hline
 % using the on macro followed by the off macro
 \rowcolor{teal!40}{\textbf{Etapa 2}}\\
@@ -868,75 +919,76 @@
 \onok[1]  \off[11] \\
 \hline
 \rowcolor{teal!15}{\textbf{E2.A2.} Visualizaci\'{o}n de datos}
-\off[1] \onok[2]  \off[9] \\
+\off[1] \onok[2] \ondelay[3]  \off[6] \\
 \hline
 \rowcolor{teal!15}{\textbf{E2.A3.} Control de desplazamientos}
-\off[2] \onok[1] \on[1]  \off[8] \\
+\off[2] \onok[2] \ondelay[4] \off[4] \\
 \hline
-\textbf{E2.A4.} Desarrollo de algoritmo de exploraci\'{o}n
-\off[3] \on[2] \off[7] \\
+\rowcolor{teal!15}{\textbf{E2.A4.} Desarrollo de algoritmo de exploraci\'{o}n}
+\off[3] \onok[2] \ondelay[3] \off[4] \\
 \hline
-\textbf{E2.A5.} Implementaci\'{o}n y simulaci\'{o}n
-\off[3] \on[2] \off[7] \\
-\hline
+%\rowcolor{teal!15}{\textbf{E2.A5.} Implementaci\'{o}n y simulaci\'{o}n}
+%\off[3] \onok[2] \ondelay[2] \off[5] \\
+%\hline
 %\textbf{E2.A6.} Simulaci\'{o}n un solo VANT
 %\off[4] \on[1] \off[7] \\
 %\hline
-\textbf{E2.A6.} Desarrollo de coordinaci\'{o}n
-\off[4] \on[3] \off[5] \\
+\textbf{E2.A5.} Desarrollo de coordinaci\'{o}n
+\off[4] \on[3] \ondelay[3] \off[2] \\
 \hline
-\textbf{E2.A7.} Implementaci\'{o}n y simulaci\'{o}n
-\off[6] \on[2] \off[4] \\
+\rowcolor{teal!15}{\textbf{E2.A6.} Implementaci\'{o}n y simulaci\'{o}n}
+\off[3] \onok[5] \ondelay[2] \off[2] \\
 \hline
 %\textbf{E2.A9.} Simulaci\'{o}n multi-VANT
 %\off[6] \on[1] \off[5] \\
 %\hline
-\textbf{E2.A8.} Documentaci\'{o}n Etapa 2
-\off[4] \on[4] \off[4] \\
+\rowcolor{teal!15}{\textbf{E2.A7.} Documentaci\'{o}n Etapa 2}
+\off[4] \onok[4] \off[4] \\
 \hline
-\textbf{E2.A9.} Revisi\'{o}n de tesis Etapa 2
+\textbf{E2.A8.} Revisi\'{o}n de tesis Etapa 2
 \off[7] \on[1] \off[4] \\
 \hline
 \rowcolor{black!5}{\textbf{Etapa 3}}\\
 \hline
 \textbf{E3.A1.} Experimentaci\'{o}n de soluci\'{o}n
-\off[7]  \on[3] \off[2] \\
+\off[9]  \on[2] \off[1] \\
 \hline
 \textbf{E3.A2.} Recopilaci\'{o}n resultados
-\off[9]  \on[1] \off[2] \\
+\off[10]  \on[1] \off[1] \\
 \hline
 \textbf{E3.A3.} Documentaci\'{o}n Etapa 3
-\off[8] \on[3] \off[1] \\
+\off[8] \on[4] \off[0] \\
 \hline
 \textbf{E3.A4.} Revisi\'{o}n de tesis
 \off[10] \on[2] \\
 \hline
 \textbf{E3.A5.} Divulgaci\'{o}n
-\off[5]  \on[7] \\
+\off[10]  \on[2] \\
 \hline
 \textbf{E3.A6.} Proceso de titulaci\'{o}n
 \off[11] \on\\
 \hline
 \end{tabular}
 \end{minipage}
-
 \end{frame}
 
 \begin{frame}{Discusión}
   %EL USO DEL SIMULADOR Y COMPRENSION DEL SISTEMA ROS EN EL LENGUAJE C++ Y PYTHON
   %Conocer las herramientas que nos permitirá la validación de nuestro enfoque
   \begin{itemize}
-  \item Resolver los problemas de autonomía en un VANT es clave para abordar el problema de coordinación.
-  \item La configuración de un archivo .launch en ROS nos permite crear robots con la cardinalidad deseada en nuestra simulación.
-  \item El entendimiento de la cinemática de un VANT nos permitirá crear puntos de control para utilizar trayectorias suavizadas.
+  \item La resolución de los desafíos relacionados con la autonomía en un Vehículo Aéreo No Tripulado (VANT) desempeña un papel crucial en la mitigación del problema de coordinación.
+  \item La elaboración de un archivo .launch en el entorno de Robot Operating System (ROS) nos capacita para configurar robots con la cardinalidad adecuada en nuestra simulación, conforme a la arquitectura de exploración propuesta.
+  \item Aunque la curva de aprendizaje de ROS puede ser inicialmente empinada debido a su arquitectura y complejidad técnica, los beneficios a largo plazo y las oportunidades que ofrece superan con creces las dificultades iniciales.
+  %\item El entendimiento de la cinemática de un VANT nos permitirá crear puntos de control para utilizar trayectorias suavizadas.
   \end{itemize}
 \end{frame}
 
 \section{Conclusiones}
 \begin{frame}{Conclusiones}
   \begin{itemize}
-  \item ROS ofrece un marco de trabajo que facilita la interacción entre diferentes componentes de software y hardware de manera cohesiva.
-  \item Aunque la curva de aprendizaje de ROS puede ser inicialmente empinada debido a su arquitectura y complejidad técnica, los beneficios a largo plazo y las oportunidades que ofrece superan con creces las dificultades iniciales.
+  \item Una exploración coordinada con múltiples VANT implica la integración y sincronización de múltiples sistemas, lo cual demanda una cuidadosa planificación.
+  \item Entender y abordar los desafíos asociados con la coordinación se convierte en una prioridad destacada en el desarrollo de tecnologías y aplicaciones basadas en VANT.
+  \item Un enfoque reactivo ofrece una solución dinámica y adaptable que maximiza el potencial de los sistemas autónomos en la exploración.
   \end{itemize}
 \end{frame}
 

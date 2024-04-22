@@ -1,0 +1,60 @@
+\chapter{Enfoque propuesto}
+
+Optimization is the act of obtaining the best result under given circumstances \cite{Rao2009}. In a typical engineering problem, optimization can be seen as the goal of minimizing effort or maximizing benefit. Given these very desirable goals, optimization has been a widely studied research area for several years to date. This popularity has promoted the development of many classical techniques such as the simplex method for linear optimization and several other direct search and gradient based methods for non-linear optimization. Even though many optimization problems have been successfully solved using classical techniques, many others can not be solved with these methods due to the size of the feasible region, their rough surface, or the impossibility to differentiate the objective function. These issues suggest the need for alternative optimization approaches such as evolutionary based algorithms. 
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{\emph{Evolutionary Algorithms (EAs)}} are metaheuristics inspired by Neo-Darwinian evolution theory. Two evolutionary algorithms which have been successfully applied in a wide variety of optimization tasks are: $i$) \emph{Particle Swarm Optimization (PSO)} \cite{Kennedy1995} and $ii$) \emph{Differential Evolution (DE)} \cite{Price1997}. The PSO algorithm is based on the mimicking of flocks in the search for food. PSO relies on a population of particles, referred as the \emph{swarm}, where each particle represents a solution to the problem at hand and flies on a $n$-dimensional space. DE on the other hand, is based on the premise that the population itself is a convenient source for perturbation. Therefore, on DE, the aim is to move solutions based on the variance of the population.  Both PSO and DE have shown excellent results on single objective optimization and their success has promoted their use on \emph{Multi-objective Optimization Problems (MOPs)}.
+
+The first \emph{Multi-objective Particle Swarm Optimizer (MOPSO)} was proposed by Moore and Chapman \cite{Moore99}. Since then, several MOPSOs \cite{Reyes06,Toscano05,Branke06,Coello04} have emerged which solve non-trivial MOPs using a very low number of function evaluations. For the case of differential evolution, Abbass \emph{et al.} \cite{Abbass01} reported the first proposal of a \emph{Multi-objective Differential Evolution (MODE)}. As in the case of MOPSO, from this point several MODE algorithms have been proposed in the specialized literature \cite{Robic05,Santana05,Xue03}.
+
+
+\section{Conceptos fundamentales} \label{}
+
+Even when several MOPSO and MODE proposals are available in the state of the art, very few researchers have studied the mechanisms that guide the search on these two \emph{Multi-objective Evolutionary Algorithms} (MOEAs). In specific, some previous research have developed theoretical analysis of these metaheuristics \cite{Vandenbergh2006,Clerc2002} and even when the results obtained from these works have improved both PSO and DE, most of them are for single-objective optimization. Moreover, results rely on a set of simplifications made to the metaheuristic at hand and/or a mathematical model that describes the movement of solutions. In addition, such analyses focused on one metaheuristic only (either PSO or DE). This prevents these works from comparing the search behavior of one metaheuristic with another such that knowledge in regards to what algorithm would work best under given circumstances is obtained. 
+
+It seems reasonable to think that using an empirical approach to visualize the behavior of MOPSO and MODE might allow for a better understanding of these two MOEAs. In this sense, studying the manner in which these two metaheuristics generate new solutions and finding the relationship between characteristics of these solutions with the mechanisms found in each MOEA might allow to obtain knowledge not found previously. This knowledge may permit to better describe the behavior of an evolutionary technique and, as a result, to take full advantage of the search characteristics of a MOEA. To this end, it seems wise to compare and contrast the search performed by MOPSO and MODE on a series of multi-objective optimization problems with the aim to identify the mechanisms that allow to solve MOPs at a low number of function evaluations. The challenge of such a study relies on finding the mechanisms that improve the search behavior of these two algorithms.
+
+%This thesis work performs a series of experiments on the metaheuristics particle swarm optimization and differential evolution on multi-objective optimization problems. The performed experiments attempt to obtain further information about the search performed by these two metaheuristics. To this end, the first experiment evaluates a series of flight formulas for particle swarm optimization. Then, a similar experiment is performed with regards to several differential evolution variants found in the specialized literature. Thereafter, an online convergence experiment is presented in order to observe the convergence behavior of MOPSO and MODE through time. Moreover, the distribution of the generated points (in decision and objective space) by these two metaheuristics is also addressed. In addition, the distance traveled by particles of MOPSO and solutions of MODE allowed us to obtain further information on the behavior of these two MOEAs. Finally, once enough information was obtained, a PSO-DE hybrid multi-objective evolutionary algorithm is proposed which attempts to use the most beneficial mechanisms from MOPSO and MODE. The proposal is further evaluated with a series of experiments that show its competitiveness with other state of the art MOEAs. \\
+
+\subsection{Sistema de ejes coordenados}
+
+The motivation for this work relies on the lack of detailed knowledge about the search behavior of particle swarm optimization and differential evolution on multi-objective optimization. The ability to identify the mechanisms that impact on the search of these two MOEAs will allow for the design of new evolutionary approaches that use a reduced number of objective function evaluations to solve a selection of MOPs. 
+
+\subsection{Coordenadas homogéneas}
+
+It is possible to understand the behavior of the evolutionary algorithms \emph{particle swarm optimization} and \emph{differential evolution} on \emph{multi-objective optimization} problems  by means of identifying general characteristics and mechanisms that can be detrimental or beneficial to the search. The identification of those mechanisms and the understanding of their promoted behavior is beneficial for the development of new MOEAs that are better suited for MOPs. 
+
+\subsection{Transformaciones geométricas}
+
+The main objective of this thesis work can be defined as follows: \emph{``To contribute to the state of the art by identifying and understanding the mechanisms that promote good performance on multi-objective particle swarm optimization and multi-objective differential evolution and that allow a multi-objective evolutionary algorithm to reduce the number of objective function evaluations needed to solve an arbitrary MOP''}. 
+
+This main goal has been divided in the following specific objectives: 
+\begin{itemize}\setlength{\itemsep}{-1mm}
+	\item To evaluate different strategies to generate solutions in DE and to move particles in PSO on multi-objective problems.
+	\item To perform a series of experiments that allow to better understand the behavior of PSO and DE on multi-objective problems.
+	\item To identify the mechanisms that impact (either enhance it or deter it) in the search of the metaheuristics particle swarm optimization and differential evolution when attacking multi-objective optimization problems. 
+	\item To contribute to the state of the art with at least one multi-objective evolutionary algorithm that utilizes knowledge derived from this work to enhance the search process on diversity and convergence. 
+	\item To validate the performed experiments using performance measures and test problems taken from the specialized literature.
+\end{itemize}
+
+
+\section{Funcionamiento de un VANT}
+
+The rest of this document is organized as follows: Chapter~\ref{chapter2} presents basic concepts and background in the field of optimization. Then, Chapter~\ref{ch:PSODE} introduces particle swarm optimization and differential evolution which are the two metaheuristics on which this thesis work focusses. In order to introduce these two metaheuristics, EAs is general are also described in this chapter. Afterwards, Chapter~\ref{experiments} presents a series of experiments that were developed and that allowed to obtain further information about the search performed by PSO and DE in multi-objective optimization. This knowledge was used to develop two new MOEAs which are presented and evaluted in Chapter~\ref{proposals}. Finally, Chapter~\ref{conclusion} concludes this thesis work.
+
+\section{Control de un VANT}
+
+The rest of this document is organized as follows: Chapter~\ref{chapter2} presents basic concepts and background in the field of optimization. Then, Chapter~\ref{ch:PSODE} introduces particle swarm optimization and differential evolution which are the two metaheuristics on which this thesis work focusses. In order to introduce these two metaheuristics, EAs is general are also described in this chapter. Afterwards, Chapter~\ref{experiments} presents a series of experiments that were developed and that allowed to obtain further information about the search performed by PSO and DE in multi-objective optimization. This knowledge was used to develop two new MOEAs which are presented and evaluted in Chapter~\ref{proposals}. Finally, Chapter~\ref{conclusion} concludes this thesis work.
+
+\section{Estimación de posición}
+
+The rest of this document is organized as follows: Chapter~\ref{chapter2} presents basic concepts and background in the field of optimization. Then, Chapter~\ref{ch:PSODE} introduces particle swarm optimization and differential evolution which are the two metaheuristics on which this thesis work focusses. In order to introduce these two metaheuristics, EAs is general are also described in this chapter. Afterwards, Chapter~\ref{experiments} presents a series of experiments that were developed and that allowed to obtain further information about the search performed by PSO and DE in multi-objective optimization. This knowledge was used to develop two new MOEAs which are presented and evaluted in Chapter~\ref{proposals}. Finally, Chapter~\ref{conclusion} concludes this thesis work.
+
+
+
+
