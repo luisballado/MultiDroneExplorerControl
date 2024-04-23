@@ -1,16 +1,37 @@
 \chapter{Introducción}
 
-\lipsum[2-4]
+Los robots de servicio son máquinas autónomas diseñadas con el objetivo de prestar servicio a los humanos fuera del ambiente industrial, convirtiéndose poco a poco en una parte esencial en nuestras vidas. Los podemos encontrar en diversos ámbitos, como en el entretenimiento, limpieza, logística, entre otras soluciones inovadoras.
+
+Los vehículos aéreos no tripulados han evolucionado rápidamente y se han convertido en sistemas versátiles capaces de una amplia gama de aplicaciones, desde vigilancia hasta misiones de búsqueda y rescate [2]. Entre ellas, las tareas de exploración en entornos complejos y dinámicos representan un área interesante y
+desafiante, donde la coordinación efectiva de múltiples VANT se vuelve primordial. Este tema es de creciente importancia a medida que los vehículos aéreos no tripulados continúan transformando distintas áreas, incluida la agricultura, el monitoreo ambiental, mantenimiento de infraestructuras (puentes, edificios, líneas eléctricas) y la respuesta a desastres naturales, reduciendo los riesgos y costos asociados con las inspecciones manuales.
+
+Los VANTS capaces de realizar tareas con autonomía generalmente cuentan con mayores capacidades de carga y procesamiento computacional, así como sensores capaces de percibir grandes volúmenes de datos en un tiempo reducido. Estos VANTS se centran en realizar tareas sencillas y estáticas en áreas abiertas con rutas
+predeterminadas, o bien, en contextos de operación por control remoto por un usuario. Sin embargo en donde los espacios son estrechos, se optan por el uso de VANTS reducidos, comúnmente llamados Micro-Vehículos Aéreos no tripulados (MAVs).
+
+La exploración de áreas desconocidas, a través de la sinergia de sistemas multi-VANT promete ser una solución innovadora. Al comprender y perfeccionar una estrategia para la coordinación de múltiples vehículos aéreos no tripulados en tareas de exploración, esperamos descubrir nuevas posibilidades, replicar o romper los límites existentes, y en última instancia, avanzar en los campos de la robótica y la exploración.
 
 \section{Antecedentes y motivación} 
 
 \subsection*{Antecedentes}
-\lipsum[1]
+
+Un sistema autónomo de un Vehículo Aéreo no Tripulado, consta de cuatro algoritmos:
+\begin{itemize}\setlength{\itemsep}{-1mm}
+\item Generación de una representación del entorno
+\item Planificación de trayectorias
+\item Evasión de obstáculos
+\item Comunicación
+\end{itemize}
+
+La computadora embebida para un sistema de navegación usado en Micro-Vehículos Aéreos son de bajo rendimiento, pero su necesidad de autonomía sigue siendo la misma que un VANT de mayor tamaño. Es por ello que es necesario equiparlos con algoritmos de baja complejidad computacional.
+
+La necesidad de coordinación entre múltiples VANTS en tareas de exploración, surge debido a las limitaciones individuales en cuanto a la extensión de terreno que pueden cubrir y su desempeño. La exploración de áreas extensas o peligrosas a menudo exige un enfoque colaborativo, donde los VANTS trabajen juntos para optimizar la asignación de recursos y mejorar la recopilación y el análisis de datos.
+
+Sin embargo, el camino hacia una coordinación entre múltiples vehículos aéreos no tripulados, presenta diversos desafíos. Las complejidades de gestionar un grupo de vehículos aéreos no tripulados, navegar en entornos dinámicos y distribuir tareas de forma inteligente son sólo algunas de las cuestiones que exigen nuestra atención. %El objetivo del documento es explorar y proponer una estrategia para mejorar la coordinación de múltiples VANTS en el contexto de las tareas de exploración.
 % usar --> para resaltar cosas \textbf{\emph{}}
 
 \subsection*{Motivación}
 
-El potencial del uso de UAVs en tareas de búsqueda y rescate, inspección, mapeo, vigilancia, entre otras, es de gran interés a explorar, debido a las habilidades de vuelo que presentan en favor de la realización de estas tareas, y en especial situaciones que podrían poner en riesgo a personas.
+El potencial del uso de VANTS en tareas de búsqueda y rescate, inspección, mapeo, vigilancia, entre otras, es de gran interés a explorar, debido a las habilidades de vuelo que presentan en favor de la realización de estas tareas, y en especial situaciones que podrían poner en riesgo a personas.
 
 Enviar personal de rescate dentro de un edificio parcialmente colapsado en busca de sobrevivientes, es poner a más personas en un gran riesgo, pues no se sabe qué es lo que les espera en el interior del edificio; esto limita la capacidad de tomar buenas decisiones acerca de si es seguro seguir cierto camino.
 
@@ -26,16 +47,18 @@ Dado un volumen de interés desconocido en un espacio cerrado que se desea explo
   \item El volumen se discretiza usando unidades cúbicas tridimencionales (voxel) tomando valores $v_{libre}$, $v_{ocup}$, $v_{desc}$.
     %La representación del volumen a explorar se obtiene dividiendo el volumen de interés en unidades cúbicas tridimencionales (voxel) que puede tomar los valores de libre $v_{libre}$, ocupado $v_{ocup}$ y desconocido $v_{desc}$ con lecturas a partir de los valores de una cámara RGB-D basada en un modelo de ocupación probabilístico.\\
   \item Un conjunto de VANTS con una cámara RGB-D embarcadas denotado como $\mathcal{V} = \{\mathcal{V}_{1},\mathcal{V}_{2},\mathcal{V}_{3},...,\mathcal{V}_{n}\}$, comenzando cada uno en un estado inicial conocido $q = \{q_{1},q_{2},q_{3},...,q_{n}\}$, y terminando en una configuración que maximice la construcción de un mapa.
-  \item Coordinar el conjunto de VANTs para reducir el tiempo total de exploración.
-  \end{itemize}
+\end{itemize}
 
+Coordinar el conjunto de VANTs para reducir el tiempo total de exploración.
   
   
-\section{Hipótesis}
+\section{Hipótesis y preguntas de investigación}
 
-Una estrategia que coordine y asigne tareas de exploración para múltiples VANTS de manera descentralizada, en combinación con una arquitectura de software diseñada para resolver problemas de localización, gestión de mapas y planificación de rutas, mejorará la eficiencia y cobertura de la exploración en interiores de un entorno desconocido.
+\subsection*{Hipótesis}
+\emph{``Una estrategia que coordine y asigne tareas de exploración para múltiples VANTS de manera descentralizada, en combinación con una arquitectura de software diseñada para resolver problemas de localización, gestión de mapas y planificación de rutas, mejorará la eficiencia y cobertura de la exploración en interiores de un entorno desconocido''}.
 
-\subsection{Preguntas de investigación}
+
+\subsection*{Preguntas de investigación}
 
 \begin{enumerate}\setlength{\itemsep}{-1mm}
 \item ¿Qué características de la dinámica del VANT son cruciales para lograr trayectorias suaves y continuas?
@@ -47,8 +70,7 @@ Una estrategia que coordine y asigne tareas de exploración para múltiples VANT
 
 \subsection*{Objetivo general}
 
-El principal objetivo del trabajo de tesis se define a continuación:
-
+%El principal objetivo del trabajo de tesis se define a continuación:
 \emph{``Desarrollar una estrategia de exploración descentralizada que permita resolver los problemas de coordinación para múltiples VANTS en ambientes desconocidos.''}.
 
 \subsection*{Objetivos específicos}
@@ -65,6 +87,7 @@ Para lograr nuestro objetivo principal, se consideran los siguientes objetivos e
 
 Para resolver el problema de exploración multi-VANT con un enfoque descentralizado considerando restricciones en el rango de la comunicación. Se cuenta como antecedente el trabajo doctoral de JElizondo que propone un algoritmo basado en un proceso de ofertas de mercado, en el cual cada robot calcula las ofertas de manera independiente, buscando alcanzar el mayor aporte posible al equipo en su conjunto. Cuando un robot alcanza su objetivo, el robot toma una decisión para sí mismo, involucrando a cada uno de los miembros del equipo así como el rango de comunicación, bajo un esquema descentralizado y sin la necesidad de un módulo central.
 
+Para validar la propuesta de exploración coordinada se necesita primero resolver la autonomía de un VANT diseñando una arquitectura que incluirá la coordinación multi-robot propuesta por JElizondo.  
 
 \begin{enumerate}\setlength{\itemsep}{-1mm}
 \item Conocer los fundamentos que nos aproximen a realizar la tarea de exploración autónoma con múltiples VANTS.

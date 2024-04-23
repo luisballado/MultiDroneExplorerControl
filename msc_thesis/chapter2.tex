@@ -1,79 +1,91 @@
 \chapter{Marco Teórico}
 
-\lipsum[2-4]
+La exploración coordinada con múltiples Vehículos Aéreos No Tripulados (VANT) es un área de investigación actual en la robótica móvil, con aplicaciones en campos como la vigilancia, la exploración de áreas de difícil acceso y la respuesta a emergencias. Para comprender plenamente este tema, es crucial tener una sólida comprensión de los fundamentos teóricos que sustentan tanto la representación del movimiento de los VANT como los algoritmos para planificación de trayectorias y coordinación que facilitan su trabajo conjunto para alcanzar objetivos comunes mientras evitan colisones y construyen una representación del medio ambiente.
+
+%El marco teórico de esta tesis abarca desde los conceptos básicos de transformaciones homogéneas, que son fundamentales para describir la cinemática y la posición de los VANT en un espacio tridimensional, hasta los algoritmos de coordinación, que permiten a múltiples VANT colaborar de manera efectiva para alcanzar objetivos comunes mientras evitan colisiones y optimizan la eficiencia.
+
+%Comenzaremos explorando las transformaciones homogéneas, que son herramientas matemáticas poderosas para representar la posición y orientación de los VANT en un sistema de coordenadas global. Estas transformaciones son esenciales para la planificación de trayectorias, la navegación y la coordinación de múltiples VANT en entornos complejos y dinámicos.
+
+%A continuación, examinaremos los algoritmos de coordinación, que abarcan desde enfoques simples basados en reglas hasta métodos más avanzados basados en técnicas de optimización y aprendizaje automático. Estos algoritmos permiten a los VANT colaborar de manera inteligente, compartiendo información sobre el entorno, planificando rutas eficientes y ajustando su comportamiento en tiempo real para adaptarse a cambios en las condiciones del entorno.
+
+Al comprender estos aspectos teóricos fundamentales, estaremos preparados para abordar los desafíos de la exploración coordinada con múltiples VANTS.
 
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
-
-\lipsum[2-4]
 
 \section{Conceptos fundamentales} \label{}
 
-\lipsum[2-4]
+\subsection*{Sistema de ejes coordenados}
 
-\subsection{Sistema de ejes coordenados}
+El sistema de ejes coordenados en tres dimensiones (3D) es una herramienta fundamental en la representación y comprensión del espacio tridimensional. Consiste en tres ejes ortogonales: x, y y z, que se intersectan en un punto de origen común. El eje x se extiende horizontalmente, el eje y verticalmente y el eje z en la dirección de profundidad. Estos ejes proporcionan un marco de referencia para describir la posición y orientación de objetos en el espacio 3D de manera precisa y consistente. El sistema de ejes coordenados 3D se utiliza ampliamente en diversas disciplinas, como la geometría, la ingeniería, la robótica, la realidad virtual y la visualización de datos, facilitando la comunicación y el análisis de información espacial compleja. Un entendimiento profundo de este sistema es crucial para la planificación de trayectorias, la navegación, la modelización de objetos tridimensionales y el diseño de sistemas autónomos, incluyendo Vehículos Aéreos No Tripulados (VANT) en aplicaciones de exploración coordinada.
 
-\lipsum[2-4]
+\subsection*{Coordenadas homogéneas}
 
-\subsection{Coordenadas homogéneas}
+Las coordenadas homogéneas son una herramienta matemática esencial en la representación y manipulación de la posición y orientación de Vehículos Aéreos No Tripulados (VANT) en un entorno tridimensional. Este enfoque permite expresar las transformaciones geométricas de manera compacta y consistente, lo que facilita la planificación de trayectorias, la navegación y la coordinación de múltiples VANT. Al utilizar coordenadas homogéneas, se pueden representar tanto las traslaciones como las rotaciones en un único marco de referencia, lo que simplifica los cálculos y reduce la complejidad de los algoritmos de control. Este enfoque es fundamental para el desarrollo de sistemas autónomos capaces de exploración coordinada, ya que proporciona una base matemática sólida para la comprensión y manipulación del movimiento de los VANT en entornos dinámicos y complejos. En esta tesis, se explorará en detalle el uso de coordenadas homogéneas en el contexto de la coordinación de múltiples VANT, investigando su aplicación en la planificación de rutas, la evasión de obstáculos y la optimización del rendimiento del sistema en una variedad de escenarios operativos.
 
-\lipsum[2-4]
+\subsection*{Transformaciones geométricas}
 
-\subsection{Transformaciones geométricas}
-
-\lipsum[2-4]
+En el contexto de los Vehículos Aéreos No Tripulados (VANT), las transformaciones geométricas son herramientas fundamentales para comprender y manipular la posición y orientación de los vehículos en un espacio tridimensional. Estas transformaciones se utilizan para describir cambios en la posición, la rotación y el tamaño de los objetos en un sistema de coordenadas. Comprenden operaciones como la traslación, la rotación, el escalado y la proyección, que permiten a los investigadores y diseñadores modelar y simular el movimiento de los VANT de manera precisa y eficiente. Además, las transformaciones geométricas son esenciales para la planificación de trayectorias, la navegación y la coordinación de múltiples VANT en entornos complejos. Este resumen aborda la importancia de las transformaciones geométricas en la investigación y el desarrollo de VANT, destacando su papel crucial en la creación de sistemas autónomos capaces de explorar y operar en diversos entornos de manera efectiva.
 
 \section{Funcionamiento de un VANT}
 
-\lipsum[2-4]
+El Vehículo Aéreo No Tripulado (VANT) es un dispositivo robótico que ha revolucionado numerosos campos gracias a su capacidad para operar en entornos diversos y complejos sin la necesidad de un piloto humano a bordo. Su funcionamiento se basa en una serie de componentes clave, que incluyen una plataforma de vuelo equipada con sistemas de propulsión, sensores, actuadores y una unidad de procesamiento central. Estos dispositivos pueden variar en tamaño, forma y capacidad, desde pequeños drones recreativos hasta sofisticados sistemas utilizados en aplicaciones militares, de investigación y comerciales.
+
+El VANT utiliza sus sensores para recopilar información del entorno, como datos de posición, imágenes, video y mediciones de distancia. Esta información se procesa a bordo o en tierra mediante algoritmos de percepción y planificación de rutas, permitiendo al VANT tomar decisiones autónomas sobre su navegación, evasión de obstáculos y cumplimiento de objetivos de misión.
+
+El vuelo de un VANT se controla mediante comandos enviados desde una estación terrestre o mediante algoritmos de control autónomo a bordo. Estos comandos ajustan la velocidad, dirección y altitud del VANT, permitiéndole moverse de manera precisa y eficiente en el espacio aéreo.
+
+El funcionamiento de un VANT se ve influenciado por una serie de factores, incluyendo las condiciones meteorológicas, las regulaciones gubernamentales, la autonomía de la batería y la calidad de los datos de los sensores. La seguridad y la fiabilidad son consideraciones críticas en el diseño y operación de estos sistemas, lo que requiere un enfoque cuidadoso en la planificación, desarrollo y prueba de cada componente.
+
+En resumen, el funcionamiento de un VANT implica una integración compleja de hardware, software y sistemas de control para permitir operaciones autónomas en entornos aéreos variados. El entendimiento detallado de estos principios es fundamental para el diseño efectivo, la operación segura y el aprovechamiento máximo del potencial de los VANT en una amplia gama de aplicaciones.
 
 \section{Control de un VANT}
 
-\lipsum[2-4]
+El control de Vehículos Aéreos No Tripulados (VANTs) es un aspecto crucial en la investigación y desarrollo de sistemas autónomos aéreos. Este proceso implica el diseño y la implementación de algoritmos y estrategias que permiten a los VANTs realizar tareas específicas de manera eficiente y segura. Se abordan diversos aspectos del control, como la estabilización, la navegación, la planificación de trayectorias y la interacción con el entorno. La investigación en este campo se centra en mejorar la precisión, la robustez y la capacidad de adaptación de los algoritmos de control, así como en la integración de tecnologías emergentes como la inteligencia artificial y el aprendizaje automático. El control efectivo de los VANTs es fundamental para una amplia gama de aplicaciones, desde la vigilancia y la cartografía hasta la entrega de paquetes y la asistencia en emergencias, y su comprensión y optimización continúan siendo áreas de estudio activas y prometedoras en la investigación de sistemas autónomos aéreos.
 
 \section{Estimación de posición}
 
-\lipsum[2-4]
+El proceso de estimación de posición en Vehículos Aéreos No Tripulados (VANTs) es fundamental para su operación autónoma y efectiva en una amplia gama de aplicaciones. Este proceso implica la utilización de sensores y algoritmos para determinar la posición y orientación del VANT en relación con un sistema de coordenadas global. Los VANTs suelen utilizar una combinación de sensores, como GPS, IMU, cámaras y LIDAR, para recopilar información sobre su entorno y su movimiento. A partir de estos datos, se aplican algoritmos de estimación, como el filtro de Kalman extendido (EKF) o el filtro de partículas, para integrar la información de los sensores y calcular la posición estimada del VANT con respecto al tiempo. Una estimación precisa de la posición es esencial para tareas como la navegación, el seguimiento de objetivos, la cartografía y la planificación de trayectorias. Sin embargo, este proceso enfrenta desafíos como la incertidumbre sensorial, la fusión de datos multi-sensor y la mitigación de errores acumulativos. Por lo tanto, el desarrollo de técnicas robustas y eficientes de estimación de posición sigue siendo un área de investigación activa en el campo de los VANTs, con el objetivo de mejorar la precisión, la confiabilidad y la autonomía de estos sistemas en diversas aplicaciones.
 
 \subsection{Visual Inertial Odometry}
 
-\lipsum[2-4]
+El Visual Inertial Odometry (VIO) es una tecnología avanzada utilizada en Vehículos Aéreos No Tripulados (VANTs) que combina datos visuales y de sensores inerciales para estimar la posición y orientación del vehículo en tiempo real. Este enfoque aprovecha la información visual de cámaras a bordo y la información de acelerómetros y giroscopios para calcular con precisión la trayectoria del VANT en entornos dinámicos y cambiantes. Al fusionar la información de múltiples fuentes sensoriales, el VIO supera las limitaciones individuales de cada sensor y proporciona una estimación más robusta y confiable del movimiento del VANT. Esta tecnología tiene una amplia gama de aplicaciones, incluyendo la navegación autónoma, la cartografía de entornos desconocidos y la localización precisa en interiores y exteriores. En esta tesis, se explorará en detalle el funcionamiento del VIO, su implementación en sistemas de VANT y su papel en la mejora de la autonomía y la eficiencia de estos vehículos en diversas aplicaciones prácticas.
 
 \section{Planificación de trayectoria}
 
-\lipsum[2-4]
+El tema de la planificación de trayectorias para Vehículos Aéreos No Tripulados (VANTs) es de vital importancia en la investigación actual, abarcando un conjunto diverso de técnicas y enfoques para garantizar la navegación segura y eficiente de estos dispositivos en entornos complejos y dinámicos. Este proceso implica la generación de rutas óptimas que permitan a los VANTs alcanzar sus destinos mientras evitan obstáculos, cumplen con restricciones operativas y optimizan objetivos específicos, como minimizar el consumo de energía o maximizar la cobertura de área. Desde métodos clásicos basados en grafos y búsqueda heurística hasta enfoques más avanzados que integran técnicas de aprendizaje automático y optimización, la planificación de trayectorias para VANTs ha evolucionado significativamente para adaptarse a diversas aplicaciones y escenarios de operación. Este resumen proporciona una visión general de las principales estrategias y desafíos en este campo, destacando la importancia de desarrollar soluciones innovadoras y escalables que impulsen el avance en la autonomía y eficacia de los VANTs en una variedad de contextos operativos.
 
 \subsection{Evasión de obstáculos}
 
-\lipsum[2-4]
+El desarrollo de estrategias efectivas para la evasión de obstáculos es un componente crítico en el diseño de sistemas autónomos, especialmente en el contexto de los Vehículos Aéreos No Tripulados (VANTs). Este resumen se centra en explorar y analizar diversas técnicas y algoritmos empleados para permitir que los VANTs detecten, eviten y naveguen alrededor de obstáculos de manera segura y eficiente. Se examinan enfoques basados en sensores, como cámaras, LIDAR y ultrasonido, así como técnicas de procesamiento de imágenes y aprendizaje automático para identificar y clasificar obstáculos en tiempo real. Además, se investigan estrategias de planificación de trayectorias y control de vuelo que permiten a los VANTs calcular rutas alternativas y tomar decisiones evasivas en función de la información del entorno. Este estudio proporciona una visión integral del estado del arte en la evasión de obstáculos para VANTs, identificando desafíos actuales y áreas de investigación futuras para mejorar la seguridad y la eficiencia de las operaciones autónomas en entornos complejos y dinámicos.
 
 \section{Representación medio ambiente}
 
-\lipsum[2-4]
+El mapeo del entorno es una tarea crítica en la operación de Vehículos Aéreos No Tripulados (VANTs), ya que proporciona una representación precisa y detallada del medio ambiente circundante. Estos mapas son esenciales para la planificación de rutas, la navegación autónoma y la toma de decisiones inteligentes durante las misiones de exploración y vigilancia. En la tesis se examinan diferentes enfoques y técnicas para la generación y actualización de mapas, que van desde métodos basados en sensores como cámaras y LIDAR hasta técnicas de fusión de datos y aprendizaje automático. Se analizan tanto las ventajas como las limitaciones de cada método en términos de precisión, eficiencia computacional y robustez en diferentes entornos y condiciones. Además, se exploran estrategias para la representación eficiente y la gestión de la incertidumbre en los mapas, con el objetivo de mejorar la fiabilidad y la utilidad de los datos para la planificación de misiones y la toma de decisiones. El estudio contribuye al avance en el campo de la robótica móvil y la exploración autónoma, ofreciendo nuevas perspectivas y soluciones innovadoras para el mapeo del entorno con VANTs.
 
 \subsection{Ray casting}
 
-\lipsum[2-4]
+El raycasting es una técnica fundamental en la percepción y la navegación de Vehículos Aéreos No Tripulados (VANTs) que permite detectar obstáculos y mapear el entorno tridimensional de manera eficiente. Consiste en emitir rayos desde el VANT en direcciones específicas y detectar las intersecciones con objetos o superficies en el entorno. Estas intersecciones proporcionan información crucial sobre la geometría del entorno, que se utiliza para generar mapas tridimensionales y planificar trayectorias seguras y eficientes para la navegación autónoma. El raycasting se emplea en una variedad de aplicaciones de VANTs, como la exploración de áreas desconocidas, la vigilancia, la cartografía y la inspección de infraestructuras. Su implementación eficaz y precisa es fundamental para garantizar el rendimiento y la seguridad de los sistemas autónomos en entornos dinámicos y complejos.
 
 \subsection{Point clouds}
 
-\lipsum[2-4]
+El uso de Vehículos Aéreos No Tripulados (VANTs) para la captura y procesamiento de nubes de puntos (point clouds) ha emergido como una herramienta poderosa en una amplia gama de aplicaciones, desde la cartografía y la topografía hasta la inspección de infraestructuras y la monitorización medioambiental. Las nubes de puntos, que consisten en conjuntos masivos de puntos tridimensionales que representan la superficie de objetos y entornos, proporcionan información detallada y precisa sobre la estructura y la geometría de los mismos. En esta tesis, exploramos los avances en la adquisición y procesamiento de nubes de puntos utilizando VANTs, centrándonos en el desarrollo de algoritmos y técnicas para la planificación de trayectorias, la navegación y la captura eficiente de datos. Además, investigamos estrategias para la fusión y la interpretación de múltiples nubes de puntos obtenidas de diferentes perspectivas y momentos temporales, con el objetivo de generar modelos tridimensionales precisos y completos del entorno. Nuestro trabajo contribuye al avance en la capacidad de los VANTs para la recopilación de datos geoespaciales y la generación de información útil para una variedad de aplicaciones, impulsando así el potencial de esta tecnología en el ámbito de la percepción y la inteligencia espacial.
 
 \section{Exploración}
 
-\lipsum[2-4]
+El uso de Vehículos Aéreos No Tripulados (VANTs) para la exploración ha ganado prominencia en una variedad de campos, desde la vigilancia ambiental hasta la respuesta a desastres. Esta tesis se centra en el desarrollo y la implementación de técnicas avanzadas para la exploración coordinada con múltiples VANTs. Se investigan y se proponen algoritmos de coordinación eficientes que permiten a los VANTs colaborar de manera inteligente, compartiendo información del entorno y optimizando rutas para una exploración efectiva. Además, se aborda la planificación de trayectorias y la navegación autónoma para garantizar la eficacia y seguridad de las misiones de exploración. A través de experimentos simulados y pruebas de campo, se evalúan y validan las soluciones propuestas, con el objetivo de avanzar en el estado del arte en la exploración con VANTs y contribuir al desarrollo de sistemas autónomos más robustos y eficientes.
 
 \section{Exploración multi-robot}
-\lipsum[2-4]
+
+El concepto de exploración multirobot con Vehículos Aéreos No Tripulados (VANTs) es una área de investigación prometedora que busca aprovechar las capacidades colectivas de múltiples robots para explorar y mapear entornos desconocidos de manera eficiente y precisa. Esta estrategia ofrece ventajas significativas sobre la exploración con un solo robot, incluyendo una mayor cobertura del área, tiempos de exploración reducidos y una mayor robustez ante fallos individuales. En esta tesis, se investiga y se propone un conjunto de algoritmos y técnicas para la coordinación efectiva de múltiples VANTs en entornos complejos y dinámicos. Se explora el diseño de sistemas de planificación de trayectorias, la asignación de tareas, la comunicación entre robots y la toma de decisiones distribuida para lograr una exploración colaborativa y eficiente. Además, se llevan a cabo experimentos simulados y en entornos reales para validar y evaluar el desempeño de los algoritmos propuestos. Los resultados obtenidos demuestran el potencial de la exploración multirobot con VANTs para aplicaciones prácticas en campos como la vigilancia, la cartografía de áreas de difícil acceso y la respuesta a emergencias. Este trabajo contribuye al avance del conocimiento en el campo de la robótica móvil y sienta las bases para futuras investigaciones en el desarrollo de sistemas autónomos colaborativos para la exploración de entornos desconocidos.
 
 \subsection{Asignación de tareas}
-\lipsum[2-4]
+
+El desarrollo de sistemas de Vehículos Aéreos No Tripulados (VANT) ha generado un interés creciente en la coordinación y asignación de tareas, especialmente en aplicaciones que requieren la colaboración de múltiples VANT para lograr objetivos comunes de manera eficiente. En esta tesis, se examina en detalle el diseño y la implementación de algoritmos de coordinación y asignación de tareas para equipos de VANT. Se abordan aspectos teóricos y prácticos relacionados con la planificación de rutas, la optimización de recursos, la comunicación entre VANT y la adaptación a cambios en el entorno. Se exploran diferentes enfoques, desde métodos basados en reglas simples hasta algoritmos más sofisticados que incorporan técnicas de aprendizaje automático y optimización. Además, se presentan estudios de caso y experimentos para validar la efectividad y la escalabilidad de los enfoques propuestos en una variedad de escenarios y aplicaciones prácticas. Esta investigación contribuye al avance del campo de la coordinación y asignación de tareas en sistemas de VANT, proporcionando herramientas y metodologías para mejorar la eficiencia y el rendimiento de los equipos de VANT en una amplia gama de aplicaciones, desde la vigilancia y la exploración hasta la logística y el transporte.
 
 \section{Arquitectura de software ROS}
 
-\lipsum[2-4]
-
-
+El uso de ROS (Robot Operating System) emerge como un componente esencial en el diseño y desarrollo de sistemas autónomos, incluidos los Vehículos Aéreos No Tripulados (VANTs). ROS proporciona una plataforma flexible y modular que facilita la integración de hardware, la implementación de algoritmos de control y la comunicación entre componentes en un entorno distribuido. Este sistema operativo robótico ofrece una amplia gama de herramientas, bibliotecas y recursos que agilizan el desarrollo de aplicaciones robóticas, permitiendo a los investigadores y desarrolladores concentrarse en la implementación de soluciones innovadoras en lugar de abordar problemas de infraestructura. Además, la naturaleza de código abierto de ROS fomenta la colaboración y el intercambio de conocimientos dentro de la comunidad robótica, acelerando el avance en el campo de los VANTs y promoviendo la adopción de estándares y prácticas de desarrollo comunes. En esta tesis, se destaca la importancia y los beneficios del uso de ROS en el diseño, implementación y evaluación de sistemas VANT, subrayando su papel fundamental en la mejora de la eficiencia, la robustez y la interoperabilidad de estos sistemas autónomos.
