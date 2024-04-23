@@ -2,17 +2,25 @@
 
 Los robots de servicio son máquinas autónomas diseñadas con el objetivo de prestar servicio a los humanos fuera del ambiente industrial, convirtiéndose poco a poco en una parte esencial en nuestras vidas. Los podemos encontrar en diversos ámbitos, como en el entretenimiento, limpieza, logística, entre otras soluciones inovadoras.
 
-Los vehículos aéreos no tripulados han evolucionado rápidamente y se han convertido en sistemas versátiles capaces de una amplia gama de aplicaciones, desde vigilancia hasta misiones de búsqueda y rescate [2]. Entre ellas, las tareas de exploración en entornos complejos y dinámicos representan un área interesante y
-desafiante, donde la coordinación efectiva de múltiples VANT se vuelve primordial. Este tema es de creciente importancia a medida que los vehículos aéreos no tripulados continúan transformando distintas áreas, incluida la agricultura, el monitoreo ambiental, mantenimiento de infraestructuras (puentes, edificios, líneas eléctricas) y la respuesta a desastres naturales, reduciendo los riesgos y costos asociados con las inspecciones manuales.
+Los vehículos aéreos no tripulados han evolucionado rápidamente y se han convertido en sistemas versátiles capaces de una amplia gama de aplicaciones, desde vigilancia hasta misiones de búsqueda y rescate. Entre ellas, las tareas de exploración en entornos complejos y dinámicos representan un área interesante y desafiante, donde la coordinación de múltiples VANT se vuelve primordial. Este tema es de creciente importancia a medida que los vehículos aéreos no tripulados continúan transformando distintas áreas, incluida la agricultura, el monitoreo ambiental, mantenimiento de infraestructuras (puentes, edificios, líneas eléctricas) y la respuesta a desastres naturales, reduciendo los riesgos y costos asociados con las inspecciones manuales.
 
-Los VANTS capaces de realizar tareas con autonomía generalmente cuentan con mayores capacidades de carga y procesamiento computacional, así como sensores capaces de percibir grandes volúmenes de datos en un tiempo reducido. Estos VANTS se centran en realizar tareas sencillas y estáticas en áreas abiertas con rutas
-predeterminadas, o bien, en contextos de operación por control remoto por un usuario. Sin embargo en donde los espacios son estrechos, se optan por el uso de VANTS reducidos, comúnmente llamados Micro-Vehículos Aéreos no tripulados (MAVs).
+Los VANTS capaces de realizar tareas con autonomía generalmente cuentan con mayores capacidades de carga y procesamiento computacional, así como sensores capaces de percibir grandes volúmenes de datos en un tiempo reducido. Estos VANTS se centran en realizar tareas sencillas y estáticas en áreas abiertas con rutas predeterminadas, o bien, en contextos de operación por control remoto por un usuario. Sin embargo en donde los espacios son estrechos, se optan por el uso de VANTS reducidos, comúnmente llamados Micro-Vehículos Aéreos no tripulados (MAVs).
 
 La exploración de áreas desconocidas, a través de la sinergia de sistemas multi-VANT promete ser una solución innovadora. Al comprender y perfeccionar una estrategia para la coordinación de múltiples vehículos aéreos no tripulados en tareas de exploración, esperamos descubrir nuevas posibilidades, replicar o romper los límites existentes, y en última instancia, avanzar en los campos de la robótica y la exploración.
 
 \section{Antecedentes y motivación} 
 
 \subsection*{Antecedentes}
+
+La robótica móvil es una rama de la robótica que se enfoca en el diseño, construcción, programación y operación de robots capaces de moverse de manera autónoma o semi-autónoma en entornos diversos. 
+
+Uno de los primeros hitos importantes en la robótica móvil fue el desarrollo del robot shakey en la década de 1960, que se considera el primer robot móvil capaz de desplazarse evitando colisiones a su paso, sentando las bases en algoritmos de inteligencia artificial para busquedas informadas como lo es el algoritmo A*. 
+
+Durante las décadas siguientes, se produjeron avances significativos en la miniaturización de componentes electrónicos, sensores y actuadores, lo que permitió la creación de robots móviles más pequeños y versátiles. A finales del siglo XX, los robots móviles comenzaron a ser utilizados en una variedad de aplicaciones, como la exploración espacial, la agricultura, la vigilancia y la logística.
+
+En paralelo, los avances en inteligencia artificial, visión por computadora, planificación de trayectorias y sistemas de control contribuyeron al desarrollo de robots móviles más autónomos y adaptables. El surgimiento de algoritmos de aprendizaje automático y técnicas de percepción avanzada ha permitido a los robots móviles interactuar de manera más efectiva con su entorno y tomar decisiones en tiempo real.
+
+En la actualidad, la robótica móvil está experimentando un rápido crecimiento gracias a la convergencia de diversas tecnologías, como la Internet de las cosas (IoT), la computación en la nube y la robótica colaborativa. Se están desarrollando robots móviles cada vez más sofisticados y capaces de realizar una amplia gama de tareas en entornos dinámicos y no estructurados. Además, se espera que la robótica móvil desempeñe un papel crucial en aplicaciones futuras, como la asistencia en el hogar, la atención médica, la exploración submarina y la entrega de paquetes.
 
 Un sistema autónomo de un Vehículo Aéreo no Tripulado, consta de cuatro algoritmos:
 \begin{itemize}\setlength{\itemsep}{-1mm}
@@ -85,9 +93,9 @@ Para lograr nuestro objetivo principal, se consideran los siguientes objetivos e
 
 \section{Solución propuesta}
 
-Para resolver el problema de exploración multi-VANT con un enfoque descentralizado considerando restricciones en el rango de la comunicación. Se cuenta como antecedente el trabajo doctoral de JElizondo que propone un algoritmo basado en un proceso de ofertas de mercado, en el cual cada robot calcula las ofertas de manera independiente, buscando alcanzar el mayor aporte posible al equipo en su conjunto. Cuando un robot alcanza su objetivo, el robot toma una decisión para sí mismo, involucrando a cada uno de los miembros del equipo así como el rango de comunicación, bajo un esquema descentralizado y sin la necesidad de un módulo central.
+Para resolver el problema de exploración multi-VANT con un enfoque descentralizado considerando restricciones en el rango de la comunicación. Se cuenta como antecedente el trabajo doctoral de \citeauthor{CINVESTAM2013} que propone un algoritmo basado en un proceso de ofertas de mercado, en el cual cada robot calcula las ofertas de manera independiente, buscando alcanzar el mayor aporte posible al equipo en su conjunto. Cuando un robot alcanza su objetivo, el robot toma una decisión para sí mismo, involucrando a cada uno de los miembros del equipo así como el rango de comunicación, bajo un esquema descentralizado y sin la necesidad de un módulo central.
 
-Para validar la propuesta de exploración coordinada se necesita primero resolver la autonomía de un VANT diseñando una arquitectura que incluirá la coordinación multi-robot propuesta por JElizondo.  
+Para validar la propuesta de exploración coordinada se necesita primero resolver la autonomía de un VANT diseñando una arquitectura que incluirá la coordinación multi-robot propuesta en \cite{CINVESTAM2013}.
 
 \begin{enumerate}\setlength{\itemsep}{-1mm}
 \item Conocer los fundamentos que nos aproximen a realizar la tarea de exploración autónoma con múltiples VANTS.
@@ -97,6 +105,25 @@ Para validar la propuesta de exploración coordinada se necesita primero resolve
   \item Elaborar la exploración con un VANT de tipo cuadrotor.
   \item Implementar la estrategia de exploración bajo los conceptos de cohesión, exploración y explotación.
 \end{enumerate}
+
+Los elementos requeridos para esta solución son descritos brevemente a continuación.
+
+\begin{itemize}\setlength{\itemsep}{-1mm}
+\item \textbf{Arquitectura de control:} La arquitectura de control consiste en la implementación de tres capas que permiten organizar los algoritmos en grupos específicos de acuerdo al tipo de acceso requerido. Las capas se listan a continuación.
+  \begin{itemize}\setlength{\itemsep}{-1mm}
+  \item Capa de planificación: Es la capa de más alto nivel, contiene algoritmos que no son de tiempo real y que pueden demandar altos recursos computacionales. Módulos de planificación de trayectoria, representación del medio ambiente son los incorporados en esta capa. Su función es evaluar los planes para alcanzar objetivos establecidos por la exploración.
+  \item Capa de secuenciador: Es la capa mediadora entre la capa de planificación y la capa de habilidades. Activa los módulos solicitados por el planificador proporcionando los argumentos necesarios para cada habilidad y reporta a la capa superior eventos que pueden generar cambios en los planes establecidos.
+  \item Capa de habilidades: Es la capa que ejecutará las instrucciones que modifican el estado del vehículo accediendo a su hardware, se conoce como capa de ejecución reactiva y se encarga de las respuestas en tiempo real de los eventos en el medio ambiente. En esta capa se localizan las habilidades reactivas como los módulos de evasión de obstáculos, seguir contrornos entre otros. 
+  \end{itemize}
+\item \textbf{Comportamientos VANT:} La arquitectura integra diversos comportamientos que incrementan la funcionalidad del VANT en tareas de exploración.
+  \begin{itemize}\setlength{\itemsep}{-1mm}
+  \item Navegación hacia ciertos puntos.
+  \item Evitar colisones.
+  \item Construcción y mantenimiento de un mapa de ocupación 3D.
+  \end{itemize}
+\item \textbf{Coordinación entre múltiples VANTS:} La coordinación descentralizada se realizará siguiendo el enfoque de auto-ofertas presentada por \citeauthor{CINVESTAM2013}, ya que su portabilidad hace que pueda ejecutarse sin necesidad de un módulo central.
+\end{itemize}
+
 
 %\section{Resumen}
 %\lipsum[2-4]

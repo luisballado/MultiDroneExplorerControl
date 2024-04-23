@@ -10,32 +10,31 @@
 \contentsline {chapter}{\numberline {1}Introducción}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Antecedentes y motivación}{2}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Planteamiento del problema}{4}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Hipótesis y preguntas de investigación}{4}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Objetivos}{5}{section.1.4}%
-\contentsline {section}{\numberline {1.5}Solución propuesta}{5}{section.1.5}%
-\contentsline {chapter}{\numberline {2}Estado del Arte}{7}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Introducción}{8}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Trabajos relacionados}{9}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Exploración}{9}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Representación medio ambiente 3D}{10}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Planificación de trayectorias}{11}{subsection.2.2.3}%
-\contentsline {subsection}{\numberline {2.2.4}Generación de trayectoria}{14}{subsection.2.2.4}%
-\contentsline {subsection}{\numberline {2.2.5}Coordinación multi-robot}{16}{subsection.2.2.5}%
-\contentsline {chapter}{\numberline {3}Marco Teórico}{19}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Conceptos fundamentales}{20}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Funcionamiento de un VANT}{21}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Control de un VANT}{22}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Estimación de posición}{23}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Visual Inertial Odometry}{23}{subsection.3.4.1}%
-\contentsline {section}{\numberline {3.5}Planificación de trayectoria}{24}{section.3.5}%
+\contentsline {section}{\numberline {1.3}Hipótesis y preguntas de investigación}{5}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Objetivos}{6}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Solución propuesta}{6}{section.1.5}%
+\contentsline {chapter}{\numberline {2}Estado del Arte}{9}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Introducción}{10}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Trabajos relacionados}{11}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Exploración}{11}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Representación medio ambiente 3D}{12}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Planificación de trayectorias}{13}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Generación de trayectoria}{16}{subsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.2.5}Coordinación multi-robot}{17}{subsection.2.2.5}%
+\contentsline {chapter}{\numberline {3}Marco Teórico}{21}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Conceptos fundamentales}{22}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Funcionamiento de un VANT}{23}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Control de un VANT}{23}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Estimación de posición}{24}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Visual Inertial Odometry}{24}{subsection.3.4.1}%
+\contentsline {section}{\numberline {3.5}Planificación de trayectoria}{25}{section.3.5}%
 \contentsline {subsection}{\numberline {3.5.1}Evasión de obstáculos}{25}{subsection.3.5.1}%
 \contentsline {section}{\numberline {3.6}Representación medio ambiente}{25}{section.3.6}%
-\contentsline {subsection}{\numberline {3.6.1}Ray casting}{26}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.6.1}Ray casting}{25}{subsection.3.6.1}%
 \contentsline {subsection}{\numberline {3.6.2}Point clouds}{26}{subsection.3.6.2}%
-\contentsline {section}{\numberline {3.7}Exploración}{27}{section.3.7}%
-\contentsline {section}{\numberline {3.8}Exploración multi-robot}{27}{section.3.8}%
-\contentsline {subsection}{\numberline {3.8.1}Asignación de tareas}{28}{subsection.3.8.1}%
-\contentsline {section}{\numberline {3.9}Arquitectura de software ROS}{29}{section.3.9}%
-\contentsline {chapter}{\numberline {4}Enfoque propuesto}{31}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Revisión de la literatura}{32}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Diseño del sistema}{32}{section.4.2}%
+\contentsline {section}{\numberline {3.7}Exploración multi-robot}{26}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}Asignación de tareas}{26}{subsection.3.7.1}%
+\contentsline {section}{\numberline {3.8}Arquitectura de software ROS}{27}{section.3.8}%
+\contentsline {chapter}{\numberline {4}Enfoque propuesto}{29}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Revisión de la literatura}{29}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Diseño del sistema}{30}{section.4.2}%
