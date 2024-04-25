@@ -4,11 +4,11 @@ En este capítulo, se presenta un panorama de las distintas propuestas en explor
 
 %Este capítulo ofrece un panorama general de las principales propuestas en exploración empleando múltiples vehículos aéreos no tripulados (VANTS), discutiendo sus fortalezas y sus debilidades. Nos enfococamos principalmente en las propuestas de exploración multi-robot, SLAM multi-robot y exploración multi-robot con incertidumbre en la posición.
 
-La exploración multi-robot se enfoca principalmente en guiar a cada robot de forma eficiente con la finalidad de obtener una representación del medio ambiente asumiendo, que la localización es perfecta y conocida en todo momento. El problema de localización y mapeo simultáneo (SLAM) integra la localización y el aprendizaje de mapas como el problema de construir un mapa mientras se trata de localizar al robot dentro del mismo.
+La exploración multi-robot se enfoca principalmente en guiar a cada robot de forma eficiente con la finalidad de obtener una representación del medio ambiente asumiendo, que la localización es perfecta y conocida en todo momento. Por otra parte, el problema de localización y mapeo simultáneo (SLAM) se enfoca en el problema de construir un mapa mientras se trata de localizar al robot dentro del mismo.
 
 Para lograr una exploración efectiva, los robots deben coordinar sus acciones, compartir información sobre el entorno y planificar sus movimientos de manera inteligente, teniendo en cuenta la distribución de tareas, la comunicación entre robots y la detección de obstáculos.%Finalmente, el problema de exploración multi-robot con incertidumbre en la posición representa el problema de generar un mapa mientras se estima la localización y se guía al robot hacia objetivos definidos con la finalidad de generar el mapa de forma eficiente.
 
-%A continuación se analizan las principales propuestas para la generación de mapas con múltiples robots, que comparten rasgos comunes con el enfoque desarrollado en este trabajo de tesis.
+%A continuación se analizan las principales propuestas para la generación de mapas con múltiples vehículos aéreos no tripulados, que comparten rasgos comunes con el enfoque desarrollado en este trabajo de tesis.
 
 \section{Introducción}
 
@@ -62,7 +62,7 @@ Buscando acelerar la exploración, el robot debe percibir el ambiente desconocid
 
 Los trabajos de \citeauthor{CIESLEWSKI2017}[\citenum{CIESLEWSKI2017}], \citeauthor{BARTOLOMEI2023}[\citenum{BARTOLOMEI2023}] se enfocan en la exploración haciendo uso de estrategias basadas en fronteras.
 
-Mientras que los trabajos de \citeauthor{PAPACHRISTOS2017}[\citenum{PAPACHRISTOS2017}],\citeauthor{SELIN2019}[\citenum{SELIN2019}], \citeauthor{RACER2022}[\citenum{RACER2022}], que también trabajan en el problema de exploración autónoma. Utilizan la estrategia de Next Best View Planner guiando al robot donde puedan aportar más información en la construcción del medio ambiente (mapa). Por el contrario \citeauthor{BUG2019}[\citenum{BUG2019}], al tener un comportamiento tipo bug hace uso de su propuesta con Swarm Gradient Bug Algorithm.
+Mientras que los trabajos de \citeauthor{PAPACHRISTOS2017}[\citenum{PAPACHRISTOS2017}],\citeauthor{SELIN2019}[\citenum{SELIN2019}], \citeauthor{RACER2022}[\citenum{RACER2022}], que también trabajan en el problema de exploración autónoma. Utilizan la estrategia de Next Best View Planner guiando al robot donde puedan aportar más información en la construcción del medio ambiente (mapa). Por el contrario \citeauthor{BUG2019}[\citenum{BUG2019}], al tener un comportamiento tipo bug guia su exploración con el uso de su propuesta denominada Swarm Gradient Bug Algorithm.
 
 \subsection{Representación medio ambiente 3D}
 
