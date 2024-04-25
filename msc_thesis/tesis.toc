@@ -36,5 +36,6 @@
 \contentsline {subsection}{\numberline {3.7.1}Asignación de tareas}{26}{subsection.3.7.1}%
 \contentsline {section}{\numberline {3.8}Arquitectura de software ROS}{27}{section.3.8}%
 \contentsline {chapter}{\numberline {4}Enfoque propuesto}{29}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Revisión de la literatura}{30}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Diseño del sistema}{30}{section.4.2}%
+\contentsline {section}{\numberline {4.1}Diseño del sistema}{30}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Máquina de estados para un VANT}{32}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Aplicación de nodos en ROS}{34}{section.4.3}%

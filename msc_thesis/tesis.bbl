@@ -72,10 +72,6 @@ Hart, P.~E., Nilsson, N.~J., and Raphael, B. (1968).
 \newblock {\em IEEE Transactions on Systems Science and Cybernetics},
   4(2):100--107.
 
-\bibitem[Hirsch and Merced, 2023]{DRONESHOW2023}
-Hirsch, L. and Merced, M. J. D.~L. (2023).
-\newblock Fireworks have a new competitor: Drones.
-
 \bibitem[Hornung et~al., 2013]{ARMIN2013}
 Hornung, A., Wurm, K.~M., Bennewitz, M., Stachniss, C., and Burgard, W. (2013).
 \newblock {OctoMap}: An efficient probabilistic {3D} mapping framework based on
@@ -121,13 +117,6 @@ Meagher, D. (1982).
 Min, H., Han, K.~M., and Kim, Y.~J. (2020).
 \newblock Accelerating probabilistic volumetric mapping using ray-tracing
   graphics hardware.
-
-\bibitem[Mohsan et~al., 2023]{UAVPRACTICAL2023}
-Mohsan, S. A.~H., Othman, N. Q.~H., Li, Yanlong, A., H., M., and Khan, M.~A.
-  (2023).
-\newblock Unmanned aerial vehicles (uavs): practical aspects, applications,
-  open challenges, security issues, and future trends.
-\newblock {\em Intelligent Service Robotics}, 16(1).
 
 \bibitem[Mohta et~al., 2017]{MOHTA2017}
 Mohta, K., Watterson, M., Mulgaonkar, Y., Liu, S., Qu, C., Makineni, A.,
@@ -199,6 +188,19 @@ Usenko, V., von Stumberg, L., Pangercic, A., and Cremers, D. (2017).
   and a 3d circular buffer.
 \newblock In {\em 2017 {IEEE}/{RSJ} International Conference on Intelligent
   Robots and Systems ({IROS})}. {IEEE}.
+
+\bibitem[Xu et~al., 2022]{OMNI2022}
+Xu, H., Zhang, Y., Zhou, B., Wang, L., Yao, X., Meng, G., and Shen, S. (2022).
+\newblock Omni-swarm: A decentralized omnidirectional visual–inertial–uwb
+  state estimation system for aerial swarms.
+\newblock {\em IEEE Transactions on Robotics}, 38(6):3374--3394.
+
+\bibitem[Yamauchi, 1997]{YAMAUCHI1997}
+Yamauchi, B. (1997).
+\newblock A frontier-based approach for autonomous exploration.
+\newblock In {\em Proceedings 1997 IEEE International Symposium on
+  Computational Intelligence in Robotics and Automation CIRA'97. 'Towards New
+  Computational Principles for Robotics and Automation'}, pages 146--151.
 
 \bibitem[Yang et~al., 2022]{yang2022far}
 Yang, F., Cao, C., Zhu, H., Oh, J., and Zhang, J. (2022).

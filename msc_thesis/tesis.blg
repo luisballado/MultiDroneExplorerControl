@@ -10,42 +10,42 @@ Database file #1: EMOO.bib
 Database file #2: protocolo.bib
 You've used 34 entries,
             1935 wiz_defined-function locations,
-            689 strings with 11749 characters,
-and the built_in function-call counts, 16078 in all, are:
-= -- 1528
-> -- 867
-< -- 16
-+ -- 314
-- -- 308
-* -- 1446
-:= -- 2784
-add.period$ -- 101
+            691 strings with 11838 characters,
+and the built_in function-call counts, 16430 in all, are:
+= -- 1563
+> -- 871
+< -- 17
++ -- 318
+- -- 310
+* -- 1472
+:= -- 2821
+add.period$ -- 102
 call.type$ -- 34
-change.case$ -- 322
+change.case$ -- 323
 chr.to.int$ -- 34
 cite$ -- 34
-duplicate$ -- 536
-empty$ -- 1006
+duplicate$ -- 554
+empty$ -- 1044
 format.name$ -- 354
-if$ -- 3126
+if$ -- 3216
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 28
-newline$ -- 170
+missing$ -- 29
+newline$ -- 171
 num.names$ -- 102
-pop$ -- 296
+pop$ -- 302
 preamble$ -- 1
-purify$ -- 324
+purify$ -- 325
 quote$ -- 0
-skip$ -- 409
+skip$ -- 421
 stack$ -- 0
-substring$ -- 1105
-swap$ -- 85
-text.length$ -- 5
+substring$ -- 1162
+swap$ -- 95
+text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 204
 warning$ -- 0
-while$ -- 106
+while$ -- 109
 width$ -- 0
-write$ -- 432
+write$ -- 435
