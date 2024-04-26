@@ -22,13 +22,25 @@ Al comprender estos aspectos teóricos fundamentales, estaremos preparados para 
 
 Una diferencia clave entre el problema de localización y mapeo simultáneo (SLAM) y la exploración radica en sus objetivos y enfoques:
 
-El \textbf{objetivo principal del SLAM} es estimar simultáneamente la trayectoria del robot (o vehículo) y construir un mapa del entorno desconocido en el que se encuentra.
+El objetivo principal de la \textbf{localización y mapeo simultáneo} (SLAM) es estimar simultáneamente la trayectoria del robot y construir un mapa del entorno desconocido en el que se encuentra.
 
-El \textbf{objetivo principal de la exploración} es recorrer y mapear un área desconocida de manera eficiente y completa, sin necesariamente enfocarse en la localización precisa del robot en tiempo real.
+De manera similar, el objetivo principal de la \textbf{exploración} es recorrer y mapear un área desconocida de manera eficiente y completa, sin necesariamente enfocarse en la localización precisa del robot en tiempo real.
 
-Mientras el \textbf{enfoque del SLAM} se centra en la fusión de datos de sensores (como cámaras, LIDAR, etc.) con algoritmos de estimación de estado (como filtros de Kalman extendidos o métodos basados en grafos) para actualizar la estimación de la posición del robot y construir un mapa del entorno.
+Sin embargo el enfoque de la \textbf{localización y mapeo simultáneo} (SLAM) se centra en la fusión de datos de sensores (como cámaras, LIDAR, etc.) con algoritmos de estimación de estado (como filtros de Kalman extendidos o métodos basados en grafos) para actualizar la estimación de la posición del robot y construir un mapa del entorno.
 
-Por otra parte, el \textbf{enfoque de la exploración} se centra en la planificación de trayectorias y la toma de decisiones para guiar al robot a través del entorno de manera que se maximice la cobertura del área a explorar y se minimice el tiempo y los recursos necesarios.
+Por otra parte, el enfoque de la \textbf{exploración} se centra en la planificación de trayectorias y la toma de decisiones para guiar al robot a través del entorno de manera que se maximice la cobertura del área a explorar y se minimice el tiempo y los recursos necesarios.
+
+\subsection*{Navegación}
+
+En la fase de exploración, el robot debe escoger el objetivo más óptimo y diseñar rutas varias veces hasta que la exploración esté completa. Por consiguiente, es esencial contar con una estrategia de navegación sólida para que cada robot pueda moverse de forma segura y efectiva, sorteando obstáculos y solucionando cualquier interferencia con otros robots en su camino.
+
+\subsection*{Coordinación}
+
+Varios robots pueden realizar tareas de manera más rápida que un solo robot. No obstante, un sistema con más robots no aumenta su productividad en comparación con un solo robot, debido a diversos factores como interferencia entre robots y redundancia en la exploración. La coordinación se vuelve esencial para maximizar las ventajas de tener un sistema multi-robot.
+
+\subsection*{Comunicación}
+
+La coordinación entre robots se logra gracias a su capacidad para intercambiar información, generalmente utilizando tecnologías de comunicación por radio. Es esencial garantizar una comunicación constante para evitar discrepancias en la información entre los diferentes robots. Esto presenta desafíos importantes en el desarrollo e implementación de algoritmos para sistemas con múltiples robots, ya que además de cumplir con las tareas de colaboración, los robots deben asegurar la continuidad de la conexión en la red de comunicación.
 
 %En resumen, mientras que el SLAM se enfoca en la estimación simultánea de la posición del robot y la construcción del mapa del entorno, la exploración se centra en recorrer y mapear un área desconocida de manera eficiente, sin necesidad de una localización precisa en tiempo real.
 
@@ -36,19 +48,19 @@ Por otra parte, el \textbf{enfoque de la exploración} se centra en la planifica
 
 El sistema de ejes coordenados en tres dimensiones (3D) es una herramienta fundamental en la representación y comprensión del espacio tridimensional. Consiste en tres ejes: x, y, z, que se intersectan en un punto de origen común. Estos ejes proporcionan un marco de referencia para describir la posición y orientación de objetos en el espacio 3D, facilitando el análisis de información espacial. Un entendimiento de este sistema es importante para la planificación de trayectorias, la navegación, la representación del medio ambiente para el diseño de sistemas autónomos, incluyendo los vehículos aéreos no tripulados (VANTS).
 
-\textit{\textbf{Desarrollar..}}
+%\textit{\textbf{Desarrollar..}}
 
 \subsection*{Coordenadas homogéneas}
 
 Las coordenadas homogéneas son una herramienta matemática esencial en la representación y manipulación de la posición y orientación de vehículos aéreos no tripulados (VANTS) en un entorno tridimensional. Este enfoque permite expresar las transformaciones geométricas de manera compacta. Al utilizar coordenadas homogéneas, se pueden representar tanto las traslaciones como las rotaciones en un único marco de referencia, lo que simplifica los cálculos. Este enfoque es fundamental para el desarrollo de sistemas autónomos con habilidades de exploración coordinada, ya que proporciona una base matemática sólida para la comprensión y manipulación del movimiento de los vehículos aéreos no tripulados (VANTS).
 
-\textit{\textbf{Desarrollar..}}
+%\textit{\textbf{Desarrollar..}}
 
 \subsection*{Transformaciones geométricas}
 
 En el contexto de los vehículos aéreos no tripulados (VANTS), las transformaciones geométricas son herramientas fundamentales para comprender y manipular la posición y orientación de los vehículos en un espacio tridimensional. Estas transformaciones se utilizan para describir cambios en la posición, la rotación y el tamaño de los objetos en un sistema de coordenadas. Comprenden operaciones como la traslación y la rotación, que permiten modelar y simular el movimiento de los VANTS. 
 
-\textit{\textbf{Desarrollar..}}
+%\textit{\textbf{Desarrollar..}}
 
 \section{Funcionamiento de un VANT}
 
@@ -62,7 +74,7 @@ El vuelo de un VANT se controla mediante comandos enviados desde una estación t
 
 El funcionamiento de un VANT se ve influenciado por una serie de factores, incluyendo las condiciones meteorológicas, las regulaciones gubernamentales, la autonomía de la batería y la calidad de los datos de los sensores. La seguridad y la fiabilidad son consideraciones críticas en el diseño y operación de estos sistemas, lo que requiere un enfoque cuidadoso en la planificación, desarrollo y prueba de cada componente.
 
-\textit{\textbf{Desarrollar..}}
+%\textit{\textbf{Desarrollar..}}
 
 %En resumen, el funcionamiento de un VANT implica una integración compleja de hardware, software y sistemas de control para permitir operaciones autónomas en entornos aéreos variados. El entendimiento detallado de estos principios es fundamental para el diseño efectivo, la operación segura y el aprovechamiento máximo del potencial de los VANT en una amplia gama de aplicaciones.
 
@@ -70,31 +82,31 @@ El funcionamiento de un VANT se ve influenciado por una serie de factores, inclu
 
 El control es un aspecto crucial en la investigación y desarrollo de sistemas autónomos aéreos. Este proceso implica el diseño y la implementación de algoritmos y estrategias que permiten a los VANTs realizar tareas específicas de manera eficiente y segura. Se abordan diversos aspectos del control, como la estabilización, la navegación, la planificación de trayectorias y la interacción con el entorno. La investigación en este campo se centra en mejorar la precisión, y la capacidad de adaptación de los algoritmos de control, así como en la integración de tecnologías de la inteligencia artificial clásica. El control efectivo de los VANTs es fundamental para una amplia gama de aplicaciones.
 
-\textit{\textbf{Desarrollar..}}
+%\textit{\textbf{Desarrollar..}}
 
 \section{Estimación de posición}
 
 El proceso de estimación de posición en vehículos aéreos no tripulados (VANTs) es fundamental para su operación autónoma. Este proceso implica el uso de sensores y algoritmos para determinar la posición y orientación del VANT en relación con un sistema de coordenadas global. Los VANTs suelen utilizar una combinación de sensores, como IMU, cámaras y LIDAR, para recopilar información sobre su entorno y su movimiento. A partir de estos datos, se aplican algoritmos de estimación, como el filtro de Kalman extendido (EKF) o el filtro de partículas, para integrar la información de los sensores y calcular la posición estimada del VANT con respecto al tiempo.
 
-\textit{\textbf{Desarrollar..}}
+%\textit{\textbf{Desarrollar..}}
 
 \subsection{Odometría visual inercial (Visual Inertial Odometry - VIO)}
 
 Es una tecnología avanzada utilizada en vehículos aéreos no tripulados (VANTs) que combina datos visuales y de sensores inerciales para estimar la posición y orientación del vehículo en tiempo real. Este enfoque aprovecha la información visual de cámaras a bordo y la información de acelerómetros y giroscopios para calcular con precisión la trayectoria del VANT en entornos dinámicos. Al fusionar la información de múltiples fuentes sensoriales, la odometría visual inercial (VIO por sus siglas en inglés) supera las limitaciones individuales de cada sensor y proporciona una estimación confiable del movimiento del VANT.
 
-\textit{\textbf{Desarrollar..}}
+%\textit{\textbf{Desarrollar..}}
 
 \section{Planificación de trayectoria}
 
 El tema de la planificación de trayectorias es de vital importancia, abarcando un conjunto diverso de técnicas y enfoques para garantizar la navegación segura y eficiente de estos dispositivos en entornos complejos y dinámicos. Este proceso implica la generación de rutas que permitan a los VANTs alcanzar sus destinos mientras evitan obstáculos y cumplen con restricciones operativas, como minimizar el consumo de energía o maximizar la cobertura de área explorada. Desde métodos clásicos basados en grafos, hasta enfoques más avanzados que integran técnicas de aprendizaje automático y optimización.
 
-\textit{\textbf{Desarrollar..}}
+%\textit{\textbf{Desarrollar..}}
 
 \subsection{Evasión de obstáculos}
 
-El desarrollo de estrategias efectivas para la evasión de obstáculos es un componente crítico en el diseño de sistemas autónomos, especialmente en el contexto de los vehículos aéreos no tripulados (VANTs).
+El desarrollo de estrategias efectivas para la evasión de obstáculos es un componente crítico en el diseño de sistemas autónomos. Se centra en desarrollar algoritmos y técnicas para permitir que los robots se desplacen de manera segura en entornos complejos y dinámicos. Estos sistemas permiten a los robots detectar y evitar obstáculos, ya sean estáticos o en movimiento, utilizando sensores como cámaras, láseres o ultrasonidos. Los algoritmos de evasión de obstáculos pueden basarse en enfoques como la planificación de trayectorias, el mapeo de entornos y el aprendizaje automático. El objetivo es garantizar que los robots puedan navegar de manera autónoma y evitar colisiones mientras realizan sus tareas asignadas.
 
-\textit{\textbf{Desarrollar..}}
+%\textit{\textbf{Desarrollar..}}
 %Además, se investigan estrategias de planificación de trayectorias y control de vuelo que permiten a los VANTs calcular rutas alternativas y tomar decisiones evasivas en función de la información del entorno.
 
 \section{Representación medio ambiente}
@@ -109,17 +121,17 @@ Estas representaciones espaciales permiten a los robots construir y mantener map
 
 El raycasting es una técnica fundamental en la percepción que permite detectar obstáculos y mapear el entorno tridimensional de manera eficiente. Consiste en emitir rayos desde el robot móvil en direcciones específicas y detectar las intersecciones con objetos o superficies en el entorno. Estas intersecciones proporcionan información crucial sobre la geometría del entorno, que se utiliza para generar mapas tridimensionales y planificar trayectorias seguras y eficientes para la navegación autónoma.
 
-\textit{\textbf{Desarrollar..}}
+%\textit{\textbf{Desarrollar..}}
 
 \subsection{Point clouds}
 
 El uso de vehículos aéreos no tripulados (VANTs) para la captura y procesamiento de nubes de puntos (point clouds) ha emergido como una herramienta poderosa en una amplia gama de aplicaciones, desde la cartografía y la topografía hasta la inspección de infraestructuras y la monitorización medioambiental. Las nubes de puntos, que consisten en conjuntos masivos de puntos tridimensionales que representan la superficie de objetos y entornos, proporcionan información detallada y precisa sobre la estructura y la geometría de los mismos.
 
-\textit{\textbf{Desarrollar..}}
+%\textit{\textbf{Desarrollar..}}
 
-\subsection{Octomapas vs. HGrid}
+%\subsection{Octomapas vs. HGrid}
 
-\textit{\textbf{Desarrollar..}}
+%\textit{\textbf{Desarrollar..}}
 
 %En esta tesis, exploramos los avances en la adquisición y procesamiento de nubes de puntos utilizando VANTs, centrándonos en el desarrollo de algoritmos y técnicas para la planificación de trayectorias, la navegación y la captura eficiente de datos. Además, investigamos estrategias para la fusión y la interpretación de múltiples nubes de puntos obtenidas de diferentes perspectivas y momentos temporales, con el objetivo de generar modelos tridimensionales precisos y completos del entorno. Nuestro trabajo contribuye al avance en la capacidad de los VANTs para la recopilación de datos geoespaciales y la generación de información útil para una variedad de aplicaciones, impulsando así el potencial de esta tecnología en el ámbito de la percepción y la inteligencia espacial.
 
@@ -189,5 +201,5 @@ Los principales conceptos en que ROS trabaja es bajo el paradigma publicador-sus
   
 \end{itemize}
 
-\textit{\textbf{Desarrollar..}}
+%\textit{\textbf{Desarrollar..}}
 

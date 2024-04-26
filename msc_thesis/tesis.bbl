@@ -147,6 +147,12 @@ Papachristos, C., Khattak, S., and Alexis, K. (2017).
 \newblock In {\em 2017 IEEE International Conference on Robotics and Automation
   (ICRA)}, pages 4568--4575.
 
+\bibitem[Ramirez and Zeghloul, 2001]{ramirez2001}
+Ramirez, G. and Zeghloul, S. (2001).
+\newblock Collision-free path planning for nonholonomic mobile robots using a
+  new obstacle representation in the velocity space.
+\newblock {\em Robotica}, 19(5):543--555.
+
 \bibitem[Rou\v{c}ek et~al., 2022]{DARPA2022}
 Rou\v{c}ek, T., Pecka, M., \v{C}\'{\i}\v{z}ek, P., Pet\v{r}\'\i\v{c}ek, T.,
   Bayer, J., \v{S}alansk\'{y}, V., Azayev, T., He\v{r}t, D., Petrl\'{i}k, M.,

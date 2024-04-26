@@ -8,44 +8,44 @@ A level-1 auxiliary file: chapter2.aux
 A level-1 auxiliary file: chapter3.aux
 Database file #1: EMOO.bib
 Database file #2: protocolo.bib
-You've used 34 entries,
+You've used 35 entries,
             1935 wiz_defined-function locations,
-            691 strings with 11838 characters,
-and the built_in function-call counts, 16430 in all, are:
-= -- 1563
-> -- 871
-< -- 17
-+ -- 318
-- -- 310
-* -- 1472
-:= -- 2821
-add.period$ -- 102
-call.type$ -- 34
-change.case$ -- 323
-chr.to.int$ -- 34
-cite$ -- 34
-duplicate$ -- 554
-empty$ -- 1044
-format.name$ -- 354
-if$ -- 3216
+            699 strings with 12047 characters,
+and the built_in function-call counts, 16824 in all, are:
+= -- 1602
+> -- 884
+< -- 18
++ -- 322
+- -- 314
+* -- 1508
+:= -- 2888
+add.period$ -- 105
+call.type$ -- 35
+change.case$ -- 330
+chr.to.int$ -- 35
+cite$ -- 35
+duplicate$ -- 568
+empty$ -- 1074
+format.name$ -- 361
+if$ -- 3295
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 29
-newline$ -- 171
-num.names$ -- 102
-pop$ -- 302
+missing$ -- 30
+newline$ -- 176
+num.names$ -- 105
+pop$ -- 306
 preamble$ -- 1
-purify$ -- 325
+purify$ -- 332
 quote$ -- 0
-skip$ -- 421
+skip$ -- 432
 stack$ -- 0
-substring$ -- 1162
-swap$ -- 95
+substring$ -- 1195
+swap$ -- 96
 text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 204
+type$ -- 210
 warning$ -- 0
-while$ -- 109
+while$ -- 112
 width$ -- 0
-write$ -- 435
+write$ -- 448

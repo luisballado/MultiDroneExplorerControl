@@ -1,10 +1,10 @@
 \chapter{Enfoque propuesto}
 
-El enfoque propuesto para la tesis de exploración coordinada multi-VANT se centra en el desarrollo de un sistema autónomo que emplea varios vehículos aéreos no tripulados (VANTS) para explorar y mapear entornos desconocidos de manera coordinada. Después de identificar técnicas y algoritmos relevantes, seguido del diseño detallado del sistema y su implementación en un entorno simulado.
+El enfoque propuesto para la tesis estrategias para la exploración coordinada multi-VANT, se centra en el desarrollo de un sistema autónomo que emplea varios vehículos aéreos no tripulados (VANTS) para explorar y mapear entornos desconocidos de manera coordinada. Después de identificar técnicas y algoritmos relevantes, nuestro enfoque se centra en el diseño detallado del sistema y su implementación en un entorno simulado.
 
-El diseño e implementación de un sistema autónomo que integre estas tecnologías avanzadas permite abordar los desafíos inherentes a la exploración coordinada con múltiples VANT y complementado con una distrubución de tareas descentralizado.
+El diseño e implementación de un sistema autónomo que integre tecnologías avanzadas, complementado con una distrubución de tareas de forma descentralizado. Permitirá abordar los desafíos inherentes a la exploración coordinada con múltiples vehículos aéreos no tripulados.
 
-En resumen, el enfoque propuesto aborda el desafío de la exploración coordinada multi-VANT mediante la integración de algoritmos avanzadas y la evaluación práctica de su desempeño en diferentes ambientes.
+En resumen, el enfoque propuesto aborda el desafío de la exploración coordinada multi-VANT mediante la integración de algoritmos que doten de autonomía a múltiples vehículos aéreos no tripulados y la evaluación práctica de su desempeño en diversos ambientes.
 
 %\section{Revisión de la literatura}
 
@@ -16,7 +16,9 @@ En resumen, el enfoque propuesto aborda el desafío de la exploración coordinad
 
 \section{Diseño del sistema}
 
-Desarrollar un diseño detallado del sistema que incluya la arquitectura general, los componentes individuales y los algoritmos específicos que se utilizarán para la planificación de trayectorias, el mapeo del entorno y la coordinación entre los VANT.
+El diseño de un sistema autónomo implica la integración de software para permitir que un vehículo aéreo no tripulado realice operaciones de forma independiente y segura. Este sistema incluye componentes como sensores, actuadores, sistemas de comunicación y unidades de procesamiento. En términos de software, se requieren algoritmos para control de vuelo, planificación de trayectorias, percepción del entorno y toma de decisiones.
+
+%Desarrollar un diseño detallado del sistema que incluya la arquitectura general, los componentes individuales y los algoritmos específicos que se utilizarán para la planificación de trayectorias, el mapeo del entorno y la coordinación entre los VANT.
 
 Los componentes principales de la solución propuesta son:
 
@@ -25,25 +27,31 @@ Los componentes principales de la solución propuesta son:
 \item Fusión de sensores
 \item Estimación de posición
 \item Representación del mundo
-\item Exploración
-\item Coordinación
 \item Planificador de trayectorias
 \item Navegación
+\item Exploración
+\item Coordinación
 \end{itemize}
+
+La imágen \ref{fig:arq} muestra la arquitectura propuesta, compuesta por los componentes previamente indicados que dotan de autonomía a un vehículo aéreo no tripulado (VANT).
+
+En el diagrama, podemos observar que la interconexión entre los componentes cumple con un flujo de información importante proveniente de la representación del medio ambiente y el mantenimiento del mapa. Así mismo la estimación de posición es necesaria para la planificación hacia las fronteras y ampliar el conocimiento del medio ambiente (mapa).
 
 %\centering
 %\caption{Arquitectura de la solución propuesta}
 %\includegraphics[width=\linewidth]{images/arquitectura}\\
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.8\textwidth]{images/arquitectura}\\
+\includegraphics[width=0.88\textwidth]{images/arquitectura}
 \caption{Arquitectura de la solución propuesta}
+\label{fig:arq}
 \end{figure}
 
 \subsection*{Sistema de percepción}
 
-Al hacer uso del simulador dinámico usado en el trabajo de \citeauthor{RACER2022} y \citeauthor{BARTOLOMEI2023} que utilizan la odometría de referencia de los VANTS, suponiendo que cada agente está equipado con una
-cámara de profundidad que mira hacia adelante cuya resolución es 640x480px y un campo de visión de 80ºx60º.
+Al hacer uso del simulador dinámico usado en el trabajo de \citeauthor{RACER2022} y \citeauthor{BARTOLOMEI2023} que utilizan la odometría de referencia de los vehículos aéreos no tripulados (VANTS), suponiendo que cada agente está equipado con una cámara de profundidad que mira hacia adelante cuya resolución es 640x480px y un campo de visión de $80^{\circ}$x$60^{\circ}$.
+
+%Nos brinda la información de una nube de puntos para descubrir el mapa dentro del simulador.
 
 \subsection*{Estimación de posición}
 La estimación hace uso de la técnica descrita en el trabajo \citeauthor{OMNI2022}, que ayuda a la localización del VANT y los demás miembros del equipo manteniendo un mismo marco de referencia.
@@ -52,16 +60,23 @@ La estimación hace uso de la técnica descrita en el trabajo \citeauthor{OMNI20
 La función de sensores ayuda a que en el paso previo, se puedan obtener las posiciones aproximadas del equipo de VANTS. Los valores de odometría y el ángulo de inclinación, se fusionan con los datos obtenidos por una nube de puntos.
 
 \subsection*{Representación del mundo}
-Una vez conocida la estimación de posición, cada VANT es capaz de intercambiar y actualizar su base de conocimiento para una toma de decisiones informada.
+Una vez conocida la estimación de posición, cada vehículo aéreo no tripulado será capaz de intercambiar y actualizar su base de conocimiento para una toma de decisiones informada.
 
 \subsection*{Exploración}
-La exploración se basa en el concepto de fronteras propuesto por \citeauthor{YAMAUCHI1997}, debido a que mantiene una lista de fronteras activas cada VANT puede contar con una copia y actualizarla durante su ejecución.
+La exploración se basa en el concepto de fronteras propuesto por \citeauthor{YAMAUCHI1997}, debido a que mantiene una lista de fronteras activas. Permitiendo que cada vehículo aéreo no tripulado pueda contar con una copia y actualizarla durante su ejecución.
+
+La estrategia de exploración se fundamenta en un proceso de autoevaluación, dentro de un sistema descentralizado y resistente a fallos totales de cualquier miembro del equipo. Cada robot determina su propia oferta, predice las acciones que tomarían los otros miembros del equipo y elige una frontera para sí mismo. \cite{CINVESTAM2013}
 
 \subsection*{Coordinación}
-La coordinación se ofertará después de resolver el problema de asignación que minimicen el tiempo de traslado.
+La coordinación se ofertará después de resolver el problema de asignación que minimicen el tiempo de traslado hacia una frontera.
+
 
 \subsection*{Planificador de trayectorias}
 Dentro del planificador, se propone el uso y mantenimiento de un diagrama de Voronoi en 3D, qué, a medida del conocimiento del medio ambiente gracias al sistema de percepción, se podrán suavizar los puntos generando una curva de bezier respecto al punto que el VANT deba trasladarse.
+
+Una representación de los obstáculos en el espacio de velocidades denomidado Polígono de Velocidades Admisibles (PVA) \cite{ramirez2001} con uso de un modelo de amortiguador en función de la distancia entre el robot y el obstáculo.
+
+Para el problema de navegación, el proceso de optimización es representado por el cálculo de la minima distancia entre el polígono de velocidades factibles y el punto que describe la velocidad de referencia.
 
 \subsection*{Navegación}
 Un enfoque reactivo nos ayuda en aprovechar las velocidades que nuestro VANT puede navegar analizando los obstáculos. De forma que la velocidad se irá reduciendo en base a que la velocidad relacionada al error de detectar un objeto.

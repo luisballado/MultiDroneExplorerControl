@@ -58,20 +58,19 @@ Dado un volumen de interés desconocido en un espacio cerrado que se desea explo
 \end{itemize}
 
 Coordinar el conjunto de VANTs para reducir el tiempo total de exploración.
-  
-  
+
 \section{Hipótesis y preguntas de investigación}
 
 \subsection*{Hipótesis}
-\emph{``Una estrategia que coordine y asigne tareas de exploración para múltiples VANTS de manera descentralizada, en combinación con una arquitectura de software diseñada para resolver problemas de localización, gestión de mapas y planificación de rutas, mejorará la eficiencia y cobertura de la exploración en interiores de un entorno desconocido''}.
+\emph{``Una estrategia que coordine y asigne tareas de exploración para múltiples vehículos aéreos no tripulados de manera descentralizada, en combinación con una arquitectura de software diseñada para resolver problemas de localización, gestión de mapas y planificación de rutas, mejorará la eficiencia y cobertura de la exploración en interiores de un entorno desconocido''}.
 
 
 \subsection*{Preguntas de investigación}
 
 \begin{enumerate}\setlength{\itemsep}{-1mm}
-\item ¿Qué características de la dinámica del VANT son cruciales para lograr trayectorias suaves y continuas?
-\item ¿Podría un planificador de trayectorias que aproveche las regiones libres de obstáculos acelerar los desplazamientos de los VANTs y, consecuentemente, reducir los tiempos de exploración?
-\item ¿Qué mecanismos de coordinación existen dentro de la literatura que podrían ayudar en resolver el problema de exploración multi-VANT?
+\item ¿Qué características de la dinámica de un vehículo aéreo no tripulado son cruciales para lograr trayectorias suaves y continuas?
+\item ¿Podría un planificador de trayectorias que aproveche las regiones libres de obstáculos acelerar los desplazamientos de los vehículos aéreos no tripulados y, consecuentemente, reducir los tiempos de exploración?
+\item ¿Qué mecanismos de coordinación existen dentro de la literatura que podrían ayudar en resolver el problema de exploración de múltiples vehículos aéreos no tripulados?
 \end{enumerate}
 
 \section{Objetivos}
@@ -79,14 +78,14 @@ Coordinar el conjunto de VANTs para reducir el tiempo total de exploración.
 \subsection*{Objetivo general}
 
 %El principal objetivo del trabajo de tesis se define a continuación:
-\emph{``Desarrollar una estrategia de exploración descentralizada que permita resolver los problemas de coordinación para múltiples VANTS en ambientes desconocidos.''}.
+\emph{``Desarrollar una estrategia de exploración descentralizada que permita resolver los problemas de coordinación para múltiples vehículos aéreos no tripulados en ambientes desconocidos.''}.
 
 \subsection*{Objetivos específicos}
 
 Para lograr nuestro objetivo principal, se consideran los siguientes objetivos especificos a cubrir:
 
 \begin{itemize}\setlength{\itemsep}{-1mm}
-\item Desarrollar una arquitectura de software que resuelva los problemas de autonomía para un VANT (localización, manejo de mapas y planificación de trayectorias).
+\item Desarrollar una arquitectura de software que resuelva los problemas de autonomía para un vehículo aéreo no tripulado (localización, manejo de mapas y planificación de trayectorias).
 \item Implementar un mecanismo de coordinación descentralizado que asigne tareas de exploración.
 \item Realizar pruebas y simulaciones de la solución propuesta en diversos entornos, analizando la relación tiempo de exploración y cobertura del área de interés.
 \end{itemize}
@@ -95,9 +94,9 @@ Para lograr nuestro objetivo principal, se consideran los siguientes objetivos e
 
 \section{Solución propuesta}
 
-Para resolver el problema de exploración multi-VANT con un enfoque descentralizado considerando restricciones en el rango de la comunicación. Se cuenta como antecedente el trabajo doctoral de \citeauthor{CINVESTAM2013} que propone un algoritmo basado en un proceso de ofertas de mercado, en el cual cada robot calcula las ofertas de manera independiente, buscando alcanzar el mayor aporte posible al equipo en su conjunto. Cuando un robot alcanza su objetivo, el robot toma una decisión para sí mismo, involucrando a cada uno de los miembros del equipo así como el rango de comunicación, bajo un esquema descentralizado y sin la necesidad de un módulo central.
+Para abordar la exploración con múltiples vehículos aéreos no tripulados de manera descentralizada y considerando limitaciones en el alcance de la comunicación, se hace referencia al trabajo de \citeauthor{CINVESTAM2013}\cite{CINVESTAM2013}, que propone un algoritmo basado en un proceso de subasta, donde cada robot calcula ofertas de manera autónoma con el objetivo de contribuir al equipo de manera óptima. Cuando un robot alcanza su meta, toma decisiones basadas en su propio criterio, teniendo en cuenta a todos los miembros del equipo y el alcance de la comunicación, en un enfoque descentralizado sin necesidad de un módulo central.
 
-Para validar la propuesta de exploración coordinada se necesita primero resolver la autonomía de un vehículo aéreo no tripulado diseñando una arquitectura que incluya la coordinación multi-robot propuesta en \cite{CINVESTAM2013}.
+Para validar la propuesta de exploración coordinada se necesita primero resolver la autonomía de un vehículo aéreo no tripulado diseñando una arquitectura que incluya la coordinación multi-robot propuesta en el trabajo doctoral de \citeauthor{CINVESTAM2013}\cite{CINVESTAM2013}.
 
 \begin{enumerate}\setlength{\itemsep}{-1mm}
 \item Conocer los fundamentos que nos aproximen a realizar la tarea de exploración autónoma con múltiples VANTS.

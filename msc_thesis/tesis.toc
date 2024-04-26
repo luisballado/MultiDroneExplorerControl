@@ -23,21 +23,20 @@
 \contentsline {subsection}{\numberline {2.2.5}Coordinación multi-robot}{18}{subsection.2.2.5}%
 \contentsline {chapter}{\numberline {3}Marco Teórico}{21}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Conceptos fundamentales}{22}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Funcionamiento de un VANT}{23}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Control de un VANT}{24}{section.3.3}%
+\contentsline {section}{\numberline {3.2}Funcionamiento de un VANT}{24}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Control de un VANT}{25}{section.3.3}%
 \contentsline {section}{\numberline {3.4}Estimación de posición}{25}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Odometría visual inercial (Visual Inertial Odometry - VIO)}{25}{subsection.3.4.1}%
-\contentsline {section}{\numberline {3.5}Planificación de trayectoria}{25}{section.3.5}%
+\contentsline {subsection}{\numberline {3.4.1}Odometría visual inercial (Visual Inertial Odometry - VIO)}{26}{subsection.3.4.1}%
+\contentsline {section}{\numberline {3.5}Planificación de trayectoria}{26}{section.3.5}%
 \contentsline {subsection}{\numberline {3.5.1}Evasión de obstáculos}{26}{subsection.3.5.1}%
-\contentsline {section}{\numberline {3.6}Representación medio ambiente}{26}{section.3.6}%
+\contentsline {section}{\numberline {3.6}Representación medio ambiente}{27}{section.3.6}%
 \contentsline {subsection}{\numberline {3.6.1}Ray casting}{27}{subsection.3.6.1}%
-\contentsline {subsection}{\numberline {3.6.2}Point clouds}{27}{subsection.3.6.2}%
-\contentsline {subsection}{\numberline {3.6.3}Octomapas vs. HGrid}{27}{subsection.3.6.3}%
-\contentsline {section}{\numberline {3.7}Exploración multi-robot}{27}{section.3.7}%
+\contentsline {subsection}{\numberline {3.6.2}Point clouds}{28}{subsection.3.6.2}%
+\contentsline {section}{\numberline {3.7}Exploración multi-robot}{28}{section.3.7}%
 \contentsline {subsection}{\numberline {3.7.1}Asignación de tareas}{28}{subsection.3.7.1}%
 \contentsline {section}{\numberline {3.8}Arquitectura de un robot}{28}{section.3.8}%
 \contentsline {section}{\numberline {3.9}El uso del sistema operativo robótico ROS}{29}{section.3.9}%
-\contentsline {chapter}{\numberline {4}Enfoque propuesto}{31}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Diseño del sistema}{32}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Máquina de estados para un VANT}{34}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Aplicación de nodos en ROS}{36}{section.4.3}%
+\contentsline {chapter}{\numberline {4}Enfoque propuesto}{33}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Diseño del sistema}{34}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Máquina de estados para un VANT}{37}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Aplicación de nodos en ROS}{38}{section.4.3}%
