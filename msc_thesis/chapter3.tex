@@ -68,15 +68,23 @@ La exploración se basa en el concepto de fronteras propuesto por \citeauthor{YA
 La estrategia de exploración se fundamenta en un proceso de autoevaluación, dentro de un sistema descentralizado y resistente a fallos totales de cualquier miembro del equipo. Cada robot determina su propia oferta, predice las acciones que tomarían los otros miembros del equipo y elige una frontera para sí mismo. \cite{CINVESTAM2013}
 
 \subsection*{Coordinación}
-La coordinación se ofertará después de resolver el problema de asignación que minimicen el tiempo de traslado hacia una frontera.
+%La coordinación se ofertará después de resolver el problema de asignación que minimicen el tiempo de traslado hacia una frontera.
 
+La coordinación usa un mecanismo de ofertas basado en la asignación de objetivos y la restricción en el rango de la comunicación para coordinar las acciones de los robots. Al hacer uso del mecanismo de coordinacion presentado en el trabajo de \citeauthor{CINVESTAM2013}. Se trata de un procedimiento completamente descentralizado y asíncrono, donde cada dron calcula la oferta de los demás miembros del equipo y la suya propia. Esta información es utilizada para tomar decisiones sin entorpecer las decisiones de los otros miembros ni requerir sincronización con ellos. Además, si otro robot detecta el objetivo seleccionado, envía una señal de detención para informar al primer robot de que su objetivo ha sido explorado, obligándolo así a iniciar un nuevo proceso de ofertas para elegir otro objetivo \cite{CINVESTAM2013}.
+
+
+%que es un proceso totalmente descentralizado y asíncrono, ya que cada vehículo aéreo no tripulado estima la oferta de los otros miembros del equipo y su propia oferta, la información le sirve para tomar una decisión sin interferir en las decisiones de los otros miembros del equipo y sin requerir sincronizarse con ellos. Además, si el objetivo seleccionado es descubierto por otro robot, éste envía una señal de parada con la finalidad de indicar al primer robot que su objetivo ha sido explorado y obligarlo a reiniciar un nuevo proceso de ofertas para seleccionar un nuevo objetivo 
 
 \subsection*{Planificador de trayectorias}
 Dentro del planificador, se propone el uso y mantenimiento de un diagrama de Voronoi en 3D, qué, a medida del conocimiento del medio ambiente gracias al sistema de percepción, se podrán suavizar los puntos generando una curva de bezier respecto al punto que el VANT deba trasladarse.
 
 Una representación de los obstáculos en el espacio de velocidades denomidado Polígono de Velocidades Admisibles (PVA) \cite{ramirez2001} con uso de un modelo de amortiguador en función de la distancia entre el robot y el obstáculo.
 
-Para el problema de navegación, el proceso de optimización es representado por el cálculo de la minima distancia entre el polígono de velocidades factibles y el punto que describe la velocidad de referencia.
+Para el problema de navegación, el proceso es representado por el cálculo de la minima distancia entre el polígono de velocidades factibles y el punto que describe la velocidad de referencia.
+
+Esto significa que puede generar trayectorias que son suaves y eficientes en términos de energía, lo que es especialmente importante en aplicaciones donde se requiere un movimiento preciso y controlado, como la navegación de robots móviles en entornos con obstáculos dinámicos o en situaciones donde se necesita evitar colisiones.
+
+Además, el PVA puede adaptarse fácilmente a diferentes tipos de robots móviles y entornos, lo que lo hace ampliamente utilizado en la planificación de trayectorias para una variedad de aplicaciones. Su capacidad para generar trayectorias suaves y eficientes lo convierte en una herramienta valiosa para mejorar la navegación y el rendimiento de los robots móviles en diversas situaciones y entornos.
 
 \subsection*{Navegación}
 Un enfoque reactivo nos ayuda en aprovechar las velocidades que nuestro VANT puede navegar analizando los obstáculos. De forma que la velocidad se irá reduciendo en base a que la velocidad relacionada al error de detectar un objeto.
@@ -85,9 +93,16 @@ Bajo ese comportamiento se podrá acelerar en espacios abiertos y navegar con cu
 
 \section{Máquina de estados para un VANT}
 
-Para una mayor comprensión y control de los posibles estados que los VANTS pueden tomar
-en las tareas de exploración se abstraen como posibles acciones que deba tomar respecto
-al estado en que se encuentre.
+Para una mayor comprensión y control de los posibles estados que los VANTS pueden tomar en las tareas de exploración se abstraen como posibles acciones que deba tomar respecto al estado en que se encuentre ver imágen \ref{fig:estado}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.88\textwidth]{images/estado}
+\caption{Máquina de estados finitos}
+\label{fig:estado}
+\end{figure}
+
+Así, cada vehículo aéreo no tripulado se encuentra en uno de tres estados posibles:
 
 \subsection*{Inicialización}
 
@@ -103,7 +118,7 @@ En este estado, los VANTS esperarán iniciar la exploración manteniendo el vuel
 Una vez alcanzando este estado, se planifica una trayectoria hacia la frontera cercana.
 \subsection*{Planeación trayectoria}
 
-Al mantener una representación del medio ambiente, sirve de ayuda para generar una trayectoria que nos aproxime a los puntos de interés.
+Al mantener una representación del medio ambiente, sirve de ayuda para generar una trayectoria que nos aproxime a los puntos de interés. Éste estado el vehículo aéreo no tripulado se encuentra en el proceso de análisis de información y de auto-oferta para seleccionar el objetivo que más beneficie a la exploración. Una vez que se encuentre con un objetivo, se procede a navegar hacia él. 
 
 \subsection*{Publicar trayectoria}
 
@@ -111,8 +126,12 @@ Notificar la trayectoria una vez que se haya validado que existe un camino. Para
 
 \subsection*{Ejecución trayectoria}
 
-Al contar con una trayectoria que me guia hacia el próximo punto a alcanzar y con ayuda del planificador local que nos permita resolver los problemas de colisiones.
+Al contar con una trayectoria que me guia hacia el próximo punto a alcanzar y con ayuda del planificador local que nos permita resolver los problemas de colisiones, el vehículo aéreo no tripulado se desplaza hacia el objetivo definido. Si el objetivo ha sido explorado, se inicia un nuevo proceso de auto-oferta \cite{CINVESTAM2013}.
 
+
+\subsection*{Avería total}
+
+Un vehículo aéreo no tripulado deja de funcionar totalmente y se excluye del proceso de exploración.
 
 \subsection*{Terminación}
 

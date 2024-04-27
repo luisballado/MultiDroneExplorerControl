@@ -38,5 +38,5 @@
 \contentsline {section}{\numberline {3.9}El uso del sistema operativo robótico ROS}{29}{section.3.9}%
 \contentsline {chapter}{\numberline {4}Enfoque propuesto}{33}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Diseño del sistema}{34}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Máquina de estados para un VANT}{37}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Aplicación de nodos en ROS}{38}{section.4.3}%
+\contentsline {section}{\numberline {4.2}Máquina de estados para un VANT}{38}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Aplicación de nodos en ROS}{40}{section.4.3}%
