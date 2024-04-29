@@ -1,0 +1,45 @@
+Asi debo entregar el trabajo de invs
+https://hkust-aerial-robotics.github.io/OmniNxt/
+
+https://pointclouds.org/documentation/tutorials/compression.html#octree-compression
+https://github.com/mmolero/awesome-point-cloud-processing?tab=readme-ov-file
+https://www.cs.fsu.edu/~myers/c++/notes/style.html
+
+A Comparison Between Quadrotor Flight Configurations
+https://move.rpi.edu/sites/default/files/publication-documents/2016-4.pdf
+
+https://www.mas.bg.ac.rs/_media/istrazivanje/fme/vol50/4/10_a.a._jaber_et_al.pdf
+
+ROS2
+https://articulatedrobotics.xyz/tutorials/mobile-robot/concept-design/concept-gazebo/
+
+Estudiar sobre raytracing - octomap
+https://www.doc.ic.ac.uk/~bkainz/graphics/notes/GraphicsNotes1011.pdf
+https://cs.stanford.edu/people/eroberts/courses/soco/projects/1997-98/ray-tracing/implementation.html
+https://www.arminhornung.de/Research/pub/hornung13roscon.pdf
+https://github.com/tejalbarnwal/octomap_tutorial
+
+Los Robots del Futuro y su Importancia para México
+https://ccc.inaoep.mx/~emorales/Papers/2009/eduardo.pdf
+
+Grafico de uso de drones
+https://www.mdpi.com/2504-446X/7/1/62
+
+ETH research
+https://rpg.ifi.uzh.ch/research_vo.html
+
+ORB-SLAM2
+https://arxiv.org/pdf/1610.06475.pdf
+
+ROS Slides
+https://ethz.ch/content/dam/ethz/special-interest/mavt/robotics-n-intelligent-systems/rsl-dam/ROS2019/ROS%20Course%20Slides%20Course%204.pdf
+
+Orientacion puntos
+https://aprende.olimpiada-informatica.org/algoritmia-geometria-computacional
+
+Implementacion anillo seguridad ROS
+https://navigation.ros.org/tutorials/docs/using_collision_monitor.html
+
+Visual SLAM and the T265 Tracking Camera
+https://dev.intelrealsense.com/docs/intel-realsensetm-visual-slam-and-the-t265-tracking-camera
+
