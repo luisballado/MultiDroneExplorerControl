@@ -876,18 +876,20 @@
 
 \begin{frame}{Cronograma actualizado}
   \tiny 
-\hspace{0.0cm}\begin{minipage}{7cm}
-  \noindent\begin{tabular}{|p{0.8\textwidth}*{12}{|p{0.040\textwidth}}|}
+  \hspace{0.0cm}
+  \begin{minipage}{5cm}
+  \noindent\begin{tabular}{|p{0.8\textwidth}*{16}{|p{0.040\textwidth}}|}
   % The top line
   %\diagbox[width=12.5em]{Actividades}{Cuatrimestres}
   \hline
   & \multicolumn{4}{c|}{\color{teal!80}\textbf{Cuatrimestre 4}} 
   & \multicolumn{4}{c|}{\color{teal!80}\textbf{Cuatrimestre 5}} 
-  & \multicolumn{4}{c|}{\textbf{Cuatrimestre 6}}\\
+  & \multicolumn{4}{c|}{\color{teal!80}\textbf{Cuatrimestre 6}}
+  & \multicolumn{4}{c|}{\textbf{Cuatrimestre Extra}}\\
   \hline
   % The second line, with its five years of four quarters
   %\textcolor{black}{\textbf{Etapas}}
-  \rpt[3]{& 1 & 2 & 3 & 4} \\
+  \rpt[4]{& 1 & 2 & 3 & 4} \\
   \hline
   \rowcolor{teal!40}{\textbf{Etapa 1}}\\
   % using the on macro to fill in twenty cells as `on'
@@ -896,36 +898,36 @@
   \hline
   \rowcolor{teal!15}{\textbf{E1.A1.} Revisi\'{o}n literatura relevante}
 %en exploraci\'{o}n multi-VANT, estrategias de exploraci\'{o}n, algoritmos de coordinaci\'{o}n y evaci\'{o}n de obst\'{a}culos
-  \onok[8] 
-  \on[4]\\
-\hline
+  \onok[8]
+  \on[8]\\
+  \hline
 %\textbf{E1.A2.} Evaluaci\'{o}n de aptitudes\footnote{Evaluaci\'{o}n a partir de los nuevos trabajos}     \on[12] \\
 %\hline
 \rowcolor{teal!15}{\textbf{E1.A2.} Selecci\'{o}n de algoritmos} \onok[2] \off[10] \\
 \hline
-\rowcolor{teal!15}{\textbf{E1.A3.} Dise\~{n}o de la arquitectura de software}
-\off[1] \onok[3] \on[0] \off[8] \\
+\rowcolor{teal!15}{\textbf{E1.A3.} Dise\~{n}o de la AS\footnote{arquitectura de software}}
+\off[1] \onok[3] \on[0] \off[12] \\
 \hline
 \rowcolor{teal!15}{\textbf{E1.A4.} Documentaci\'{o}n Etapa 1}
-\onok[4] \on[0]  \off[8] \\
+\onok[4] \on[0]  \off[12] \\
 \hline
 \rowcolor{teal!15}{\textbf{E1.A5.} Revisi\'{o}n de tesis Etapa 1}
-\off[3] \onok[1]  \off[8] \\
+\off[3] \onok[1]  \off[12] \\
 \hline
 % using the on macro followed by the off macro
 \rowcolor{teal!40}{\textbf{Etapa 2}}\\
 \hline
 \rowcolor{teal!15}{\textbf{E2.A1.} Selecci\'{o}n Simulador}
-\onok[1]  \off[11] \\
+\onok[1]  \off[15] \\
 \hline
-\rowcolor{teal!15}{\textbf{E2.A2.} Visualizaci\'{o}n de datos}
-\off[1] \onok[2] \ondelay[3]  \off[6] \\
+\textbf{E2.A2.} Visualizaci\'{o}n de datos
+\off[1] \onok[2] \ondelay[6]  \off[7] \\
 \hline
-\rowcolor{teal!15}{\textbf{E2.A3.} Control de desplazamientos}
-\off[2] \onok[2] \ondelay[4] \off[4] \\
+\textbf{E2.A3.} Control de desplazamientos
+\off[2] \onok[2] \ondelay[5] \off[7] \\
 \hline
-\rowcolor{teal!15}{\textbf{E2.A4.} Desarrollo de algoritmo de exploraci\'{o}n}
-\off[3] \onok[2] \ondelay[3] \off[4] \\
+\textbf{E2.A4.} Desarrollo de AE \footnote{algoritmo de exploración}
+\off[3] \onok[2] \ondelay[5] \off[6] \\
 \hline
 %\rowcolor{teal!15}{\textbf{E2.A5.} Implementaci\'{o}n y simulaci\'{o}n}
 %\off[3] \onok[2] \ondelay[2] \off[5] \\
@@ -934,39 +936,39 @@
 %\off[4] \on[1] \off[7] \\
 %\hline
 \textbf{E2.A5.} Desarrollo de coordinaci\'{o}n
-\off[4] \on[3] \ondelay[3] \off[2] \\
+\off[4] \on[3] \ondelay[4] \off[5] \\
 \hline
 \rowcolor{teal!15}{\textbf{E2.A6.} Implementaci\'{o}n y simulaci\'{o}n}
-\off[3] \onok[5] \ondelay[2] \off[2] \\
+\off[3] \onok[5] \ondelay[2] \off[6] \\
 \hline
 %\textbf{E2.A9.} Simulaci\'{o}n multi-VANT
 %\off[6] \on[1] \off[5] \\
 %\hline
 \rowcolor{teal!15}{\textbf{E2.A7.} Documentaci\'{o}n Etapa 2}
-\off[4] \onok[4] \off[4] \\
+\off[4] \onok[4] \off[8] \\
 \hline
-\textbf{E2.A8.} Revisi\'{o}n de tesis Etapa 2
-\off[7] \on[1] \off[4] \\
+\rowcolor{teal!15}{\textbf{E2.A8.} Revisi\'{o}n de tesis Etapa 2}
+\off[7] \onok[1] \off[8] \\
 \hline
 \rowcolor{black!5}{\textbf{Etapa 3}}\\
 \hline
 \textbf{E3.A1.} Experimentaci\'{o}n de soluci\'{o}n
-\off[9]  \on[2] \off[1] \\
+\off[10]  \on[3] \off[3] \\
 \hline
 \textbf{E3.A2.} Recopilaci\'{o}n resultados
-\off[10]  \on[1] \off[1] \\
+\off[12]  \on[1] \off[3] \\
 \hline
 \textbf{E3.A3.} Documentaci\'{o}n Etapa 3
-\off[8] \on[4] \off[0] \\
+\off[8] \on[5] \off[3] \\
 \hline
 \textbf{E3.A4.} Revisi\'{o}n de tesis
-\off[10] \on[2] \\
+\off[11] \on[3] \off[2]\\
 \hline
 \textbf{E3.A5.} Divulgaci\'{o}n
-\off[10]  \on[2] \\
+\off[10]  \on[6] \\
 \hline
 \textbf{E3.A6.} Proceso de titulaci\'{o}n
-\off[11] \on\\
+\off[14] \on \off[1]\\
 \hline
 \end{tabular}
 \end{minipage}
