@@ -1,30 +1,26 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{2}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem{Er01}
-P.~Erd{\H o}s.
-\newblock A selection of problems and results in combinatorics.
-\newblock In {\em Recent trends in combinatorics (Matrahaza, 1995)}, pages
-  1--6. Cambridge Univ. Press, Cambridge, 1995.
+\bibitem[Brooks(1985)]{1087348}
+R.~Brooks.
+\newblock Visual map making for a mobile robot.
+\newblock In \emph{Proceedings. 1985 IEEE International Conference on Robotics
+  and Automation}, volume~2, pages 824--829, 1985.
+\newblock \doi{10.1109/ROBOT.1985.1087348}.
 
-\bibitem{ConcreteMath}
-R.~Graham, D.~Knuth, and O.~Patashnik.
-\newblock {\em Concrete mathematics}.
-\newblock Addison-Wesley, Reading, MA, 1989.
-
-\bibitem{greenwade93}
-G.~D. Greenwade.
-\newblock The {C}omprehensive {T}ex {A}rchive {N}etwork ({CTAN}).
-\newblock {\em TUGBoat}, 14(3):342--351, 1993.
-
-\bibitem{knuth92}
-D.~Knuth.
-\newblock Two notes on notation.
-\newblock {\em Amer. Math. Monthly}, 99:403--422, 1992.
-
-\bibitem{Simpson}
-H.~Simpson.
-\newblock Proof of the {R}iemann {H}ypothesis.
-\newblock preprint (2003), available at
-  \texttt{http://www.math.drofnats.edu/riemann.ps}, 2003.
+\bibitem[Nex et~al.(2022)Nex, Armenakis, Cramer, Cucci, Gerke, Honkavaara,
+  Kukko, Persello, and Skaloud]{Nex2022}
+F.~Nex, C.~Armenakis, M.~Cramer, D.~Cucci, M.~Gerke, E.~Honkavaara, A.~Kukko,
+  C.~Persello, and J.~Skaloud.
+\newblock Uav in the advent of the twenties: Where we stand and what is next.
+\newblock \emph{ISPRS Journal of Photogrammetry and Remote Sensing},
+  184:\penalty0 215–242, Feb. 2022.
+\newblock ISSN 0924-2716.
+\newblock \doi{10.1016/j.isprsjprs.2021.12.006}.
+\newblock URL \url{http://dx.doi.org/10.1016/j.isprsjprs.2021.12.006}.
 
 \end{thebibliography}

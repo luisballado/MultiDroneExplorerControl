@@ -1,5 +1,5 @@
 \documentclass[24pt,aspectratio=169]{beamer}
-
+\graphicspath{{Images/}{./}} % Specifies where to look for included images (trailing slash required)
 \usetheme{metropolis}
 
 \usepackage[spanish]{babel} % Cargar el paquete babel con la opción spanish
@@ -10,30 +10,34 @@
 \usepackage{pgfplots}
 \usepackage{xcolor} % Cargar el paquete xcolor
 \usepackage{xspace}
-
+\usepackage[round]{natbib}
+\usepackage{ragged2e}
+\usepackage{bbding} %palomitas checkmark
 \usepgfplotslibrary{dateplot}
 
 
 \definecolor{verde_cinves}{HTML}{009383} % Color de primer plano (foreground) de la barra de progreso
 \definecolor{azulrey_cinves}{HTML}{005179} % Color de primer plano (foreground) de la barra de progreso
-
+\definecolor{amarillo_cinves}{HTML}{FFDA72} % Color de primer plano (foreground) de la barra de progreso
 
 \newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
 
+%separador titulo inicio
 \setbeamercolor{title separator}{use=structure,fg=azulrey_cinves!50, bg=azulrey_cinves!10}
-\setbeamercolor{progress bar in head/foot}{use=structure,fg=verde_cinves!50, bg=verde_cinves!10}
-\setbeamercolor{progress bar}{use=structure,fg=azulrey_cinves!50, bg=azulrey_cinves!10}
-\setbeamercolor{progress bar in section page}{use=structure,fg=azulrey_cinves!50, bg=azulrey_cinves!10}
 
-\setbeamercolor{frametitle}{use=structure,fg=azulrey_cinves!10, bg=azulrey_cinves!100}
+%barra que anuncia el nombre de la seccion
+\setbeamercolor{progress bar in section page}{use=structure,fg=azulrey_cinves!100, bg=azulrey_cinves!10}
+
+%barra de titulo en cada section page
+\setbeamercolor{frametitle}{use=structure,fg=azulrey_cinves!5, bg=azulrey_cinves!100}
 
 \title{\large{Estrategias para la exploración coordinada multi-VANT}}
 %\subtitle{A modern beamer theme}
-%\date{\today}
 \author{Tesista: Luis Alberto Ballado Aradias\\[\baselineskip]
   \small{{Asesores:} 
     \and\\Dr. José Gabriel Ramírez-Torres
     \and\\Dr. Eduardo Rodriguez-Tello\\ }}
+\date{\today}
 \institute{Centro de Investigación y de Estudios Avanzados - Unidad Tamaulipas}
 \titlegraphic{\hfill\includegraphics[height=1.5cm]{cinvestav_negro}}
 
@@ -49,277 +53,170 @@
 \section{Introducción}
 
 \begin{frame}[fragile]{Antecedentes}
+  \bigskip % Vertical whitespace
+  \centering
+  \includegraphics[width=0.45\textwidth,height=0.35\textheight]{DJI_B1}$^\dag$
+  \hfil
+  \includegraphics[width=0.45\textwidth,height=0.35\textheight]{survey_chart.jpg}\footnotemark
+  \vspace{2pt}\\
+  
+  \begin{itemize}
+    \item \textbf{UAV} {\tiny(\textit{Vehículo Aéreo No Tripulado - VANT})}  $\implies$ \textbf{UAS} {\tiny(\textit{Sistemas Aéreos No Tripulado - SANT})}
+  \item \textbf{Aplicaciones} en lugares inaccesibles o peligrosos.
+  \item \textbf{Múltiples VANT} pueden aumentar la confianza del sistema.
+  \item \textbf{Limitaciones} en carga, procesamiento y batería influyen en el tiempo de vuelo.
+  \end{itemize}
 
-  The \themename theme is a Beamer theme with minimal visual noise
-  inspired by the \href{https://github.com/hsrmbeamertheme/hsrmbeamertheme}{\textsc{hsrm} Beamer
-  Theme} by Benjamin Weiss.
+  \tiny{
+  \footnotetext{UAV in the advent of the twenties: Where we stand and what is next [\cite{Nex2022}]}}
+\end{frame}
 
-  Enable the theme by loading
+\begin{frame}[fragile]{Antecedentes}
+  
+  %\centering
+  Principales preguntas que un robot autónomo debe responder \footnotemark\\
+  \begin{itemize}
+  \item ¿Dónde estoy? $\implies$ Localización 
+  \item ¿A dónde voy? $\implies$ Cognición
+  \item ¿Cómo llego hasta ahí? $\implies$ Planificación de trayectoria
+  \end{itemize}
+  \pause
+  %\bigskip % Vertical whitespace
+  Para resolver estas preguntas, el robot debe:\\
+  \begin{itemize}
+  \item Tener un modelo del ambiente (dado, o autónomamente construido)
+  \item Localizarse dentro del ambiente
+  \item Planear y ejecutar los movimientos
+  \end{itemize}
 
-  \begin{verbatim}    \documentclass{beamer}
-    \usetheme{metropolis}\end{verbatim}
+  \footnotetext{Visual map making for a mobile robot [\cite{1087348}]}
+  
+\end{frame}
 
-  Note, that you have to have Mozilla's \emph{Fira Sans} font and XeTeX
-  installed to enjoy this wonderful typography.
+\begin{frame}{Antecedentes}
+  
+  %Exploración es una tarea fundamental en robots autónomos.\\
+  %El objetivo es crear un mapa de un ambiente desconocido.\\
+  %\bigskip % Vertical whitespace
+  \centering
+  \bigskip % Vertical whitespace
+  \includegraphics[width=9cm]{exploracion}\\
+  
+  \begin{itemize}
+  \item \textbf{Sensar}
+  \item \textbf{Creación Mapa} 
+  \item \textbf{Localización en Mapa}
+  \item \textbf{\textcolor{blue}{Exploración}} (Aumentar la base de conocimiento del mapa)
+  \item \textbf{\textcolor{blue}{Planificación trayectoria}} (Trayectorias hacia nuevas fronteras) 
+  \item \textbf{Control} (Toma de decisiones y ejecución de trayectorias)
+  \end{itemize}
+  
+  \alert{- El ciclo se repite hasta completar la exploración -}
+
 \end{frame}
 
 \begin{frame}[fragile]{Motivación del proyecto}
-  Sections group slides of the same topic
-
-  \begin{verbatim}    \section{Elements}\end{verbatim}
-
-  for which \themename provides a nice progress indicator \ldots
+  %https://ccc.inaoep.mx/~emorales/Papers/2009/eduardo.pdf
+  %https://www.mdpi.com/2504-446X/7/1/62
+  %Hablar de los usos e importancia del trabajo .. de la exploracion .. de la importancia de investigacion en robotica para el pais.
+  %El potencial del uso de UAVs en tareas de búsqueda y rescate, inspección, mapeo, vigilancia, entre otras, es de gran interés a explorar, debido a las habilidades de vuelo que presentan en favor de la realización de estas tareas, y en especial situaciones que podrían poner en riesgo a personas.\\
+  %Enviar personal de rescate dentro de un edificio parcialmente colapsado por un terremoto en busca de sobrevivientes, es poner a más personas en un gran riesgo, pues no se sabe qué es lo que les espera en el interior del edificio; esto limita la capacidad de tomar buenas decisiones acerca de si es seguro seguir cierto camino.
+  \begin{figure}[ht!]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+      \centering
+      \includegraphics[width=\linewidth,height=3.5cm]{turquia1.jpg} % BUSQUEDA Y RESCATE
+      %\caption{Primera Imagen}
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\textwidth}
+      \centering
+      \includegraphics[width=\linewidth,height=3.5cm]{drone_agriculture.jpg} % INSPECCION Y SEGURIDAD
+      %\caption{Segunda Imagen}
+    \end{minipage}
+    \vspace{-0.2cm} % Espacio vertical entre imágenes
+    \begin{minipage}{0.48\textwidth}
+      \centering
+      \includegraphics[width=\linewidth,height=3.5cm]{pipe_drone.jpg} % DRONES EN CIUDADES CON GPS DENY
+      %\caption{Tercera Imagen}
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\textwidth}
+      \centering
+      \includegraphics[width=\linewidth,height=3.5cm]{drone_city.jpg} % 
+      %\caption{Cuarta Imagen}
+    \end{minipage}
+  \end{figure}
 \end{frame}
 
 \section{Planteamiento del problema}
 
-\begin{frame}{Planteamiento del problema}
-	\themename supports 4 different titleformats:
-	\begin{itemize}
-		\item Regular
-		\item \textsc{Smallcaps}
-		\item \textsc{allsmallcaps}
-		\item ALLCAPS
-	\end{itemize}
-	They can either be set at once for every title type or individually.
+\begin{frame}[fragile]{Planteamiento del problema}
+  \vspace{1mm}
+  \centering
+  \includegraphics[width=9.5cm]{problema}\\
+  \justifying
+  \footnotesize Dado un volumen de interés desconocido en un espacio cerrado que se desea explorar denotado como $\mathcal{W}$, tal que $\mathcal{W} \subset \mathbb{R}^{3}$.\\
+%el volumen se discretiza en un mapa de ocupación M consistente en voxeles cúbicos $m \exists M$ con una longitud de arista r.
+  \begin{itemize}
+  \item El volumen se discretiza usando unidades cúbicas tridimencionales (voxel) $v_{libre}$, $v_{ocup}$, $v_{desc}$.
+    %La representación del volumen a explorar se obtiene dividiendo el volumen de interés en unidades cúbicas tridimencionales (voxel) que puede tomar los valores de libre $v_{libre}$, ocupado $v_{ocup}$ y desconocido $v_{desc}$ con lecturas a partir de los valores de una cámara RGB-D basada en un modelo de ocupación probabilístico.\\
+  \item Un conjunto de VANTS con una cámara RGB-D embarcadas denotado como $\mathcal{V} = \{\mathcal{V}_{1},\mathcal{V}_{2},\mathcal{V}_{3},...,\mathcal{V}_{n}\}$, comenzando cada uno en un estado inicial conocido $q = \{q_{1},q_{2},q_{3},...,q_{n}\}$, y terminando en una configuración que maximice la construcción de un mapa.\\
+  \item \textcolor{blue}{Coordinar el conjunto de VANTs para reducir el tiempo total de exploración.}
+  \end{itemize}
+      
+  %Crear una Coordinar un conjunto de vehiculos aereos no tripulados
+  %Explorar un volumen desconocido tal que $V \subset R^{3}$ con un conjunto de robots aéreos autónomos $R ={R_1,R_2,...,R_n}$, siendo n la cardinalidad del conjunto de robots aéreos. Cada robot cuenta con capacidades de generar una representación del medio ambiente, localizarse y generar trayectorias que minimicen la incertidumbre de la localización y el mapeo, evaluada a través de una métrica sobre la creencia probabilística de la pose del robot y la posición de los puntos de referencia. El problema de exploración puede formularse globalmente como el de partir de una configuración inicial libre de colisiones y derivar puntos de vista que cubran el volumen previamente desconocido, determinando qué partes del espacio inicialmente inexplorado están libres o ocupadas. Para este proceso, el volumen se discretiza en un mapa de ocupación M consistente en voxeles cúbicos $m \exists M$ con una longitud de arista r. La operación está sujeta a las restricciones dinámicas del vehículo y a las limitaciones del sistema de sensores. Dado que las capacidades perceptivas de la mayoría de los sensores terminan en las superficies, los espacios huecos o bolsillos estrechos a veces pueden permanecer inexplorados, lo que lleva a un volumen residual.
 \end{frame}
 
 \begin{frame}{Hipótesis y preguntas de investigación}
-	This frame uses the \texttt{smallcaps} titleformat.
-
-	\begin{alertblock}{Potential Problems}
-		Be aware, that not every font supports small caps. If for example you typeset your presentation with pdfTeX and the Computer Modern Sans Serif font, every text in smallcaps will be typeset with the Computer Modern Serif font instead.
-	\end{alertblock}
+  
+  \begin{block}{Hipótesis}
+    \vspace{1mm}
+    \small Una estrategia que coordine y asigne tareas de exploración para múltiples VANTS de manera descentralizada, en combinación con una arquitectura de software diseñada para resolver problemas de localización, gestión de mapas y planificación de rutas, mejorará la eficiencia y cobertura de la exploración en interiores de un entorno desconocido.
+  \end{block}
+  \pause
+  %\textcolor{blue}{Preguntas de investigación}
+  \begin{block}{Preguntas de investigación}
+    \small{
+      \begin{enumerate}
+      \item ¿Qué características de la dinámica del VANT son cruciales para lograr trayectorias suaves y continuas?
+      \item ¿Podría un planificador de trayectorias que aproveche las regiones libres de obstáculos acelerar los desplazamientos de los VANTs y, consecuentemente, reducir los tiempos de exploración?
+      \item ¿Qué mecanismos de coordinación existen dentro de la literatura que podrían ayudar en resolver el problema de exploración multi-VANT?
+      \end{enumerate}
+    }
+  \end{block}
 \end{frame}
 
 \begin{frame}{Objetivos}
-	This frame uses the \texttt{allsmallcaps} titleformat.
-
-	\begin{alertblock}{Potential problems}
-		As this titleformat also uses smallcaps you face the same problems as with the \texttt{smallcaps} titleformat. Additionally this format can cause some other problems. Please refer to the documentation if you consider using it.
-
-		As a rule of thumb: Just use it for plaintext-only titles.
-	\end{alertblock}
+  
+  \begin{block}{Objetivo General}
+    %Desarrollar una estrategia de exploración descentralizada que permita resolver los problemas de coordinación para múltiples VANTS en ambientes desconocidos.
+    %Desarrollar una estrategia de exploración descentralizada que integre técnicas de percepción y algoritmos de decisión para mejorar la autonomía de múltiples VANTs en la exploración de interiores.
+    \vspace{2mm}
+    Desarrollar una estrategia de exploración descentralizada que permita resolver los problemas de coordinación para múltiples VANTS en ambientes desconocidos.
+  \end{block}
+  %\pause
+  \bigskip
+  \begin{block}{Objetivos Particulares}
+    \vspace{2mm}
+    \begin{enumerate}
+    \item Desarrollar una arquitectura de software que resuelva los problemas de autonomía para un VANT (localización, manejo de mapas y planificación de trayectorias).
+    \item Implementar un mecanismo de coordinación descentralizado que asigne tareas de exploración.
+    \item Realizar pruebas y simulaciones de la solución propuesta en diversos entornos, analizando la relación tiempo de exploración y cobertura del área de interés.
+    \end{enumerate}
+  \end{block}
 \end{frame}
 
 \begin{frame}{Estado del arte}
-  This frame uses the \texttt{allcaps} titleformat. Aquí hay más contenido con otra nota al pie\footnote{Segunda nota al pie.}.\\
-  Nanananana Aquí hay más contenido con otra nota al pie\footnote{Segunda nota al pie.}.
-
-	\begin{alertblock}{Potential Problems}
-		This titleformat is not as problematic as the \texttt{allsmallcaps} format, but basically suffers from the same deficiencies. So please have a look at the documentation if you want to use it.
-	\end{alertblock}
+  \centering
+  \includegraphics[width=10cm, height=6cm]{soa}
 \end{frame}
 
 \section{Plan de cierre del trabajo}
-
-\begin{frame}[fragile]{Plan de cierre del trabajo}
-      \begin{verbatim}The theme provides sensible defaults to
-\emph{emphasize} text, \alert{accent} parts
-or show \textbf{bold} results.\end{verbatim}
-
-  \begin{center}becomes\end{center}
-
-  The theme provides sensible defaults to \emph{emphasize} text,
-  \alert{accent} parts or show \textbf{bold} results.
+\begin{frame}{Plan de cierre del trabajo}
 \end{frame}
 
-\begin{frame}{Font feature test}
-  \begin{itemize}
-    \item Regular
-    \item \textit{Italic}
-    \item \textsc{SmallCaps}
-    \item \textbf{Bold}
-    \item \textbf{\textit{Bold Italic}}
-    \item \textbf{\textsc{Bold SmallCaps}}
-    \item \texttt{Monospace}
-    \item \texttt{\textit{Monospace Italic}}
-    \item \texttt{\textbf{Monospace Bold}}
-    \item \texttt{\textbf{\textit{Monospace Bold Italic}}}
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Lists}
-  \begin{columns}[T,onlytextwidth]
-    \column{0.33\textwidth}
-      Items
-      \begin{itemize}
-        \item Milk \item Eggs \item Potatos
-      \end{itemize}
-
-    \column{0.33\textwidth}
-      Enumerations
-      \begin{enumerate}
-        \item First, \item Second and \item Last.
-      \end{enumerate}
-
-    \column{0.33\textwidth}
-      Descriptions
-      \begin{description}
-        \item[PowerPoint] Meeh. \item[Beamer] Yeeeha.
-      \end{description}
-  \end{columns}
-\end{frame}
-\begin{frame}{Animation}
-  \begin{itemize}[<+- | alert@+>]
-    \item \alert<4>{This is\only<4>{ really} important}
-    \item Now this
-    \item And now this
-  \end{itemize}
-\end{frame}
-\begin{frame}{Figures}
-  \begin{figure}
-    \newcounter{density}
-    \setcounter{density}{20}
-    \begin{tikzpicture}
-      \def\couleur{alerted text.fg}
-      \path[coordinate] (0,0)  coordinate(A)
-                  ++( 90:5cm) coordinate(B)
-                  ++(0:5cm) coordinate(C)
-                  ++(-90:5cm) coordinate(D);
-      \draw[fill=\couleur!\thedensity] (A) -- (B) -- (C) --(D) -- cycle;
-      \foreach \x in {1,...,40}{%
-          \pgfmathsetcounter{density}{\thedensity+20}
-          \setcounter{density}{\thedensity}
-          \path[coordinate] coordinate(X) at (A){};
-          \path[coordinate] (A) -- (B) coordinate[pos=.10](A)
-                              -- (C) coordinate[pos=.10](B)
-                              -- (D) coordinate[pos=.10](C)
-                              -- (X) coordinate[pos=.10](D);
-          \draw[fill=\couleur!\thedensity] (A)--(B)--(C)-- (D) -- cycle;
-      }
-    \end{tikzpicture}
-    \caption{Rotated square from
-    \href{http://www.texample.net/tikz/examples/rotated-polygons/}{texample.net}.}
-  \end{figure}
-\end{frame}
-\begin{frame}{Tables}
-  \begin{table}
-    \caption{Largest cities in the world (source: Wikipedia)}
-    \begin{tabular}{@{} lr @{}}
-      \toprule
-      City & Population\\
-      \midrule
-      Mexico City & 20,116,842\\
-      Shanghai & 19,210,000\\
-      Peking & 15,796,450\\
-      Istanbul & 14,160,467\\
-      \bottomrule
-    \end{tabular}
-  \end{table}
-\end{frame}
-\begin{frame}{Blocks}
-  Three different block environments are pre-defined and may be styled with an
-  optional background color.
-
-  \begin{columns}[T,onlytextwidth]
-    \column{0.5\textwidth}
-      \begin{block}{Default}
-        Block content.
-      \end{block}
-
-      \begin{alertblock}{Alert}
-        Block content.
-      \end{alertblock}
-
-      \begin{exampleblock}{Example}
-        Block content.
-      \end{exampleblock}
-
-    \column{0.5\textwidth}
-
-      \metroset{block=fill}
-
-      \begin{block}{Default}
-        Block content.
-      \end{block}
-
-      \begin{alertblock}{Alert}
-        Block content.
-      \end{alertblock}
-
-      \begin{exampleblock}{Example}
-        Block content.
-      \end{exampleblock}
-
-  \end{columns}
-\end{frame}
-\begin{frame}{Math}
-  \begin{equation*}
-    e = \lim_{n\to \infty} \left(1 + \frac{1}{n}\right)^n
-  \end{equation*}
-\end{frame}
-\begin{frame}{Line plots}
-  \begin{figure}
-    \begin{tikzpicture}
-      \begin{axis}[
-        mlineplot,
-        width=0.9\textwidth,
-        height=6cm,
-      ]
-
-        \addplot {sin(deg(x))};
-        \addplot+[samples=100] {sin(deg(2*x))};
-
-      \end{axis}
-    \end{tikzpicture}
-  \end{figure}
-\end{frame}
-
-\begin{frame}{Bar charts}
-  \begin{figure}
-    \begin{tikzpicture}
-      \begin{axis}[
-        mbarplot,
-        xlabel={Foo},
-        ylabel={Bar},
-        width=0.9\textwidth,
-        height=6cm,
-      ]
-
-      \addplot plot coordinates {(1, 20) (2, 25) (3, 22.4) (4, 12.4)};
-      \addplot plot coordinates {(1, 18) (2, 24) (3, 23.5) (4, 13.2)};
-      \addplot plot coordinates {(1, 10) (2, 19) (3, 25) (4, 15.2)};
-
-      \legend{lorem, ipsum, dolor}
-
-      \end{axis}
-    \end{tikzpicture}
-  \end{figure}
-\end{frame}
-
-\begin{frame}{Quotes}
-  \begin{quote}
-    Veni, Vidi, Vici
-  \end{quote}
-\end{frame}
-
-{%
-\setbeamertemplate{frame footer}{My custom footer}
-\begin{frame}[fragile]{Frame footer}
-    \themename defines a custom beamer template to add a text to the footer. It can be set via
-    \begin{verbatim}\setbeamertemplate{frame footer}{My custom footer}\end{verbatim}
-\end{frame}
-}
-
-\begin{frame}{References}
-  Some references to showcase [allowframebreaks] \cite{knuth92,ConcreteMath,Simpson,Er01,greenwade93}
-\end{frame}
-
-\section{Conclusion}
-
-\begin{frame}{Summary}
-
-  Get the source of this theme and the demo presentation from
-
-  \begin{center}\url{github.com/matze/mtheme}\end{center}
-
-  The theme \emph{itself} is licensed under a
-  \href{http://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons
-  Attribution-ShareAlike 4.0 International License}.
-
-  \begin{center}\ccbysa\end{center}
-
+\section{Conclusión}
+\begin{frame}{Conclusiones }
 \end{frame}
 
 \begin{frame}[standout]
@@ -339,11 +236,10 @@ or show \textbf{bold} results.\end{verbatim}
   slides in the appendix.
 \end{frame}
 
+
 \begin{frame}[allowframebreaks]{Referencias}
-
+  \bibliographystyle{abbrvnat}
   \bibliography{demo}
-  \bibliographystyle{abbrv}
-
 \end{frame}
 
 \end{document}
