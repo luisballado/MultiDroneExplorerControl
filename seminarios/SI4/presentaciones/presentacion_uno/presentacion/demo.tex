@@ -1,24 +1,23 @@
-\documentclass[10pt]{beamer}
+\documentclass[24pt,aspectratio=169]{beamer}
 
 \usetheme{metropolis}
 
 \usepackage[spanish]{babel} % Cargar el paquete babel con la opción spanish
 \usepackage[utf8]{inputenc} % Asegurar la codificación UTF-8
-
 \usepackage{appendixnumberbeamer}
-
 \usepackage{booktabs}
 \usepackage[scale=2]{ccicons}
-
 \usepackage{pgfplots}
+\usepackage{xcolor} % Cargar el paquete xcolor
+\usepackage{xspace}
+
 \usepgfplotslibrary{dateplot}
 
-\usepackage{xcolor} % Cargar el paquete xcolor
 
 \definecolor{verde_cinves}{HTML}{009383} % Color de primer plano (foreground) de la barra de progreso
 \definecolor{azulrey_cinves}{HTML}{005179} % Color de primer plano (foreground) de la barra de progreso
 
-\usepackage{xspace}
+
 \newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
 
 \setbeamercolor{title separator}{use=structure,fg=azulrey_cinves!50, bg=azulrey_cinves!10}
@@ -30,8 +29,11 @@
 
 \title{\large{Estrategias para la exploración coordinada multi-VANT}}
 %\subtitle{A modern beamer theme}
-\date{\today}
-\author{Luis Alberto Ballado Aradias}
+%\date{\today}
+\author{Tesista: Luis Alberto Ballado Aradias\\[\baselineskip]
+  \small{{Asesores:} 
+    \and\\Dr. José Gabriel Ramírez-Torres
+    \and\\Dr. Eduardo Rodriguez-Tello\\ }}
 \institute{Centro de Investigación y de Estudios Avanzados - Unidad Tamaulipas}
 \titlegraphic{\hfill\includegraphics[height=1.5cm]{cinvestav_negro}}
 
