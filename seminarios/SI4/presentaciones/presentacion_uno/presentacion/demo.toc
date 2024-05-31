@@ -2,4 +2,4 @@
 \beamer@sectionintoc {1}{Introducción}{3}{0}{1}
 \beamer@sectionintoc {2}{Planteamiento del problema}{9}{0}{2}
 \beamer@sectionintoc {3}{Plan de cierre del trabajo}{15}{0}{3}
-\beamer@sectionintoc {4}{Conclusión}{17}{0}{4}
+\beamer@sectionintoc {4}{Conclusión}{19}{0}{4}

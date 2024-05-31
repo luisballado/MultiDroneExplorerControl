@@ -15,6 +15,48 @@
 \usepackage{bbding} %palomitas checkmark
 \usepgfplotslibrary{dateplot}
 
+\usepackage[ruled,vlined]{algorithm2e}
+\usepackage{dirtree}
+\usepackage{xcolor}
+
+\usepackage{rotating}
+\usepackage{tikz}
+
+\usepackage{array} % needed for \arraybackslash
+\usepackage{graphicx}
+\usepackage{adjustbox} % for \adjincludegraphics
+
+\usepackage{subcaption}
+\usepackage{bibentry}
+%\bibliographystyle{apalike}
+\usepackage{chngcntr}
+\usepackage{lipsum}% http://ctan.org/pkg/lipsum
+\usepackage{hanging}% http://ctan.org/pkg/hanging
+
+\usepackage{xcolor,colortbl}
+\usepackage{multirow}
+
+\usepackage{animate}
+\usepackage{multicol}
+\usepackage{tabularx,booktabs}
+\usepackage{forloop}
+\usepackage{ragged2e}
+
+\usepackage{bbding} %palomitas checkmark
+\usepackage{pifont}
+\usepackage{lipsum,tabularx}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, shapes.multipart}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{amsmath,bm,times}
+\newcommand{\mx}[1]{\mathbf{\bm{#1}}} % Matrix command
+\newcommand{\vc}[1]{\mathbf{\bm{#1}}} % Vector command
+
+%\usepackage{annotate-equations}
+\newcounter{loopcntr}
 
 \definecolor{verde_cinves}{HTML}{009383} % Color de primer plano (foreground) de la barra de progreso
 \definecolor{azulrey_cinves}{HTML}{005179} % Color de primer plano (foreground) de la barra de progreso
@@ -40,6 +82,31 @@
 \date{\today}
 \institute{Centro de Investigación y de Estudios Avanzados - Unidad Tamaulipas}
 \titlegraphic{\hfill\includegraphics[height=1.5cm]{cinvestav_negro}}
+
+\newcommand{\on}[1][1]{
+  \forloop{loopcntr}{0}{\value{loopcntr}<#1}{&\cellcolor{lightgray}}
+}
+\newcommand{\onok}[1][1]{
+  \forloop{loopcntr}{0}{\value{loopcntr}<#1}{&\cellcolor{green}}
+}
+\newcommand{\ondelay}[1][1]{
+  \forloop{loopcntr}{0}{\value{loopcntr}<#1}{&\cellcolor{red}}
+}
+\newcommand{\off}[1][1]{
+  \forloop{loopcntr}{0}{\value{loopcntr}<#1}{&\cellcolor{white}}
+}
+
+\addtolength{\textheight}{90pt}
+
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\newcommand{\specialcell}[2][c]{%
+  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
 
 \begin{document}
 
@@ -211,17 +278,192 @@
   \includegraphics[width=10cm, height=6cm]{soa}
 \end{frame}
 
+
 \section{Plan de cierre del trabajo}
-\begin{frame}{Plan de cierre del trabajo}
+
+\begin{frame}{Graficos}
+  \tiny{
+
+    \begin{tikzpicture}[
+  node distance=1.5cm and 2cm,
+  every node/.style={rectangle, draw, rounded corners, align=center, minimum height=1cm},
+  process/.style={rectangle, draw, rounded corners, align=center, minimum height=1cm},
+  input/.style={rectangle, draw, rounded corners, align=center, minimum height=1cm, minimum width=2cm},
+  arrow/.style={-{Latex[scale=1.5]}}
+]
+
+% Input nodes
+\node[input] (depth) {Depth};
+\node[input, below=1cm of depth] (odometry) {Odometry};
+
+% Process nodes
+\node[process, right=3cm of depth] (map) {Map};
+\node[process, right=2cm of map] (frontiers_extraction) {Frontiers Extraction};
+\node[process, below=1cm of frontiers_extraction] (frontiers_classification) {Frontiers Classification};
+
+% Arrows
+\draw[arrow] (depth) -- (map);
+\draw[arrow] (odometry) -- (map);
+\draw[arrow] (map) -- (frontiers_extraction);
+\draw[arrow] (frontiers_extraction) -- (frontiers_classification);
+
+% Group box boundaries
+\coordinate (box-nw) at ([xshift=-1cm, yshift=1cm] depth.north west);
+\coordinate (box-se) at ([xshift=1cm, yshift=-1cm] frontiers_classification.south east);
+
+% Group box
+\draw[dashed, rounded corners] (box-nw) rectangle (box-se);
+\node[anchor=north west, font=\bfseries] at (box-nw) {Mapping};
+
+\end{tikzpicture}
+}
 \end{frame}
+
+
+  % We need layers to draw the block diagram
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+
+% Define a few styles and constants
+\tikzstyle{sensor}=[draw, fill=blue!20, text width=5em, 
+    text centered, minimum height=2.5em]
+\tikzstyle{ann} = [above, text width=5em]
+\tikzstyle{naveqs} = [sensor, text width=6em, fill=red!20, 
+    minimum height=12em, rounded corners]
+\def\blockdist{2.3}
+\def\edgedist{2.5}
+\begin{frame}{Ejemplo}
+\begin{tikzpicture}
+    \node (naveq) [naveqs] {Navigation equations};
+    % Note the use of \path instead of \node at ... below. 
+    \path (naveq.140)+(-\blockdist,0) node (gyros) [sensor] {Gyros};
+    \path (naveq.-150)+(-\blockdist,0) node (accel) [sensor] {Accelero-meters};
+    
+    % Unfortunately we cant use the convenient \path (fromnode) -- (tonode) 
+    % syntax here. This is because TikZ draws the path from the node centers
+    % and clip the path at the node boundaries. We want horizontal lines, but
+    % the sensor and naveq blocks aren't aligned horizontally. Instead we use
+    % the line intersection syntax |- to calculate the correct coordinate
+    \path [draw, ->] (gyros) -- node [above] {$\vc{\omega}_{ib}^b$} 
+        (naveq.west |- gyros) ;
+    % We could simply have written (gyros) .. (naveq.140). However, it's
+    % best to avoid hard coding coordinates
+    \path [draw, ->] (accel) -- node [above] {$\vc{f}^b$} 
+        (naveq.west |- accel);
+    \node (IMU) [below of=accel] {IMU};
+    \path (naveq.south west)+(-0.6,-0.4) node (INS) {INS};
+    \draw [->] (naveq.50) -- node [ann] {Velocity } + (\edgedist,0) 
+        node[right] {$\vc{v}^l$};
+    \draw [->] (naveq.20) -- node [ann] {Attitude} + (\edgedist,0) 
+        node[right] { $\mx{R}_l^b$};
+    \draw [->] (naveq.-25) -- node [ann] {Horisontal position} + (\edgedist,0)
+        node [right] {$\mx{R}_e^l$};
+    \draw [->] (naveq.-50) -- node [ann] {Depth} + (\edgedist,0) 
+        node[right] {$z$};
+    
+    % Now it's time to draw the colored IMU and INS rectangles.
+    % To draw them behind the blocks we use pgf layers. This way we  
+    % can use the above block coordinates to place the backgrounds   
+    \begin{pgfonlayer}{background}
+        % Compute a few helper coordinates
+        \path (gyros.west |- naveq.north)+(-0.5,0.3) node (a) {};
+        \path (INS.south -| naveq.east)+(+0.3,-0.2) node (b) {};
+        \path[fill=yellow!20,rounded corners, draw=black!50, dashed]
+            (a) rectangle (b);
+        \path (gyros.north west)+(-0.2,0.2) node (a) {};
+        \path (IMU.south -| gyros.east)+(+0.2,-0.2) node (b) {};
+        \path[fill=blue!10,rounded corners, draw=black!50, dashed]
+            (a) rectangle (b);
+    \end{pgfonlayer}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Plan de cierre del trabajo}
+\tiny{
+  \begin{tikzpicture}[
+  every node/.style={rectangle, draw, align=center, minimum width=3cm, minimum height=1cm, text width=3cm},
+  concept/.style={rounded corners, fill=blue!20},
+  subconcept/.style={rounded corners, fill=red!20},
+  arrow/.style={-{Latex[scale=1.0]}, thick}
+]
+
+% Nodes
+    \node[concept] (history) {Historia de la Robótica};
+
+    \node[concept, below left=2cm and 3cm of history] (antiquity) {Antigüedad \\ \tiny{3000 AC - 1er siglo}};
+\node[concept, below=of antiquity] (middle_ages) {Edad Media \\ \tiny{Siglo XII - XVI}};
+\node[concept, below=of middle_ages] (modern_times) {Edad Moderna \\ \tiny{Siglo XVII - XIX}};
+\node[concept, below=of modern_times] (20th_century) {Siglo XX};
+\node[concept, below=of 20th_century] (21st_century) {Siglo XXI};
+
+\node[subconcept, below right=1.5cm and 1cm of antiquity] (antikythera) {Mecanismo de Antikythera \\ \tiny{~100 AC}};
+\node[subconcept, below right=1.5cm and 1cm of middle_ages] (al_jazari) {Automata de Al-Jazari \\ \tiny{1206}};
+\node[subconcept, below right=1.5cm and 1cm of modern_times] (jacquard) {Telar de Jacquard \\ \tiny{1801}};
+\node[subconcept, below right=1.5cm and 1cm of 20th_century] (turing) {Test de Turing \\ \tiny{1950}};
+\node[subconcept, below right=1.5cm and 1cm of 21st_century] (sophia) {Sophia el robot \\ \tiny{2016}};
+
+% Arrows
+\draw[arrow] (history) -- (antiquity);
+\draw[arrow] (history) -- (middle_ages);
+\draw[arrow] (history) -- (modern_times);
+\draw[arrow] (history) -- (20th_century);
+\draw[arrow] (history) -- (21st_century);
+
+\draw[arrow] (antiquity) -- (antikythera);
+\draw[arrow] (middle_ages) -- (al_jazari);
+\draw[arrow] (modern_times) -- (jacquard);
+\draw[arrow] (20th_century) -- (turing);
+\draw[arrow] (21st_century) -- (sophia);
+
+\end{tikzpicture}
+  }
+\end{frame}
+
 
 \section{Conclusión}
 \begin{frame}{Conclusiones }
+\tiny{
+  \begin{tikzpicture}[
+  node distance=0.5cm and 0.5cm,
+  every node/.style={rectangle, draw, align=center, minimum width=1.5cm},
+  milestone/.style={rounded corners, fill=blue!20},
+  event/.style={fill=red!20},
+  arrow/.style={-{Latex[scale=1.5]}}
+]
+
+% Nodes
+\node[milestone] (antiquity) {Antiquity \\ \tiny{3000 BC - 1st Century}};
+\node[milestone, right=of antiquity] (middle_ages) {Middle Ages \\ \tiny{12th - 16th Century}};
+\node[milestone, right=of middle_ages] (modern_times) {Modern Times \\ \tiny{17th - 19th Century}};
+\node[milestone, right=of modern_times] (20th_century) {20th Century};
+\node[milestone, right=of 20th_century] (21st_century) {21st Century};
+
+\node[event, below=of antiquity] (antikythera) {Antikythera mechanism \\ \tiny{~100 BC}};
+\node[event, below=of middle_ages] (al_jazari) {Al-Jazari's automata \\ \tiny{1206}};
+\node[event, below=of modern_times] (jacquard) {Jacquard loom \\ \tiny{1801}};
+\node[event, below=of 20th_century] (turing) {Turing Test \\ \tiny{1950}};
+\node[event, below=of 21st_century] (sophia) {Sophia the robot \\ \tiny{2016}};
+
+% Arrows
+\draw[arrow] (antiquity) -- (middle_ages);
+\draw[arrow] (middle_ages) -- (modern_times);
+\draw[arrow] (modern_times) -- (20th_century);
+\draw[arrow] (20th_century) -- (21st_century);
+
+\draw[arrow] (antiquity) -- (antikythera);
+\draw[arrow] (middle_ages) -- (al_jazari);
+\draw[arrow] (modern_times) -- (jacquard);
+\draw[arrow] (20th_century) -- (turing);
+\draw[arrow] (21st_century) -- (sophia);
+
+\end{tikzpicture}
+}
 \end{frame}
 
-\begin{frame}[standout]
-  ¿Preguntas?
-\end{frame}
+%\begin{frame}[standout]
+%  ¿Preguntas?
+%\end{frame}
 
 \appendix
 
@@ -236,6 +478,148 @@
   slides in the appendix.
 \end{frame}
 
+\begin{frame}[fragile]{Estado del arte}
+  \centering
+  \scalebox{0.70}{
+  \begin{tabular}{ | p{3cm} | p{1.6cm} | p{2.5cm} | p{3cm} | p{3.1cm} | p{0.8cm} | p{0.9cm} | }
+    \hline    
+    \tiny REFERENCIA&
+    \tiny APLICACIÓN&
+    \tiny GENERACION MAPA&
+    \tiny PLANIFICACION DE RUTA&
+    \tiny GENERACION TRAYECTORIA&
+    \tiny SENSOR RGB-D&
+    \tiny DINAMICA VANT\\
+    \hline
+    %--------------------------
+    \tiny \cellcolor{gray!20}\cite{CIESLEWSKI2017}[\citenum{CIESLEWSKI2017}]&
+    \tiny \cellcolor{gray!20}Exploración&
+    \tiny \cellcolor{gray!20}Octomap&
+    \tiny \cellcolor{gray!20}Basado en fronteras&
+    \tiny \cellcolor{gray!20}Control directo de velocidad&
+    \tiny \cellcolor{gray!20}\ding{51} &
+    \tiny \cellcolor{gray!20}\ding{55} \\ \hline
+    %--------------------------
+    \tiny \cite{USENKO2017}[\citenum{USENKO2017}]&
+    \tiny Punto Objetivo&
+    \tiny Cuadr\'{i}cula egoc\'{e}ntrica&
+    \tiny Offline RRT*&
+    \tiny Curvas de Bezier&
+    \tiny \ding{55} &
+    \tiny \ding{51} \\ \hline
+    %--------------------------
+    \tiny \cite{MOHTA2017}[\citenum{MOHTA2017}]&
+    \tiny Punto Objetivo&
+    \tiny mapa 3D-Local y 2D-Global&
+    \tiny A*&
+    \tiny Programaci\'{o}n cuadr\'{a}tica&
+    \tiny \ding{55} &
+    \tiny \ding{51} \\ \hline
+    %--------------------------
+    \tiny \cite{LIN2017}[\citenum{LIN2017}]&
+    \tiny Punto Objetivo&
+    \tiny 3D voxel array TSDF&
+    \tiny A*&
+    \tiny Optimizaci\'{o}n cuadr\'{a}tica&
+    \tiny \ding{55}&
+    \tiny \ding{55} \\ \hline
+    %--------------------------
+    \tiny \cellcolor{gray!20}\cite{PAPACHRISTOS2017}[\citenum{PAPACHRISTOS2017}]&
+    \tiny \cellcolor{gray!20}Exploración&
+    \tiny \cellcolor{gray!20}Octomap&
+    \tiny \cellcolor{gray!20}Next Best View Planner (NBVP)&
+    \tiny \cellcolor{gray!20}Control directo de velocidad&
+    \tiny \cellcolor{gray!20}\ding{55}&
+    \tiny \cellcolor{gray!20}\ding{55} \\ \hline
+    %--------------------------
+    \tiny \cite{OLEYNIKOVA2018}[\citenum{OLEYNIKOVA2018}]&
+    \tiny Punto Objetivo&
+    \tiny Voxel Hashing TSDF&
+    \tiny Next Best View Planner (NBVP)&
+    \tiny Optimizaci\'{o}n cuadr\'{a}tica&
+    \tiny \ding{51}&
+    \tiny \ding{51} \\ \hline
+    %--------------------------
+    \tiny \cite{GAO2018}[\citenum{GAO2018}]&
+    \tiny Punto Objetivo&
+    \tiny Mapa de cuadr\'{i}cula&
+    \tiny M\'{e}todo de marcha r\'{a}pida&
+    \tiny Optimizaci\'{o}n cuadr\'{a}tica&
+    \tiny \ding{55}&
+    \tiny \ding{51} \\ \hline
+    %--------------------------
+    \tiny \cite{FLORENCE2018}[\citenum{FLORENCE2018}]&
+    \tiny Punto Objetivo&
+    \tiny Busqueda basada en visibilidad&
+    \tiny 2D A*&
+    \tiny Control predictivo por modelo (MPC)&
+    \tiny \ding{51}&
+    \tiny \ding{51} \\ \hline
+    %--------------------------
+    \tiny \cellcolor{gray!20}\cite{SELIN2019}[\citenum{SELIN2019}]&
+    \tiny \cellcolor{gray!20}Exploración&
+    \tiny \cellcolor{gray!20}Octomap&
+    \tiny \cellcolor{gray!20}Next Best View Planner (NBVP)&
+    \tiny \cellcolor{gray!20}Control directo de velocidad&
+    \tiny \cellcolor{gray!20}\ding{55}&
+    \tiny \cellcolor{gray!20}\ding{55} \\ \hline
+    %--------------------------
+    \tiny \cellcolor{gray!20}\cite{BUG2019}[\citenum{BUG2019}]&
+    \tiny \cellcolor{gray!20}Exploración&
+    \tiny \cellcolor{gray!20}NA&
+    \tiny \cellcolor{gray!20}Swarm Gradient Bug Algorithm (SGBA)&
+    \tiny \cellcolor{gray!20}Control directo de velocidad&
+    \tiny \cellcolor{gray!20}\ding{55}&
+    \tiny \cellcolor{gray!20}\ding{55} \\ \hline
+    %--------------------------
+    \tiny \cite{COLLINS2019}[\citenum{COLLINS2019}]&
+    \tiny Punto Objetivo&
+    \tiny KD Tree $+$ Mapa en Voxel&
+    \tiny B\'{u}squeda en Grafo&
+    \tiny Movimientos suaves&
+    \tiny \ding{51}&
+    \tiny \ding{51} \\ \hline
+    %--------------------------
+    \tiny \cite{CINVES2021}[\citenum{CINVES2021}]&
+    \tiny Punto Objetivo&
+    \tiny Octree&
+    \tiny Rapidly Exploring Random Trees (RRT)&
+    \tiny Basado en contornos&
+    \tiny \ding{51}&
+    \tiny \ding{51} \\ \hline
+    %--------------------------
+    \tiny \cellcolor{gray!20}\cite{CIESLEWSKI2021}[\citenum{CIESLEWSKI2021}]&
+    \tiny \cellcolor{gray!20}Exploración&
+    \tiny \cellcolor{gray!20}Octomap&
+    \tiny \cellcolor{gray!20}Basado en fronteras&
+    \tiny \cellcolor{gray!20}Control directo de velocidad&
+    \tiny \cellcolor{gray!20}\ding{51}&
+    \tiny \cellcolor{gray!20}\ding{55} \\ \hline
+    %--------------------------
+    \tiny \cellcolor{gray!20}\cite{RACER2022}[\citenum{RACER2022}]&
+    \tiny \cellcolor{gray!20}Exploración&
+    \tiny \cellcolor{gray!20}HGrid&
+    \tiny \cellcolor{gray!20}Next Best View Planner (NBVP)&
+    \tiny \cellcolor{gray!20}Control directo de velocidad&
+    \tiny \cellcolor{gray!20}\ding{51}&
+    \tiny \cellcolor{gray!20}\ding{51} \\ \hline
+    %--------------------------
+    %\scriptsize \cite{WESTHEIDER2023}[\citenum{WESTHEIDER2023}]&
+    %\scriptsize Mapa de cuadrícula&
+    %\scriptsize Deep Reinforcement Learning&
+    %\scriptsize Control directo de velocidad \\ \hline
+    %--------------------------
+    \tiny \cellcolor{gray!20}\cite{BARTOLOMEI2023}[\citenum{BARTOLOMEI2023}]&
+    \tiny \cellcolor{gray!20}Exploración&
+    \tiny \cellcolor{gray!20}HGrid&
+    \tiny \cellcolor{gray!20}Basado en fronteras&
+    \tiny \cellcolor{gray!20}Control directo de velocidad&
+    \tiny \cellcolor{gray!20}\ding{51}&
+    \tiny \cellcolor{gray!20}\ding{51} \\ \hline
+    %--------------------------
+  \end{tabular}
+  }
+\end{frame}
 
 \begin{frame}[allowframebreaks]{Referencias}
   \bibliographystyle{abbrvnat}
