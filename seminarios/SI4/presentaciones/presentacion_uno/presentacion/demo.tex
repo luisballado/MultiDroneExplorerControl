@@ -60,6 +60,8 @@
 
 \usepackage{progressbar}
 
+\usepackage{pgfgantt}
+
 \newcommand{\mx}[1]{\mathbf{\bm{#1}}} % Matrix command
 \newcommand{\vc}[1]{\mathbf{\bm{#1}}} % Vector command
 
@@ -123,6 +125,47 @@
 % Definir comandos para checkmark y cross
 \newcommand{\cmark}{{\color{green}\ding{51}}} % Checkmark en verde
 \newcommand{\xmark}{{\color{red}\ding{55}}}   % Cross en rojo
+
+%Used to draw gantt charts, which I will use for the calendar.
+%Let's define some awesome new ganttchart elements:
+\newganttchartelement{orangebar}{
+    orangebar/.style={
+        inner sep=0pt,
+        draw=red!66!black,
+        very thick,
+        top color=white,
+        bottom color=orange!80
+    },
+    orangebar label font=\slshape,
+    orangebar left shift=.1,
+    orangebar right shift=-.1
+}
+
+\newganttchartelement{bluebar}{
+    bluebar/.style={
+        inner sep=0pt,
+        draw=purple!44!black,
+        very thick,
+        top color=white,
+        bottom color=blue!80
+    },
+    bluebar label font=\slshape,
+    bluebar left shift=.1,
+    bluebar right shift=-.1
+}
+
+\newganttchartelement{greenbar}{
+    greenbar/.style={
+        inner sep=0pt,
+        draw=green!50!black,
+        very thick,
+        top color=white,
+        bottom color=green!80
+    },
+    greenbar label font=\slshape,
+    greenbar left shift=.1,
+    greenbar right shift=-.1
+}
 
 \begin{document}
 
@@ -343,7 +386,7 @@
 
 \begin{frame}{}
   \bigskip % Vertical whitespace
-  \tiny 
+  \tiny
   %\hspace{0.0cm}
   \begin{minipage}{5cm}
     \noindent\begin{tabular}{|p{0.8\textwidth}*{16}{|p{0.040\textwidth}}|}
@@ -366,13 +409,13 @@
     \hline
     \rowcolor{teal!15}{\textbf{E1.A1.} Revisi\'{o}n literatura relevante}
     %en exploraci\'{o}n multi-VANT, estrategias de exploraci\'{o}n, algoritmos de coordinaci\'{o}n y evaci\'{o}n de obst\'{a}culos
-    \onok[9] \on[5] \off[2]\\
+    \onok[9] \on[7]\\
     \hline
     %\textbf{E1.A2.} Evaluaci\'{o}n de aptitudes\footnote{Evaluaci\'{o}n a partir de los nuevos trabajos}     \on[12] \\
     %\hline
     \rowcolor{teal!15}{\textbf{E1.A2.} Selecci\'{o}n de algoritmos} \onok[2] \off[10] \\
     \hline
-    \rowcolor{teal!15}{\textbf{E1.A3.} Dise\~{n}o de la AS\footnote{arquitectura de software}}
+    \rowcolor{teal!15}{\textbf{E1.A3.} Dise\~{n}o de la AS\footnote{\tiny arquitectura de software}}
     \off[1] \onok[3] \on[0] \off[12] \\
     \hline
     \rowcolor{teal!15}{\textbf{E1.A4.} Documentaci\'{o}n Etapa 1}
@@ -393,7 +436,7 @@
     \textbf{E2.A3.} Control de desplazamientos
     \off[2] \onok[2] \ondelay[6] \off[6] \\
     \hline
-    \textbf{E2.A4.} Desarrollo de AE \footnote{algoritmo de exploración}
+    \textbf{E2.A4.} Desarrollo de AE \footnote{\tiny algoritmo de exploración}
     \off[3] \onok[2] \ondelay[5] \off[6] \\
     \hline
     %\rowcolor{teal!15}{\textbf{E2.A5.} Implementaci\'{o}n y simulaci\'{o}n}
@@ -441,23 +484,149 @@
   \end{minipage}
 \end{frame}
 
-\begin{frame}{Ejeplo}
-  \begin{table}
-    \begin{tabular}{|l|c|c|}
-      foo & bar & 
-      \progressbar[linecolor=blue, filledcolor=green]{0.6}\llap{\raisebox{1.5pt}{\tiny$60\%$}\hspace{0.8cm}}  \\
-      foo & bar & 
-      \progressbar[linecolor=blue, filledcolor=green]{0.6}%
-      \begin{picture}(0,0)
-        \put(-35,1.5) {\tiny$60\%$}
-      \end{picture}
+\begin{frame}{Semanas}
+  \bigskip % Vertical whitespace
+  \tiny
+  %\hspace{0.0cm}
+  \begin{minipage}{5cm}
+    \noindent\begin{tabular}{|p{0.8\textwidth}*{16}{|p{0.020\textwidth}}|}
+    % The top line
+    %\diagbox[width=12.5em]{Actividades}{Cuatrimestres}
+    \hline
+    & \multicolumn{4}{c|}{\color{teal!80}\textbf{MAYO}} 
+    & \multicolumn{4}{c|}{\textbf{JUNIO}} 
+    & \multicolumn{4}{c|}{\textbf{JULIO}}
+    & \multicolumn{4}{c|}{\textbf{AGOSTO}}\\
+    \hline
+    % The second line, with its five years of four quarters
+    %\textcolor{black}{\textbf{Etapas}}
+    \rpt[4]{& 1 & 2 & 3 & 4} \\
+    \hline
+    \rowcolor{teal!40}{\textbf{Visualización de datos}}\\
+    \hline
+    \textbf{A1.} Manejo estructura del mapa
+    \off[1] \onok[2] \ondelay[6]  \off[7] \\
+    \hline
+    \textbf{A2.} Comprensión del FOV aplicado dentro del simulador
+    \off[2] \onok[2] \ondelay[6] \off[6] \\
+    \hline
+    \textbf{A3.} Trazabilidad de la trayectoria
+    \off[3] \onok[2] \ondelay[5] \off[6] \\
+    \hline
+    \textbf{A4.} Manejo de los mensajes en ROS
+    \off[4] \on[3] \ondelay[4] \off[5] \\
+    \hline
+    \rowcolor{teal!15}{\textbf{A5.} Manejo de los tópicos en ROS}
+    \off[3] \onok[5] \ondelay[3] \off[5] \\
+    \hline
+    \rowcolor{black!5}{\textbf{Etapa 3}}\\
+    \hline
+    \textbf{E3.A1.} Experimentaci\'{o}n de soluci\'{o}n
+    \off[10]  \on[2] \off[4] \\
+    \hline
+    \textbf{E3.A2.} Recopilaci\'{o}n resultados
+    \off[11]  \on[1] \off[4] \\
+    \hline
+    \textbf{E3.A3.} Documentaci\'{o}n Etapa 3
+    \off[9] \on[3] \off[4] \\
+    \hline
+    \textbf{E3.A4.} Revisi\'{o}n de tesis
+    \off[11] \on[3] \off[2]\\
+    \hline
+    \textbf{E3.A5.} Divulgaci\'{o}n
+    \off[12]  \on[3] \off[1]\\
+    \hline
+    \textbf{E3.A6.} Proceso de titulaci\'{o}n
+    \off[14] \on \off[1]\\
+    \hline
     \end{tabular}
+  \end{minipage}
+
+  \begin{table}[h!]
+    \centering
+    \begin{tabular}{|m{1cm}|m{5cm}|m{5cm}|}
+      \hline
+      \textbf{Actividad} & \textbf{Producto} & \textbf{Incidencia} \\
+      \hline
+      A1 & 20 empleados capacitados & Mejora la interacción con los clientes, aumentando su satisfacción. \\
+      \hline
+      A2 & Sistema en funcionamiento 100\% & Permite resolución rápida y efectiva de quejas, reduciendo la insatisfacción. \\
+      \hline
+      A3 & Datos de encuestas y análisis d & Proporciona retroalimentación continua para mejorar el servicio. \\
+      \hline
+    \end{tabular}
+    \caption{Tabla de actividades, productos e incidencia}
+    \label{tab:actividad_producto_incidencia}
   \end{table}
 \end{frame}
 
-%\begin{frame}[standout]
-%  ¿Preguntas?
+%TODO
+%\begin{frame}{Gantt}
+%\begin{minipage}{3cm}
+%\tiny{
+%\begin{ganttchart}[
+%hgrid style/.style={black, dotted},
+%vgrid={*5{black,dotted}, *1{white, dotted}, *1{black, dashed}},
+%x unit=3mm,
+%y unit chart=9mm,
+%y unit title=12mm,
+%time slot format=isodate,
+%group label font=\bfseries \Large,
+%link/.style={->, thick}
+%]{2024-05-06}{2024-08-23}
+%\gantttitlecalendar{year, month=name, week}\\
+%\ganttgroup[
+%group/.append style={fill=orange}
+%]{\small Etapa 2}{2024-05-06}{2024-07-26}\\ [grid]
+%\ganttorangebar[
+%name=VIS
+%]{Visualización Datos}{2024-05-06}{2024-05-15}\\ [grid]
+%\ganttorangebar[
+%name=FOVSim
+%]{Comprension FOV Simulador}{2024-05-15}{2024-05-20}\\ [grid]
+%\ganttorangebar[
+%name=Trazabilidad
+%]{Trazabilidad}{2024-05-20}{2024-05-22}
+%\ganttlinkedorangebar{}{2024-05-06}{2024-05-15}
+%\ganttlinkedorangebar{}{2024-05-15}{2024-05-22}
+%\ganttlinkedorangebar{}{2014-10-17}{2014-10-17}
+%\ganttlinkedorangebar[name=FMEend]{}{2014-10-21}{2014-10-24}
+%\ganttlinkedorangebar{}{2014-10-28}{2014-10-31}\\ [grid]
+%\ganttorangebar[name=Manual]{Manual}{2014-10-30}{2014-10-31}
+%\ganttlinkedorangebar{}{2014-11-4}{2014-11-7} \ganttnewline[thick, black]
+%\ganttgroup[
+%group/.append style={fill=green}
+%]{KLIP Manager}{2014-11-3}{2014-11-9}
+%\ganttgroup[
+%group/.append style={fill=green}
+%]{}{2014-11-17}{2014-11-23}\\ [grid]
+%\ganttgreenbar{Manual}{2014-11-4}{2014-11-7}
+%\ganttlinkedgreenbar{}{2014-11-18}{2014-11-19}
+%%Implementing links
+%\ganttlink[link mid=0.75]{Documentation}{FME}
+%\ganttlink{FMETutorial}{FME}
+%\end{ganttchart}
+%}
+%\end{minipage}
 %\end{frame}
+
+%\begin{frame}{Ejemplo}
+%\begin{table}
+%\begin{tabular}{|l|c|c|}
+%foo & bar & 
+%\progressbar[linecolor=blue, filledcolor=green]{0.6}\llap{\raisebox{1.5pt}{\tiny$60\%$}\hspace{0.8cm}}  \\
+%foo & bar & 
+%\progressbar[linecolor=blue, filledcolor=green]{0.6}%
+%\begin{picture}(0,0)
+%\put(-35,1.5) {\tiny$60\%$}
+%\end{picture}
+%\end{tabular}
+%\end{table}
+%\end{frame}
+
+\begin{frame}[standout]
+  ¿Preguntas?
+\end{frame}
 
 \appendix
 
