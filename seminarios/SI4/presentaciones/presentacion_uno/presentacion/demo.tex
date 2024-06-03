@@ -104,7 +104,7 @@
   \forloop{loopcntr}{0}{\value{loopcntr}<#1}{&\cellcolor{green}}
 }
 \newcommand{\ondelay}[1][1]{
-  \forloop{loopcntr}{0}{\value{loopcntr}<#1}{&\cellcolor{red}}
+  \forloop{loopcntr}{0}{\value{loopcntr}<#1}{&\cellcolor{red!60}}
 }
 \newcommand{\off}[1][1]{
   \forloop{loopcntr}{0}{\value{loopcntr}<#1}{&\cellcolor{white}}
@@ -302,7 +302,7 @@
   
   \begin{multicols}{2}
     \begin{itemize}[label={}]
-    \item \cmark { }Comprensión dinámica del VANT, VIO, planificador global
+    \item \cmark { }Comprensión dinámica del VANT, odometría, planificador global
     \item \cmark { }Implementación planificador local en $\mathbb{R}^{3}$
     \item \cmark { }Implementación estrategia de coordinación
     \end{itemize}
@@ -435,10 +435,10 @@
     \rowcolor{teal!15}{\textbf{E2.A2.} Visualizaci\'{o}n de datos}
     \off[1] \onok[2] \ondelay[6]  \off[7] \\
     \hline
-    \textbf{E2.A3.} Control de desplazamientos
+    \rowcolor{teal!7}\textbf{E2.A3.} Control de desplazamientos
     \off[2] \onok[2] \ondelay[6] \off[6] \\
     \hline
-    \textbf{E2.A4.} Desarrollo de algoritmo de exploración
+    \rowcolor{teal!7}\textbf{E2.A4.} Desarrollo de algoritmo de exploración
     \off[3] \onok[2] \ondelay[5] \off[6] \\
     \hline
     %\rowcolor{teal!15}{\textbf{E2.A5.} Implementaci\'{o}n y simulaci\'{o}n}
@@ -447,10 +447,10 @@
     %\textbf{E2.A6.} Simulaci\'{o}n un solo VANT
     %\off[4] \on[1] \off[7] \\
     %\hline
-    \textbf{E2.A5.} Desarrollo de coordinaci\'{o}n
+    \rowcolor{teal!7}\textbf{E2.A5.} Desarrollo de algoritmo de coordinaci\'{o}n
     \off[4] \on[3] \ondelay[4] \off[5] \\
     \hline
-    \rowcolor{teal!15}{\textbf{E2.A6.} Implementaci\'{o}n y simulaci\'{o}n}
+    \rowcolor{teal!7}{\textbf{E2.A6.} Implementaci\'{o}n y simulaci\'{o}n}
     \off[3] \onok[5] \ondelay[3] \off[5] \\
     \hline
     %\textbf{E2.A9.} Simulaci\'{o}n multi-VANT
@@ -489,10 +489,10 @@
 \begin{frame}{}
   \bigskip % Vertical whitespace
   \tiny
-  \scalebox{0.7}{  
+  \scalebox{0.75}{  
   %\hspace{0.0cm}
     \begin{minipage}{1cm}
-    \noindent\begin{tabular}{|p{13\textwidth}*{16}{|p{0.002\textwidth}}|}
+    \noindent\begin{tabular}{|p{11.5\textwidth}*{16}{|p{0.002\textwidth}}|}
     % The top line
     %\diagbox[width=12.5em]{Actividades}{Cuatrimestres}
     \hline
@@ -507,25 +507,25 @@
     \hline
     \rowcolor{teal!40}{\textbf{Visualización de datos}}\\
     \hline
-    \textbf{A1.} Manejo estructura del mapa
+    \rowcolor{teal!15}\textbf{A1.} Manejo estructura del mapa
     \onok[2] \off[14] \\
     \hline
-    \textbf{A2.} Comprensión del FOV aplicado dentro del simulador
+    \rowcolor{teal!15}\textbf{A2.} Comprensión del FOV aplicado dentro del simulador
     \off[1] \onok[2] \off[13] \\
     \hline
-    \textbf{A3.} Trazabilidad de la trayectoria
+    \rowcolor{teal!15}\textbf{A3.} Trazabilidad de la trayectoria
     \off[2] \onok[2] \off[12] \\
     \hline
-    \textbf{A4.} Manejo de los mensajes en ROS
+    \rowcolor{teal!15}\textbf{A4.} Manejo de los mensajes en ROS
     \off[2] \onok[2] \off[12] \\
     \hline
     \rowcolor{teal!15}{\textbf{A5.} Manejo de los tópicos en ROS}
-    \off[3] \onok[1] \off[12] \\
+    \off[2] \onok[2] \off[12] \\
     \hline
     \rowcolor{teal!40}{\textbf{Control de desplazamientos}}\\
     \hline
     \textbf{A1.} Comprención de la ejecución del algoritmo A* en $\mathbb{R}^{3}$
-    \off[4]  \on[2] \off[10] \\
+    \off[4]  \on[1] \off[11] \\
     \hline
     \textbf{A2.} Aplicación de planificador local PVA
     \off[4]  \on[2] \off[10] \\
@@ -533,64 +533,64 @@
     \rowcolor{teal!40}{\textbf{Desarrollo de algoritmo de exploración}}\\
     \hline
     \textbf{A1.} Manejo de pase de mapas entre agentes
-    \off[10]  \on[2] \off[4] \\
+    \off[5]  \on[2] \off[9] \\
     \hline
-    \textbf{A2.} Clusterizar regiones de fronteras
-    \off[11]  \on[1] \off[4] \\
+    \textbf{A2.} Clusterización de regiones de fronteras
+    \off[4]  \on[2] \off[10] \\
     \hline
-    \textbf{A3.} Homologación de mapa
-    \off[11]  \on[1] \off[4] \\
+    \textbf{A3.} Integración de los mapas de los agentes
+    \off[6]  \on[2] \off[8] \\
     \hline
     \rowcolor{teal!40}{\textbf{Desarrollo de coordinación}}\\
     \hline
     \textbf{A1.} Solución greedy
-    \off[10]  \on[2] \off[4] \\
+    \off[8]  \on[1] \off[7] \\
     \hline
     \textbf{A2.} Solución branch \& bound
-    \off[11]  \on[1] \off[4] \\
+    \off[9]  \on[1] \off[6] \\
     \hline
-    \textbf{A3.} Solución Método Hungaro
-    \off[11]  \on[1] \off[4] \\
+    \textbf{A3.} Solución método húngaro
+    \off[10]  \on[1] \off[5] \\
     \hline
     \rowcolor{teal!40}{\textbf{Implementación y simulación}}\\
     \hline
     \textbf{A1.} Coordinación del funcionamiento de los componentes de la arquitectura de software
-    \off[10]  \on[2] \off[4] \\
+    \off[8]  \on[3] \off[5] \\
     \hline
     \rowcolor{teal!40}{\textbf{Experimentación de resultados}}\\
     \hline
-    \textbf{A1.} Ejecuciones entre las soluciones del estado del arte que su implementación se halla realizado en un ambiente en ROS
-    \off[10]  \on[2] \off[4] \\
+    \textbf{A1.} Ejecuciones entre las soluciones del estado del arte que su implementación se haya realizado en un ambiente en ROS
+    \off[11]  \on[1] \off[4] \\
     \hline
     \textbf{A2.} Ejecuciones con números diferentes de VANTS
     \off[11]  \on[1] \off[4] \\
     \hline
     \rowcolor{teal!40}{\textbf{Recopilación de resultados}}\\
     \hline
-    \textbf{A1.} Comparación resultados con estado del arte con los tiempos en los diferentes mecanismos de coordinación
-    \off[10]  \on[2] \off[4] \\
+    \textbf{A1.} Comparación resultados con estado del arte y con los tiempos en los diferentes mecanismos de coordinación
+    \off[11]  \on[2] \off[3] \\
     \hline
     \rowcolor{teal!40}{\textbf{Documentación etapa 3}}\\
     \hline
-    \textbf{A1.} Escribir
-    \off[10]  \on[2] \off[4] \\
+    \textbf{A1.} Escribir cápitulos de la tesis
+    \off[5]  \on[3] \off[2] \on[6]\\
     \hline
-    \textbf{A2.} Redactar
-    \off[11]  \on[1] \off[4] \\
+    \textbf{A2.} Redactar manuscrito CCE 2024 - IEEE
+    \off[5]  \on[5] \off[6] \\
     \hline
-    \textbf{A3.} Modificar
-    \off[11]  \on[1] \off[4] \\
+    \textbf{A3.} Modificar correcciones
+    \off[8]  \on[2] \off[1] \on[5]\\
     \hline
     \rowcolor{teal!40}{\textbf{Revisión de tesis}}\\
     \hline
-    \textbf{A1.} Correcciones revisión 1
-    \off[10]  \on[2] \off[4] \\
+    \textbf{A1.} Correcciones de revisión 1
+    \off[12]  \on[4] \\
     \hline
-    \textbf{A2.} Correcciones revisión 2
-    \off[11]  \on[1] \off[4] \\
+    \textbf{A2.} Correcciones de revisión 2
+    \off[12]  \on[4] \\
     \hline
-    \textbf{A3.} Correcciones revisión 3
-    \off[11]  \on[1] \off[4] \\
+    \textbf{A3.} Correcciones de revisión 3
+    \off[12]  \on[4] \\
     \hline
     \end{tabular}
   \end{minipage}
@@ -600,82 +600,82 @@
 \begin{frame}{}
   \bigskip % Vertical whitespace
   \tiny
-  \scalebox{0.63}{
+  \scalebox{0.64}{
     \begin{minipage}{1cm}
       \begin{table}[h!]
-        \begin{tabular}{|m{0.8cm}|m{8cm}|m{13cm}|}
+        \begin{tabular}{|m{7cm}|m{5cm}|m{9cm}|}
           \hline
           \rowcolor{teal!40}\multicolumn{3}{|l|}{\textbf{Visualización de datos}}\\\hline
           \rowcolor{teal!15}\textbf{Actividad} & \textbf{Producto} & \textbf{Incidencia}\\\hline
-          \textbf{A1} & Manejo estructura del mapa & \multirow{5}{*}{La visualización simultánea de datos de múltiples VANT puede sobrecargar RVIZ.} \\
+          \textbf{A1} Manejo estructura del mapa & Consultas a la estructura del mapa & \multirow{5}{*}{Inversión extra de tiempo para el estudio de C++, impactando en el desarrollo del proyecto} \\
           \cline{1-2}
-          \textbf{A2} & Comprensión del FOV aplicado dentro del simulador & \\
+          \textbf{A2} Comprensión del FOV aplicado dentro del simulador & N/A &\\
           \cline{1-2}
-          \textbf{A3} & Trazabilidad de la trayectoria & \\
+          \textbf{A3} Trazabilidad de la trayectoria & Manejo de arreglo de las trayectorias & \\
           \cline{1-2}
-          \textbf{A4} & Manejo de los mensajes en ROS & \\
+          \textbf{A4} Manejo de los mensajes en ROS & Paso de argumentos al launchfile & \\
           \cline{1-2}
-          \textbf{A5} & Manejo de los tópicos en ROS & \\
+          \textbf{A5} Manejo de los tópicos en ROS & Manejo de tópicos dentro del nodo de ROS & \\
           \hline
           \rowcolor{teal!40}\multicolumn{3}{|l|}{\textbf{Control de desplazamientos}}\\\hline
           \rowcolor{teal!15}\textbf{Actividad} & \textbf{Producto} & \textbf{Incidencia} \\
           \hline
-          \textbf{A1} & Comprención de la ejecución del algoritmo A* en $\mathbb{R}^{3}$ & \multirow{2}{*}{Colisiones, trayectorias ineficientes o fallos en la misión de exploración}\\
+          \textbf{A1} Comprención de la ejecución del algoritmo A* en $\mathbb{R}^{3}$ & N/A & \multirow{2}{*}{Desempeño insuficiente para el planificador local}\\
           \cline{1-2}
-          \textbf{A2} & Aplicación de planificador local PVA &\\
+          \textbf{A2} Desarrollo de planificador local PVA & Programa del planificador local & \\
           \hline
           \rowcolor{teal!40}\multicolumn{3}{|l|}{\textbf{Desarrollo de algoritmo de exploración}}\\\hline
           \rowcolor{teal!15}\textbf{Actividad} & \textbf{Producto} & \textbf{Incidencia} \\
           \hline
-          \textbf{A1} & Manejo de pase de mapas entre agentes & \multirow{3}{*}{ddddxxxx}\\
+          \textbf{A1} Manejo de pase de mapas entre agentes & N/A & \multirow{3}{*}{Desempeño insuficiente en la homologación de los mapas}\\
           \cline{1-2}
-          \textbf{A2} & Clusterizar regiones de fronteras & \\
+          \textbf{A2} Clusterización de regiones de fronteras & Programa para identificar las velocidades admisibles & \\
           \cline{1-2}
-          \textbf{A3} & Homologación de mapa & \\
+          \textbf{A3} Integración de los mapas de los agentes & Construcción del mapa de la misión & \\
           \hline
           \rowcolor{teal!40}\multicolumn{3}{|l|}{\textbf{Desarrollo de algoritmo de coordinación}}\\\hline
           \rowcolor{teal!15}\textbf{Actividad} & \textbf{Producto} & \textbf{Incidencia} \\
           \hline
-          \textbf{A1} & Solución greedy & \multirow{3}{*}{Mejora la interacción con los clientes, aumentando su satisfacción.}\\
+          \textbf{A1} Solución greedy & Programa con solución greedy & \multirow{3}{*}{Problemas en la implementación en el lenguaje C++}\\
           \cline{1-2}
-          \textbf{A2} & Solución branch \& bound & \\
+          \textbf{A2} Solución branch \& bound & Programa con solución branch \& bound & \\
           \cline{1-2}
-          \textbf{A3} & Solución método hungaro & \\
+          \textbf{A3} Solución método húngaro  & Programa con solución método húngaro & \\
           \hline
           \rowcolor{teal!40}\multicolumn{3}{|l|}{\textbf{Implementación y simulación}}\\\hline
           \rowcolor{teal!15}\textbf{Actividad} & \textbf{Producto} & \textbf{Incidencia} \\
           \hline
-          \textbf{A1} & Coordinación del funcionamiento de los componentes de la arquitectura de software & Mejora la interacción con \\
+          \textbf{A1} Coordinación del funcionamiento de los componentes de la arquitectura de software & Archivo lauchfile variando el tipo de coordinación & Problemas en la implementación en el lenguaje C++\\
           \hline
           \rowcolor{teal!40}\multicolumn{3}{|l|}{\textbf{Experimentación de resultados}}\\\hline
           \rowcolor{teal!15}\textbf{Actividad} & \textbf{Producto} & \textbf{Incidencia} \\
           \hline
-          \textbf{A1} & Ejecuciones entre las soluciones del estado del arte que su implementación se halla realizado en un ambiente en ROS & \multirow{2}{*}{Mejorar la interaccion}\\
+          \textbf{A1} Ejecuciones entre las soluciones del estado del arte que su implementación se haya realizado en un ambiente en ROS & Gráficos de tiempos de ejecución & \multirow{2}{*}{No poder replicar los resultados en el equipo adecuado o sugeridos en el estado del arte}\\
           \cline{1-2}
-          \textbf{A2} & Ejecuciones con números diferentes de VANTS & \\
+          \textbf{A2} Ejecuciones con números diferentes de VANTS & Gráficos de tiempos de ejecución & \\
           \hline
           \rowcolor{teal!40}\multicolumn{3}{|l|}{\textbf{Recopilación de resultados}}\\\hline
           \rowcolor{teal!15}\textbf{Actividad} & \textbf{Producto} & \textbf{Incidencia} \\
           \hline
-          \textbf{A1} & Comparación resultados con estado del arte con los tiempos en los diferentes mecanismos de coordinación & Mejora la interacción con los clientes, aumentando su satisfacción. \\
+          \textbf{A1} Comparación resultados con estado del arte con los tiempos en los diferentes mecanismos de coordinación & Gráficos de tiempos de ejecución & Tiempos incongruentes por mala implementación \\
           \hline
           \rowcolor{teal!40}\multicolumn{3}{|l|}{\textbf{Documentación etapa 3}}\\\hline
           \rowcolor{teal!15}\textbf{Actividad} & \textbf{Producto} & \textbf{Incidencia} \\
           \hline
-          \textbf{A1} & Escribir & \multirow{2}{*}{Mejora la interacción con los clientes, aumentando su satisfacción.} \\
+          \textbf{A1} Escribir cápitulos tesis & Cápitulos (Marco teórico, metodología, resultados) & \multirow{2}{*}{Retraso de escritura de cápitulos derivado al retraso acumulado} \\
           \cline{1-2}
-          \textbf{A2} & Redactar & \\
+          \textbf{A2} Redactar manuscrito CCE 2024 - IEEE & Manuscrito CCE 2024 - IEEE & \\
           \cline{1-2}
-          \textbf{A3} & Modificar & \\
+          \textbf{A3} Modificar correcciones & Cápitulos modificados & \\
           \hline
           \rowcolor{teal!40}\multicolumn{3}{|l|}{\textbf{Revisión tesis}}\\\hline
           \rowcolor{teal!15}\textbf{Actividad} & \textbf{Producto} & \textbf{Incidencia} \\
           \hline
-          \textbf{A1} & Correcciones revisión 1 & \multirow{3}{*}{Mejora la interacción con los clientes, aumentando su satisfacción.} \\
+          \textbf{A1} Correcciones de revisión 1 & Cápitulos modificados & \multirow{3}{*}{Retraso de escritura de cápitulos derivado al retraso acumulado} \\
           \cline{1-2}
-          \textbf{A2} & Correcciones revisión 2 & \\
+          \textbf{A2} Correcciones de revisión 2 & Cápitulos modificados & \\
           \cline{1-2}
-          \textbf{A3} & Correcciones revisión 3 & \\
+          \textbf{A3} Correcciones de revisión 3 & Cápitulos modificados & \\
           \hline
         \end{tabular}
       \end{table}
