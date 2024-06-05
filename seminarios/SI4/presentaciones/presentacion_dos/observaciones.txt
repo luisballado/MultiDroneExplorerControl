@@ -1,0 +1,80 @@
+-----------------------------
+Observaciones presentacion 1
+- Dr. Hiram
+-----------------------------
+
+-> Condenzar la introducción:
+
+Mencionar donde esta la esperimentacion del robot,
+aqui la cuestion es de alguna forma mencionar que el problema es complejo se ha abordado de diferentes formas
+1.- En la perspectiva de implementacion que se lidea con todos los componentes de un robot autonomo (Todos los modulos)
+2.- En un ambiente controlado en el cual se centra en los problemas de exploracion y planificacion de trayectoria.
+Para la cual se necesita una abstraccion del entorno y aplicar algoritmos que es el objetivo de este trabajo ..
+Para ello podemos definir el problema de manera abstracta como y se comienza a trabajar con la abstraccion del
+planteamiento del problema.
+
+-> Se menciona el ciclo de exploracion
+
+Ilustrar de mejor forma que se pueda observar el ciclo, mostrar el ciclo de control en un robot de exploracion
+Que se pueda entender mejor..
+Se menciona ciclo y no se ve un ciclo.
+
+-> Motivacion del proyecto o motivacion del uso de los VANTS
+
+Son dos cosas diferentes--- Presentar el que te motiva en estudiar ese problema ---
+-- ¿Para qué?
+-- ¿Como se hace hasta ahora?
+Toda la parte se puede resumir en una diapo .. la cuestion aqui es punto A -> B en la generacion de trayectoria
+Como se ha realizado hasta ahora (de forma centralizada, se procesa aqui y se generan las trayectorias)
+Que sea distribuido ... mencionarlo antes de que aparezca en la hipotesis ..
+
+Lo que se plantea en la hipotesis debo de ver en los antecedentes o mencionar como se ha abordado
+LO QUE SE DICE EN LA HIPOTESIS ES ALGO NOVEDOSO
+DEBE QUEDAR CLARO POR QUE EN LOS ANTECEDENTES SE HACE DIFERENTE
+
+Mencionar la desventaja de hacerlo centralizado >>al hacerlo descentralizado resuelve el problema de escalamiento<<
+
+Pensar en cosas que sean medibles y ademas que sean atributos de la solucion que se ofrece
+
+En un control centralizado la escalabilidad es un problema .. en descentralizado se espera que no
+Se llama en redes -> redes autoorganizadas
+
+La parte de la introduccion es importante, ya que es donde se engancha a quien esta escuchando ..
+manera coloquial .. Existe una tendencia en VANTS que se utilizan en diversos casos de uso.. en agricultura, industria..
+uno de los desafios principales es como dotar al vehiculo de capacidad que pueda ser autonomo sin una intervencion manual
+para ello estos equipos cuentan con ciertos componentes y hasta años recientes la gestion de trayectorias pasaba por un control
+centralizado,, esto tiene varios inconvenientes 1,2,3.. no obstante se tiene claridad de descentralizar aparecen nuevos desafios
+y este en particular va ser el trabajo de esta tesis.  (Esto mencionarlo en 2-3 min como mucho) <- convencer que es relevante
+
+-> Evitar diapositivas con imagenes en blanco y negro
+Resaltar los modulos de los que se van hablar o se esten trabajando, y ponerlas en color .. o sombradas a las que no mencionaria mucho
+
+Los colores juegan en una percepcion de quien lo esta evaluando 
+
+-> La abastraccion es como la pildora roja/azul
+La cuestion es trabajar con la abstraccion y no argumentar la parte de implementacion
+
+-> Falta argumentar el uso del simulador .. saben que la implementacion cuesta dinero alternativamente dado a que nos interesa entender
+y estudiar algoritmos vamos abordar el problema en un entorno de sumulacion
+- Para esto necesitamos primero una abstraccion
+- ir desglozando los elementos ......
+
+-> Diapositiva 7 -- Se menciona por primera vez el espacio cerrado
+Dar una pista que aparecera cierto vocabulario .. hacer una transicion gradual de la informacion
+La parte de la coordinacion no aparece antes..
+No centrar las figuras mono-vant,, mostrar con los multiples vants para remarcar el modulo de coordinación
+La necesidad de coordinacion es necesaria cuando se cuentan multiples agentes ..
+no se visualiza aqui la coordinacion -- > generar una figura que ilustre que los elementos deben de tener una coordinacion con el resto
+
+->  Los objetivos
+cual es el aspecto medible, cual podria ser que ya alcanzaste el objetivo <-- quitarme ese chip ..
+>> Qué voy a decir en el articulo que funciono pero para qué? <<
+Lo deseable es tener reducir tiempos .. mencionar que sea escalable en objetivo .. y poder ver con los resultados si se alcanzo
+Esta muy poco aterrizado incluir elementos para aterrizar
+
+-> Desarrollo de la coordinación ..
+En los desarrollos ...
+Dar merito a todo lo que estoy haciendo en el trabajo del simulado mencionarlo en los objetivos
+>> Ya se ha dedicado mucho tiempo
+-- Integrar un modelo de simulacion que permita el estudio de la exploracion coordinacion blah blah
+-- Mejorar objetivos generales y particulares

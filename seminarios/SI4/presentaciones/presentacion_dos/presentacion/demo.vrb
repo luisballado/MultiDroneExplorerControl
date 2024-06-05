@@ -1,0 +1,141 @@
+\frametitle{Estado del arte}
+\centering
+  \scalebox{0.70}{
+  \begin{tabular}{ | p{3cm} | p{1.6cm} | p{2.5cm} | p{3cm} | p{3.1cm} | p{0.8cm} | p{0.9cm} | }
+    \hline
+    \tiny REFERENCIA&
+    \tiny APLICACIÓN&
+    \tiny GENERACION MAPA&
+    \tiny PLANIFICACION DE RUTA&
+    \tiny GENERACION TRAYECTORIA&
+    \tiny SENSOR RGB-D&
+    \tiny DINAMICA VANT\\
+    \hline
+    %--------------------------
+    \tiny \cellcolor{gray!20}\cite{CIESLEWSKI2017}[\citenum{CIESLEWSKI2017}]&
+    \tiny \cellcolor{gray!20}Exploración&
+    \tiny \cellcolor{gray!20}Octomap&
+    \tiny \cellcolor{gray!20}Basado en fronteras&
+    \tiny \cellcolor{gray!20}Control directo de velocidad&
+    \tiny \cellcolor{gray!20}\ding{51} &
+    \tiny \cellcolor{gray!20}\ding{55} \\ \hline
+    %--------------------------
+    \tiny \cite{USENKO2017}[\citenum{USENKO2017}]&
+    \tiny Punto Objetivo&
+    \tiny Cuadr\'{i}cula egoc\'{e}ntrica&
+    \tiny Offline RRT*&
+    \tiny Curvas de Bezier&
+    \tiny \ding{55} &
+    \tiny \ding{51} \\ \hline
+    %--------------------------
+    \tiny \cite{MOHTA2017}[\citenum{MOHTA2017}]&
+    \tiny Punto Objetivo&
+    \tiny mapa 3D-Local y 2D-Global&
+    \tiny A*&
+    \tiny Programaci\'{o}n cuadr\'{a}tica&
+    \tiny \ding{55} &
+    \tiny \ding{51} \\ \hline
+    %--------------------------
+    \tiny \cite{LIN2017}[\citenum{LIN2017}]&
+    \tiny Punto Objetivo&
+    \tiny 3D voxel array TSDF&
+    \tiny A*&
+    \tiny Optimizaci\'{o}n cuadr\'{a}tica&
+    \tiny \ding{55}&
+    \tiny \ding{55} \\ \hline
+    %--------------------------
+    \tiny \cellcolor{gray!20}\cite{PAPACHRISTOS2017}[\citenum{PAPACHRISTOS2017}]&
+    \tiny \cellcolor{gray!20}Exploración&
+    \tiny \cellcolor{gray!20}Octomap&
+    \tiny \cellcolor{gray!20}Next Best View Planner (NBVP)&
+    \tiny \cellcolor{gray!20}Control directo de velocidad&
+    \tiny \cellcolor{gray!20}\ding{55}&
+    \tiny \cellcolor{gray!20}\ding{55} \\ \hline
+    %--------------------------
+    \tiny \cite{OLEYNIKOVA2018}[\citenum{OLEYNIKOVA2018}]&
+    \tiny Punto Objetivo&
+    \tiny Voxel Hashing TSDF&
+    \tiny Next Best View Planner (NBVP)&
+    \tiny Optimizaci\'{o}n cuadr\'{a}tica&
+    \tiny \ding{51}&
+    \tiny \ding{51} \\ \hline
+    %--------------------------
+    \tiny \cite{GAO2018}[\citenum{GAO2018}]&
+    \tiny Punto Objetivo&
+    \tiny Mapa de cuadr\'{i}cula&
+    \tiny M\'{e}todo de marcha r\'{a}pida&
+    \tiny Optimizaci\'{o}n cuadr\'{a}tica&
+    \tiny \ding{55}&
+    \tiny \ding{51} \\ \hline
+    %--------------------------
+    \tiny \cite{FLORENCE2018}[\citenum{FLORENCE2018}]&
+    \tiny Punto Objetivo&
+    \tiny Busqueda basada en visibilidad&
+    \tiny 2D A*&
+    \tiny Control predictivo por modelo (MPC)&
+    \tiny \ding{51}&
+    \tiny \ding{51} \\ \hline
+    %--------------------------
+    \tiny \cellcolor{gray!20}\cite{SELIN2019}[\citenum{SELIN2019}]&
+    \tiny \cellcolor{gray!20}Exploración&
+    \tiny \cellcolor{gray!20}Octomap&
+    \tiny \cellcolor{gray!20}Next Best View Planner (NBVP)&
+    \tiny \cellcolor{gray!20}Control directo de velocidad&
+    \tiny \cellcolor{gray!20}\ding{55}&
+    \tiny \cellcolor{gray!20}\ding{55} \\ \hline
+    %--------------------------
+    \tiny \cellcolor{gray!20}\cite{BUG2019}[\citenum{BUG2019}]&
+    \tiny \cellcolor{gray!20}Exploración&
+    \tiny \cellcolor{gray!20}NA&
+    \tiny \cellcolor{gray!20}Swarm Gradient Bug Algorithm (SGBA)&
+    \tiny \cellcolor{gray!20}Control directo de velocidad&
+    \tiny \cellcolor{gray!20}\ding{55}&
+    \tiny \cellcolor{gray!20}\ding{55} \\ \hline
+    %--------------------------
+    \tiny \cite{COLLINS2019}[\citenum{COLLINS2019}]&
+    \tiny Punto Objetivo&
+    \tiny KD Tree $+$ Mapa en Voxel&
+    \tiny B\'{u}squeda en Grafo&
+    \tiny Movimientos suaves&
+    \tiny \ding{51}&
+    \tiny \ding{51} \\ \hline
+    %--------------------------
+    \tiny \cite{CINVES2021}[\citenum{CINVES2021}]&
+    \tiny Punto Objetivo&
+    \tiny Octree&
+    \tiny Rapidly Exploring Random Trees (RRT)&
+    \tiny Basado en contornos&
+    \tiny \ding{51}&
+    \tiny \ding{51} \\ \hline
+    %--------------------------
+    \tiny \cellcolor{gray!20}\cite{CIESLEWSKI2021}[\citenum{CIESLEWSKI2021}]&
+    \tiny \cellcolor{gray!20}Exploración&
+    \tiny \cellcolor{gray!20}Octomap&
+    \tiny \cellcolor{gray!20}Basado en fronteras&
+    \tiny \cellcolor{gray!20}Control directo de velocidad&
+    \tiny \cellcolor{gray!20}\ding{51}&
+    \tiny \cellcolor{gray!20}\ding{55} \\ \hline
+    %--------------------------
+    \tiny \cellcolor{gray!20}\cite{RACER2022}[\citenum{RACER2022}]&
+    \tiny \cellcolor{gray!20}Exploración&
+    \tiny \cellcolor{gray!20}HGrid&
+    \tiny \cellcolor{gray!20}Next Best View Planner (NBVP)&
+    \tiny \cellcolor{gray!20}Control directo de velocidad&
+    \tiny \cellcolor{gray!20}\ding{51}&
+    \tiny \cellcolor{gray!20}\ding{51} \\ \hline
+    %--------------------------
+    %\scriptsize \cite{WESTHEIDER2023}[\citenum{WESTHEIDER2023}]&
+    %\scriptsize Mapa de cuadrícula&
+    %\scriptsize Deep Reinforcement Learning&
+    %\scriptsize Control directo de velocidad \\ \hline
+    %--------------------------
+    \tiny \cellcolor{gray!20}\cite{BARTOLOMEI2023}[\citenum{BARTOLOMEI2023}]&
+    \tiny \cellcolor{gray!20}Exploración&
+    \tiny \cellcolor{gray!20}HGrid&
+    \tiny \cellcolor{gray!20}Basado en fronteras&
+    \tiny \cellcolor{gray!20}Control directo de velocidad&
+    \tiny \cellcolor{gray!20}\ding{51}&
+    \tiny \cellcolor{gray!20}\ding{51} \\ \hline
+    %--------------------------
+  \end{tabular}
+  }
