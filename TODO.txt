@@ -1,29 +1,22 @@
 ------------------------------------------------
 ************************************************
-Mandar por correo a más tardar el 1 de abril
-el nombre del profesor invitado
+
 ************************************************
 ------------------------------------------------
 
-* Pesentacion 4 (Antes de la semana del 16 Abril)
 
-Presentación final que inclute
-(Antes de la semana del 16 Abril)
-- todos los elementos de una exposición cientifica:
-   * antecedentes y motivación del proyecto
-   * planteamiento del problema
-   * hipótesis y/o preguntas de investigación
-   * objetivos generales y particulares
-   * estado del arte
-   * enfoque propuesto
-   * resultados
-   * discusión y conclusiones
-   * cronograma de actividades
+Presentación 2. El objetivo de la presentación es:
 
->>>>>>>>>> Entregable <<<<<<<<<<
-Antes de la semana 26 de abril
+a) exponer y justificar el diseño experimental definido para abordar el problema de investigación de la tesis,
+- grafico explicando el diseño,
+- nodos de ros,
+- mensajes entre los nodos
+- y el diagrama de control
+b) analizar los resultados experimentales a la fecha y el grado de cumplimiento de los objetivos de la investigación,
+- resultados de los experimentos se veran reflejados al tener todos los elementos funcionales para un VANT
+- el grado de los objetivos de la investigación
+c) exponer desviaciones de la investigación respecto el plan de trabajo y detallar el plan de acción para concluir la tesis. 
+- Las desviaciones fueron en el entendimiento del problema,
+-> cómo podria obtener la ubicación del VANT en todo momento
+-> entender la filosofia de programar en ROS
 
-Documento equivalente a los capitulos de la tesis que
-contiene:
-* marco teórico
-* descriptción de la metodología o enfoque propuesto.

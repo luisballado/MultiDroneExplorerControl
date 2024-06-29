@@ -78,3 +78,27 @@ Dar merito a todo lo que estoy haciendo en el trabajo del simulado mencionarlo e
 >> Ya se ha dedicado mucho tiempo
 -- Integrar un modelo de simulacion que permita el estudio de la exploracion coordinacion blah blah
 -- Mejorar objetivos generales y particulares
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Con relación a la primera exposición en el Seminario de Investigación IV realizada el 4 de junio, a continuación, se envían comentarios y observaciones:
+
+Recomendaciones:
+
+1) en la exposición, reducir el tiempo dedicado a presentar antecedentes y motivación (debido a ello se agotó el tiempo máximo permitido y no hubo tiempo para presentar los avances del trabajo de tesis);
+
+2) incluir figuras o diagramas para ilustrar los principales elementos sobre los cuales se centrará el trabajo de tesis (exploración y planificación de trayectoria);
+
+3) clarificar que el trabajo de tesis se enfoca en los problemas de exploración y planificación de trayectoria en un ambiente de simulación (en la exposición de antecedentes se incluyen elementos que hacen pensar que el trabajo de tesis realizará una implementación en hardware);
+
+4) específicamente, en complemento al punto anterior, no queda claro el propósito de detallar la arquitectura de un robot móvil (diapositiva 4); posiblemente sería de mayor utilidad explicar el modelo genérico (abstracción) de un VANT que se ha implementado en el simulador.
+
+5) Clarificar qué es una trayectoria suave y cómo se cuantificaría en el entorno de simulación (se menciona en la primera pregunta de investigación).
+    Sobre la hipótesis. En la exposición de la motivación no queda clara la necesidad de realizar la exploración entre múltiples VANT de forma descentralizada. Es decir, se entiende que el paradigma actual para la coordinación pasa por disponer una estación terrena (Sink) que recabe información y haga las tareas localización, gestión de mapas, y planificación de rutas. Se sugiere no dejar a la interpretación del lector o (en este caso) de la audiencia a qué se refiere eso; en su lugar, hacerlo explícito en la exposición de la motivación del trabajo de investigación. Asimismo, clarificar en la hipótesis que no se considera el uso de GPS, como se clarificó en la exposición en atención a una pregunta al respecto. Finalmente, la hipótesis no refleja la técnica que se espera permita alcanzar el rendimiento adecuado de coordinación entre VANTs (de acuerdo a las actividades enlistadas en el cronograma, se probará con tres alternativas: greedy, branch and bound, y método húngaro).
+    Sobre los objetivos general y específicos. Incluir elementos que permitan valorar el grado de cumplimiento de los objetivos de la investigación. Esto es, ¿de qué forma se va a determinar que se han resuelto los problemas de coordinación para múltiples VANTs? ¿es posible incorporar en el objetivo una medida de desempeño (de la coordinación entre VANTs) que se pretende mejorar con la propuesta de solución?
+
+Con relación al avance, se entiende que hasta el momento las actividades concluidas estuvieron encaminadas a comprender el simulador seleccionado, así como implementar en el mismo el modelo de simulación de interés para el trabajo de tesis. Está pendiente el desarrollo, implementación y validación de los algoritmos de exploración y coordinación en el simulador, así como la obtención de resultados.
+
