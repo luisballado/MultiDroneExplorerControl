@@ -199,6 +199,245 @@
   }
 \end{frame}
 
+\begin{frame}{Antecedentes}
+
+  %Exploración es una tarea fundamental en robots autónomos.\\
+  %El objetivo es crear un mapa de un ambiente desconocido.\\
+  %\bigskip % Vertical whitespace
+  \centering
+  \bigskip % Vertical whitespace
+  \includegraphics[width=9cm]{exploracion}\\
+  
+  \begin{itemize}
+  \item \textbf{Sensar}
+  \item \textbf{Creación Mapa} 
+  \item \textbf{Localización en Mapa}
+  \item \textbf{\textcolor{blue}{Exploración}} (Aumentar la base de conocimiento del mapa)
+  \item \textbf{\textcolor{blue}{Planificación trayectoria}} (Trayectorias hacia nuevas fronteras) 
+  \item \textbf{Control} (Toma de decisiones y ejecución de trayectorias)
+  \end{itemize}
+  
+  \alert{- El ciclo se repite hasta completar la exploración -}
+
+\end{frame}
+
+\section{Diseño experimental}
+
+\begin{frame}{Flujo de un robot aéreo}
+  \centering
+  \bigskip % Vertical whitespace
+  \includegraphics[width=14cm]{drone_loop}\\
+\end{frame}
+
+\begin{frame}{Perspectiva de la solución}
+  \centering
+  \bigskip % Vertical whitespace
+  \includegraphics[width=15cm]{big_picture}\\
+\end{frame}
+
+\begin{frame}{Máquina de estados finitos}
+  \centering
+  \bigskip % Vertical whitespace
+  \includegraphics[width=12cm]{FSM}\\
+\end{frame}
+
+\section{Resultados a la fecha}
+
+\begin{frame}{Simulador}
+  \small
+  Integración del simulador dinámico \cite{RACER2022} \footnote{\scriptsize Rapid Collaborative Exploration With a Decentralized Multi-UAV System} utilizando la odometría de referencia de los VANTS, cada agente está equipado con una cámara de profundidad que mira hacia adelante cuya resolución es 640x480px y un campo de visión de 80°x60°. Las imágenes de profundidad se generan utilizando el proceso presentado en \cite{OMNI2022} \footnote{\scriptsize Omni-Swarm: A Decentralized Omnidirectional Visual–Inertial–UWB State Estimation System for Aerial Swarms} con un rango máximo de detección de 4.5 m.
+  \begin{itemize}
+  \item Para usar el simulador fué necesario utilizar un contenedor docker por su portabilidad.
+  \item Comprender la programación orientada a objetos C++
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{ROS Master}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{ros_master}
+  \end{figure}
+  
+  \begin{itemize}
+    \item Es un servidor que provee información de conexión (dirección, notificaciones) hacia los nodos del sistema.
+    \item Los mensajes son transmitidos entre los nodos vía peer-to-peer.
+    \item Los nodos deben conocer la dirección del nodo maestro antes de iniciar.
+    \item Los nodos son programas individuales y se organizan en paquetes.
+    \item La comunicación entre nodos es mediante tópicos y es de tipo unidireccional.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Generación de un ambiente a explorar}
+  \begin{figure}[ht!]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+      \centering
+      \includegraphics[width=\linewidth,height=3.5cm]{ROS_MAP2} % BUSQUEDA Y RESCATE
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\textwidth}
+      \centering
+      \includegraphics[width=\linewidth,height=3.5cm]{ROS_MAP3} % INSPECCION Y SEGURIDAD
+    \end{minipage}
+    \vspace{-0.2cm} % Espacio vertical entre imágenes
+    \begin{minipage}{0.48\textwidth}
+      \centering
+      \includegraphics[width=\linewidth,height=3.5cm]{ROS_MAP4} % DRONES EN CIUDADES CON GPS DENY
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\textwidth}
+      \centering
+      \includegraphics[width=\linewidth,height=3.5cm]{ROS_MAP6} % 
+    \end{minipage}
+  \end{figure}
+\end{frame}
+
+%\begin{frame}{Estructura de datos para la representación del ambiente a explorar}
+%  Manejo de consultas en la estructura de datos que almacena la información de los voxels
+%\end{frame}
+
+\begin{frame}{Control de desplazamientos}
+  \bigskip % Vertical whitespace
+  \centering
+  \animategraphics[width=0.45\textwidth,height=0.45\textheight]{10}{ros_map_1/ros_map-}{0}{300}
+  \hfil
+  \animategraphics[width=0.45\textwidth,height=0.45\textheight]{10}{ros_map_2/ros_map-}{0}{239}
+  \vspace{2pt}\\
+  \textcolor{blue}{1 VANT}
+  \hfil
+  \textcolor{blue}{2 VANT}
+\end{frame}
+
+\begin{frame}{Identificación de fronteras}
+  \centering
+  \bigskip % Vertical whitespace
+  \includegraphics[width=11cm]{fronteras_ros}\\
+\end{frame}
+  
+\begin{frame}{Grado de cumplimiento}
+  
+  \begin{block}{Preguntas de investigación}
+    \small{
+      \begin{enumerate}
+      \item ¿Qué características de la dinámica del VANT son clave para generar trayectorias suaves y continuas? \\
+        \progressbar[linecolor=blue, filledcolor=green]{1}\llap{\raisebox{1.5pt}{\tiny$100\%$}\hspace{0.8cm}}
+      \item ¿Podría un planificador de trayectorias que aproveche las regiones libres de obstáculos acelerar los desplazamientos de los VANTs y, consecuentemente, reducir los tiempos de exploración? \\
+        \progressbar[linecolor=blue, filledcolor=green]{0.5}\llap{\raisebox{1.5pt}{\tiny$50\%$}\hspace{0.8cm}}
+      \item ¿Qué mecanismos de coordinación existen dentro de la literatura que podrían ayudar en resolver el problema de exploración multi-VANT? \\
+        \progressbar[linecolor=blue, filledcolor=green]{1}\llap{\raisebox{1.5pt}{\tiny$100\%$}\hspace{0.8cm}}
+      \end{enumerate}
+    }
+  \end{block}
+\end{frame}
+
+\begin{frame}{Grado de cumplimiento}
+  \small
+  \begin{block}{Objetivo General \progressbar[linecolor=blue, filledcolor=green]{0.57}\llap{\raisebox{1.5pt}{\tiny$57\%$}\hspace{0.8cm}}}
+    \vspace{1mm}
+    Desarrollar una estrategia de exploración descentralizada que permita resolver los problemas de coordinación para múltiples VANTS en ambientes desconocidos.
+  \end{block}
+  
+  \begin{block}{Objetivos Particulares}
+    %\vspace{2mm}
+    \small{
+      \begin{enumerate}
+      \item Desarrollar una arquitectura de software que resuelva los problemas de autonomía para un VANT (localización, manejo de mapas y planificación de trayectorias).\\
+        \progressbar[linecolor=blue, filledcolor=green]{1}\llap{\raisebox{1.5pt}{\tiny$100\%$}\hspace{0.8cm}}
+      \item Implementar un mecanismo de coordinación descentralizado que asigne tareas de exploración. \\
+        \progressbar[linecolor=blue, filledcolor=green]{0.2}\llap{\raisebox{1.5pt}{\tiny$20\%$}\hspace{0.8cm}}
+      \item Realizar pruebas y simulaciones de la solución propuesta en diversos entornos, analizando la relación tiempo de exploración y cobertura del área de interés. \\
+        \progressbar[linecolor=blue, filledcolor=green]{0.5}\llap{\raisebox{1.5pt}{\tiny$50\%$}\hspace{0.8cm}} 
+      \end{enumerate}
+    }
+  \end{block}
+\end{frame}
+
+\section{Desviaciones de la investigación}
+\begin{frame}
+  \begin{itemize}
+  \item Intentar comprender la simulación de un VANT de tipo cuadrotor
+  \item Conocer los diversos métodos para la obtención de la ubicación de un VANT en un ambiente desconocido sin el uso de sensores de localización como GPS ó GNNS 
+  \item A pesar que la elección del simulador se realizo en la primera etapa, su manejo y comprensión no fué nada fácil
+  \item Para abordar el trabajo de exploración con múltiples VANTS se deben de resolver diversos escenarios primero
+  \item Al tener dos trabajos desarrollados en el mismo simulador, es interesante tener nuestra solución implementada en el mismo y así lograr una comparativa equitativa en los resultado
+  \end{itemize}
+\end{frame}
+
+\subsection{Plan de acción para concluir la tesis}
+\begin{frame}{Plan de acción para concluir la tesis}
+  Cuyo objetivo principal es realizar una exploración en el menor tiempo posible
+\end{frame}
+
+%TODO
+%\begin{frame}{Gantt}
+%\begin{minipage}{3cm}
+%\tiny{
+%\begin{ganttchart}[
+%hgrid style/.style={black, dotted},
+%vgrid={*5{black,dotted}, *1{white, dotted}, *1{black, dashed}},
+%x unit=3mm,
+%y unit chart=9mm,
+%y unit title=12mm,
+%time slot format=isodate,
+%group label font=\bfseries \Large,
+%link/.style={->, thick}
+%]{2024-05-06}{2024-08-23}
+%\gantttitlecalendar{year, month=name, week}\\
+%\ganttgroup[
+%group/.append style={fill=orange}
+%]{\small Etapa 2}{2024-05-06}{2024-07-26}\\ [grid]
+%\ganttorangebar[
+%name=VIS
+%]{Visualización Datos}{2024-05-06}{2024-05-15}\\ [grid]
+%\ganttorangebar[
+%name=FOVSim
+%]{Comprension FOV Simulador}{2024-05-15}{2024-05-20}\\ [grid]
+%\ganttorangebar[
+%name=Trazabilidad
+%]{Trazabilidad}{2024-05-20}{2024-05-22}
+%\ganttlinkedorangebar{}{2024-05-06}{2024-05-15}
+%\ganttlinkedorangebar{}{2024-05-15}{2024-05-22}
+%\ganttlinkedorangebar{}{2014-10-17}{2014-10-17}
+%\ganttlinkedorangebar[name=FMEend]{}{2014-10-21}{2014-10-24}
+%\ganttlinkedorangebar{}{2014-10-28}{2014-10-31}\\ [grid]
+%\ganttorangebar[name=Manual]{Manual}{2014-10-30}{2014-10-31}
+%\ganttlinkedorangebar{}{2014-11-4}{2014-11-7} \ganttnewline[thick, black]
+%\ganttgroup[
+%group/.append style={fill=green}
+%]{KLIP Manager}{2014-11-3}{2014-11-9}
+%\ganttgroup[
+%group/.append style={fill=green}
+%]{}{2014-11-17}{2014-11-23}\\ [grid]
+%\ganttgreenbar{Manual}{2014-11-4}{2014-11-7}
+%\ganttlinkedgreenbar{}{2014-11-18}{2014-11-19}
+%%Implementing links
+%\ganttlink[link mid=0.75]{Documentation}{FME}
+%\ganttlink{FMETutorial}{FME}
+%\end{ganttchart}
+%}
+%\end{minipage}
+%\end{frame}
+
+%\begin{frame}{Ejemplo}
+%\begin{table}
+%\begin{tabular}{|l|c|c|}
+%foo & bar & 
+%\progressbar[linecolor=blue, filledcolor=green]{0.6}\llap{\raisebox{1.5pt}{\tiny$60\%$}\hspace{0.8cm}}  \\
+%foo & bar & 
+%\progressbar[linecolor=blue, filledcolor=green]{0.6}%
+%\begin{picture}(0,0)
+%\put(-35,1.5) {\tiny$60\%$}
+%\end{picture}
+%\end{tabular}
+%\end{table}
+%\end{frame}
+
+\begin{frame}[standout]
+  ¿Preguntas?
+\end{frame}
+
+\appendix
+
+\section{Apéndice}
+
 \begin{frame}[fragile]{Antecedentes}
   
   %\centering
@@ -226,28 +465,6 @@
   \textbf{Arquitectura de un robot móvil}
   \bigskip % Vertical whitespace
   \includegraphics[width=11cm]{arquitectura_robots}\\
-\end{frame}
-
-\begin{frame}{Antecedentes}
-
-  %Exploración es una tarea fundamental en robots autónomos.\\
-  %El objetivo es crear un mapa de un ambiente desconocido.\\
-  %\bigskip % Vertical whitespace
-  \centering
-  \bigskip % Vertical whitespace
-  \includegraphics[width=9cm]{exploracion}\\
-  
-  \begin{itemize}
-  \item \textbf{Sensar}
-  \item \textbf{Creación Mapa} 
-  \item \textbf{Localización en Mapa}
-  \item \textbf{\textcolor{blue}{Exploración}} (Aumentar la base de conocimiento del mapa)
-  \item \textbf{\textcolor{blue}{Planificación trayectoria}} (Trayectorias hacia nuevas fronteras) 
-  \item \textbf{Control} (Toma de decisiones y ejecución de trayectorias)
-  \end{itemize}
-  
-  \alert{- El ciclo se repite hasta completar la exploración -}
-
 \end{frame}
 
 \begin{frame}[fragile]{Motivación del proyecto}
@@ -282,7 +499,137 @@
   \end{figure}
 \end{frame}
 
-\section{Planteamiento del problema}
+
+\begin{frame}{Robot autónomo}
+  \centering
+  \includegraphics[width=\linewidth]{ANTECEDENTES}\\
+\end{frame}
+
+\begin{frame}{Control de un VANT \footnote{Modeling And Control Of A Quadrotor Uav With Aerodynamic Concepts, [\cite{1334249}]}}
+  
+  \begin{minipage}{0.47\textwidth}
+     
+    Estados del VANT \\
+    $(x,y,z,\phi,\theta,\Psi,\dot{x},\dot{y},\dot{z},\dot{\phi},\dot{\theta},\dot{\Psi})^\mathrm{T}$
+
+    \bigskip % Vertical whitespace
+    
+    Donde:
+    \begin{itemize}
+    \item $\xi = (x,y,z)^\mathrm{T}$ representan la posición linear
+    \item $\eta = (\phi,\theta,\Psi)^\mathrm{T}$ ángulos de euler: roll, pitch, yaw
+    \item $(\dot{x},\dot{y},\dot{z},\dot{\phi},\dot{\theta},\dot{\Psi})^\mathrm{T}$ velocidades lineares y angulares
+    \end{itemize}
+  \end{minipage}
+  \hspace{0.2cm}
+  \begin{minipage}{0.5\textwidth}
+    \centering
+    \includegraphics[width=4cm]{uav_model.jpeg}
+    \bigskip % Vertical whitespace
+    {\scriptsize
+      \begin{itemize}
+      \item Cuatro rotores.
+      \item Seis grados de libertad (3 lineales y 3 angulares).
+      \item Requiere cuatro variables de control $(u_1, u_2, u_3, u_4)$ para mantener su estabilidad y control durante el vuelo.
+      \end{itemize}
+    }
+  \end{minipage}
+  \bigskip % Vertical whitespace
+\end{frame}
+
+\begin{frame}{Formulación del Problema de Localización y Mapeo Simultáneos \footnote{\tiny Omni-Swarm: A Decentralized Omnidirectional Visual–Inertial–UWB State Estimation System for Aerial Swarms, [\cite{OMNI2022}]}}
+
+  \small{
+    Dados:
+    \begin{itemize}
+    \item Conjunto de observaciones $z(t) = \{z_1,z_2,...,z_t\}$
+    \item Conjunto de comandos de control $u(t) = \{u_1,u_2,...,u_t\}$
+    \end{itemize}
+    %\bigskip % Vertical whitespace
+    Requerimos:
+    \begin{itemize}
+    \item Mapa del ambiente $m$
+    \item Trayectoria del robot $x(t) = \{x_1,x_2,...,x_t\}$
+    \end{itemize}
+    %\bigskip % Vertical whitespace
+    
+    En terminos probabilisticos, queremos estimar la trayectoria del robot y el mapa
+  }
+  \centering
+  \includegraphics[width=8cm]{slam1}
+  \bigskip % Vertical whitespace
+\end{frame}
+
+\begin{frame}{Formulación del Problema de Localización y Mapeo Simultáneos \footnote{\tiny Omni-Swarm: A Decentralized Omnidirectional Visual–Inertial–UWB State Estimation System for Aerial Swarms, [\cite{OMNI2022}]}}
+  
+  \begin{itemize}
+  \item La trayectoria del robot y el mapa son desconocidos.
+  \item Correlación entre el mapa y las posiciones del robot.
+  \end{itemize}
+  
+  \centering
+  \includegraphics[width=8cm]{slam2}
+  \bigskip % Vertical whitespace
+\end{frame}
+
+\begin{frame}{Representación medio ambiente \footnote{\tiny RACER: Rapid Collaborative Exploration With a Decentralized Multi-UAV System [\cite{RACER2022}]}}
+  \begin{figure}[ht!]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+      \centering
+      \includegraphics[width=\linewidth,height=3.5cm]{ROS_MAP2} % BUSQUEDA Y RESCATE
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\textwidth}
+      \centering
+      \includegraphics[width=\linewidth,height=3.5cm]{ROS_MAP3} % INSPECCION Y SEGURIDAD
+    \end{minipage}
+    \vspace{-0.2cm} % Espacio vertical entre imágenes
+    \begin{minipage}{0.48\textwidth}
+      \centering
+      \includegraphics[width=\linewidth,height=3.5cm]{ROS_MAP4} % DRONES EN CIUDADES CON GPS DENY
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\textwidth}
+      \centering
+      \includegraphics[width=\linewidth,height=3.5cm]{ROS_MAP6} % 
+    \end{minipage}
+  \end{figure}
+  \bigskip % Vertical whitespace
+\end{frame}
+
+\begin{frame}{Coordinación}
+  \begin{figure}[ht!]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+      {\scriptsize
+      \begin{itemize}
+      \item \textcolor{blue}{Descentralizada} - Cada robot es completamente independiente y planea sus propios trayectos
+      \item Exploración basada en fronteras {\footnote{\tiny{A frontier-based approach for autonomous exploration [\cite{613851}]}}}
+      \item Explotación, Exploración y Cohesión
+      \end{itemize}
+      }
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\textwidth}
+      \centering
+      \includegraphics[width=0.6\textwidth]{coordination}{\footnote{\tiny{Beyond Robustness: A Taxonomy of Approaches towards Resilient Multi-Robot Systems [\cite{amanda}]}}}
+      %\includegraphics[width=0.8\linewidth]{coordination} % INSPECCION Y SEGURIDAD
+    \end{minipage}
+    \vspace{-0.2cm} % Espacio vertical entre imágenes
+    \begin{minipage}{0.48\textwidth}
+      {\scriptsize
+      \begin{itemize}
+      \item \textcolor{blue}{Problema de asignación} - Asignar tareas de exploración a los VANTs de manera que minimicen el costo total de ejecución.
+      \item Para instancias mayores el algoritmo $\epsilon$ - scaling auction tiene un mayor desempeño que los otros algoritmos.{\footnote{\tiny{The assignment problem revisited [\cite{Alfaro2021}]}}}
+      \end{itemize}
+      }
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\textwidth}
+      \centering
+      \includegraphics[width=0.5\linewidth]{asignacion} % 
+    \end{minipage}
+  \end{figure}
+\end{frame}
+
+\section*{Planteamiento del problema}
 
 \begin{frame}[fragile]{Planteamiento del problema}
   \vspace{1mm}
@@ -340,7 +687,6 @@
 \end{frame}
 
 \begin{frame}{Objetivos}
-  
   \begin{block}{Objetivo General}
     %Desarrollar una estrategia de exploración descentralizada que permita resolver los problemas de coordinación para múltiples VANTS en ambientes desconocidos.
     %Desarrollar una estrategia de exploración descentralizada que integre técnicas de percepción y algoritmos de decisión para mejorar la autonomía de múltiples VANTs en la exploración de interiores.
@@ -385,7 +731,7 @@
 \end{frame}
 
 
-\section{Plan de cierre del trabajo}
+\section*{Plan de cierre del trabajo}
 
 \begin{frame}{}
   \bigskip % Vertical whitespace
@@ -682,207 +1028,6 @@
       \end{table}
     \end{minipage}
   }
-\end{frame}
-
-%TODO
-%\begin{frame}{Gantt}
-%\begin{minipage}{3cm}
-%\tiny{
-%\begin{ganttchart}[
-%hgrid style/.style={black, dotted},
-%vgrid={*5{black,dotted}, *1{white, dotted}, *1{black, dashed}},
-%x unit=3mm,
-%y unit chart=9mm,
-%y unit title=12mm,
-%time slot format=isodate,
-%group label font=\bfseries \Large,
-%link/.style={->, thick}
-%]{2024-05-06}{2024-08-23}
-%\gantttitlecalendar{year, month=name, week}\\
-%\ganttgroup[
-%group/.append style={fill=orange}
-%]{\small Etapa 2}{2024-05-06}{2024-07-26}\\ [grid]
-%\ganttorangebar[
-%name=VIS
-%]{Visualización Datos}{2024-05-06}{2024-05-15}\\ [grid]
-%\ganttorangebar[
-%name=FOVSim
-%]{Comprension FOV Simulador}{2024-05-15}{2024-05-20}\\ [grid]
-%\ganttorangebar[
-%name=Trazabilidad
-%]{Trazabilidad}{2024-05-20}{2024-05-22}
-%\ganttlinkedorangebar{}{2024-05-06}{2024-05-15}
-%\ganttlinkedorangebar{}{2024-05-15}{2024-05-22}
-%\ganttlinkedorangebar{}{2014-10-17}{2014-10-17}
-%\ganttlinkedorangebar[name=FMEend]{}{2014-10-21}{2014-10-24}
-%\ganttlinkedorangebar{}{2014-10-28}{2014-10-31}\\ [grid]
-%\ganttorangebar[name=Manual]{Manual}{2014-10-30}{2014-10-31}
-%\ganttlinkedorangebar{}{2014-11-4}{2014-11-7} \ganttnewline[thick, black]
-%\ganttgroup[
-%group/.append style={fill=green}
-%]{KLIP Manager}{2014-11-3}{2014-11-9}
-%\ganttgroup[
-%group/.append style={fill=green}
-%]{}{2014-11-17}{2014-11-23}\\ [grid]
-%\ganttgreenbar{Manual}{2014-11-4}{2014-11-7}
-%\ganttlinkedgreenbar{}{2014-11-18}{2014-11-19}
-%%Implementing links
-%\ganttlink[link mid=0.75]{Documentation}{FME}
-%\ganttlink{FMETutorial}{FME}
-%\end{ganttchart}
-%}
-%\end{minipage}
-%\end{frame}
-
-%\begin{frame}{Ejemplo}
-%\begin{table}
-%\begin{tabular}{|l|c|c|}
-%foo & bar & 
-%\progressbar[linecolor=blue, filledcolor=green]{0.6}\llap{\raisebox{1.5pt}{\tiny$60\%$}\hspace{0.8cm}}  \\
-%foo & bar & 
-%\progressbar[linecolor=blue, filledcolor=green]{0.6}%
-%\begin{picture}(0,0)
-%\put(-35,1.5) {\tiny$60\%$}
-%\end{picture}
-%\end{tabular}
-%\end{table}
-%\end{frame}
-
-\begin{frame}[standout]
-  ¿Preguntas?
-\end{frame}
-
-\appendix
-
-\section{Apéndice}
-
-\begin{frame}{Robot autónomo}
-  \centering
-  \includegraphics[width=\linewidth]{ANTECEDENTES}\\
-\end{frame}
-
-\begin{frame}{Control de un VANT \footnote{Modeling And Control Of A Quadrotor Uav With Aerodynamic Concepts, [\cite{1334249}]}}
-  
-  \begin{minipage}{0.47\textwidth}
-     
-    Estados del VANT \\
-    $(x,y,z,\phi,\theta,\Psi,\dot{x},\dot{y},\dot{z},\dot{\phi},\dot{\theta},\dot{\Psi})^\mathrm{T}$
-
-    \bigskip % Vertical whitespace
-    
-    Donde:
-    \begin{itemize}
-    \item $\xi = (x,y,z)^\mathrm{T}$ representan la posición linear
-    \item $\eta = (\phi,\theta,\Psi)^\mathrm{T}$ ángulos de euler: roll, pitch, yaw
-    \item $(\dot{x},\dot{y},\dot{z},\dot{\phi},\dot{\theta},\dot{\Psi})^\mathrm{T}$ velocidades lineares y angulares
-    \end{itemize}
-  \end{minipage}
-  \hspace{0.2cm}
-  \begin{minipage}{0.5\textwidth}
-    \centering
-    \includegraphics[width=4cm]{uav_model.jpeg}
-    \bigskip % Vertical whitespace
-    {\scriptsize
-      \begin{itemize}
-      \item Cuatro rotores.
-      \item Seis grados de libertad (3 lineales y 3 angulares).
-      \item Requiere cuatro variables de control $(u_1, u_2, u_3, u_4)$ para mantener su estabilidad y control durante el vuelo.
-      \end{itemize}
-    }
-  \end{minipage}
-  \bigskip % Vertical whitespace
-\end{frame}
-
-\begin{frame}{Formulación del Problema de Localización y Mapeo Simultáneos \footnote{\tiny Omni-Swarm: A Decentralized Omnidirectional Visual–Inertial–UWB State Estimation System for Aerial Swarms, [\cite{OMNI2022}]}}
-
-  \small{
-    Dados:
-    \begin{itemize}
-    \item Conjunto de observaciones $z(t) = \{z_1,z_2,...,z_t\}$
-    \item Conjunto de comandos de control $u(t) = \{u_1,u_2,...,u_t\}$
-    \end{itemize}
-    %\bigskip % Vertical whitespace
-    Requerimos:
-    \begin{itemize}
-    \item Mapa del ambiente $m$
-    \item Trayectoria del robot $x(t) = \{x_1,x_2,...,x_t\}$
-    \end{itemize}
-    %\bigskip % Vertical whitespace
-    
-    En terminos probabilisticos, queremos estimar la trayectoria del robot y el mapa
-  }
-  \centering
-  \includegraphics[width=8cm]{slam1}
-  \bigskip % Vertical whitespace
-\end{frame}
-
-\begin{frame}{Formulación del Problema de Localización y Mapeo Simultáneos \footnote{\tiny Omni-Swarm: A Decentralized Omnidirectional Visual–Inertial–UWB State Estimation System for Aerial Swarms, [\cite{OMNI2022}]}}
-  
-  \begin{itemize}
-  \item La trayectoria del robot y el mapa son desconocidos.
-  \item Correlación entre el mapa y las posiciones del robot.
-  \end{itemize}
-  
-  \centering
-  \includegraphics[width=8cm]{slam2}
-  \bigskip % Vertical whitespace
-\end{frame}
-
-\begin{frame}{Representación medio ambiente \footnote{\tiny RACER: Rapid Collaborative Exploration With a Decentralized Multi-UAV System [\cite{RACER2022}]}}
-  \begin{figure}[ht!]
-    \centering
-    \begin{minipage}{0.48\textwidth}
-      \centering
-      \includegraphics[width=\linewidth,height=3.5cm]{ROS_MAP2} % BUSQUEDA Y RESCATE
-    \end{minipage}\hfill
-    \begin{minipage}{0.48\textwidth}
-      \centering
-      \includegraphics[width=\linewidth,height=3.5cm]{ROS_MAP3} % INSPECCION Y SEGURIDAD
-    \end{minipage}
-    \vspace{-0.2cm} % Espacio vertical entre imágenes
-    \begin{minipage}{0.48\textwidth}
-      \centering
-      \includegraphics[width=\linewidth,height=3.5cm]{ROS_MAP4} % DRONES EN CIUDADES CON GPS DENY
-    \end{minipage}\hfill
-    \begin{minipage}{0.48\textwidth}
-      \centering
-      \includegraphics[width=\linewidth,height=3.5cm]{ROS_MAP6} % 
-    \end{minipage}
-  \end{figure}
-  \bigskip % Vertical whitespace
-\end{frame}
-
-\begin{frame}{Coordinación}
-  \begin{figure}[ht!]
-    \centering
-    \begin{minipage}{0.48\textwidth}
-      {\scriptsize
-      \begin{itemize}
-      \item \textcolor{blue}{Descentralizada} - Cada robot es completamente independiente y planea sus propios trayectos
-      \item Exploración basada en fronteras {\footnote{\tiny{A frontier-based approach for autonomous exploration [\cite{613851}]}}}
-      \item Explotación, Exploración y Cohesión
-      \end{itemize}
-      }
-    \end{minipage}\hfill
-    \begin{minipage}{0.48\textwidth}
-      \centering
-      \includegraphics[width=0.6\textwidth]{coordination}{\footnote{\tiny{Beyond Robustness: A Taxonomy of Approaches towards Resilient Multi-Robot Systems [\cite{amanda}]}}}
-      %\includegraphics[width=0.8\linewidth]{coordination} % INSPECCION Y SEGURIDAD
-    \end{minipage}
-    \vspace{-0.2cm} % Espacio vertical entre imágenes
-    \begin{minipage}{0.48\textwidth}
-      {\scriptsize
-      \begin{itemize}
-      \item \textcolor{blue}{Problema de asignación} - Asignar tareas de exploración a los VANTs de manera que minimicen el costo total de ejecución.
-      \item Para instancias mayores el algoritmo $\epsilon$ - scaling auction tiene un mayor desempeño que los otros algoritmos.{\footnote{\tiny{The assignment problem revisited [\cite{Alfaro2021}]}}}
-      \end{itemize}
-      }
-    \end{minipage}\hfill
-    \begin{minipage}{0.48\textwidth}
-      \centering
-      \includegraphics[width=0.5\linewidth]{asignacion} % 
-    \end{minipage}
-  \end{figure}
 \end{frame}
 
 \begin{frame}[fragile]{Estado del arte}
