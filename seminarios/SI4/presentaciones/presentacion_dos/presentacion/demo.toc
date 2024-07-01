@@ -1,5 +1,7 @@
 \babel@toc {spanish}{}\relax 
 \beamer@sectionintoc {1}{Introducción}{3}{0}{1}
-\beamer@sectionintoc {2}{Planteamiento del problema}{9}{0}{2}
-\beamer@sectionintoc {3}{Plan de cierre del trabajo}{16}{0}{3}
-\beamer@sectionintoc {4}{Apéndice}{21}{1}{4}
+\beamer@sectionintoc {2}{Diseño experimental}{6}{0}{2}
+\beamer@sectionintoc {3}{Resultados a la fecha}{10}{0}{3}
+\beamer@sectionintoc {4}{Desviaciones de la investigación}{18}{0}{4}
+\beamer@subsectionintoc {4}{1}{Plan de acción para concluir la tesis}{20}{0}{4}
+\beamer@sectionintoc {5}{Apéndice}{22}{1}{5}

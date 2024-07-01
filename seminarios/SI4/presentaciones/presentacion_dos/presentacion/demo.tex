@@ -353,17 +353,37 @@
 \section{Desviaciones de la investigación}
 \begin{frame}
   \begin{itemize}
-  \item Intentar comprender la simulación de un VANT de tipo cuadrotor
-  \item Conocer los diversos métodos para la obtención de la ubicación de un VANT en un ambiente desconocido sin el uso de sensores de localización como GPS ó GNNS 
-  \item A pesar que la elección del simulador se realizo en la primera etapa, su manejo y comprensión no fué nada fácil
-  \item Para abordar el trabajo de exploración con múltiples VANTS se deben de resolver diversos escenarios primero
-  \item Al tener dos trabajos desarrollados en el mismo simulador, es interesante tener nuestra solución implementada en el mismo y así lograr una comparativa equitativa en los resultado
+  \item Intentar comprender todo el panorama de VANTS en el estado del arte.
+  \item Conocer los diversos métodos para la obtención de la ubicación de un VANT en un ambiente desconocido sin el uso de sensores de localización como GPS ó GNSS (Ya que se trabaja en interiores). 
+  \item A pesar que la elección del simulador que se realizó en la primera etapa, su manejo y comprensión no es algo trivial.
+  \item Para abordar el trabajo de exploración con múltiples VANTS se deben de resolver diversas etapas en un inicio. (Control, navegación, representación medio ambiente)
+  \item Al tener dos trabajos desarrollados en el mismo simulador, es interesante tener nuestra solución implementada en el mismo y así lograr una comparativa equitativa en los resultados.
   \end{itemize}
 \end{frame}
 
 \subsection{Plan de acción para concluir la tesis}
+\scriptsize
 \begin{frame}{Plan de acción para concluir la tesis}
-  Cuyo objetivo principal es realizar una exploración en el menor tiempo posible
+  \textcolor{red}{Prioridad Alta} Obtener los elementos que me permitan aplicar la estrategia de exploración.
+  \begin{itemize}
+  \item Agrupamiento de fronteras
+  \item Ponderación de fonteras bajo los preceptos de exploración, explotación y cohesión
+  \item Distribuir la lista de fronteras
+  \end{itemize}
+
+  Generación de canal de comunicación
+  \begin{itemize}
+  \item Comunicación entre agentes
+  \item Cálculo de ofertas entre agentes de manera distribuida
+  \end{itemize}
+
+  \textbf{Compromiso: Julio}
+  
+  \textcolor{orange}{Prioridad Media} Recabar la información del desempeño de la estrategia de exploración.
+  \begin{itemize}
+    \item Escritura tesis
+  \end{itemize}
+  \textbf{Compromiso: Septiembre}
 \end{frame}
 
 %TODO
@@ -438,302 +458,167 @@
 
 \section{Apéndice}
 
-\begin{frame}[fragile]{Antecedentes}
-  
+%\begin{frame}[fragile]{Antecedentes}
+ 
   %\centering
-  Principales preguntas que un robot autónomo debe responder \footnotemark\\
-  \begin{itemize}
-  \item ¿Dónde estoy? $\implies$ Localización 
-  \item ¿A dónde voy? $\implies$ Cognición
-  \item ¿Cómo llego hasta ahí? $\implies$ Planificación de trayectoria
-  \end{itemize}
+%  Principales preguntas que un robot autónomo debe responder \footnotemark\\
+%  \begin{itemize}
+%  \item ¿Dónde estoy? $\implies$ Localización 
+%  \item ¿A dónde voy? $\implies$ Cognición
+%   \item ¿Cómo llego hasta ahí? $\implies$ Planificación de trayectoria
+%   \end{itemize}
   %\pause
   %\bigskip % Vertical whitespace
-  Para resolver estas preguntas, el robot debe:\\
-  \begin{itemize}
-  \item Tener un modelo del ambiente (dado, o autónomamente construido)
-  \item Localizarse dentro del ambiente
-  \item Planear y ejecutar sus movimientos
-  \end{itemize}
+%   Para resolver estas preguntas, el robot debe:\\
+%   \begin{itemize}
+%   \item Tener un modelo del ambiente (dado, o autónomamente construido)
+%   \item Localizarse dentro del ambiente
+%   \item Planear y ejecutar sus movimientos
+%   \end{itemize}
 
-  \footnotetext{Visual map making for a mobile robot [\cite{1087348}]}
+%   \footnotetext{Visual map making for a mobile robot [\cite{1087348}]}
   
-\end{frame}
+% \end{frame}
 
-\begin{frame}{Antecedentes}
-  \centering
-  \textbf{Arquitectura de un robot móvil}
-  \bigskip % Vertical whitespace
-  \includegraphics[width=11cm]{arquitectura_robots}\\
-\end{frame}
+% \begin{frame}{Antecedentes}
+%   \centering
+%   \textbf{Arquitectura de un robot móvil}
+%   \bigskip % Vertical whitespace
+%   \includegraphics[width=11cm]{arquitectura_robots}\\
+% \end{frame}
 
-\begin{frame}[fragile]{Motivación del proyecto}
+% \begin{frame}[fragile]{Motivación del proyecto}
   %https://ccc.inaoep.mx/~emorales/Papers/2009/eduardo.pdf
   %https://www.mdpi.com/2504-446X/7/1/62
   %Hablar de los usos e importancia del trabajo .. de la exploracion .. de la importancia de investigacion en robotica para el pais.
   %El potencial del uso de UAVs en tareas de búsqueda y rescate, inspección, mapeo, vigilancia, entre otras, es de gran interés a explorar, debido a las habilidades de vuelo que presentan en favor de la realización de estas tareas, y en especial situaciones que podrían poner en riesgo a personas.\\
   %Enviar personal de rescate dentro de un edificio parcialmente colapsado por un terremoto en busca de sobrevivientes, es poner a más personas en un gran riesgo, pues no se sabe qué es lo que les espera en el interior del edificio; esto limita la capacidad de tomar buenas decisiones acerca de si es seguro seguir cierto camino.
-  \begin{figure}[ht!]
-    \centering
-    \begin{minipage}{0.48\textwidth}
-      \centering
-      \includegraphics[width=\linewidth,height=3.5cm]{turquia1.jpg} % BUSQUEDA Y RESCATE
+%   \begin{figure}[ht!]
+%     \centering
+%     \begin{minipage}{0.48\textwidth}
+%       \centering
+%       \includegraphics[width=\linewidth,height=3.5cm]{turquia1.jpg} % BUSQUEDA Y RESCATE
       %\caption{Primera Imagen}
-    \end{minipage}\hfill
-    \begin{minipage}{0.48\textwidth}
-      \centering
-      \includegraphics[width=\linewidth,height=3.5cm]{drone_agriculture.jpg} % INSPECCION Y SEGURIDAD
+%     \end{minipage}\hfill
+%     \begin{minipage}{0.48\textwidth}
+%       \centering
+%       \includegraphics[width=\linewidth,height=3.5cm]{drone_agriculture.jpg} % INSPECCION Y SEGURIDAD
       %\caption{Segunda Imagen}
-    \end{minipage}
-    \vspace{-0.2cm} % Espacio vertical entre imágenes
-    \begin{minipage}{0.48\textwidth}
-      \centering
-      \includegraphics[width=\linewidth,height=3.5cm]{pipe_drone.jpg} % DRONES EN CIUDADES CON GPS DENY
+%     \end{minipage}
+%     \vspace{-0.2cm} % Espacio vertical entre imágenes
+%     \begin{minipage}{0.48\textwidth}
+%       \centering
+%       \includegraphics[width=\linewidth,height=3.5cm]{pipe_drone.jpg} % DRONES EN CIUDADES CON GPS DENY
       %\caption{Tercera Imagen}
-    \end{minipage}\hfill
-    \begin{minipage}{0.48\textwidth}
-      \centering
-      \includegraphics[width=\linewidth,height=3.5cm]{drone_city.jpg} % 
+%     \end{minipage}\hfill
+%     \begin{minipage}{0.48\textwidth}
+%       \centering
+%       \includegraphics[width=\linewidth,height=3.5cm]{drone_city.jpg} % 
       %\caption{Cuarta Imagen}
-    \end{minipage}
-  \end{figure}
-\end{frame}
+%     \end{minipage}
+%   \end{figure}
+% \end{frame}
 
 
-\begin{frame}{Robot autónomo}
-  \centering
-  \includegraphics[width=\linewidth]{ANTECEDENTES}\\
-\end{frame}
+% \begin{frame}{Robot autónomo}
+%   \centering
+%   \includegraphics[width=\linewidth]{ANTECEDENTES}\\
+% \end{frame}
 
-\begin{frame}{Control de un VANT \footnote{Modeling And Control Of A Quadrotor Uav With Aerodynamic Concepts, [\cite{1334249}]}}
+% \begin{frame}{Control de un VANT \footnote{Modeling And Control Of A Quadrotor Uav With Aerodynamic Concepts, [\cite{1334249}]}}
   
-  \begin{minipage}{0.47\textwidth}
+%   \begin{minipage}{0.47\textwidth}
      
-    Estados del VANT \\
-    $(x,y,z,\phi,\theta,\Psi,\dot{x},\dot{y},\dot{z},\dot{\phi},\dot{\theta},\dot{\Psi})^\mathrm{T}$
+%     Estados del VANT \\
+%     $(x,y,z,\phi,\theta,\Psi,\dot{x},\dot{y},\dot{z},\dot{\phi},\dot{\theta},\dot{\Psi})^\mathrm{T}$
 
-    \bigskip % Vertical whitespace
+%     \bigskip % Vertical whitespace
     
-    Donde:
-    \begin{itemize}
-    \item $\xi = (x,y,z)^\mathrm{T}$ representan la posición linear
-    \item $\eta = (\phi,\theta,\Psi)^\mathrm{T}$ ángulos de euler: roll, pitch, yaw
-    \item $(\dot{x},\dot{y},\dot{z},\dot{\phi},\dot{\theta},\dot{\Psi})^\mathrm{T}$ velocidades lineares y angulares
-    \end{itemize}
-  \end{minipage}
-  \hspace{0.2cm}
-  \begin{minipage}{0.5\textwidth}
-    \centering
-    \includegraphics[width=4cm]{uav_model.jpeg}
-    \bigskip % Vertical whitespace
-    {\scriptsize
-      \begin{itemize}
-      \item Cuatro rotores.
-      \item Seis grados de libertad (3 lineales y 3 angulares).
-      \item Requiere cuatro variables de control $(u_1, u_2, u_3, u_4)$ para mantener su estabilidad y control durante el vuelo.
-      \end{itemize}
-    }
-  \end{minipage}
-  \bigskip % Vertical whitespace
-\end{frame}
+%     Donde:
+%     \begin{itemize}
+%     \item $\xi = (x,y,z)^\mathrm{T}$ representan la posición linear
+%     \item $\eta = (\phi,\theta,\Psi)^\mathrm{T}$ ángulos de euler: roll, pitch, yaw
+%     \item $(\dot{x},\dot{y},\dot{z},\dot{\phi},\dot{\theta},\dot{\Psi})^\mathrm{T}$ velocidades lineares y angulares
+%     \end{itemize}
+%   \end{minipage}
+%   \hspace{0.2cm}
+%   \begin{minipage}{0.5\textwidth}
+%     \centering
+%     \includegraphics[width=4cm]{uav_model.jpeg}
+%     \bigskip % Vertical whitespace
+%     {\scriptsize
+%       \begin{itemize}
+%       \item Cuatro rotores.
+%       \item Seis grados de libertad (3 lineales y 3 angulares).
+%       \item Requiere cuatro variables de control $(u_1, u_2, u_3, u_4)$ para mantener su estabilidad y control durante el vuelo.
+%       \end{itemize}
+%     }
+%   \end{minipage}
+%   \bigskip % Vertical whitespace
+% \end{frame}
 
-\begin{frame}{Formulación del Problema de Localización y Mapeo Simultáneos \footnote{\tiny Omni-Swarm: A Decentralized Omnidirectional Visual–Inertial–UWB State Estimation System for Aerial Swarms, [\cite{OMNI2022}]}}
+% \begin{frame}{Formulación del Problema de Localización y Mapeo Simultáneos \footnote{\tiny Omni-Swarm: A Decentralized Omnidirectional Visual–Inertial–UWB State Estimation System for Aerial Swarms, [\cite{OMNI2022}]}}
 
-  \small{
-    Dados:
-    \begin{itemize}
-    \item Conjunto de observaciones $z(t) = \{z_1,z_2,...,z_t\}$
-    \item Conjunto de comandos de control $u(t) = \{u_1,u_2,...,u_t\}$
-    \end{itemize}
+%   \small{
+%     Dados:
+%     \begin{itemize}
+%     \item Conjunto de observaciones $z(t) = \{z_1,z_2,...,z_t\}$
+%     \item Conjunto de comandos de control $u(t) = \{u_1,u_2,...,u_t\}$
+%     \end{itemize}
     %\bigskip % Vertical whitespace
-    Requerimos:
-    \begin{itemize}
-    \item Mapa del ambiente $m$
-    \item Trayectoria del robot $x(t) = \{x_1,x_2,...,x_t\}$
-    \end{itemize}
+%     Requerimos:
+%     \begin{itemize}
+%     \item Mapa del ambiente $m$
+%     \item Trayectoria del robot $x(t) = \{x_1,x_2,...,x_t\}$
+%     \end{itemize}
     %\bigskip % Vertical whitespace
     
-    En terminos probabilisticos, queremos estimar la trayectoria del robot y el mapa
-  }
-  \centering
-  \includegraphics[width=8cm]{slam1}
-  \bigskip % Vertical whitespace
-\end{frame}
+%     En terminos probabilisticos, queremos estimar la trayectoria del robot y el mapa
+%   }
+%   \centering
+%   \includegraphics[width=8cm]{slam1}
+%   \bigskip % Vertical whitespace
+% \end{frame}
 
-\begin{frame}{Formulación del Problema de Localización y Mapeo Simultáneos \footnote{\tiny Omni-Swarm: A Decentralized Omnidirectional Visual–Inertial–UWB State Estimation System for Aerial Swarms, [\cite{OMNI2022}]}}
+% \begin{frame}{Formulación del Problema de Localización y Mapeo Simultáneos \footnote{\tiny Omni-Swarm: A Decentralized Omnidirectional Visual–Inertial–UWB State Estimation System for Aerial Swarms, [\cite{OMNI2022}]}}
   
-  \begin{itemize}
-  \item La trayectoria del robot y el mapa son desconocidos.
-  \item Correlación entre el mapa y las posiciones del robot.
-  \end{itemize}
+%   \begin{itemize}
+%   \item La trayectoria del robot y el mapa son desconocidos.
+%   \item Correlación entre el mapa y las posiciones del robot.
+%   \end{itemize}
   
-  \centering
-  \includegraphics[width=8cm]{slam2}
-  \bigskip % Vertical whitespace
-\end{frame}
+%   \centering
+%   \includegraphics[width=8cm]{slam2}
+%   \bigskip % Vertical whitespace
+% \end{frame}
 
-\begin{frame}{Representación medio ambiente \footnote{\tiny RACER: Rapid Collaborative Exploration With a Decentralized Multi-UAV System [\cite{RACER2022}]}}
-  \begin{figure}[ht!]
-    \centering
-    \begin{minipage}{0.48\textwidth}
-      \centering
-      \includegraphics[width=\linewidth,height=3.5cm]{ROS_MAP2} % BUSQUEDA Y RESCATE
-    \end{minipage}\hfill
-    \begin{minipage}{0.48\textwidth}
-      \centering
-      \includegraphics[width=\linewidth,height=3.5cm]{ROS_MAP3} % INSPECCION Y SEGURIDAD
-    \end{minipage}
-    \vspace{-0.2cm} % Espacio vertical entre imágenes
-    \begin{minipage}{0.48\textwidth}
-      \centering
-      \includegraphics[width=\linewidth,height=3.5cm]{ROS_MAP4} % DRONES EN CIUDADES CON GPS DENY
-    \end{minipage}\hfill
-    \begin{minipage}{0.48\textwidth}
-      \centering
-      \includegraphics[width=\linewidth,height=3.5cm]{ROS_MAP6} % 
-    \end{minipage}
-  \end{figure}
-  \bigskip % Vertical whitespace
-\end{frame}
-
-\begin{frame}{Coordinación}
-  \begin{figure}[ht!]
-    \centering
-    \begin{minipage}{0.48\textwidth}
-      {\scriptsize
-      \begin{itemize}
-      \item \textcolor{blue}{Descentralizada} - Cada robot es completamente independiente y planea sus propios trayectos
-      \item Exploración basada en fronteras {\footnote{\tiny{A frontier-based approach for autonomous exploration [\cite{613851}]}}}
-      \item Explotación, Exploración y Cohesión
-      \end{itemize}
-      }
-    \end{minipage}\hfill
-    \begin{minipage}{0.48\textwidth}
-      \centering
-      \includegraphics[width=0.6\textwidth]{coordination}{\footnote{\tiny{Beyond Robustness: A Taxonomy of Approaches towards Resilient Multi-Robot Systems [\cite{amanda}]}}}
-      %\includegraphics[width=0.8\linewidth]{coordination} % INSPECCION Y SEGURIDAD
-    \end{minipage}
-    \vspace{-0.2cm} % Espacio vertical entre imágenes
-    \begin{minipage}{0.48\textwidth}
-      {\scriptsize
-      \begin{itemize}
-      \item \textcolor{blue}{Problema de asignación} - Asignar tareas de exploración a los VANTs de manera que minimicen el costo total de ejecución.
-      \item Para instancias mayores el algoritmo $\epsilon$ - scaling auction tiene un mayor desempeño que los otros algoritmos.{\footnote{\tiny{The assignment problem revisited [\cite{Alfaro2021}]}}}
-      \end{itemize}
-      }
-    \end{minipage}\hfill
-    \begin{minipage}{0.48\textwidth}
-      \centering
-      \includegraphics[width=0.5\linewidth]{asignacion} % 
-    \end{minipage}
-  \end{figure}
-\end{frame}
-
-\section*{Planteamiento del problema}
-
-\begin{frame}[fragile]{Planteamiento del problema}
-  \vspace{1mm}
-  \centering
-  %\includegraphics[width=9.5cm]{problema}\\
-  \justifying
-  \footnotesize Dado un volumen de interés desconocido en un espacio cerrado que se desea explorar denotado como $\mathcal{W}$, tal que $\mathcal{W} \subset \mathbb{R}^{3}$.\\
-%el volumen se discretiza en un mapa de ocupación M consistente en voxeles cúbicos $m \exists M$ con una longitud de arista r.
-  \begin{itemize}
-  \item El volumen se discretiza usando unidades cúbicas tridimencionales (voxel) $v_{libre}$, $v_{ocup}$, $v_{desc}$.
-    %La representación del volumen a explorar se obtiene dividiendo el volumen de interés en unidades cúbicas tridimencionales (voxel) que puede tomar los valores de libre $v_{libre}$, ocupado $v_{ocup}$ y desconocido $v_{desc}$ con lecturas a partir de los valores de una cámara RGB-D basada en un modelo de ocupación probabilístico.\\
-  \item Un conjunto de VANTS con una cámara RGB-D embarcadas denotado como $\mathcal{V} = \{\mathcal{V}_{1},\mathcal{V}_{2},\mathcal{V}_{3},...,\mathcal{V}_{n}\}$, comenzando cada uno en un estado inicial conocido $q = \{q_{1},q_{2},q_{3},...,q_{n}\}$, y terminando en una configuración que maximice la construcción de un mapa.\\
-  \end{itemize}
-
-  \begin{center}
-    \textcolor{blue}{Coordinar el conjunto de VANTs para reducir el tiempo total de exploración.}
-  \end{center}
-  
-  \begin{multicols}{2}
-    \begin{itemize}[label={}]
-    \item \cmark { }Comprensión dinámica del VANT, odometría, planificador global
-    \item \cmark { }Implementación planificador local en $\mathbb{R}^{3}$
-    \item \cmark { }Implementación estrategia de coordinación
-    \end{itemize}
-    
-    
-    \begin{itemize}[label={}]
-    \item \xmark { }Perturbaciones (vientos, lluvia, iluminación, ...etc.)
-    \item \xmark { }Problemas de batería
-    \item \xmark { }Interferencias de comunicación
-    \end{itemize}
-  \end{multicols}
-  
-  %Crear una Coordinar un conjunto de vehiculos aereos no tripulados
-  %Explorar un volumen desconocido tal que $V \subset R^{3}$ con un conjunto de robots aéreos autónomos $R ={R_1,R_2,...,R_n}$, siendo n la cardinalidad del conjunto de robots aéreos. Cada robot cuenta con capacidades de generar una representación del medio ambiente, localizarse y generar trayectorias que minimicen la incertidumbre de la localización y el mapeo, evaluada a través de una métrica sobre la creencia probabilística de la pose del robot y la posición de los puntos de referencia. El problema de exploración puede formularse globalmente como el de partir de una configuración inicial libre de colisiones y derivar puntos de vista que cubran el volumen previamente desconocido, determinando qué partes del espacio inicialmente inexplorado están libres o ocupadas. Para este proceso, el volumen se discretiza en un mapa de ocupación M consistente en voxeles cúbicos $m \exists M$ con una longitud de arista r. La operación está sujeta a las restricciones dinámicas del vehículo y a las limitaciones del sistema de sensores. Dado que las capacidades perceptivas de la mayoría de los sensores terminan en las superficies, los espacios huecos o bolsillos estrechos a veces pueden permanecer inexplorados, lo que lleva a un volumen residual.
-\end{frame}
-
-\begin{frame}{Hipótesis y preguntas de investigación}
-  
-  \begin{block}{Hipótesis}
-    \vspace{1mm}
-    \small Una estrategia que coordine y asigne tareas de exploración para múltiples VANTS de manera descentralizada, en combinación con una arquitectura de software diseñada para resolver problemas de localización, gestión de mapas y planificación de rutas, mejorará la eficiencia y cobertura de la exploración en interiores de un entorno desconocido.
-  \end{block}
-  %\pause
-  %\textcolor{blue}{Preguntas de investigación}
-  \begin{block}{Preguntas de investigación}
-    \small{
-      \begin{enumerate}
-      \item ¿Qué características de la dinámica del VANT son clave para generar trayectorias suaves y continuas?
-      \item ¿Podría un planificador de trayectorias que aproveche las regiones libres de obstáculos acelerar los desplazamientos de los VANTs y, consecuentemente, reducir los tiempos de exploración?
-      \item ¿Qué mecanismos de coordinación existen dentro de la literatura que podrían ayudar en resolver el problema de exploración multi-VANT?
-      \end{enumerate}
-    }
-  \end{block}
-\end{frame}
-
-\begin{frame}{Objetivos}
-  \begin{block}{Objetivo General}
-    %Desarrollar una estrategia de exploración descentralizada que permita resolver los problemas de coordinación para múltiples VANTS en ambientes desconocidos.
-    %Desarrollar una estrategia de exploración descentralizada que integre técnicas de percepción y algoritmos de decisión para mejorar la autonomía de múltiples VANTs en la exploración de interiores.
-    \vspace{1mm}
-    Desarrollar una estrategia de exploración descentralizada que permita resolver los problemas de coordinación para múltiples VANTS en ambientes desconocidos.
-  \end{block}
-  %\pause
-  \bigskip
-  \begin{block}{Objetivos Particulares}
-    %\vspace{2mm}
-    \small{
-      \begin{enumerate}
-      \item Desarrollar una arquitectura de software que resuelva los problemas de autonomía para un VANT (localización, manejo de mapas y planificación de trayectorias).
-      \item Implementar un mecanismo de coordinación descentralizado que asigne tareas de exploración.
-      \item Realizar pruebas y simulaciones de la solución propuesta en diversos entornos, analizando la relación tiempo de exploración y cobertura del área de interés.
-      \end{enumerate}
-     } 
-  \end{block}
-\end{frame}
-
-\begin{frame}{Estado del arte}
-  \centering
-  \includegraphics[width=10cm, height=6cm]{soa}
-\end{frame}
-
-
-\begin{frame}{Métodologia}
-  \centering
-  \includegraphics[width=10cm, height=6cm]{arquitectura}
-\end{frame}
-
-\begin{frame}{Avance}
-  \bigskip % Vertical whitespace
-  \centering
-  \animategraphics[width=0.45\textwidth,height=0.45\textheight]{10}{ros_map_1/ros_map-}{0}{300}
-  \hfil
-  \animategraphics[width=0.45\textwidth,height=0.45\textheight]{10}{ros_map_2/ros_map-}{0}{239}
-  \vspace{2pt}\\
-  \textcolor{blue}{1 VANT}
-  \hfil
-  \textcolor{blue}{2 VANT}
-\end{frame}
-
+% \begin{frame}{Representación medio ambiente \footnote{\tiny RACER: Rapid Collaborative Exploration With a Decentralized Multi-UAV System [\cite{RACER2022}]}}
+%   \begin{figure}[ht!]
+%     \centering
+%     \begin{minipage}{0.48\textwidth}
+%       \centering
+%       \includegraphics[width=\linewidth,height=3.5cm]{ROS_MAP2} % BUSQUEDA Y RESCATE
+%     \end{minipage}\hfill
+%     \begin{minipage}{0.48\textwidth}
+%       \centering
+%       \includegraphics[width=\linewidth,height=3.5cm]{ROS_MAP3} % INSPECCION Y SEGURIDAD
+%     \end{minipage}
+%     \vspace{-0.2cm} % Espacio vertical entre imágenes
+%     \begin{minipage}{0.48\textwidth}
+%       \centering
+%       \includegraphics[width=\linewidth,height=3.5cm]{ROS_MAP4} % DRONES EN CIUDADES CON GPS DENY
+%     \end{minipage}\hfill
+%     \begin{minipage}{0.48\textwidth}
+%       \centering
+%       \includegraphics[width=\linewidth,height=3.5cm]{ROS_MAP6} % 
+%     \end{minipage}
+%   \end{figure}
+%   \bigskip % Vertical whitespace
+% \end{frame}
 
 \section*{Plan de cierre del trabajo}
 
-\begin{frame}{}
+\begin{frame}{Cronograma inicial}
   \bigskip % Vertical whitespace
   \tiny
   %\hspace{0.0cm}
@@ -833,7 +718,7 @@
   \end{minipage}
 \end{frame}
 
-\begin{frame}{}
+\begin{frame}
   \bigskip % Vertical whitespace
   \tiny
   \scalebox{0.75}{  
@@ -1028,154 +913,6 @@
       \end{table}
     \end{minipage}
   }
-\end{frame}
-
-\begin{frame}[fragile]{Estado del arte}
-  \centering
-  \scalebox{0.70}{
-  \begin{tabular}{ | p{3cm} | p{1.6cm} | p{2.5cm} | p{3cm} | p{3.1cm} | p{0.8cm} | p{0.9cm} | }
-    \hline    
-    \tiny REFERENCIA&
-    \tiny APLICACIÓN&
-    \tiny GENERACION MAPA&
-    \tiny PLANIFICACION DE RUTA&
-    \tiny GENERACION TRAYECTORIA&
-    \tiny SENSOR RGB-D&
-    \tiny DINAMICA VANT\\
-    \hline
-    %--------------------------
-    \tiny \cellcolor{gray!20}\cite{CIESLEWSKI2017}[\citenum{CIESLEWSKI2017}]&
-    \tiny \cellcolor{gray!20}Exploración&
-    \tiny \cellcolor{gray!20}Octomap&
-    \tiny \cellcolor{gray!20}Basado en fronteras&
-    \tiny \cellcolor{gray!20}Control directo de velocidad&
-    \tiny \cellcolor{gray!20}\ding{51} &
-    \tiny \cellcolor{gray!20}\ding{55} \\ \hline
-    %--------------------------
-    \tiny \cite{USENKO2017}[\citenum{USENKO2017}]&
-    \tiny Punto Objetivo&
-    \tiny Cuadr\'{i}cula egoc\'{e}ntrica&
-    \tiny Offline RRT*&
-    \tiny Curvas de Bezier&
-    \tiny \ding{55} &
-    \tiny \ding{51} \\ \hline
-    %--------------------------
-    \tiny \cite{MOHTA2017}[\citenum{MOHTA2017}]&
-    \tiny Punto Objetivo&
-    \tiny mapa 3D-Local y 2D-Global&
-    \tiny A*&
-    \tiny Programaci\'{o}n cuadr\'{a}tica&
-    \tiny \ding{55} &
-    \tiny \ding{51} \\ \hline
-    %--------------------------
-    \tiny \cite{LIN2017}[\citenum{LIN2017}]&
-    \tiny Punto Objetivo&
-    \tiny 3D voxel array TSDF&
-    \tiny A*&
-    \tiny Optimizaci\'{o}n cuadr\'{a}tica&
-    \tiny \ding{55}&
-    \tiny \ding{55} \\ \hline
-    %--------------------------
-    \tiny \cellcolor{gray!20}\cite{PAPACHRISTOS2017}[\citenum{PAPACHRISTOS2017}]&
-    \tiny \cellcolor{gray!20}Exploración&
-    \tiny \cellcolor{gray!20}Octomap&
-    \tiny \cellcolor{gray!20}Next Best View Planner (NBVP)&
-    \tiny \cellcolor{gray!20}Control directo de velocidad&
-    \tiny \cellcolor{gray!20}\ding{55}&
-    \tiny \cellcolor{gray!20}\ding{55} \\ \hline
-    %--------------------------
-    \tiny \cite{OLEYNIKOVA2018}[\citenum{OLEYNIKOVA2018}]&
-    \tiny Punto Objetivo&
-    \tiny Voxel Hashing TSDF&
-    \tiny Next Best View Planner (NBVP)&
-    \tiny Optimizaci\'{o}n cuadr\'{a}tica&
-    \tiny \ding{51}&
-    \tiny \ding{51} \\ \hline
-    %--------------------------
-    \tiny \cite{GAO2018}[\citenum{GAO2018}]&
-    \tiny Punto Objetivo&
-    \tiny Mapa de cuadr\'{i}cula&
-    \tiny M\'{e}todo de marcha r\'{a}pida&
-    \tiny Optimizaci\'{o}n cuadr\'{a}tica&
-    \tiny \ding{55}&
-    \tiny \ding{51} \\ \hline
-    %--------------------------
-    \tiny \cite{FLORENCE2018}[\citenum{FLORENCE2018}]&
-    \tiny Punto Objetivo&
-    \tiny Busqueda basada en visibilidad&
-    \tiny 2D A*&
-    \tiny Control predictivo por modelo (MPC)&
-    \tiny \ding{51}&
-    \tiny \ding{51} \\ \hline
-    %--------------------------
-    \tiny \cellcolor{gray!20}\cite{SELIN2019}[\citenum{SELIN2019}]&
-    \tiny \cellcolor{gray!20}Exploración&
-    \tiny \cellcolor{gray!20}Octomap&
-    \tiny \cellcolor{gray!20}Next Best View Planner (NBVP)&
-    \tiny \cellcolor{gray!20}Control directo de velocidad&
-    \tiny \cellcolor{gray!20}\ding{55}&
-    \tiny \cellcolor{gray!20}\ding{55} \\ \hline
-    %--------------------------
-    \tiny \cellcolor{gray!20}\cite{BUG2019}[\citenum{BUG2019}]&
-    \tiny \cellcolor{gray!20}Exploración&
-    \tiny \cellcolor{gray!20}NA&
-    \tiny \cellcolor{gray!20}Swarm Gradient Bug Algorithm (SGBA)&
-    \tiny \cellcolor{gray!20}Control directo de velocidad&
-    \tiny \cellcolor{gray!20}\ding{55}&
-    \tiny \cellcolor{gray!20}\ding{55} \\ \hline
-    %--------------------------
-    \tiny \cite{COLLINS2019}[\citenum{COLLINS2019}]&
-    \tiny Punto Objetivo&
-    \tiny KD Tree $+$ Mapa en Voxel&
-    \tiny B\'{u}squeda en Grafo&
-    \tiny Movimientos suaves&
-    \tiny \ding{51}&
-    \tiny \ding{51} \\ \hline
-    %--------------------------
-    \tiny \cite{CINVES2021}[\citenum{CINVES2021}]&
-    \tiny Punto Objetivo&
-    \tiny Octree&
-    \tiny Rapidly Exploring Random Trees (RRT)&
-    \tiny Basado en contornos&
-    \tiny \ding{51}&
-    \tiny \ding{51} \\ \hline
-    %--------------------------
-    \tiny \cellcolor{gray!20}\cite{CIESLEWSKI2021}[\citenum{CIESLEWSKI2021}]&
-    \tiny \cellcolor{gray!20}Exploración&
-    \tiny \cellcolor{gray!20}Octomap&
-    \tiny \cellcolor{gray!20}Basado en fronteras&
-    \tiny \cellcolor{gray!20}Control directo de velocidad&
-    \tiny \cellcolor{gray!20}\ding{51}&
-    \tiny \cellcolor{gray!20}\ding{55} \\ \hline
-    %--------------------------
-    \tiny \cellcolor{gray!20}\cite{RACER2022}[\citenum{RACER2022}]&
-    \tiny \cellcolor{gray!20}Exploración&
-    \tiny \cellcolor{gray!20}HGrid&
-    \tiny \cellcolor{gray!20}Next Best View Planner (NBVP)&
-    \tiny \cellcolor{gray!20}Control directo de velocidad&
-    \tiny \cellcolor{gray!20}\ding{51}&
-    \tiny \cellcolor{gray!20}\ding{51} \\ \hline
-    %--------------------------
-    %\scriptsize \cite{WESTHEIDER2023}[\citenum{WESTHEIDER2023}]&
-    %\scriptsize Mapa de cuadrícula&
-    %\scriptsize Deep Reinforcement Learning&
-    %\scriptsize Control directo de velocidad \\ \hline
-    %--------------------------
-    \tiny \cellcolor{gray!20}\cite{BARTOLOMEI2023}[\citenum{BARTOLOMEI2023}]&
-    \tiny \cellcolor{gray!20}Exploración&
-    \tiny \cellcolor{gray!20}HGrid&
-    \tiny \cellcolor{gray!20}Basado en fronteras&
-    \tiny \cellcolor{gray!20}Control directo de velocidad&
-    \tiny \cellcolor{gray!20}\ding{51}&
-    \tiny \cellcolor{gray!20}\ding{51} \\ \hline
-    %--------------------------
-  \end{tabular}
-  }
-\end{frame}
-
-\begin{frame}{Planificación trayectoria}
-  \centering
-  \includegraphics[width=10cm, height=6cm]{panorama_planning}
 \end{frame}
 
 \begin{frame}[allowframebreaks,noframenumbering]
